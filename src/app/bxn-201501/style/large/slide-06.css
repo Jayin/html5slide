@@ -1,0 +1,49 @@
+.slide-06 {
+	background-image: url(../../image/slide-06-bg.jpg);
+}
+.slide-06 .bird-1, .slide-06 .bird-2 {
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+}
+.slide-06 .bird-1 {
+	background-image: url(../../image/slide-06-bird-1.png);
+	left: 5px;
+	top: 123px;
+	width: 226px;
+	height: 185px;
+	display: block;
+}
+.slide-06 .bird-2 {
+	background-image: url(../../image/slide-06-bird-2.png);
+	left: 5px;
+	top: 123px;
+	width: 226px;
+	height: 185px;
+	display: none;
+}
+.frame-1 .slide-06 .bird-1 {
+	display: block;
+}
+.frame-1 .slide-06 .bird-2 {
+	display: none;
+}
+.frame-2 .slide-06 .bird-1, .frame-3 .slide-06 .bird-1 {
+	display: none;
+}
+.frame-2 .slide-06 .bird-2, .frame-3 .slide-06 .bird-2 {
+	display: block;
+}
+.frame-4 .slide-06 .bird-1, .frame-5 .slide-06 .bird-1 {
+	display: block;
+}
+.frame-4 .slide-06 .bird-2, .frame-5 .slide-06 .bird-2 {
+	display: none;
+}
+.frame-6 .slide-06 .bird-1, .frame-7 .slide-06 .bird-1 {
+	display: none;
+}
+.frame-6 .slide-06 .bird-2, .frame-7 .slide-06 .bird-2 {
+	display: block;
+}

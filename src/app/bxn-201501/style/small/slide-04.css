@@ -1,0 +1,132 @@
+.slide-04 {
+	background-image: url(../../image/slide-04-bg.jpg);
+}
+.slide-04 .bird-1-1, .slide-04 .bird-1-2, .slide-04 .bird-2-1, .slide-04 .bird-2-2, .slide-04 .hand-1, .slide-04 .hand-2, .slide-04 .boy {
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+}
+.slide-04 .bird-1-1 {
+	background-image: url(../../image/slide-04-bird-1-1.png);
+	left: 24px;
+	top: 105px;
+	width: 48px;
+	height: 63px;
+	display: block;
+}
+.slide-04 .bird-1-2 {
+	background-image: url(../../image/slide-04-bird-1-2.png);
+	left: 24px;
+	top: 105px;
+	width: 48px;
+	height: 63px;
+	display: none;
+}
+.bird-2-1 {
+	background-image: url(../../image/slide-04-bird-2-1.png);
+	left: 240px;
+	top: 103px;
+	width: 41px;
+	height: 56px;
+	display: block;
+}
+.slide-04 .bird-2-2 {
+	background-image: url(../../image/slide-04-bird-2-2.png);
+	left: 240px;
+	top: 103px;
+	width: 41px;
+	height: 56px;
+	display: none;
+}
+.slide-04 .hand-1 {
+	background-image: url(../../image/slide-04-hand-1.png);
+	left: 43px;
+	top: 194px;
+	width: 92px;
+	height: 72px;
+	display: block;
+}
+.slide-04 .hand-2 {
+	background-image: url(../../image/slide-04-hand-2.png);
+	left: 49px;
+	top: 194px;
+	width: 86px;
+	height: 70px;
+	display: none;
+}
+.slide-04 .boy {
+	background-image: url(../../image/slide-04-boy.png);
+	left: 38px;
+	top: 205px;
+	width: 89px;
+	height: 163px;
+}
+
+.frame-1 .slide-04 .hand-1 {
+	display: block;
+}
+.frame-1 .slide-04 .hand-2 {
+	display: none;
+}
+.frame-2 .slide-04 .hand-1, .frame-3 .slide-04 .hand-1 {
+	display: none;
+}
+.frame-2 .slide-04 .hand-2, .frame-3 .slide-04 .hand-2 {
+	display: block;
+}
+.frame-4 .slide-04 .hand-1, .frame-5 .slide-04 .hand-1 {
+	display: block;
+}
+.frame-4 .slide-04 .hand-2, .frame-5 .slide-04 .hand-2 {
+	display: none;
+}
+.frame-6 .slide-04 .hand-1, .frame-7 .slide-04 .hand-1 {
+	display: none;
+}
+.frame-6 .slide-04 .hand-2, .frame-7 .slide-04 .hand-2 {
+	display: block;
+}
+
+.frame-1 .slide-04 .bird-1-2, .frame-1 .slide-04 .bird-2-2 {
+	display: block;
+}
+.frame-1 .slide-04 .bird-1-1, .frame-1 .slide-04 .bird-2-1 {
+	display: none;
+}
+.frame-2 .slide-04 .bird-1-2, .frame-2 .slide-04 .bird-2-2 {
+	display: none;
+}
+.frame-2 .slide-04 .bird-1-1, .frame-2 .slide-04 .bird-2-1 {
+	display: block;
+}
+.frame-3 .slide-04 .bird-1-2, .frame-3 .slide-04 .bird-2-2 {
+	display: block;
+}
+.frame-3 .slide-04 .bird-1-1, .frame-3 .slide-04 .bird-2-1 {
+	display: none;
+}
+.frame-4 .slide-04 .bird-1-2, .frame-4 .slide-04 .bird-2-2 {
+	display: none;
+}
+.frame-4 .slide-04 .bird-1-1, .frame-4 .slide-04 .bird-2-1 {
+	display: block;
+}
+.frame-5 .slide-04 .bird-1-2, .frame-5 .slide-04 .bird-2-2 {
+	display: block;
+}
+.frame-5 .slide-04 .bird-1-1, .frame-5 .slide-04 .bird-2-1 {
+	display: none;
+}
+.frame-6 .slide-04 .bird-1-2, .frame-6 .slide-04 .bird-2-2 {
+	display: none;
+}
+.frame-6 .slide-04 .bird-1-1, .frame-6 .slide-04 .bird-2-1 {
+	display: block;
+}
+.frame-7 .slide-04 .bird-1-2, .frame-7 .slide-04 .bird-2-2 {
+	display: block;
+}
+.frame-7 .slide-04 .bird-1-1, .frame-7 .slide-04 .bird-2-1 {
+	display: none;
+}

@@ -1,0 +1,157 @@
+body {
+	background-color: #e3c28f;
+	background-image: url(../../image/background.jpg);
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: auto;
+	margin: 0;
+	padding: 0;
+}
+
+.img-btn {
+	text-indent: -999px;
+	border: none;
+	background-color: transparent;
+	padding: 0;
+}
+
+.wrapper {
+	width: 285px;
+	height: 410px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	display: none;
+}
+
+.slides {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.slide {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #decebd;
+}
+
+.slide .bg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.prev-btn, .next-btn, .audio-btn {
+	background-position: left top;
+	background-repeat: no-repeat;
+	position: absolute;
+	text-indent: -999px;
+	z-index: 999;
+}
+.prev-btn {
+	background-image: url(../../image/back.png);
+	bottom: 10px;
+	left: 24px;
+	width: 12px;
+	height: 12px;
+	background-size: auto 12px;
+	animation: prev-btn 1s infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+}
+.next-btn {
+	background-image: url(../../image/tobi.gif);
+	bottom: 10px;
+	right: 10px;
+	width: 45px;
+	height: 12px;
+	background-size: auto 12px;
+}
+.now-1 .prev-btn, .now-1 .next-btn {
+	display: none;
+}
+.now-9 .next-btn {
+	display: none;
+}
+
+.audio-btn {
+	background-image: url(../../image/audio-off.png);
+	top: 10px;
+	right: 10px;
+	width: 26px;
+	height: 26px;
+	background-size: auto 26px;
+}
+.audio-btn.on {
+	background-image: url(../../image/audio-on.png);
+	animation: audio 3s infinite;
+	animation-timing-function: linear;
+}
+
+.share-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+	display: none;
+}
+.share-layer .cover {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #000;
+	opacity: .8;
+}
+.share-layer .text {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 200px;
+	height: 200px;
+	padding-top: 80px;
+	color: #fff;
+	text-align: right;
+	background-image: url(../../image/share.png);
+	background-position: right top;
+	background-repeat: no-repeat;
+	background-size: 60px auto;
+}
+.share-layer .close-btn {
+	width: 30px;
+	height: 30px;
+	background-image: url(../../image/close.png);
+	background-position: right top;
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+
+@keyframes prev-btn {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes audio {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

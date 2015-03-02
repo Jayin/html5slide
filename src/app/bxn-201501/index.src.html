@@ -1,0 +1,159 @@
+<!-- extend "../../html/layout/layout.base.html" -->
+
+<!-- section "head" -->
+<meta name="keywords" content="报喜鸟" />
+<meta name="description" content="元宵－原来一笑" />
+<title>元宵－原来一笑</title>
+<!-- /section -->
+
+<!-- section "body" -->
+<script type="text/javascript">
+document.write([
+	'<link rel="stylesheet" href="' + G.CDN_ORIGIN + '/static/app/bxn-201501/style/' + (document.documentElement.clientWidth > 320 ? 'large' : 'small') + '/main.css" />'
+].join(''));
+</script>
+
+<div class="wrapper now-1">
+	<div class="slides">
+		<div class="slide slide-01">
+			<div class="dl dl-5 dl-5-1"></div>
+			<div class="dl dl-5 dl-5-2"></div>
+			<div class="dl dl-5 dl-5-3"></div>
+			<div class="dl dl-4 dl-4-1"></div>
+			<div class="dl dl-4 dl-4-2"></div>
+			<div class="dl dl-4 dl-4-3"></div>
+			<div class="dl dl-3 dl-3-1"></div>
+			<div class="dl dl-3 dl-3-2"></div>
+			<div class="dl dl-3 dl-3-3"></div>
+			<div class="dl dl-2 dl-2-1"></div>
+			<div class="dl dl-2 dl-2-2"></div>
+			<div class="dl dl-2 dl-2-3"></div>
+			<div class="dl dl-2 dl-2-4"></div>
+			<div class="dl dl-l"></div>
+			<div class="dl dl-r"></div>
+			<div class="dl"></div>
+			<button class="img-btn open-btn" onclick="$('.slides').turn('next');">Open</button>
+		</div>
+		<div class="slide slide-02">
+			<div class="head"></div>
+			<button class="img-btn prev-btn" onclick="$('.slides').turn('previous');">previous</button>
+			<button class="img-btn next-btn" onclick="$('.slides').turn('next');">next</button>
+		</div>
+		<div class="slide slide-03">
+			<div class="bird-1"></div>
+			<div class="bird-2"></div>
+			<button class="img-btn prev-btn" onclick="$('.slides').turn('previous');">previous</button>
+			<button class="img-btn next-btn" onclick="$('.slides').turn('next');">next</button>
+		</div>
+		<div class="slide slide-04">
+			<div class="bird-1-1"></div>
+			<div class="bird-1-2"></div>
+			<div class="bird-2-1"></div>
+			<div class="bird-2-2"></div>
+			<div class="hand-1"></div>
+			<div class="hand-2"></div>
+			<div class="boy"></div>
+			<button class="img-btn prev-btn" onclick="$('.slides').turn('previous');">previous</button>
+			<button class="img-btn next-btn" onclick="$('.slides').turn('next');">next</button>
+		</div>
+		<div class="slide slide-05">
+			<div class="man-1"></div>
+			<div class="man-2"></div>
+			<div class="qi"></div>
+			<button class="img-btn prev-btn" onclick="$('.slides').turn('previous');">previous</button>
+			<button class="img-btn next-btn" onclick="$('.slides').turn('next');">next</button>
+		</div>
+		<div class="slide slide-06">
+			<div class="bird-1"></div>
+			<div class="bird-2"></div>
+			<button class="img-btn prev-btn" onclick="$('.slides').turn('previous');">previous</button>
+			<button class="img-btn next-btn" onclick="$('.slides').turn('next');">next</button>
+		</div>
+		<div class="slide slide-07">
+			<div class="deng-1"></div>
+			<div class="deng-2"></div>
+			<button class="img-btn prev-btn" onclick="$('.slides').turn('previous');">previous</button>
+			<button class="img-btn next-btn" onclick="$('.slides').turn('next');">next</button>
+		</div>
+		<div class="slide slide-08">
+			<div class="yun"></div>
+			<div class="bird-1"></div>
+			<div class="bird-2"></div>
+			<div class="text"></div>
+			<button class="img-btn prev-btn" onclick="$('.slides').turn('previous');">previous</button>
+			<button class="img-btn next-btn" onclick="$('.slides').turn('next');">next</button>
+		</div>
+		<div class="slide slide-09">
+			<div class="card hide"></div>
+			<div class="cover"></div>
+			<div class="btn"></div>
+			<button class="img-btn share-btn" onclick="$('.share-layer').show();">Share</button>
+			<button class="img-btn replay-btn" onclick="$('.slides').turn('page', 1);">Replay</button>
+			<button class="img-btn prev-btn" onclick="$('.slides').turn('previous');">previous</button>
+		</div>
+	</div>
+</div>
+<div class="share-layer">
+	<div class="cover"></div>
+	<div class="text">
+		点击右上角<br />
+		分享给好友<br />
+		有机会赢得衬衫
+	</div>
+	<button class="img-btn close-btn" onclick="$('.share-layer').hide();">close</button>
+</div>
+<script type="text/javascript">
+document.write([
+	'<audio id="audio1" src="' + G.CDN_ORIGIN + '/static/app/bxn-201501/image/bg.mp3" loop autoplay></audio>'
+].join(''));
+</script>
+<button class="img-btn audio-btn" onclick="if($(this).hasClass('on')) {$('#audio1')[0].pause(); $(this).removeClass('on')} else {$('#audio1')[0].play(); $(this).addClass('on')}"></button>
+
+<script type="text/javascript">
+require(['jquery', 'turn'], function($, turn) {
+	var wrapper = $('.wrapper');
+	wh = $(window).height();
+	bh = wrapper.height();
+	//centralize the book
+	if(wh > bh) {
+		wrapper.css('marginTop', ((wh - bh) / 2) + 'px');
+	}
+	wrapper.show();
+
+	//init the book slides
+	$('.slides').turn({
+		elevation: 10,
+		duration: 1000,
+		gradients: true,
+		autoCenter: true,
+		display: 'single'
+	}).bind('turned', function(evt, page, view) {
+		$('.wrapper').removeClass('now-1 now-2 now-3 now-4 now-5 now-6 now-7 now-8 now-9').addClass('now-' + page);
+		//show the card
+		if(page == 9) {
+			$('.slide-09 .card').removeClass('hide');
+		}
+	});
+
+	//loop frame
+	(function loop(i, j) {
+		if(i % j === 0) {
+			var arr = [];
+			for(var k = 1; k < j; k++) {
+				arr.push('frame-' + k);
+			}
+			$('.slides').removeClass(arr.join(' '));
+		} else {
+			$('.slides').addClass('frame-' + i % j);
+		}
+		setTimeout(function() {
+			loop(i + 1, j);
+		}, 300);
+	})(0, 8);
+
+	//TODO: loading scene
+}, function() {
+
+});
+</script>
+<!-- /section -->

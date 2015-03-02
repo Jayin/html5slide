@@ -1,0 +1,36 @@
+.slide-07 {
+	background-image: url(../../image/slide-07-bg.jpg);
+}
+.slide-07 .deng-1, .slide-07 .deng-2 {
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	animation: deng .8s infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+	transform-origin: 50% 0;
+}
+.slide-07 .deng-1 {
+	background-image: url(../../image/slide-07-deng.png);
+	left: 30px;
+	top: 0;
+	width: 70px;
+	height: 100px;
+}
+.slide-07 .deng-2 {
+	background-image: url(../../image/slide-07-deng.png);
+	left: 80px;
+	top: -3px;
+	width: 60px;
+	height: 80px;
+}
+
+@keyframes deng {
+	0% {
+		transform: rotate(2deg);
+	}
+	100% {
+		transform: rotate(-2deg);
+	}
+}

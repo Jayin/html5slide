@@ -1,0 +1,26 @@
+.slide-02 {
+	background-image: url(../../image/slide-02-bg.jpg);
+}
+.slide-02 .head {
+	background-image: url(../../image/slide-02-head.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	left: 173px;
+	top: 43px;
+	width: 143px;
+	height: 112px;
+	animation: head 1.2s infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+}
+
+@keyframes head {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(8deg);
+	}
+}

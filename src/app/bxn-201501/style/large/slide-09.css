@@ -1,0 +1,55 @@
+.slide-09 {
+	background-image: url(../../image/slide-09-bg.jpg);
+}
+.slide-09 .card, .slide-09 .cover, .slide-09 .btn {
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+}
+.slide-09 .card {
+	background-image: url(../../image/slide-09-card.png);
+	left: 75px;
+	top: 182px;
+	width: 274px;
+	height: 300px;
+	transition: all 1s;
+}
+.slide-09 .card.hide {
+	left: 125px;
+	top: 420px;
+}
+.slide-09 .cover {
+	background-image: url(../../image/slide-09-cover.png);
+	right: 0;
+	bottom: 0;
+	width: 306px;
+	height: 220px;
+}
+.slide-09 .btn {
+	background-image: url(../../image/slide-09-btn.png);
+	left: 80px;
+	top: 428px;
+	width: 215px;
+	height: 23px;
+}
+
+.slide-09 .share-btn {
+	display: block;
+	position: absolute;
+	top: 427px;
+	left: 80px;
+	height: 25px;
+	width: 75px;
+	text-indent: -999px;
+}
+
+.slide-09 .replay-btn {
+	display: block;
+	position: absolute;
+	top: 427px;
+	left: 195px;
+	height: 25px;
+	width: 100px;
+	text-indent: -999px;
+}

@@ -1,0 +1,75 @@
+.slide-08 {
+	background-image: url(../../image/slide-08-bg.jpg);
+}
+.slide-08 .bird-1, .slide-08 .bird-2, .slide-08 .yun, .slide-08 .text {
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+}
+.slide-08 .bird-1 {
+	background-image: url(../../image/slide-08-bird-1.png);
+	left: 80px;
+	top: 35px;
+	width: 200px;
+	height: 187px;
+	display: block;
+}
+.slide-08 .bird-2 {
+	background-image: url(../../image/slide-08-bird-2.png);
+	left: 80px;
+	top: 35px;
+	width: 200px;
+	height: 156px;
+	display: none;
+}
+.slide-08 .yun {
+	background-image: url(../../image/slide-08-yun.png);
+	left: 200px;
+	top: 20px;
+	width: 140px;
+	height: 60px;
+	animation: yun 2s infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear;
+}
+.slide-08 .text {
+	background-image: url(../../image/slide-08-text.png);
+	left: 125px;
+	top: 175px;
+	width: 140px;
+	height: 111px;
+}
+.frame-1 .slide-08 .bird-1 {
+	display: block;
+}
+.frame-1 .slide-08 .bird-2 {
+	display: none;
+}
+.frame-2 .slide-08 .bird-1, .frame-3 .slide-08 .bird-1 {
+	display: none;
+}
+.frame-2 .slide-08 .bird-2, .frame-3 .slide-08 .bird-2 {
+	display: block;
+}
+.frame-4 .slide-08 .bird-1, .frame-5 .slide-08 .bird-1 {
+	display: block;
+}
+.frame-4 .slide-08 .bird-2, .frame-5 .slide-08 .bird-2 {
+	display: none;
+}
+.frame-6 .slide-08 .bird-1, .frame-7 .slide-08 .bird-1 {
+	display: none;
+}
+.frame-6 .slide-08 .bird-2, .frame-7 .slide-08 .bird-2 {
+	display: block;
+}
+
+@keyframes yun {
+	0% {
+		transform: translate(-10px, 0);
+	}
+	100% {
+		transform: translate(10px, 0);
+	}
+}

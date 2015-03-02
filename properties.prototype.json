@@ -1,0 +1,13 @@
+{
+	"isPrototype": "true",
+
+	"domain": "document.domain",
+	"origin": "location.protocol + '//' + location.host",
+	"cgiOrigin": "location.protocol + '//' + location.host",
+	"cdnOrigin": "location.protocol + '//' + location.host",
+
+	"pageAside": "3",
+	"itemsPerPage": "15",
+	"oneScreenRecords": "10",
+	"mandatory": "<span style=color:red;>*</span>"
+}

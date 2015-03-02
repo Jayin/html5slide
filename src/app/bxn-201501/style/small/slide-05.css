@@ -1,0 +1,52 @@
+.slide-05 {
+	background-image: url(../../image/slide-05-bg.jpg);
+}
+.slide-05 .man-1, .slide-05 .man-2, .slide-05 .qi {
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+}
+.slide-05 .man-1 {
+	background-image: url(../../image/slide-05-man-1.png);
+	left: 7px;
+	top: 152px;
+	width: 170px;
+	height: 240px;
+	display: block;
+}
+.slide-05 .man-2 {
+	background-image: url(../../image/slide-05-man-2.png);
+	left: 7px;
+	top: 152px;
+	width: 170px;
+	height: 240px;
+	display: none;
+}
+.slide-05 .qi {
+	background-image: url(../../image/slide-05-qi.png);
+	left: 145px;
+	top: 237px;
+	width: 32px;
+	height: 24px;
+	opacity: .8;
+	display: none;
+}
+.frame-1 .slide-05 .man-1, .frame-2 .slide-05 .man-1, .frame-3 .slide-05 .man-1 {
+	display: block;
+}
+.frame-1 .slide-05 .man-2, .frame-2 .slide-05 .man-2, .frame-3 .slide-05 .man-2 {
+	display: none;
+}
+.frame-1 .slide-05 .qi, .frame-2 .slide-05 .qi, .frame-3 .slide-05 .qi {
+	display: none;
+}
+.frame-4 .slide-05 .man-1, .frame-5 .slide-05 .man-1, .frame-6 .slide-05 .man-1, .frame-7 .slide-05 .man-1 {
+	display: none;
+}
+.frame-4 .slide-05 .man-2, .frame-5 .slide-05 .man-2, .frame-7 .slide-05 .man-2 {
+	display: block;
+}
+.frame-4 .slide-05 .qi, .frame-5 .slide-05 .qi, .frame-7 .slide-05 .qi {
+	display: block;
+}
