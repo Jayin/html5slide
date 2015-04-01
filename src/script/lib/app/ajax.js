@@ -36,6 +36,8 @@ define(function(require) {
 					});
 				});
 			}
+		} else {
+			fullUrl = url;
 		}
 		if(fullUrl.indexOf('csrf_token=') === -1) {
 			fullUrl = util.appendQueryString(fullUrl, {csrf_token: G.csrfToken});

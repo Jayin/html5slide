@@ -40,7 +40,7 @@ document.write([
 </div>
 
 <script type="text/javascript">
-require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
+require(['jquery', 'app', 'skateboard', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, app, Skateboard, wx) {
 	var wrapper = $('.page-wrapper');
 	wh = $(window).height();
 	bh = wrapper.height();
@@ -78,6 +78,31 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			return contentDom;
 		},
 		switchNavTab: function(modInst) {
+		}
+	});
+	return;
+	$.ajax({
+		url: 'http://www.createcdigital.com:8080/wechat/sharing/signWxshare/54f1b82a58f24d7d16c11e17.json',
+		type: 'post',
+		data: JSON.stringify({
+			url: 'http://www.createcdigital.com/static/app/bxn-201502/index.html'
+		}),
+		dataType: 'json',
+		contentType: 'application/json; charset=utf-8',
+		error: function() {
+			alert('Error');
+		},
+		success: function(result) {
+			wx.config({
+				debug: false,
+				appId: result.data.appId,
+				timestamp: result.data.timestamp,
+				nonceStr: result.data.nonceStr,
+				signature: result.data.signature,
+				jsApiList: [
+					'chooseImage'
+				]
+			});
 		}
 	});
 	

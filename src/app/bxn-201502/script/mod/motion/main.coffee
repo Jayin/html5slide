@@ -3,6 +3,9 @@ Skateboard = require 'skateboard'
 
 class Mod extends Skateboard.BaseMod
 	cachable: true
+	parentModNames:
+		'home': 1
+		'canvas': 1
 
 	_bodyTpl: require './body.tpl.html'
 
