@@ -1,4 +1,5 @@
 app = require 'app'
+sb = require 'skateboard/core'
 BaseMod = require 'skateboard/base-mod'
 MegaPixImage = require 'mega-pix-image'
 EXIF = require 'exif'
@@ -11,6 +12,7 @@ class Mod extends BaseMod
 		'touchstart canvas': 'touchStart'
 		'touchmove canvas': 'touchMove'
 		'touchend canvas': 'touchEnd'
+		'click .btn-confirm': 'confirm'
 
 	_bodyTpl: require './body.tpl.html'
 
@@ -149,6 +151,20 @@ class Mod extends BaseMod
 		@context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
 		@drawImg()
 		@drawMask()
+
+	confirm: =>
+		fw = 160
+		fh = 190
+		@context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
+		@drawImg()
+		tmpCanvas = document.createElement 'canvas'
+		tmpCanvas.width = fw
+		tmpCanvas.height = fh
+		tmpCtx = tmpCanvas.getContext '2d'
+		tmpCtx.drawImage @canvas, (@CONTEXT_W - fw) / 2, (@CONTEXT_H - fh) / 2, fw, fh, 0, 0, fw, fh
+		@drawMask()
+		Mod.clipData = tmpCanvas.toDataURL()
+		sb.view '/view/motion'
 
 	destroy: ->
 		super

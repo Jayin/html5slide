@@ -7,6 +7,17 @@ body {
 	height: auto;
 }
 
+.btn {
+	line-height: 36px;
+	text-align: center;
+	border: solid 1px #ccc;
+	background-color: #eee;
+	color: #555;
+	display: inline-block;
+	padding: 0 10px;
+	text-decoration: none;
+}
+
 .img-btn {
 	text-indent: -999px;
 	border: none;

@@ -46,7 +46,7 @@ var app = require('app');
 <div class="body-inner">
 	&nbsp;
 	<div class="upload-btn">
-		<span>Select Image</span>
+		<span>选择图片</span>
 		<input type="file" capture="camera" accept="image/*" />
 	</div>
 </div>
