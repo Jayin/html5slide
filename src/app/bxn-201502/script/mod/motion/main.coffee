@@ -9,6 +9,13 @@ class Mod extends BaseMod
 	_render: ->
 		super
 		require ['../canvas/main'], (CanvasMod) =>
-			@$('.preview').html '<img src="' + CanvasMod.clipData + '" />'
+			$(CanvasMod).on 'clipchange', @clipChange
+			@resetClipData CanvasMod.clipData
+
+	clipChange: (evt, clipData) =>
+		@resetClipData clipData
+
+	resetClipData: (clipData) ->
+		@$('.preview').html '<img src="' + clipData + '" />'
 
 module.exports = Mod

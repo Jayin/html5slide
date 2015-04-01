@@ -164,6 +164,7 @@ class Mod extends BaseMod
 		tmpCtx.drawImage @canvas, (@CONTEXT_W - fw) / 2, (@CONTEXT_H - fh) / 2, fw, fh, 0, 0, fw, fh
 		@drawMask()
 		Mod.clipData = tmpCanvas.toDataURL()
+		$(Mod).trigger 'clipchange', Mod.clipData
 		sb.view '/view/motion'
 
 	destroy: ->
