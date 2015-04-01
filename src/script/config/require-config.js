@@ -6,7 +6,7 @@ var require = require || {
 		'zepto': 'lib/jquery-2.1.3/main',
 		'jquery': 'lib/jquery-2.1.3/main',
 		'app': 'lib/app/main',
-		'skateboard': 'lib/skateboard',
+		'skateboard': 'lib/skateboard/main',
 		'parallax': 'lib/parallax/main',
 		'iscroll': 'lib/iscroll/main',
 		'turn': 'lib/turn/main',

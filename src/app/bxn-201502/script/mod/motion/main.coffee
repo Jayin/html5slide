@@ -1,7 +1,7 @@
 app = require 'app'
-BaseMod = require 'skateboard/base-mod'
+Skateboard = require 'skateboard'
 
-class Mod extends BaseMod
+class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	_bodyTpl: require './body.tpl.html'

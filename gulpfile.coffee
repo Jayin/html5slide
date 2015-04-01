@@ -139,6 +139,10 @@ gulp.task 'amd-bundle', ->
 			properties: properties
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
+	gulp.src([
+			'bower_components/skateboard/src/main.coffee'
+		]).pipe amdBundler()
+		.pipe gulp.dest(destBase + '/script/lib/skateboard')
 
 gulp.task 'gen-md5map', ['copy', 'less', 'sass', 'postcss', 'concat', 'amd-bundle'], ->
 	gulp.src([

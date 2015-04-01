@@ -1,0 +1,11 @@
+{
+  "name": "html5slide",
+  "version": "0.0.0",
+  "authors": [
+    "webyom@gmail.com <webyom@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "skateboard": "git://github.com/webyom/skateboard.git"
+  }
+}

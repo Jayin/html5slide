@@ -1,8 +1,7 @@
 app = require 'app'
-sb = require 'skateboard/core'
-BaseMod = require 'skateboard/base-mod'
+Skateboard = require 'skateboard'
 
-class Mod extends BaseMod
+class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	events:
@@ -28,7 +27,7 @@ class Mod extends BaseMod
 			Mod.img = newImg
 			$(Mod).trigger 'imgchange', newImg
 			@resetFileInput()
-			sb.view '/view/canvas'
+			Skateboard.core.view '/view/canvas'
 		img.src = imgUrl
 
 module.exports = Mod

@@ -1,11 +1,10 @@
 app = require 'app'
-sb = require 'skateboard/core'
-BaseMod = require 'skateboard/base-mod'
+Skateboard = require 'skateboard'
 MegaPixImage = require 'mega-pix-image'
 EXIF = require 'exif'
 Hammer = require 'hammer'
 
-class Mod extends BaseMod
+class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	events:
@@ -183,7 +182,7 @@ class Mod extends BaseMod
 		@drawMask()
 		Mod.clipData = tmpCanvas.toDataURL()
 		$(Mod).trigger 'clipchange', Mod.clipData
-		sb.view '/view/motion'
+		Skateboard.core.view '/view/motion'
 
 	destroy: ->
 		super

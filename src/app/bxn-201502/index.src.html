@@ -39,10 +39,8 @@ document.write([
 </script>
 </div>
 
-<!-- require "../../script/lib/skateboard/base-mod" -->
-
 <script type="text/javascript">
-require(['jquery', 'app', 'skateboard/core'], function($, app, sb) {
+require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	var wrapper = $('.page-wrapper');
 	wh = $(window).height();
 	bh = wrapper.height();
@@ -53,7 +51,7 @@ require(['jquery', 'app', 'skateboard/core'], function($, app, sb) {
 
 	$.extend(G.MD5_MAP, %{{md5map.bxn-201502}}%);
 
-	sb.init({
+	Skateboard.core.init({
 		container: $('.page-wrapper'),
 		modBase: '../../../app/bxn-201502/script/',
 		animate: {
