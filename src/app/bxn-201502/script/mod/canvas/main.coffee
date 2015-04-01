@@ -18,6 +18,7 @@ class Mod extends BaseMod
 
 	CONTEXT_W: 310
 	CONTEXT_H: 310
+	ENABLE_ROTATE: true
 
 	_render: ->
 		super
@@ -30,9 +31,13 @@ class Mod extends BaseMod
 
 	initPinch: ->
 		toRef = null
-		t1 = null
+		tp1 = null
+		tr1 = null
 		mc = new Hammer.Manager @canvas
-		mc.add [new Hammer.Pinch()]
+		pinch = new Hammer.Pinch()
+		rotate = new Hammer.Rotate()
+		pinch.recognizeWith rotate if @ENABLE_ROTATE
+		mc.add [pinch, rotate]
 		mc.on 'pinchstart', (evt) =>
 			@imgWhPinch = 
 				w: @imgWh.w
@@ -40,15 +45,32 @@ class Mod extends BaseMod
 			@poPinch = 
 				x: @po.x
 				y: @po.y
-			t1 = new Date().getTime()
+			tp1 = new Date().getTime()
 		mc.on 'pinchmove', (evt) =>
-			t2 = new Date().getTime()
+			tp2 = new Date().getTime()
 			# make the draw smooth
-			if t2 - t1 > 300
-				t1 = t2
+			if tp2 - tp1 > 300
+				tp1 = tp2
 				@pinchDraw evt.scale
 		mc.on 'pinchend', (evt) =>
 			@pinchDraw evt.scale
+		preDeg = 0
+		mc.on 'pinchstart', (evt) =>
+			@rotateDeg = @deg
+			tr1 = new Date().getTime()
+			preDeg = 0
+		mc.on 'rotatemove', (evt) =>
+			tr2 = new Date().getTime()
+			# make the draw smooth
+			if tr2 - tr1 > 300 and Math.abs(evt.rotation - preDeg) < 90
+				tr1 = tr2
+				preDeg = evt.rotation
+				@deg = (@rotateDeg + evt.rotation) % 360
+				@draw()
+		mc.on 'rotateend', (evt) =>
+			if Math.abs(evt.rotation - preDeg) < 90
+				@deg = (@rotateDeg + evt.rotation) % 360
+				@draw()
 
 	pinchDraw: (scale) ->
 		@imgWh = 
@@ -79,16 +101,6 @@ class Mod extends BaseMod
 			@movePt = 
 				x: touch.clientX
 				y: touch.clientY
-			margin = 50
-			w = @imgWh.w
-			h = @imgWh.h
-			if @orientation is 6 or @orientation is 8
-				w = @imgWh.h
-				h = @imgWh.w
-			@po.x = Math.max(@po.x, -w / 2 + margin)
-			@po.x = Math.min(@po.x, @CONTEXT_W + w / 2 - margin)
-			@po.y = Math.max(@po.y, -h / 2 + margin)
-			@po.y = Math.min(@po.y, @CONTEXT_H + h / 2 - margin)
 			@draw()
 		else
 			@movePt = null
@@ -116,7 +128,15 @@ class Mod extends BaseMod
 			EXIF.getData @img, =>
 				URL = window.URL || window.webkitURL
 				URL.revokeObjectURL @rawImg.url
-				@orientation = EXIF.getTag @img, 'Orientation'
+				orientation = EXIF.getTag @img, 'Orientation'
+				if orientation is 3
+					@deg = 180
+				else if orientation is 6
+					@deg = 90
+				else if orientation is 8
+					@deg = -90
+				else
+					@deg = 0
 				@draw()
 				app.ajax.hideLoading()
 		, 500
@@ -125,12 +145,8 @@ class Mod extends BaseMod
 		context = @context
 		context.save()
 		context.translate @po.x, @po.y
-		if @orientation is 3
-			context.rotate 180 * Math.PI / 180
-		else if @orientation is 6
-			context.rotate 90 * Math.PI / 180
-		else if @orientation is 8
-			context.rotate -90 * Math.PI / 180
+		if @deg
+			context.rotate @deg * Math.PI / 180
 		MegaPixImage.renderImageToCanvasContext @img, context,
 			x: -@imgWh.w / 2
 			y: -@imgWh.h / 2
