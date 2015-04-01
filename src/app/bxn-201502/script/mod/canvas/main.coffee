@@ -18,7 +18,7 @@ class Mod extends BaseMod
 
 	CONTEXT_W: 310
 	CONTEXT_H: 310
-	ENABLE_ROTATE: true
+	ENABLE_ROTATE: false
 
 	_render: ->
 		super
@@ -128,6 +128,7 @@ class Mod extends BaseMod
 			EXIF.getData @img, =>
 				URL = window.URL || window.webkitURL
 				URL.revokeObjectURL @rawImg.url
+				# fix ios mega pixel image rendering bug
 				orientation = EXIF.getTag @img, 'Orientation'
 				if orientation is 3
 					@deg = 180
@@ -147,6 +148,7 @@ class Mod extends BaseMod
 		context.translate @po.x, @po.y
 		if @deg
 			context.rotate @deg * Math.PI / 180
+		# fix ios mega pixel image rendering bug
 		MegaPixImage.renderImageToCanvasContext @img, context,
 			x: -@imgWh.w / 2
 			y: -@imgWh.h / 2
