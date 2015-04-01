@@ -1,3 +1,4 @@
-@import './parallax.css';
-@import './parallax-animation.css';
+@import './normalize.css';
 @import './app.css';
+@import './loading.css';
+@import './alerts.css';

@@ -1,0 +1,63 @@
+.float-alert {
+	position: fixed;
+	width: 220px;
+	top: 40%;
+	left: 50%;
+	margin-left: -110px;
+	z-index: 9;
+	padding: 15px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.modal-container {
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	display: none;
+}
+.modal-container > .modal-mask {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: #000;
+	opacity: 0.5;
+}
+.modal-container > .modal-dialog {
+	position: absolute;
+	width: 280px;
+	left: 50%;
+	margin-left: -140px;
+	top: 40%;
+	margin-top: -40px;
+	background-color: #eee;
+	text-align: center;
+	border: solid 2px #ccc;
+}
+.modal-container > .modal-dialog > .modal-content {
+	padding: 15px 10px;
+	color: $gray-darker;
+}
+.modal-container > .modal-dialog  > .modal-btns {
+	display: table;
+	table-layout: fixed;
+}
+.modal-container > .modal-dialog  > .modal-btns > a {
+	display: table-cell;
+	width: 1%;
+	border-top: solid 1px #ccc;
+	border-left: solid 1px #ccc;
+	color: #888;
+	height: 40px;
+	line-height: 40px;
+}
+.modal-container > .modal-dialog  > .modal-btns > a:first-child {
+	border-left: none;
+}

@@ -128,6 +128,13 @@ gulp.task 'amd-bundle', ->
 		]).pipe amdBundler
 			beautifyTemplate: true
 			trace: true
+			postcss: (file) ->
+				res = postcss()
+					.use postcssImport()
+					.use autoprefixer browsers: ['last 2 version']
+					.process file.contents.toString(),
+						from: file.path
+				res.css
 		.pipe propertyMerge
 			properties: properties
 		.pipe minifyDefault()
@@ -137,8 +144,14 @@ gulp.task 'gen-md5map', ['copy', 'less', 'sass', 'postcss', 'concat', 'amd-bundl
 	gulp.src([
 			destBase + '/script/**/main.js'
 			destBase + '/script/**/*-main.js'
+			destBase + '/app/**/main.js'
+			destBase + '/app/**/*-main.js'
 		]).pipe through.obj (file, enc, next) ->
-			md5map[file.path.replace file.base, ''] = crypto.createHash('md5')
+			if (/\/app\/([^\/]+)\//).test file.path
+				map = md5map[RegExp.$1] ?= {}
+			else
+				map = md5map['app'] ?= {}
+			map[file.path.replace file.base, ''] = crypto.createHash('md5')
 				.update(fs.readFileSync(file.path))
 				.digest('hex')
 			next()

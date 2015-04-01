@@ -1,0 +1,90 @@
+<!-- extend "../../html/layout/layout.base.html" -->
+
+<!-- section "head" -->
+<meta name="keywords" content="bxn" />
+<meta name="description" content="bxn" />
+<title>bxn</title>
+<!-- /section -->
+
+<!-- section "body" -->
+<script type="text/javascript">
+document.write([
+	'<link rel="stylesheet" href="' + G.CDN_ORIGIN + '/static/app/bxn-201502/style/main.css" />'
+].join(''));
+</script>
+
+<div class="page-wrapper">
+	
+</div>
+<div class="share-layer">
+	<div class="cover"></div>
+	<div class="text">
+		点击右上角<br />
+		分享给好友
+	</div>
+	<button class="img-btn close-btn" onclick="$('.share-layer').hide();">close</button>
+</div>
+<script type="text/javascript">
+document.write([
+	'<audio id="audio1" src="' + G.CDN_ORIGIN + '/static/app/bxn-201502/image/bg.mp3" loop autoplay></audio>'
+].join(''));
+</script>
+<button class="img-btn audio-btn on" onclick="if($(this).hasClass('on')) {$('#audio1')[0].pause(); $(this).removeClass('on')} else {$('#audio1')[0].play(); $(this).addClass('on')}"></button>
+
+<div style="display: none;">
+<script type="text/javascript">
+document.write([
+	'<img id="face-mask" src="' + G.CDN_ORIGIN + '/static/app/bxn-201502/image/face-mask.png" />'
+].join(''));
+</script>
+</div>
+
+<!-- require "../../script/lib/skateboard/base-mod" -->
+
+<script type="text/javascript">
+require(['jquery', 'app', 'skateboard/core'], function($, app, sb) {
+	var wrapper = $('.page-wrapper');
+	wh = $(window).height();
+	bh = wrapper.height();
+	//centralize the content
+	if(wh > bh) {
+		wrapper.css('marginTop', ((wh - bh) / 2) + 'px');
+	}
+
+	$.extend(G.MD5_MAP, %{{md5map.bxn-201502}}%);
+
+	sb.init({
+		container: $('.page-wrapper'),
+		modBase: '../../../app/bxn-201502/script/',
+		animate: {
+			type: 'slide',
+			timingFunction: 'linear',
+			duration: 300
+		},
+		transformAnimation: false,
+		isSupportHistoryState: false,
+		onBeforeChangeView: function() {
+			app.ajax.hideLoading();
+			app.alerts.alert.hide();
+			app.alerts.modal.hide();
+		},
+		constructContentDom: function(modName, args, opt) {
+			var contentDom = $([
+				'<div class="content mod-' + modName.replace(/\//g, '-') + '" data-mod="' + modName + '" data-scene="0" onscroll="require(\'app\').mod.scroll(this.scrollTop);">',
+					'<div class="body">',
+						'<div class="body-inner" data-content-not-renderred>',
+						'</div>',
+					'</div>',
+				'</div>'
+			].join('')).prependTo($('.page-wrapper'));
+			return contentDom;
+		},
+		switchNavTab: function(modInst) {
+		}
+	});
+	
+}, function() {
+
+});
+</script>
+<!-- /section -->

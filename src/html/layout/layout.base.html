@@ -21,7 +21,7 @@ var G = G || {
 	CGI_ORIGIN: %{{cgiOrigin}}%,
 	CDN_ORIGIN: %{{cdnOrigin}}%,
 	
-	MD5_MAP: %{{md5map}}%,
+	MD5_MAP: %{{md5map.app}}%,
 
 	IS_PROTOTYPE: %{{isPrototype}}%,
 	
@@ -57,6 +57,8 @@ document.write([
 	'<link rel="stylesheet" href="' + G.CDN_ORIGIN + '/static/style/app/main.css" />'
 ].join(''));
 </script>
+
+<!-- include "../inc/loading.inc.html" -->
 
 <script type="text/javascript">
 document.write([

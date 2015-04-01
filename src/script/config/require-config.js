@@ -3,26 +3,30 @@ var require = require || {
 	baseUrl: G.CDN_ORIGIN + '/static/script',
 	paths: {
 		'async': 'lib/async/main',
-		'zepto': 'lib/zepto-1.1.4/main',
+		'zepto': 'lib/jquery-2.1.3/main',
 		'jquery': 'lib/jquery-2.1.3/main',
+		'app': 'lib/app/main',
+		'skateboard': 'lib/skateboard',
 		'parallax': 'lib/parallax/main',
 		'iscroll': 'lib/iscroll/main',
 		'turn': 'lib/turn/main',
-		'app': 'lib/app/main'
+		'mega-pix-image': 'lib/mega-pix-image/main',
+		'exif': 'lib/exif/main',
+		'hammer': 'lib/hammer/main'
 	},
 	shim: {
 		'async': {
 			exports: 'async'
 		},
 		'zepto': {
-			exports: 'Zepto'
+			exports: 'jQuery'
 		},
 		'jquery': {
 			exports: 'jQuery'
 		},
 		'parallax': {
-			exports: 'Zepto.fn.parallax',
-			deps: ['zepto']
+			exports: 'jQuery.fn.parallax',
+			deps: ['jquery']
 		},
 		'iscroll': {
 			exports: 'iScroll'
@@ -30,10 +34,18 @@ var require = require || {
 		'turn': {
 			exports: 'jQuery.fn.turn',
 			deps: ['jquery']
+		},
+		'mega-pixel-image': {
+			exports: 'MegaPixImage'
 		}
 	},
 	resolveUrl: function(url) {
-		var baseUrl = G.CDN_ORIGIN + '/static/script/';
+		var baseUrl;
+		if(url.indexOf('/static/app/') > 0) {
+			baseUrl = G.CDN_ORIGIN + '/static/app/';
+		} else {
+			baseUrl = G.CDN_ORIGIN + '/static/script/';
+		}
 		if(url.indexOf(baseUrl) === 0) {
 			var path = url.replace(baseUrl, '');
 			var md5 = G.MD5_MAP[path];
