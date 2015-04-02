@@ -126,7 +126,7 @@ html,body {
     z-index: 10;
     width: 25px;
     height: 15px;
-    background: url(../../image/arrow.png) no-repeat;
+    background: url(../../../image/arrow.png) no-repeat;
     -webkit-background-size: 25px auto;
     background-size: 25px auto;
     -webkit-transform: translateY(-50%) rotate(-90deg);

@@ -20,6 +20,7 @@ digestVersioning = require 'gulp-digest-versioning'
 trace = require 'gulp-trace'
 minify = require 'gulp-minifier'
 backtrace = require 'gulp-backtrace'
+sus = require 'gulp-sus'
 argv = require('minimist') process.argv.slice(2)
 
 BUILD_TARGET = process.env.BUILD_TARGET || 'default'
@@ -53,6 +54,8 @@ gulp.task 'copy', ->
 gulp.task 'less', ->
 	gulp.src(['src/**/main.less', 'src/**/*-main.less'])
 		.pipe less()
+		.pipe sus
+			baseSurfix: false
 		.pipe digestVersioning
 			basePath: destBase
 		.pipe minifyDefault()
@@ -61,6 +64,8 @@ gulp.task 'less', ->
 gulp.task 'sass', ->
 	gulp.src(['src/**/main.scss', 'src/**/*-main.scss'])
 		.pipe sass()
+		.pipe sus
+			baseSurfix: false
 		.pipe digestVersioning
 			basePath: destBase
 		.pipe minifyDefault()
@@ -72,6 +77,8 @@ gulp.task 'postcss', ->
 			postcssImport()
 			autoprefixer browsers: ['last 2 version']
 		]
+		.pipe sus
+			baseSurfix: false
 		.pipe digestVersioning
 			basePath: destBase
 		.pipe minifyDefault()
@@ -126,6 +133,7 @@ gulp.task 'amd-bundle', ->
 			'src/**/main.tpl.html'
 			'src/**/*-main.tpl.html'
 		]).pipe amdBundler
+			base64img: true
 			beautifyTemplate: true
 			trace: true
 			postcss: (file) ->
@@ -169,6 +177,7 @@ gulp.task 'html-optimize', ['gen-md5map'], ->
 		.pipe htmlOptimizer
 			requireBaseDir: 'src/script'
 			beautifyTemplate: true
+			base64img: true
 			trace: true
 			postcss: (file) ->
 				res = postcss()

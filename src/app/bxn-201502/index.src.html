@@ -32,11 +32,7 @@ document.write([
 <button class="img-btn audio-btn on" onclick="if($(this).hasClass('on')) {$('#audio1')[0].pause(); $(this).removeClass('on')} else {$('#audio1')[0].play(); $(this).addClass('on')}"></button>
 
 <div style="display: none;">
-<script type="text/javascript">
-document.write([
-	'<img id="face-mask" src="' + G.CDN_ORIGIN + '/static/app/bxn-201502/image/face-mask.png" />'
-].join(''));
-</script>
+	<img id="face-mask" src="./image/face-mask.png" />
 </div>
 
 <script type="text/javascript">

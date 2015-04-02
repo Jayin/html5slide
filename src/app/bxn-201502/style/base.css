@@ -1,6 +1,5 @@
 body {
 	background-color: #fff;
-	background-image: url(../../image/background.jpg);
 	background-position: left top;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -45,7 +44,7 @@ body {
 }
 
 .audio-btn {
-	background-image: url(../../image/audio-off.png);
+	background-image: url(../image/audio-off.png);
 	top: 10px;
 	right: 10px;
 	width: 26px;
@@ -53,7 +52,7 @@ body {
 	background-size: auto 26px;
 }
 .audio-btn.on {
-	background-image: url(../../image/audio-on.png);
+	background-image: url(../image/audio-on.png);
 	animation: audio 3s infinite;
 	animation-timing-function: linear;
 }
@@ -75,31 +74,6 @@ body {
 	bottom: 0;
 	background-color: #000;
 	opacity: .8;
-}
-.share-layer .text {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	width: 200px;
-	height: 200px;
-	padding-top: 80px;
-	color: #fff;
-	text-align: right;
-	background-image: url(../../image/share.png);
-	background-position: right top;
-	background-repeat: no-repeat;
-	background-size: 60px auto;
-}
-.share-layer .close-btn {
-	width: 30px;
-	height: 30px;
-	background-image: url(../../image/close.png);
-	background-position: right top;
-	background-repeat: no-repeat;
-	background-size: 30px 30px;
-	position: absolute;
-	left: 10px;
-	top: 10px;
 }
 
 @keyframes audio {
