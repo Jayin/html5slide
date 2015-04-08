@@ -1,0 +1,48 @@
+<!-- extend "../../html/layout/layout.base.html" -->
+<!-- section "head"  -->
+<meta name="keywords" content="荧光人类" />
+<meta name="description" content="荧光人类" />
+<title>荧光人类</title>
+<!-- /section -->
+<!-- section "body" -->
+<script type="text/javascript">
+document.write([
+    '<link rel="stylesheet" href="' + G.CDN_ORIGIN + '/static/app/run-201501/style/main.css" />'
+].join(''));
+</script>
+<div class="container">
+    <!-- 固定在顶部 -->
+    <div class="toolbar">
+        <div class="toolbar-btn float-left" onclick="location='index.html'">重拍</div>
+        <div class="toolbar-btn float-right">完成</div>
+    </div>
+    <!-- middle -->
+    <div style="edit-body">
+    </div>
+    <!-- 固定 在底部-->
+    <div class="edit-function">
+        <div class="edit-function-item">
+            <img src="./image/img_fn_item_shidai.png">
+        </div>
+        <div class="edit-function-item">
+            <img src="./image/img_fn_item_zhuanshi.png">
+        </div>
+        <div class="edit-function-item">
+            <img src="./image/img_fn_item_modeng.png">
+        </div>
+        <div class="edit-function-item">
+            <img src="./image/img_fn_item_haiyang.png">
+        </div>
+        <div class="edit-function-item">
+            <img src="./image/img_fn_item_jiqing.png">
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+require(['jquery', 'app'], function($, app) {
+    window.onload = function() {
+        app.ajax.hideLoading();
+    }
+});
+</script>
+<!-- /section -->

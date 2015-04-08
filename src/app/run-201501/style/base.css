@@ -1,0 +1,140 @@
+body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 14px;
+}
+/*首页的背景*/
+
+.index-bg {
+    background-image: url('../image/img_cover.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 580px;
+    width: 100%;
+}
+
+.share-bg {
+    background-image: url('../image/img_bg_share.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hidden {
+    display: none;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.container {
+    height: auto;
+}
+
+.camera {
+    position: absolute;
+    left: 40%;
+    bottom: 10%;
+}
+
+.txt-activity-rule {
+    position: absolute;
+    bottom: 4%;
+    left: 40%;
+    color: #ff0082;
+    font-size: 18px;
+    font-weight: 2;
+    text-decoration: underline;
+}
+
+.input-upload {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+}
+/*modal*/
+
+.modal {
+    position: fixed;
+    top: 18%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    background-color: #00000000;
+}
+
+.modal-dialog {
+    margin: 10% auto;
+    width: 80%;
+    background-color: #ff0082;
+    color: #FFFFFF;
+    padding: 6px;
+    border-radius: 10px;
+    font-weight: 2;
+}
+
+.modal-btn-close {
+    text-align: right;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.toolbar {
+    height: 48px;
+    width: 100%;
+    background-color: #ff0082;
+}
+
+.toolbar-btn {
+    height: 48px;
+    width: 48px;
+    color: white;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.edit-function {
+    height: 58px;
+    width: 100%;
+    background-color: #ff0082;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.edit-function-item {
+    height: 48px;
+    width: 20%;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.edit-function-item >img {
+    height: 40px;
+    width: 40px
+}
+
+.btn-again {
+    position: absolute;
+    left: 45%;
+    top: 5%;
+}
+
+.img-user-img {
+    position: absolute;
+    left: 30%;
+    top: 20%;
+}
