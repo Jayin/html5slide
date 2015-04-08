@@ -57,6 +57,7 @@ gulp.task 'less', ->
 		.pipe sus
 			baseSurfix: false
 		.pipe digestVersioning
+			digestLength: 8
 			basePath: destBase
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
@@ -67,6 +68,7 @@ gulp.task 'sass', ->
 		.pipe sus
 			baseSurfix: false
 		.pipe digestVersioning
+			digestLength: 8
 			basePath: destBase
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
@@ -80,6 +82,7 @@ gulp.task 'postcss', ->
 		.pipe sus
 			baseSurfix: false
 		.pipe digestVersioning
+			digestLength: 8
 			basePath: destBase
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
@@ -150,6 +153,7 @@ gulp.task 'amd-bundle', ->
 	gulp.src([
 			'bower_components/skateboard/src/main.coffee'
 		]).pipe amdBundler()
+		.pipe minifyDefault()
 		.pipe gulp.dest(destBase + '/script/lib/skateboard')
 
 gulp.task 'gen-md5map', ['copy', 'less', 'sass', 'postcss', 'concat', 'amd-bundle'], ->
@@ -163,9 +167,11 @@ gulp.task 'gen-md5map', ['copy', 'less', 'sass', 'postcss', 'concat', 'amd-bundl
 				map = md5map[RegExp.$1] ?= {}
 			else
 				map = md5map['app'] ?= {}
-			map[file.path.replace file.base, ''] = crypto.createHash('md5')
+			md5 = crypto.createHash('md5')
 				.update(fs.readFileSync(file.path))
 				.digest('hex')
+			md5 = md5.substr 0, 8
+			map[file.path.replace file.base, ''] = md5
 			next()
 
 gulp.task 'html-optimize', ['gen-md5map'], ->
@@ -189,6 +195,7 @@ gulp.task 'html-optimize', ['gen-md5map'], ->
 		.pipe propertyMerge
 			properties: properties
 		.pipe digestVersioning
+			digestLength: 8
 			basePath: destBase
 			getFilePath: getFilePath
 		.pipe minifyDefault()
@@ -222,51 +229,6 @@ gulp.task 'fix-less-trace', ->
 			@push file
 			next()
 		.pipe gulp.dest('src')
-
-gulp.task 'release', ->
-	path = require 'path'
-	rimraf = require 'rimraf'
-	destStream = gulp.dest destBase
-	files = []
-	rimraf destBase, (err) ->
-		throw err if err
-		if argv.r or argv.w
-			c = []
-			if argv.r
-				rc = ['svn log -v']
-				argv.r.toString().split(',').forEach (r) ->
-					rc.push '-r' + r
-				c.push rc.join ' '
-			if argv.w
-				c.push 'svn st'
-			c = c.join '; '
-			require('child_process').exec c, (err, stdout) ->
-				if err
-					throw err
-				stdout.toString().replace /\s*(?:M|A)\s+(\S+)/g, (full, path) ->
-					files.push path.replace('/manggis/trunk/manggis_frontend/', '')
-				if argv.f
-					files = files.concat argv.f.split ' '
-				if files.length
-					gulp.src(files)
-						.pipe backtrace
-							log: true
-							targetDir: destBase
-						.pipe minifyDefault()
-						.pipe destStream
-				else
-					destStream.end()
-		else if argv.f
-			files = argv.f.split ' '
-			gulp.src(files)
-				.pipe backtrace
-					log: true
-					targetDir: destBase
-				.pipe minifyDefault()
-				.pipe destStream
-		else
-			throw new Error 'Please specify -r or -w or -f'
-	destStream
 
 gulp.task 'build', ['copy', 'less', 'sass', 'postcss', 'concat', 'amd-bundle', 'html-optimize']
 gulp.task 'default', ['build']

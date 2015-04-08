@@ -24,12 +24,6 @@ document.write([
 	</div>
 	<button class="img-btn close-btn" onclick="$('.share-layer').hide();">close</button>
 </div>
-<script type="text/javascript">
-document.write([
-	'<audio id="audio1" src="' + G.CDN_ORIGIN + '/static/app/bxn-201502/image/bg.mp3" loop autoplay></audio>'
-].join(''));
-</script>
-<button class="img-btn audio-btn on" onclick="if($(this).hasClass('on')) {$('#audio1')[0].pause(); $(this).removeClass('on')} else {$('#audio1')[0].play(); $(this).addClass('on')}"></button>
 
 <div style="display: none;">
 	<img id="face-mask" src="./image/face-mask.png" />
