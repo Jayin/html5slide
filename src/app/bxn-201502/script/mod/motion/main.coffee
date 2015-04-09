@@ -1,5 +1,8 @@
+## @jsx #
+React = require 'react'
 app = require 'app'
 Skateboard = require 'skateboard'
+Preview = require './preview'
 
 class Mod extends Skateboard.BaseMod
 	cachable: true
@@ -11,14 +14,6 @@ class Mod extends Skateboard.BaseMod
 
 	_render: ->
 		super
-		require ['../canvas/main'], (CanvasMod) =>
-			$(CanvasMod).on 'clipchange', @clipChange
-			@resetClipData CanvasMod.clipData
-
-	clipChange: (evt, clipData) =>
-		@resetClipData clipData
-
-	resetClipData: (clipData) ->
-		@$('.preview').html '<img src="' + clipData + '" />'
+		React.render <Preview />, @$('.body-inner')[0]
 
 module.exports = Mod

@@ -5,6 +5,7 @@ var require = require || {
 		'async': 'lib/async/main',
 		'zepto': 'lib/jquery-2.1.3/main',
 		'jquery': 'lib/jquery-2.1.3/main',
+		'react': 'lib/react/react-0.13.1',
 		'app': 'lib/app/main',
 		'skateboard': 'lib/skateboard/main',
 		'parallax': 'lib/parallax/main',
