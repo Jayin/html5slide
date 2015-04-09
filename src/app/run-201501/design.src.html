@@ -13,11 +13,15 @@ document.write([
 <div class="container">
     <!-- 固定在顶部 -->
     <div class="toolbar">
-        <div class="toolbar-btn float-left" onclick="location='index.html'">重拍</div>
-        <div class="toolbar-btn float-right">完成</div>
+        <div class="toolbar-btn float-left" onclick="location='index.html'">
+            <img src="./image/btn-replay.png" height="48" width="48" alt="重拍">
+        </div>
+        <div class="toolbar-btn float-right">
+            <img src="./image/btn_finish.png" height="48" width="48" alt="完成"></div>
     </div>
     <!-- middle -->
-    <div style="edit-body">
+    <div class="edit-body">
+        <canvas id="c" class="img-preview-size">该浏览器不支持canvas</canvas>
     </div>
     <!-- 固定 在底部-->
     <div class="edit-function">
@@ -42,7 +46,7 @@ document.write([
 require(['jquery', 'app'], function($, app) {
     window.onload = function() {
         app.ajax.hideLoading();
-    }
+    };
 });
 </script>
 <!-- /section -->
