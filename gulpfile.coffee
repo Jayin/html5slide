@@ -23,13 +23,15 @@ backtrace = require 'gulp-backtrace'
 sus = require 'gulp-sus'
 argv = require('minimist') process.argv.slice(2)
 
+BUILD_CONTEXT = process.env.BUILD_CONTEXT || 'static'
 BUILD_TARGET = process.env.BUILD_TARGET || 'default'
 DEST_BASES = 
-	default: './dist/static'
-	prototype: './dist/prototype/static'
+	default: './dist/' + BUILD_CONTEXT
+	prototype: './dist/prototype/' + BUILD_CONTEXT
 
 destBase = DEST_BASES[BUILD_TARGET] || DEST_BASES.default
 properties = require "./properties.#{BUILD_TARGET}"
+properties.cdnContext = "'#{BUILD_CONTEXT}'"
 md5map = {}
 
 if argv.properties
@@ -180,7 +182,7 @@ gulp.task 'gen-md5map', ['copy', 'less', 'sass', 'postcss', 'concat', 'amd-bundl
 gulp.task 'html-optimize', ['gen-md5map'], ->
 	getFilePath = (fileName, baseFilePath) ->
 		fileName = fileName.replace /'[^']+'/g, ''
-		destBase + '/' + fileName.replace(/^\/static\//, '')
+		destBase + '/' + fileName.replace(new RegExp('^\\/' + BUILD_CONTEXT + '\\/'), '')
 	properties.md5map = md5map
 	gulp.src(['src/**/*.src.html'])
 		.pipe htmlOptimizer

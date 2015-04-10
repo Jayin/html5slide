@@ -20,6 +20,7 @@ var G = G || {
 	ORIGIN: %{{origin}}%,
 	CGI_ORIGIN: %{{cgiOrigin}}%,
 	CDN_ORIGIN: %{{cdnOrigin}}%,
+	CDN_CONTEXT: %{{cdnContext}}%,
 	
 	MD5_MAP: %{{md5map.app}}%,
 
@@ -54,7 +55,7 @@ if(G.DOMAIN && G.DOMAIN != document.domain) {
 
 <script type="text/javascript">
 document.write([
-	'<link rel="stylesheet" href="' + G.CDN_ORIGIN + '/static/style/app/main.css" />'
+	'<link rel="stylesheet" href="' + G.CDN_ORIGIN + '/' + G.CDN_CONTEXT + '/style/app/main.css" />'
 ].join(''));
 </script>
 
@@ -62,8 +63,8 @@ document.write([
 
 <script type="text/javascript">
 document.write([
-	'<script type="text/javascript" src="' + G.CDN_ORIGIN + '/static/script/lib/fastclick/fastclick.js"></s', 'cript>',
-	'<script type="text/javascript" src="' + G.CDN_ORIGIN + '/static/script/lib/yom/require-lite.js"></s', 'cript>'
+	'<script type="text/javascript" src="' + G.CDN_ORIGIN + '/' + G.CDN_CONTEXT + '/script/lib/fastclick/fastclick.js"></s', 'cript>',
+	'<script type="text/javascript" src="' + G.CDN_ORIGIN + '/' + G.CDN_CONTEXT + '/script/lib/yom/require-lite.js"></s', 'cript>'
 ].join(''));
 </script>
 

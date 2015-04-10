@@ -1,6 +1,6 @@
 var require = require || {
 	debug: true,
-	baseUrl: G.CDN_ORIGIN + '/static/script',
+	baseUrl: G.CDN_ORIGIN + '/' + G.CDN_CONTEXT + '/script',
 	paths: {
 		'async': 'lib/async/main',
 		'zepto': 'lib/jquery-2.1.3/main',
