@@ -16,16 +16,17 @@ document.write([
         <div class="toolbar-btn float-left" onclick="location='index.html'">
             <img src="./image/btn-replay.png" height="48" width="48" alt="重拍">
         </div>
-        <div class="toolbar-btn float-right">
-            <img src="./image/btn_finish.png" height="48" width="48" alt="完成" onclick="location='share.html?status=0'"></div>
+        <div id="btn-finish" class="toolbar-btn float-right">
+            <img src="./image/btn_finish.png" height="48" width="48" alt="完成" ></div>
     </div>
     <!-- middle -->
     <div class="edit-body">
-        <!--  <canvas id="c" class="img-preview-size" height="234" width="131">该浏览器不支持canvas</canvas> -->
+         <canvas id="c" class="img-preview-size" height="234" width="131">该浏览器不支持canvas</canvas>
         <!-- 放大1.5倍 -->
-        <img src="./image/test_user_img.png" height="234" width="131">
+      <!--   <img src="./image/test_user_img.png" height="234" width="131"> -->
         <!--     <canvas id="c" class="img-preview-size" height="351" width="196.5">该浏览器不支持canvas</canvas>  -->
         <div class="hidden">
+            <img id="frame_user" src="./image/test_user_img.png" height="234" width="131" alt="用户图片">
             <img id="frame_haiyang" src="./image/frame_haiyang_small.png" height="234" width="131" alt="海洋">
             <img id="frame_jiqing" src="./image/frame_jiqing_small.png" height="234" width="131" alt="激情">
             <img id="frame_modeng" src="./image/frame_modeng_small.png" height="234" width="131" alt="摩登">
@@ -35,19 +36,19 @@ document.write([
     </div>
     <!-- 固定 在底部-->
     <div class="edit-function">
-        <div class="edit-function-item">
+        <div id="btn-shidai" class="edit-function-item">
             <img src="./image/img_fn_item_shidai.png">
         </div>
-        <div class="edit-function-item">
-            <img src="./image/img_fn_item_zhuanshi.png">
+        <div id="btn-zuanshi" class="edit-function-item">
+            <img src="./image/img_fn_item_zuanshi.png">
         </div>
-        <div class="edit-function-item">
+        <div id="btn-modeng" class="edit-function-item">
             <img src="./image/img_fn_item_modeng.png">
         </div>
-        <div class="edit-function-item">
+        <div id="btn-haiyang" class="edit-function-item">
             <img src="./image/img_fn_item_haiyang.png">
         </div>
-        <div class="edit-function-item">
+        <div id="btn-jiqing"  class="edit-function-item">
             <img src="./image/img_fn_item_jiqing.png">
         </div>
     </div>

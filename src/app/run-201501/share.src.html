@@ -62,7 +62,7 @@ document.write([
                         <input type="radio" name="sex" value="female" />
                     </div>
                     <div class="modal-form">
-                        <button onclick="document.getElementById('dialog-submit-ok').style.display='block';document.getElementById('dialog-win').style.display='none'" > 提交</button>
+                        <button id="btn-submit" onclick="document.getElementById('dialog-submit-ok').style.display='block';document.getElementById('dialog-win').style.display='none'" > 提交</button>
                     </div>
                 </div>
                 <div class="modal-btn-close">
@@ -110,36 +110,5 @@ document.write([
         </div>
     </div>
 </div>
-<script type="text/javascript">
-require(['jquery', 'app'], function($, app) {
-    window.onload = function() {
-        app.ajax.hideLoading();
-    }
-
-    //调整高度
-    var need_height = document.body.clientWidth * 1207 / 750;
-    (function resize() {
-
-        $('.share-bg').css('background-size', document.body.clientWidth + 'px ' + need_height + "px");
-        $('.share-bg').css('height', need_height + "px");
-
-    })();
-
-    //模拟用户状态
-    if (location.href.indexOf('status=1') !== -1) {
-        //自己点击了完成
-        $('#btn-share').show();
-        $('#btn-again').css('opacity', '1');
-        $('#btn-like').css('opacity', '0');
-        $('#btn-show').hide();
-
-    } else {
-        $('#btn-share').hide();
-        $('#btn-again').css('opacity', '0');
-        $('#btn-like').css('opacity', '1');
-        $('#btn-show').show();
-
-    }
-});
-</script>
+<!-- include "./script/mod/share/main.coffee" -->
 <!-- /section -->

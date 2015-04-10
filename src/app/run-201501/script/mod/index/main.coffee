@@ -16,11 +16,19 @@ require ['jquery', 'app'], ($,app)->
         if (input.files and input.files[0])
             reader = new FileReader()
             reader.onload = (e)->
-                $('#img-preview').attr 'src', e.target.result
+                # $('#img-preview').attr 'src', e.target.result
+                # 先按比例缩小，减少传输压力
+                canvas =   document.getElementById('c')              
+                ctx = canvas.getContext('2d')
+                img = new Image()
+                img.src = e.target.result
+                ctx.drawImage(img,0,0,img.width,img.height,0,0,131,234)
+
+                console.log canvas.toDataURL()
                 # upload file here
-                $.post('/image/upload',
+                $.post('/upload',
                         {
-                            'image':e.target.result
+                            'imgData':canvas.toDataURL()
                         }, (data)->
                             alert(data)
                             # TODO 若完成则跳转
