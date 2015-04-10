@@ -24,10 +24,12 @@ sus = require 'gulp-sus'
 argv = require('minimist') process.argv.slice(2)
 
 BUILD_CONTEXT = process.env.BUILD_CONTEXT || 'static'
+if BUILD_CONTEXT is 'NONE'
+	BUILD_CONTEXT = ''
 BUILD_TARGET = process.env.BUILD_TARGET || 'default'
 DEST_BASES = 
-	default: './dist/' + BUILD_CONTEXT
-	prototype: './dist/prototype/' + BUILD_CONTEXT
+	default: './dist/' + (BUILD_CONTEXT || 'root')
+	prototype: './dist/prototype/' + (BUILD_CONTEXT || 'root')
 
 destBase = DEST_BASES[BUILD_TARGET] || DEST_BASES.default
 properties = require "./properties.#{BUILD_TARGET}"

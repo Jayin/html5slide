@@ -29,6 +29,12 @@ var G = G || {
 	pageTime: [new Date()]
 };
 
+if(G.CDN_CONTEXT) {
+	G.CDN_BASE = G.CDN_ORIGIN + '/' + G.CDN_CONTEXT
+} else {
+	G.CDN_BASE = G.CDN_ORIGIN
+}
+
 G.id = function(id) {
 	return document.getElementById(id);
 };
@@ -55,7 +61,7 @@ if(G.DOMAIN && G.DOMAIN != document.domain) {
 
 <script type="text/javascript">
 document.write([
-	'<link rel="stylesheet" href="' + G.CDN_ORIGIN + '/' + G.CDN_CONTEXT + '/style/app/main.css" />'
+	'<link rel="stylesheet" href="' + G.CDN_BASE + '/style/app/main.css" />'
 ].join(''));
 </script>
 
@@ -63,8 +69,8 @@ document.write([
 
 <script type="text/javascript">
 document.write([
-	'<script type="text/javascript" src="' + G.CDN_ORIGIN + '/' + G.CDN_CONTEXT + '/script/lib/fastclick/fastclick.js"></s', 'cript>',
-	'<script type="text/javascript" src="' + G.CDN_ORIGIN + '/' + G.CDN_CONTEXT + '/script/lib/yom/require-lite.js"></s', 'cript>'
+	'<script type="text/javascript" src="' + G.CDN_BASE + '/script/lib/fastclick/fastclick.js"></s', 'cript>',
+	'<script type="text/javascript" src="' + G.CDN_BASE + '/script/lib/yom/require-lite.js"></s', 'cript>'
 ].join(''));
 </script>
 
