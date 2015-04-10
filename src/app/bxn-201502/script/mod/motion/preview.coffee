@@ -1,5 +1,6 @@
 ## @jsx #
 React = require 'react'
+bodyStyle = require './body.css'
 
 Preview = React.createClass
 	getInitialState: ->
@@ -12,8 +13,13 @@ Preview = React.createClass
 			@setState clipData: CanvasMod.clipData
 
 	render: ->
-		<div className="preview">
-			<img src={@state.clipData} />
+		<div className="body-inner">
+			<style type="text/css">
+				{bodyStyle.render()}
+			</style>
+			<div className="preview">
+				<img src={@state.clipData} />
+			</div>
 		</div>
 
 module.exports = Preview

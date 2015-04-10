@@ -10,10 +10,7 @@ class Mod extends Skateboard.BaseMod
 		'home': 1
 		'canvas': 1
 
-	_bodyTpl: require './body.tpl.html'
-
-	_render: ->
-		super
-		React.render <Preview />, @$('.body-inner')[0]
+	render: ->
+		React.render <Preview />, @$('.body')[0]
 
 module.exports = Mod

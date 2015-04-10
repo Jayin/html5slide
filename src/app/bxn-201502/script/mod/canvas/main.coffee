@@ -19,7 +19,7 @@ class Mod extends Skateboard.BaseMod
 	CONTEXT_H: 310
 	ENABLE_ROTATE: false
 
-	_render: ->
+	render: ->
 		super
 		@canvas = @$('canvas')[0]
 		@context = @canvas.getContext('2d')
