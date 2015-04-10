@@ -17,11 +17,21 @@ document.write([
             <img src="./image/btn-replay.png" height="48" width="48" alt="重拍">
         </div>
         <div class="toolbar-btn float-right">
-            <img src="./image/btn_finish.png" height="48" width="48" alt="完成"></div>
+            <img src="./image/btn_finish.png" height="48" width="48" alt="完成" onclick="location='share.html?status=0'"></div>
     </div>
     <!-- middle -->
     <div class="edit-body">
-        <canvas id="c" class="img-preview-size">该浏览器不支持canvas</canvas>
+        <!--  <canvas id="c" class="img-preview-size" height="234" width="131">该浏览器不支持canvas</canvas> -->
+        <!-- 放大1.5倍 -->
+        <img src="./image/test_user_img.png" height="234" width="131">
+        <!--     <canvas id="c" class="img-preview-size" height="351" width="196.5">该浏览器不支持canvas</canvas>  -->
+        <div class="hidden">
+            <img id="frame_haiyang" src="./image/frame_haiyang_small.png" height="234" width="131" alt="海洋">
+            <img id="frame_jiqing" src="./image/frame_jiqing_small.png" height="234" width="131" alt="激情">
+            <img id="frame_modeng" src="./image/frame_modeng_small.png" height="234" width="131" alt="摩登">
+            <img id="frame_shidai" src="./image/frame_shidai_small.png" height="234" width="131" alt="时代">
+            <img id="frame_zuanshi" src="./image/frame_zuanshi_small.png" height="234" width="131" alt="钻石">
+        </div>
     </div>
     <!-- 固定 在底部-->
     <div class="edit-function">
@@ -42,11 +52,5 @@ document.write([
         </div>
     </div>
 </div>
-<script type="text/javascript">
-require(['jquery', 'app'], function($, app) {
-    window.onload = function() {
-        app.ajax.hideLoading();
-    };
-});
-</script>
+<!-- include "./script/mod/design/main.coffee" -->
 <!-- /section -->
