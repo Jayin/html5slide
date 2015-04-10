@@ -42,10 +42,10 @@ var require = require || {
 	},
 	resolveUrl: function(url) {
 		var baseUrl;
-		if(url.indexOf('/static/app/') > 0) {
-			baseUrl = G.CDN_ORIGIN + '/static/app/';
+		if(url.indexOf(G.CDN_BASE + '/app/') > 0) {
+			baseUrl = G.CDN_BASE + '/app/';
 		} else {
-			baseUrl = G.CDN_ORIGIN + '/static/script/';
+			baseUrl = G.CDN_BASE + '/script/';
 		}
 		if(url.indexOf(baseUrl) === 0) {
 			var path = url.replace(baseUrl, '');

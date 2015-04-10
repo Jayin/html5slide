@@ -2,9 +2,9 @@
 	"isPrototype": "false",
 	
 	"domain": "document.domain",
-	"origin": "'http://www.createcdigital.com'",
-	"cgiOrigin": "'http://www.createcdigital.com'",
-	"cdnOrigin": "'http://7xiisx.com2.z0.glb.qiniucdn.com'",
+	"origin": "'http://demo.createcdigital.com'",
+	"cgiOrigin": "'http://demo.createcdigital.com'",
+	"cdnOrigin": "'http://7xiitg.com2.z0.glb.qiniucdn.com'",
 
 	"pageAside": "3",
 	"itemsPerPage": "15",

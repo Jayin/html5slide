@@ -28,8 +28,8 @@ if BUILD_CONTEXT is 'NONE'
 	BUILD_CONTEXT = ''
 BUILD_TARGET = process.env.BUILD_TARGET || 'default'
 DEST_BASES = 
-	default: './dist/cdn/' + (BUILD_CONTEXT || 'root')
-	prototype: './dist/cdn/prototype/' + (BUILD_CONTEXT || 'root')
+	default: './dist/' + (BUILD_CONTEXT || 'root')
+	prototype: './dist/prototype/' + (BUILD_CONTEXT || 'root')
 
 destBase = DEST_BASES[BUILD_TARGET] || DEST_BASES.default
 properties = require "./properties.#{BUILD_TARGET}"
@@ -206,7 +206,7 @@ gulp.task 'html-optimize', ['gen-md5map'], ->
 			basePath: destBase
 			getFilePath: getFilePath
 		.pipe minifyDefault()
-		.pipe gulp.dest(destBase.replace('/cdn/', '/idc/'))
+		.pipe gulp.dest(destBase)
 
 gulp.task 'copy-test', ->
 	gulp.src('src/test/**/*.js')
