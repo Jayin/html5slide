@@ -1,0 +1,114 @@
+<!-- extend "../../html/layout/layout.base.html" -->
+<!-- section "head"  -->
+<meta name="keywords" content="荧光人类" />
+<meta name="description" content="荧光人类" />
+<title>荧光人类</title>
+<!-- /section -->
+<!-- section "body" -->
+<script type="text/javascript">
+document.write([
+    '<link rel="stylesheet" href="' + G.CDN_ORIGIN + '/static/app/run-201501/style/main.css" />'
+].join(''));
+</script>
+<div class="container">
+    <div class="share-bg">
+        <!-- 重来 -->
+        <div id="btn-again" class="btn-again" onclick="location='index.html'" style="opacity: 0">
+            <img src="./image/btn_again.png" height="70" width="70" alt="">
+        </div>
+        <div class="img-user-img">
+            <div class="img-preview">
+                <!-- 预览的图片 -->
+                <img class="img-preview-size" src="./image/test_user_img.png">
+                <div id="btn-like" class="like-container" style="opacity: 0">
+                    <div><img src="./image/img_btn_like.png" height="20" width="20"></div>
+                    <p><span>21</span>赞</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-slogan">
+            <p>哇！你是如此的热情似火，激情四射，你是最闪耀的荧光人类！赶紧分享到朋友圈吧！搜集50个赞，就有机会获得限量荧光头带，非我不炫，本色当道！
+            </p>
+        </div>
+        <!-- 我要炫 -->
+        <div id="btn-show" class="btn-toshow" style"display:none" >
+            <img src="./image/btn_toshow.png" height="80" width="80" alt="我要炫" onclick="location='index.html'">
+        </div>
+        <!-- 分享 -->
+        <div id="btn-share" class="btn-toshow" style"display:none">
+            <img src="./image/btn_share.png" height="70" width="70" alt="" onclick="document.getElementById('dialog-share').style.display='block'">
+        </div>
+        <div class="get-prize">
+            <a onclick="document.getElementById('dialog-win').style.display='block'">集齐50个赞领奖</a>
+        </div>
+        <!-- 中奖框 -->
+        <div id="dialog-win" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <p style="text-align: center">哇，你是最棒的荧光人类！竟然用了这么短的时间就集齐50个赞啦，立刻留下您的姓名和联系方式，我们将第一时间送出Xtep ILLUMI RUN专属发带哦</p>
+                    <div class="modal-form">
+                        <span>姓名</span>
+                        <input type="text">
+                    </div>
+                    <div class="modal-form">
+                        <span>电话</span>
+                        <input type="text">
+                    </div>
+                    <div class="modal-form">
+                        <span>性别</span>
+                        <span>男</span>
+                        <input type="radio" checked="checked" name="sex" value="male" />
+                        <span>女</span>
+                        <input type="radio" name="sex" value="female" />
+                    </div>
+                    <div class="modal-form">
+                        <button id="btn-submit" onclick="document.getElementById('dialog-submit-ok').style.display='block';document.getElementById('dialog-win').style.display='none'" > 提交</button>
+                    </div>
+                </div>
+                <div class="modal-btn-close">
+                    <img onclick="document.getElementById('dialog-win').style.display='none'" src="./image/img_close.png" class="img-close" />
+                </div>
+            </div>
+        </div>
+        <!-- 提交成功框 -->
+        <div id="dialog-submit-ok" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <p style="margin-top: 30px;">提交成功~
+                    </p>
+                </div>
+                <div class="modal-btn-close">
+                    <img onclick="document.getElementById('dialog-submit-ok').style.display='none'" src="./image/img_close.png" class="img-close" />
+                </div>
+            </div>
+        </div>
+        <!-- 未中奖框 -->
+        <div id="dialog-nowin" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <p>客官，您太心急啦，继续努力让朋友给你点赞哦~再差一点点就可以拿到Xtep ILLUMI RUN 专属头带了哦！
+                    </p>
+                </div>
+                <div class="modal-btn-close">
+                    <img onclick="document.getElementById('dialog-nowin').style.display='none'" src="./image/img_close.png" class="img-close" />
+                </div>
+            </div>
+        </div>
+        <!-- 分享指示 -->
+        <div id="dialog-share" class="modal-full">
+            <div class="modal-content" style="padding:16px;color: #FF0082;">
+                <div style="text-align: right;">
+                    <img src="./image/btn_close_black.png" style="float:left;" height="20" width="20" onclick="document.getElementById('dialog-share').style.display='none'">
+                    <img src="./image/img_arrow.png" height="30" width="30">
+                </div>
+                <p>赶快分享到朋友圈吧，</p>
+                <p>让朋友来点赞吧！</p>
+                <p>搜集50个赞，</p>
+                <p>就有机会获得限量荧光头带，</p>
+                <p>非我不炫，本色当道！！</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- include "./script/mod/share/main.coffee" -->
+<!-- /section -->

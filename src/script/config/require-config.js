@@ -13,7 +13,8 @@ var require = require || {
 		'turn': 'lib/turn/main',
 		'mega-pix-image': 'lib/mega-pix-image/main',
 		'exif': 'lib/exif/main',
-		'hammer': 'lib/hammer/main'
+		'hammer': 'lib/hammer/main',
+		'fabric': 'lib/fabric/main'
 	},
 	shim: {
 		'async': {
@@ -38,6 +39,9 @@ var require = require || {
 		},
 		'mega-pixel-image': {
 			exports: 'MegaPixImage'
+		},
+		'fabric': {
+			exports: 'fabric'
 		}
 	},
 	resolveUrl: function(url) {

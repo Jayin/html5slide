@@ -1,0 +1,227 @@
+body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 14px;
+}
+/*首页的背景*/
+
+.index-bg {
+    background-image: url('../image/img_cover.png');
+    background-size: 320px 514px;
+    background-repeat: no-repeat;
+    height: 514px;
+}
+
+.share-bg {
+    background-image: url('../image/img_bg_share.png');
+    background-size: 320px 514px;
+    background-repeat: no-repeat;
+    height: 514px;
+}
+
+.hidden {
+    display: none;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.container {
+    height: auto;
+}
+
+.camera {
+    left: 40%;
+    top: 298px;
+    padding-top: 298px;
+    text-align: center;
+}
+
+.txt-activity-rule {
+    top: 320px;
+    left: 40%;
+    color: #ff0082;
+    font-size: 18px;
+    font-weight: 2;
+    text-align: center;
+    margin-top: -45px;
+    text-decoration: underline;
+}
+
+.input-upload {
+    position: relative;
+    bottom: 65px;
+    width: 80px;
+    height: 80px;
+    margin-left: -80px;
+    opacity: 0;
+}
+/*modal*/
+
+.modal {
+    position: fixed;
+    top: 18%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    background-color: #00000000;
+}
+
+.modal-full {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    background-color: #000;
+    height: 100%;
+}
+
+.modal-dialog {
+    margin: 10% auto;
+    width: 250px;
+    background-color: #ff0082;
+    color: #FFFFFF;
+    padding: 6px;
+    border-radius: 10px;
+    font-weight: 2;
+}
+
+.modal-form {
+    margin: 6px;
+}
+
+.modal-form >input {
+    background: transparent;
+    border: 0px;
+    color: white;
+    border-bottom-color: white;
+    border-bottom: 1px solid #FFF;
+}
+
+.modal-form > button {
+    background: transparent;
+    border: 0px;
+    margin-top: 8px;
+    width: 60px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.modal-btn-close {
+    text-align: right;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.toolbar {
+    height: 48px;
+    width: 100%;
+    background-color: #ff0082;
+}
+
+.toolbar-btn {
+    height: 48px;
+    width: 48px;
+    color: white;
+    text-align: center;
+}
+
+.edit-body {
+    height:421px;
+    margin: 35px auto;
+    text-align: center;
+}
+
+.edit-function {
+    background-size: cover;
+    background-image: url('../image/img_bg_design_bottom.png');
+    position: fixed;
+    height: 98px;
+    width: 100%;
+    background-color: #ff0082;
+    left: 0;
+    bottom: 0;
+    padding-top: 22px;
+}
+
+.edit-function-item {
+    height: 48px;
+    width: 20%;
+    float: left;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.edit-function-item >img {
+    height: 40px;
+    width: 40px
+}
+
+.btn-again {
+    padding-top: 8px;
+    text-align: center;
+}
+
+.btn-toshow {
+    text-align: center;
+}
+
+.img-close {
+    width: 20px;
+    height: 20px;
+}
+
+.img-user-img {
+    /*    position: absolute;
+    width: 100%;
+    height: 100%;*/
+}
+
+.img-preview {
+    text-align: center;
+}
+/*图片大小*/
+
+.img-preview-size {
+    width: 131px;
+    height: 234px;
+}
+
+.text-slogan {
+    text-align: center;
+    margin-top: -36px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.like-container {
+    position: relative;
+    top: -124px;
+    padding-left: 66%
+}
+
+.like-container>p {
+    margin: 0px;
+}
+
+.get-prize {
+    text-align: right;
+    margin-right: 20px;
+    margin-top: -16px;
+    color: #ff0082;
+    text-decoration: underline;
+}
