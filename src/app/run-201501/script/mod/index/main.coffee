@@ -2,49 +2,50 @@ require ['jquery', 'app', 'fabric'], ($, app, fabric)->
     
     window.onload = ()->
         app.ajax.hideLoading()
-        getUrlParameter = (sParam) ->
-            sPageURL = window.location.search.substring(1)
-            sURLVariables = sPageURL.split('&')
-            i = 0
-            while i < sURLVariables.length
-                sParameterName = sURLVariables[i].split('=')
-                if sParameterName[0] == sParam
-                    return sParameterName[1]
-                i++
-            return
+        # 获取openid
+        # getUrlParameter = (sParam) ->
+        #     sPageURL = window.location.search.substring(1)
+        #     sURLVariables = sPageURL.split('&')
+        #     i = 0
+        #     while i < sURLVariables.length
+        #         sParameterName = sURLVariables[i].split('=')
+        #         if sParameterName[0] == sParam
+        #             return sParameterName[1]
+        #         i++
+        #     return
 
-        wxOpenId = null
-        openIdInCookie = app.cookie.get('wxopenid1')
+        # wxOpenId = null
+        # openIdInCookie = app.cookie.get('wxopenid1')
 
-        alert('openIdInCookie-->' + openIdInCookie)
+        # alert('openIdInCookie-->' + openIdInCookie)
 
-        # 是否存在cookie里
-        if openIdInCookie? and openIdInCookie != ''
-            wxOpenId = openIdInCookie
-            alert('wxOpenId in cookie-->'+wxOpenId)
-        else 
-            urlParamOpenId = getUrlParameter('code')
-            console.log('urlParamOpenId-->'+urlParamOpenId)
-            alert('urlParamOpenId-->'+urlParamOpenId)
-            # (->
-            # 跳转后是否存在url: code=XXX
-            if urlParamOpenId?
-                app.cookie.set 'wxopenid1', urlParamOpenId
-                alert('Set Cookie -->wxopenid='+urlParamOpenId)
-                wxOpenId = urlParamOpenId
-            else
-                # requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd4f26aea63a05347&redirect_uri='+encodeURIComponent('http://demo.createcdigital.com/static/app/run-201501/index.html')+'&response_type=code&scope=snsapi_base&state=null#wechat_redirect'
-                requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd4f26aea63a05347&redirect_uri=http://demo.createcdigital.com/static/app/run-201501/index.html&response_type=code&scope=snsapi_base&state=null#wechat_redirect'  
-                alert('准备跳转..')
-                alert(requestOpenIdUrl)
-                window.location.href = requestOpenIdUrl
-                # console.log(window.location= requestOpenIdUrl)
-            # )()
-        alert('openid->' + wxOpenId)
+        # # 是否存在cookie里
+        # if openIdInCookie? and openIdInCookie != ''
+        #     wxOpenId = openIdInCookie
+        #     alert('wxOpenId in cookie-->'+wxOpenId)
+        # else 
+        #     urlParamOpenId = getUrlParameter('code')
+        #     console.log('urlParamOpenId-->'+urlParamOpenId)
+        #     alert('urlParamOpenId-->'+urlParamOpenId)
+        #     # (->
+        #     # 跳转后是否存在url: code=XXX
+        #     if urlParamOpenId?
+        #         app.cookie.set 'wxopenid1', urlParamOpenId
+        #         alert('Set Cookie -->wxopenid='+urlParamOpenId)
+        #         wxOpenId = urlParamOpenId
+        #     else
+        #         # requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd4f26aea63a05347&redirect_uri='+encodeURIComponent('http://demo.createcdigital.com/static/app/run-201501/index.html')+'&response_type=code&scope=snsapi_base&state=null#wechat_redirect'
+        #         requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd4f26aea63a05347&redirect_uri=http://demo.createcdigital.com/static/app/run-201501/index.html&response_type=code&scope=snsapi_base&state=null#wechat_redirect'  
+        #         alert('准备跳转..')
+        #         alert(requestOpenIdUrl)
+        #         window.location.href = requestOpenIdUrl
+        #         # console.log(window.location= requestOpenIdUrl)
+        #     # )()
+        # alert('openid->' + wxOpenId)
 
     need_height = document.body.clientWidth * 1207 / 750
 
-    初始化UI：调整高度
+    #初始化UI：调整高度
     (->
         $('.index-bg').css 'background-size', document.body.clientWidth + 'px ' + need_height + "px"
         $('.index-bg').css 'height', need_height + "px"
