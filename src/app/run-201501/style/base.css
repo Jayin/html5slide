@@ -141,6 +141,7 @@ body {
 }
 
 .edit-body {
+    height:421px;
     margin: 35px auto;
     text-align: center;
 }
