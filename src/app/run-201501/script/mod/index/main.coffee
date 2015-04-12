@@ -19,7 +19,7 @@ require ['jquery', 'app', 'fabric'], ($, app, fabric)->
         alert('openIdInCookie-->' + openIdInCookie)
 
         # 是否存在cookie里
-        if openIdInCookie? and openIdInCookie != ''
+        if true or openIdInCookie? and openIdInCookie != ''
             wxOpenId = openIdInCookie
             alert('wxOpenId in cookie-->'+wxOpenId)
         else 
@@ -44,7 +44,7 @@ require ['jquery', 'app', 'fabric'], ($, app, fabric)->
 
     need_height = document.body.clientWidth * 1207 / 750
 
-    初始化UI：调整高度
+    #初始化UI：调整高度
     (->
         $('.index-bg').css 'background-size', document.body.clientWidth + 'px ' + need_height + "px"
         $('.index-bg').css 'height', need_height + "px"
