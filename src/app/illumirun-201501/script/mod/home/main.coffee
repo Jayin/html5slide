@@ -6,6 +6,7 @@ class Mod extends Skateboard.BaseMod
 
 	events:
 		'change .upload-btn': 'fileChange'
+		'click .rules__link': 'showRules'
 
 	_bodyTpl: require './body.tpl.html'
 
@@ -29,6 +30,15 @@ class Mod extends Skateboard.BaseMod
 			@resetFileInput()
 			Skateboard.core.view '/view/canvas'
 		img.src = imgUrl
+
+	showRules: =>
+		require ['./dialog-main'], (dialog) ->
+			dialog.show [
+				'<p>世界只有一个，地球只有一个</p>'
+				'<p>人类有N中，你是哪一种</p>'
+				'<p><strong>我们是荧光人类</strong></p>'
+				'<p>赶紧拿起手机拍照吧，或者从相册中选取一张，点击你喜欢的模板、道具、口号从现在开始，你就是荧光人类的主角带上你的小伙伴一起疯狂夜跑吧</p>'
+			].join('')
 
 module.exports = Mod
 

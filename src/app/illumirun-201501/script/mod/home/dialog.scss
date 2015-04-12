@@ -1,0 +1,39 @@
+.dialog {
+	position: absolute;
+	width: 300px;
+	top: 120px;
+	left: 50%;
+	margin-left: -150px;
+	border-radius: 10px;
+	border: solid 1px #fff;
+	background-color: #ff0082;
+	color: #fff;
+	.dialog__content {
+		padding: 10px;
+		text-align: center;
+	}
+	.dialog__close {
+		width: 23px;
+		height: 23px;
+		border-radius: 12px;
+		border: solid 1px #fff;
+		text-indent: -9999px;
+		position: absolute;
+		bottom: 5px; 
+		right: 5px;
+		&:before, &:after {
+			content: "";
+			position: absolute;
+			width: 19px;
+			height: 1px;
+			top: 10px;
+			left: 1px;
+			background-color: #fff;
+			display: block;
+			transform: rotate(45deg);
+		}
+		&:after {
+			transform: rotate(-45deg);
+		}
+	}
+}
