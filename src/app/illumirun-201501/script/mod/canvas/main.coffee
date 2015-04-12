@@ -184,14 +184,14 @@ class Mod extends Skateboard.BaseMod
 		$(Mod).trigger 'clipchange', Mod.clipData
 		#Skateboard.core.view '/view/motion'
 		app.ajax.post
-			url: 'uploadImage/54f1b82a58f24d7d16c11e18'
+			url: 'web/uploadImage/54f1b82a58f24d7d16c11e18'
 			data:
 				imgData: Mod.clipData
 			success: (res) ->
 				if res.code is 0
 					location.href = '/static/app/run-201501/share.html?designId=' + res.data.designId
 				else
-					alert res.message
+					alert res.code + ': ' + res.msg
 			error: ->
 				alert '系统繁忙，请您稍后重试。'
 

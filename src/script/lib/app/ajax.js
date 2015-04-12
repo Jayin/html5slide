@@ -30,12 +30,12 @@ define(function(require) {
 				} else {
 					fullUrl = G.CGI_ORIGIN + '/static/mockup-data/' + url;
 				}
-				fullUrl = fullUrl.replace(/[^\/]+$/, function(m) {
-					return m.replace(/^[\w\-\.]+/, function(m) {
-						return m.split('.')[0] + '.' + dataType;
-					});
-				});
 			}
+			fullUrl = fullUrl.replace(/[^\/]+$/, function(m) {
+				return m.replace(/^[\w\-\.]+/, function(m) {
+					return m.split('.')[0] + '.' + dataType;
+				});
+			});
 		} else {
 			fullUrl = url;
 		}
@@ -125,7 +125,7 @@ define(function(require) {
 		opt.charset = opt.charset || 'UTF-8';
 		opt.headers = opt.headers || {};
 		opt.headers['X-Requested-With'] = 'XMLHttpRequest';
-		if(false && !opt.notJsonParamData) {
+		if(!opt.notJsonParamData) {
 			opt.contentType = 'application/json; charset=' + opt.charset;
 			opt.data = typeof data == 'string' ? data : data == null ? data : JSON.stringify(data);
 		}
