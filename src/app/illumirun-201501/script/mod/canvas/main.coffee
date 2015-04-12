@@ -184,9 +184,11 @@ class Mod extends Skateboard.BaseMod
 		$(Mod).trigger 'clipchange', Mod.clipData
 		#Skateboard.core.view '/view/motion'
 		app.ajax.post
-			url: 'uploadImage/54f1b82a58f24d7d16c11e18'
-			data:
+			url: 'web/uploadImage/54f1b82a58f24d7d16c11e18'
+			contentType: 'application/json; charset=UTF-8'
+			data: JSON.stringify
 				imgData: Mod.clipData
+				openId: app.cookie.get('wxopenid')
 			success: (res) ->
 				if res.code is 0
 					location.href = '/static/app/run-201501/share.html?designId=' + res.data.designId
