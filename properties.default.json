@@ -2,8 +2,8 @@
 	"isPrototype": "false",
 	
 	"domain": "document.domain",
-	"origin": "'http://h5.createcdigital.com'",
-	"cgiOrigin": "'http://h5.createcdigital.com'",
+	"origin": "'http://www.createcdigital.com'",
+	"cgiOrigin": "'http://www.createcdigital.com:8080'",
 	"cdnOrigin": "'http://7xiisx.com2.z0.glb.qiniucdn.com'",
 
 	"pageAside": "3",

@@ -1,0 +1,47 @@
+body.sb-mod--canvas {
+	background-color: #ff0082;
+}
+.sb-mod.sb-mod--canvas {
+	background-image: url(../../../image/bg-02.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	canvas {
+		margin-top: 78px;
+		margin-left: 78px
+	}
+
+	.img-btn {
+		position: absolute;
+	}
+	.btn-reset {
+		width: 64px;
+		height: 64px;
+		left: 0;
+		top: 0;
+	}
+	.btn-confirm {
+		width: 64px;
+		height: 64px;
+		right: 0;
+		top: 0;
+	}
+	.frame-btns {
+		margin-top: 20px;
+		text-align: center;
+	}
+	.frame-btns__btn {
+		width: 52px;
+		height: 52px;
+		border-radius: 26px;
+		border: solid 1px #fff;
+		line-height: 50px;
+		font-size: 16px;
+		color: #fff;
+		background-color: transparent;
+		padding: 0;
+		text-align: center;
+		margin: 0 5px;
+	}
+}

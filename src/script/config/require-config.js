@@ -68,8 +68,14 @@ var require = require || {
 		}
 	},
 	onLoadStart: function() {
+		require(['app'], function(app) {
+			app.ajax.showLoading();
+		});
 	},
 	onLoadEnd: function() {
+		require(['app'], function(app) {
+			app.ajax.hideLoading();
+		});
 	},
 	errCallback: function() {
 	}

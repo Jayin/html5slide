@@ -12,12 +12,15 @@ class Mod extends Skateboard.BaseMod
 		'touchmove canvas': 'touchMove'
 		'touchend canvas': 'touchEnd'
 		'click .btn-confirm': 'confirm'
+		'click .frame-btns__btn': 'changeFrame'
 
 	_bodyTpl: require './body.tpl.html'
 
-	CONTEXT_W: 310
-	CONTEXT_H: 310
+	CONTEXT_W: 164
+	CONTEXT_H: 292
 	ENABLE_ROTATE: false
+
+	frame: 'shidai'
 
 	render: ->
 		super
@@ -113,6 +116,10 @@ class Mod extends Skateboard.BaseMod
 	imgChange: (evt, newImg) =>
 		@resetImg newImg
 
+	changeFrame: (evt) =>
+		@frame = $(evt.target).data 'frame'
+		@draw()
+
 	resetImg: (newImg) ->
 		app.ajax.showLoading()
 		@context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
@@ -159,33 +166,34 @@ class Mod extends Skateboard.BaseMod
 			doSquash: @rawImg.file.type is 'image/jpeg'
 		context.restore()
 
-	drawMask: ->
+	drawFrame: ->
 		context = @context
 		context.save()
-		context.globalAlpha = 0.7
-		maskImg = $('#face-mask')[0]
+		context.globalAlpha = 0.9
+		maskImg = $('#frame-' + @frame)[0]
 		context.drawImage maskImg, 0, 0, @CONTEXT_W, @CONTEXT_H
 		context.restore()
 
 	draw: ->
 		@context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
 		@drawImg()
-		@drawMask()
+		@drawFrame()
 
 	confirm: =>
-		fw = 160
-		fh = 190
-		@context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
-		@drawImg()
-		tmpCanvas = document.createElement 'canvas'
-		tmpCanvas.width = fw
-		tmpCanvas.height = fh
-		tmpCtx = tmpCanvas.getContext '2d'
-		tmpCtx.drawImage @canvas, (@CONTEXT_W - fw) / 2, (@CONTEXT_H - fh) / 2, fw, fh, 0, 0, fw, fh
-		@drawMask()
-		Mod.clipData = tmpCanvas.toDataURL()
+		Mod.clipData = @canvas.toDataURL()
 		$(Mod).trigger 'clipchange', Mod.clipData
-		Skateboard.core.view '/view/motion'
+		#Skateboard.core.view '/view/motion'
+		app.ajax.post
+			url: 'uploadImage/54f1b82a58f24d7d16c11e18'
+			data:
+				imgData: Mod.clipData
+			success: (res) ->
+				if res.code is 0
+					location.href = '/static/app/run-201501/share.html?designId=' + res.data.designId
+				else
+					alert res.message
+			error: ->
+				alert '系统繁忙，请您稍后重试。'
 
 	destroy: ->
 		super
