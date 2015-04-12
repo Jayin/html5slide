@@ -19,10 +19,10 @@ document.write([
         <div class="img-user-img">
             <div class="img-preview">
                 <!-- 预览的图片 -->
-                <img class="img-preview-size" src="./image/test_user_img.png">
+                <img class="img-preview-size" src="">
                 <div id="btn-like" class="like-container" style="opacity: 0">
                     <div><img src="./image/img_btn_like.png" height="20" width="20"></div>
-                    <p><span>21</span>赞</p>
+                    <p><span id="like-num">0</span>赞</p>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@ document.write([
             <img src="./image/btn_share.png" height="70" width="70" alt="" onclick="document.getElementById('dialog-share').style.display='block'">
         </div>
         <div class="get-prize">
-            <a onclick="document.getElementById('dialog-win').style.display='block'">集齐50个赞领奖</a>
+            <a>集齐50个赞领奖</a>
         </div>
         <!-- 中奖框 -->
         <div id="dialog-win" class="modal">
@@ -48,21 +48,21 @@ document.write([
                     <p style="text-align: center">哇，你是最棒的荧光人类！竟然用了这么短的时间就集齐50个赞啦，立刻留下您的姓名和联系方式，我们将第一时间送出Xtep ILLUMI RUN专属发带哦</p>
                     <div class="modal-form">
                         <span>姓名</span>
-                        <input type="text">
+                        <input id="submit-name" type="text">
                     </div>
                     <div class="modal-form">
                         <span>电话</span>
-                        <input type="text">
+                        <input id="submit-phone" type="text">
                     </div>
                     <div class="modal-form">
                         <span>性别</span>
                         <span>男</span>
-                        <input type="radio" checked="checked" name="sex" value="male" />
+                        <input type="radio" checked="checked" name="sex" value="1" />
                         <span>女</span>
-                        <input type="radio" name="sex" value="female" />
+                        <input type="radio" name="sex" value="0" />
                     </div>
                     <div class="modal-form">
-                        <button id="btn-submit" onclick="document.getElementById('dialog-submit-ok').style.display='block';document.getElementById('dialog-win').style.display='none'" > 提交</button>
+                        <button id="btn-submit" > 提交</button>
                     </div>
                 </div>
                 <div class="modal-btn-close">
