@@ -1,7 +1,52 @@
 require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, app, wx)->
+    wxOpenId = null
+    designId = null
+    from = null
+    likeNum = 0
+    alreadyLike = false
+    reachReward = false
+
+    getUrlParameter = (sParam)->
+        sPageURL = window.location.search.substring(1);
+        sURLVariables = sPageURL.split('&')
+        for i in [0...sURLVariables.length]
+            sParameterName = sURLVariables[i].split('=')
+            if sParameterName[0] == sParam
+                return sParameterName[1]
+        return null
+
+    getWxOpenId = ()->
+        openIdCookie = app.cookie.get('wxopenid');
+        if not openIdCookie
+            urlParamOpenId = getUrlParameter('code')
+            if not urlParamOpenId
+                requestOpenIdUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd4f26aea63a05347&redirect_uri=#{encodeURIComponent(location.href.split('#')[0])}&response_type=code&scope=snsapi_base&state=null#wechat_redirect"
+                window.location.href = requestOpenIdUrl
+            else
+                app.cookie.set('wxopenid', urlParamOpenId, G.DOMAIN, '/', 24)
+                wxOpenId = urlParamOpenId
+        return openIdCookie
+
+    loadDesign = (designId)->
+        app.ajax.get 
+            url: "web/design/#{designId}"
+            success: (result)->
+                console.log result
+                likeNum = result.data.likeNum
+                $("#like-num").text(result.data.likeNum)
+                $(".img-preview-size").attr('src', result.data.relativePath)
+
+    wxOpenId = getWxOpenId()
+    designId = getUrlParameter("designId")
+    from = getUrlParameter("from")
+    console.log(designId)
+    console.log(from)
+
+    loadDesign(designId)
 
     window.onload = ->
         app.ajax.hideLoading();
+
 
     # 调整背景图的高度
     need_height = document.body.clientWidth * 1207 / 750
@@ -11,7 +56,8 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
     )()
 
     # 根据用户状态显示
-    if location.href.indexOf('status=1') != -1 
+    #if location.href.indexOf('status=1') != -1 
+    if from != 'timeline'
         $('#btn-share').show()
         $('#btn-again').css('opacity', '1')
         $('#btn-like').css('opacity', '0')
@@ -26,7 +72,44 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
     # 点赞
     $('#btn-like').on 'click', ->
         console.log "点赞"
+        app.ajax.post
+            url: "web/design/#{designId}"
+            error: (e)->
+                console.log e
+            success: (result)->
+                console.log result
+                alreadyLike = result.data.alreadyLike
+                reachReward = result.data.reachReward
+
+    $(".get-prize a").on 'click', ->
+        if likeNum >= 50 or reachReward
+            $("#dialog-win").show()
 
 
     $('#btn-submit').on 'click', ->
-        alert('submit')
+        name = $("#submit-name").val()
+        phone = $("#submit-phone").val()
+        sex = parseInt($("input:radio[name ='sex']:checked").val())
+        console.log name
+        console.log phone
+        console.log sex
+        if not name 
+            alert('名字不能为空')
+            return
+        if not phone
+            alert('电话不能为空')
+            return
+
+        app.ajax.post
+            url: "web/reward/#{designId}"
+            data: 
+                name: name
+                phone: phone
+                sex: sex
+            success: (result)->
+                console.log result
+                $("#dialog-win").hide()
+                $("#dialog-submit-ok").show()
+            error: (e)->
+                console.log e
+        
