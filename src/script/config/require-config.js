@@ -46,7 +46,7 @@ var require = require || {
 	},
 	resolveUrl: function(url) {
 		var baseUrl;
-		if(url.indexOf(G.CDN_BASE + '/app/') > 0) {
+		if(url.indexOf(G.CDN_BASE + '/app/') === 0) {
 			baseUrl = G.CDN_BASE + '/app/';
 		} else {
 			baseUrl = G.CDN_BASE + '/script/';
