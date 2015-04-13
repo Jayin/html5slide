@@ -97,7 +97,15 @@ body {
     border-radius: 10px;
     font-weight: 2;
 }
-
+#dialog-nowin .modal-dialog {
+    height: 250px;
+}
+#dialog-nowin .modal-dialog .modal-content{
+    margin-top: 100px;
+}
+#dialog-nowin .modal-dialog .modal-btn-close {
+    margin-top: 69px;
+}
 .modal-form {
     margin: 6px;
 }
@@ -202,10 +210,17 @@ body {
 }
 
 .text-slogan {
+    display: none;
     text-align: center;
     margin-top: -36px;
     padding-left: 24px;
     padding-right: 24px;
+}
+.text-slogan p {
+    text-align: left;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .like-container {
