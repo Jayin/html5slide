@@ -1,6 +1,6 @@
 ## @jsx #
 React = require 'react'
-bodyStyle = require './body.css'
+bodyStyle = require './body.scss'
 
 Preview = React.createClass
 	getInitialState: ->

@@ -40,13 +40,10 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 		}
 	}
 
-	//centralize the content
+	//adjust
 	var wrapper = $('.page-wrapper');
-	wh = $(window).height();
-	bh = wrapper.height();
-	if(wh > bh) {
-		wrapper.css('marginTop', ((wh - bh) / 2) + 'px');
-	}
+	ww = $(window).width();
+	wrapper.height(ww * 604 / 375);
 
 	$.extend(G.MD5_MAP, %{{md5map.illumirun-201501}}%);
 

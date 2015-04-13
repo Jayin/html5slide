@@ -16,8 +16,8 @@ class Mod extends Skateboard.BaseMod
 
 	_bodyTpl: require './body.tpl.html'
 
-	CONTEXT_W: 164
-	CONTEXT_H: 292
+	CONTEXT_W: 328
+	CONTEXT_H: 584
 	ENABLE_ROTATE: false
 
 	frame: 'shidai'
@@ -174,7 +174,7 @@ class Mod extends Skateboard.BaseMod
 	drawFrame: ->
 		context = @context
 		context.save()
-		context.globalAlpha = 0.9
+		context.globalAlpha = 1
 		maskImg = $('#frame-' + @frame)[0]
 		context.drawImage maskImg, 0, 0, @CONTEXT_W, @CONTEXT_H
 		context.restore()
@@ -188,6 +188,7 @@ class Mod extends Skateboard.BaseMod
 		Mod.clipData = @canvas.toDataURL()
 		$(Mod).trigger 'clipchange', Mod.clipData
 		#Skateboard.core.view '/view/motion'
+		#return
 		app.ajax.post
 			url: 'web/uploadImage/54f1b82a58f24d7d16c11e18'
 			data:

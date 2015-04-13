@@ -1,39 +1,19 @@
 .dialog {
+	background-image: url(../../../image/dialog-bg.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
 	position: absolute;
-	width: 300px;
-	top: 120px;
+	width: 288px;
+	height: 270px;
+	top: 25%;
 	left: 50%;
-	margin-left: -150px;
-	border-radius: 10px;
-	border: solid 1px #fff;
-	background-color: #ff0082;
-	color: #fff;
-	.dialog__content {
-		padding: 10px;
-		text-align: center;
-	}
+	margin-left: -144px;
 	.dialog__close {
-		width: 23px;
-		height: 23px;
-		border-radius: 12px;
-		border: solid 1px #fff;
-		text-indent: -9999px;
+		width: 27px;
+		height: 27px;
 		position: absolute;
-		bottom: 5px; 
-		right: 5px;
-		&:before, &:after {
-			content: "";
-			position: absolute;
-			width: 19px;
-			height: 1px;
-			top: 10px;
-			left: 1px;
-			background-color: #fff;
-			display: block;
-			transform: rotate(45deg);
-		}
-		&:after {
-			transform: rotate(-45deg);
-		}
+		bottom: 11px; 
+		right: 14px;
 	}
 }
