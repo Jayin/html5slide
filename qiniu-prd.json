@@ -1,6 +1,6 @@
 {
     "src": "./dist/static",
-    "dest": "qiniu:access_key=WSICWTP-NJyZfoq309LG3mtGdP7yrAyJEnBUn-en&secret_key=0Izri7p4_Obq70HXtlzU5SCqCPUMUzWQF2VE5GXA&bucket=html5slide&key_prefix=static/&threshold=1048576",
+    "dest": "qiniu:access_key=t2X5ys7cdq1MohdpwegOWU__prOMmXE7bC5r5N6P&secret_key=wGac_4C4JHe4x1VGKsOZGVLc09tXDNASlnSc-OkL&bucket=html5slide&key_prefix=static/&threshold=1048576",
     "deletable": 0,
     "debug_level": 1
 }
