@@ -22,6 +22,11 @@ class Mod extends Skateboard.BaseMod
 
 	frame: 'shidai'
 
+	_afterFadeIn: ->
+		require ['../home/main'], (HomeMod) =>
+			if not HomeMod.img
+				Skateboard.core.view '/view/home', replaceState: true
+
 	render: ->
 		super
 		@canvas = @$('canvas')[0]
