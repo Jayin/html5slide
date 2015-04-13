@@ -164,9 +164,9 @@ require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, 
                       wx.ready(function () {
                         // 在这里调用 API
                         wx.onMenuShareTimeline({
-                            title: '888', // 分享标题        
+                            title: '荧光人类，本色当道！', // 分享标题        
                             link: shareUrl, // 分享链接
-                            imgUrl: 'http://www.createcdigital.com/yuanxiao/app/bxn-201501/share.jpg', // 分享图标
+                            imgUrl: './image/illumi_run_share.png', // 分享图标
                             success: function () { 
                                 // 用户确认分享后执行的回调函数
                                momentsCountIncrease();
@@ -178,10 +178,10 @@ require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, 
                         });
                         wx.onMenuShareAppMessage({
                             
-                            title: '一笑', // 分享标题        
-                            desc: '报喜',
+                            title: '荧光人类，本色当道！', // 分享标题        
+                            desc: '激情爆棚！快来给我点个赞，让我遇见TA.荧光人类，本色当道！',
                             link: shareUrl, // 分享链接
-                            imgUrl: 'http://www.createcdigital.com/yuanxiao/app/bxn-201501/share.jpg', // 分享图标
+                            imgUrl: './image/illumi_run_share.png', // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () { 
