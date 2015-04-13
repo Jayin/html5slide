@@ -134,26 +134,27 @@ class Mod extends Skateboard.BaseMod
 			@po = 
 				x: @CONTEXT_W / 2
 				y: @CONTEXT_H / 2
-			@img = img = new Image()
+			@img = new Image()
 			@imgWh = 
 				w: newImg.width * @CONTEXT_H / newImg.height
 				h: @CONTEXT_H
-			img.src = newImg.url
-			EXIF.getData @img, =>
-				URL = window.URL || window.webkitURL
-				URL.revokeObjectURL @rawImg.url
-				# fix ios mega pixel image rendering bug
-				orientation = EXIF.getTag @img, 'Orientation'
-				if orientation is 3
-					@deg = 180
-				else if orientation is 6
-					@deg = 90
-				else if orientation is 8
-					@deg = -90
-				else
-					@deg = 0
-				@draw()
-				app.ajax.hideLoading()
+			@img.src = newImg.url
+			@img.onload = =>
+				EXIF.getData @img, =>
+					URL = window.URL || window.webkitURL
+					URL.revokeObjectURL @rawImg.url
+					# fix ios mega pixel image rendering bug
+					orientation = EXIF.getTag @img, 'Orientation'
+					if orientation is 3
+						@deg = 180
+					else if orientation is 6
+						@deg = 90
+					else if orientation is 8
+						@deg = -90
+					else
+						@deg = 0
+					@draw()
+					app.ajax.hideLoading()
 		, 500
 
 	drawImg: ->
