@@ -31,17 +31,13 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         app.ajax.get 
             url: "web/design/#{designId}"
             success: (result)->
-                console.log result
                 likeNum = result.data.likeNum
                 $("#like-num").text(result.data.likeNum)
-                $(".img-preview-size").attr('src', result.data.relativePath)
+                $(".img-preview-size").attr('src', "/" + result.data.relativePath)
 
     wxOpenId = getWxOpenId()
     designId = getUrlParameter("designId")
     from = getUrlParameter("from")
-    console.log(designId)
-    console.log(from)
-
     loadDesign(designId)
 
     window.onload = ->
@@ -57,7 +53,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 
     # 根据用户状态显示
     #if location.href.indexOf('status=1') != -1 
-    if from != 'timeline'
+    if not from 
         $('#btn-share').show()
         $('#btn-again').css('opacity', '1')
         $('#btn-like').css('opacity', '0')
@@ -74,12 +70,17 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         console.log "点赞"
         app.ajax.post
             url: "web/design/#{designId}"
+            contentType: 'application/json; charset=UTF-8'
+            data: JSON.stringify
+                openId: wxOpenId
             error: (e)->
-                console.log e
+                alert 'error'
             success: (result)->
-                console.log result
                 alreadyLike = result.data.alreadyLike
                 reachReward = result.data.reachReward
+                if not alreadyLike
+                    $("#like-num").text(likeNum+1)
+
 
     $(".get-prize a").on 'click', ->
         if likeNum >= 50 or reachReward
@@ -90,9 +91,6 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         name = $("#submit-name").val()
         phone = $("#submit-phone").val()
         sex = parseInt($("input:radio[name ='sex']:checked").val())
-        console.log name
-        console.log phone
-        console.log sex
         if not name 
             alert('名字不能为空')
             return
@@ -102,10 +100,12 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 
         app.ajax.post
             url: "web/reward/#{designId}"
-            data: 
+            contentType: 'application/json; charset=UTF-8'
+            data: JSON.stringify
                 name: name
                 phone: phone
                 sex: sex
+                openId: wxOpenId
             success: (result)->
                 console.log result
                 $("#dialog-win").hide()
