@@ -35,7 +35,8 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
                 $("#like-num").text(result.data.likeNum)
                 $(".img-preview-size").attr('src', "/" + result.data.relativePath)
 
-    wxOpenId = getWxOpenId()
+    if not G.IS_PROTOTYPE
+        wxOpenId = getWxOpenId()
     designId = getUrlParameter("designId")
     from = getUrlParameter("from")
     loadDesign(designId)
@@ -58,12 +59,16 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         $('#btn-again').css('opacity', '1')
         $('#btn-like').css('opacity', '0')
         $('#btn-show').hide()
+        $('.get-prize').hide()
 
     else
-        $('#btn-share').hide();
-        $('#btn-again').css('opacity', '0');
-        $('#btn-like').css('opacity', '1');
-        $('#btn-show').show();
+        $('#btn-share').hide()
+        $('#btn-again').css('opacity', '0')
+        $('#btn-like').css('opacity', '1')
+        $('#btn-show').show()
+        $('.get-prize').show();
+
+    $('.text-slogan-1').show()
 
     # 点赞
     $('#btn-like').on 'click', ->
@@ -85,6 +90,8 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
     $(".get-prize a").on 'click', ->
         if likeNum >= 50 or reachReward
             $("#dialog-win").show()
+        else
+            $("#dialog-nowin").show()
 
 
     $('#btn-submit').on 'click', ->
