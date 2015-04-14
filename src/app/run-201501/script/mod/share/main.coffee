@@ -5,6 +5,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
     likeNum = 0
     alreadyLike = false
     reachReward = false
+    frame = "shidai"
 
     getUrlParameter = (sParam)->
         sPageURL = window.location.search.substring(1);
@@ -33,12 +34,17 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
             success: (result)->
                 likeNum = result.data.likeNum
                 $("#like-num").text(result.data.likeNum)
-                $(".img-preview-size").attr('src', "/" + result.data.relativePath)
+                if not G.IS_PROTOTYPE
+                    $(".img-preview-size").attr('src', "/" + result.data.relativePath)
+                else 
+                    $(".img-preview-size").attr('src', result.data.relativePath)
 
     if not G.IS_PROTOTYPE
         wxOpenId = getWxOpenId()
     designId = getUrlParameter("designId")
     from = getUrlParameter("from")
+    frame = getUrlParameter("style")
+
     loadDesign(designId)
 
     window.onload = ->
@@ -67,8 +73,8 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         $('#btn-like').css('opacity', '1')
         $('#btn-show').show()
         $('.get-prize').show();
-
-    $('.text-slogan-1').show()
+    alert(frame)
+    $(".text-slogan-#{frame}").show()
 
     # 点赞
     $('#btn-like').on 'click', ->
