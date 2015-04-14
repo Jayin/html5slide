@@ -65,7 +65,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         $('#btn-again').css('opacity', '1')
         $('#btn-like').css('opacity', '0')
         $('#btn-show').hide()
-        $('.get-prize').hide()
+        $('.get-prize').show()
 
     else
         $('#btn-share').hide()
@@ -94,6 +94,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 
 
     $(".get-prize a").on 'click', ->
+        # $("#dialog-win").show()
         if likeNum >= 50 or reachReward
             $("#dialog-win").show()
         else

@@ -196,18 +196,20 @@ body {
 
 .img-preview {
     text-align: center;
+    position: relative;
 }
 /*图片大小*/
 
 .img-preview-size {
-    width: 131px;
-    height: 234px;
+    width: 50%;
+    height: auto;
 }
+
 
 .text-slogan {
     display: none;
     text-align: center;
-    margin-top: -36px;
+    margin-top: 20px;
     padding-left: 24px;
     padding-right: 24px;
 }
@@ -219,9 +221,10 @@ body {
 }
 
 .like-container {
-    position: relative;
-    top: -124px;
-    padding-left: 66%
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    margin-top: -20px;
 }
 
 .like-container>p {
@@ -237,4 +240,32 @@ body {
     position: fixed;
     right: 0px;
     border-bottom: 10px;
+}
+#btn-submit {
+    /*background-image: url('../image/submit_btn.png');*/
+    width: 10em;
+}
+@media (min-height: 480px) {
+    .img-preview-size {
+        width: 40%;
+        height: auto;
+    }
+}
+@media (min-height: 568px) {
+    .img-preview-size {
+        width: 45%;
+        height: auto;
+    }
+}
+@media (min-height: 667px) {
+    .img-preview-size {
+        width: 50%;
+        height: auto;
+    }
+}
+@media (min-height: 736px) {
+    .img-preview-size {
+        width: 52%;
+        height: auto;
+    }
 }
