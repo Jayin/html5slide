@@ -13,7 +13,7 @@ document.write([
 <div class="container">
     <div class="share-bg">
         <!-- 重来 -->
-        <div id="btn-again" class="btn-again" onclick="location='index.html'" style="opacity: 0">
+        <div id="btn-again" class="btn-again" onclick="location='/static/app/illumirun-201501/index.html'" style="opacity: 0">
             <img src="./image/btn_again.png" height="70" width="70" alt="">
         </div>
         <div class="img-user-img">
@@ -26,10 +26,50 @@ document.write([
                 </div>
             </div>
         </div>
-        <div class="text-slogan">
-            <p>哇！你是如此的热情似火，激情四射，你是最闪耀的荧光人类！赶紧分享到朋友圈吧！搜集50个赞，就有机会获得限量荧光头带，非我不炫，本色当道！
+        <!-- 钻石 -->
+        <div class="text-slogan text-slogan-1">
+            <p>哇! 这么blingbling闪闪发亮，你是最棒
+                的钻石荧光人类！赶紧分享到朋友圈吧
+                搜集50个赞，就有机会获得限量荧光头带，
+                非我不炫，本色当道！
             </p>
         </div>
+        <!-- 摩登 
+        <div class="text-slogan text-slogan-2">
+            <p>哇！ 你是最性感的摩登荧光女郎！黑夜因
+                你而明亮！赶紧分享到朋友圈吧！搜集50
+                个赞， 就有机会获太限量荧光头带，非我
+                不炫，本色当道！
+            </p>
+        </div>
+        -->
+        <!-- 海洋 
+        <div class="text-slogan text-slogan-3">
+            <p>哇！你海水吃太多啦！你现在是海洋荧光
+                人类吗？赶紧分享到朋友圈！搜集50个
+                赞，就有机会获得限量荧光头带，非我不
+                炫，本色当道！
+            </p>
+        </div>
+        -->
+        <!-- 泼墨 
+        <div class="text-slogan text-slogan-4">
+            <p>哇！你是如此的热情似火，激情四射，你
+                是最闪耀的荧光人类！赶紧分享到朋友圈
+                吧！搜集50个赞，就有机会获得限量荧
+                光头带，非我不炫，本色当道！
+            </p>
+        </div>
+        -->
+        <!-- 时代 
+        <div class="text-slogan text-slogan-5">
+            <p>哇！你是最具时代先锋的荧光人类哦，魅
+                力无极限！那就赶快分享到朋友圈吧！搜
+                集50个赞，就有机会获得限量荧光头带，
+                非我不炫，本色当道！
+            </p>
+        </div>
+        -->
         <!-- 我要炫 -->
         <div id="btn-show" class="btn-toshow" style"display:none" >
             <img src="./image/btn_toshow.png" height="80" width="80" alt="我要炫" onclick="location='http://www.createcdigital.com/static/app/illumirun-201501/index.html'">
@@ -164,9 +204,9 @@ require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, 
                       wx.ready(function () {
                         // 在这里调用 API
                         wx.onMenuShareTimeline({
-                            title: '888', // 分享标题        
+                            title: '荧光人类，本色当道！', // 分享标题        
                             link: shareUrl, // 分享链接
-                            imgUrl: 'http://www.createcdigital.com/yuanxiao/app/bxn-201501/share.jpg', // 分享图标
+                            imgUrl: G.CDN_ORIGIN + '/static/app/run-201501/image/illumi_run_share.jpg', // 分享图标
                             success: function () { 
                                 // 用户确认分享后执行的回调函数
                                momentsCountIncrease();
@@ -178,10 +218,10 @@ require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, 
                         });
                         wx.onMenuShareAppMessage({
                             
-                            title: '一笑', // 分享标题        
-                            desc: '报喜',
+                            title: '荧光人类，本色当道！', // 分享标题        
+                            desc: '激情爆棚！快来给我点个赞，让我遇见TA.荧光人类，本色当道！',
                             link: shareUrl, // 分享链接
-                            imgUrl: 'http://www.createcdigital.com/yuanxiao/app/bxn-201501/share.jpg', // 分享图标
+                            imgUrl: G.CDN_ORIGIN + '/static/app/run-201501/image/illumi_run_share.jpg', // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () { 
