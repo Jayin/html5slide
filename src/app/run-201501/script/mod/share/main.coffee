@@ -79,7 +79,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
             data: JSON.stringify
                 openId: wxOpenId
             error: (e)->
-                alert 'error'
+                alert 'hello error'
             success: (result)->
                 alreadyLike = result.data.alreadyLike
                 reachReward = result.data.reachReward

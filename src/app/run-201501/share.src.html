@@ -152,12 +152,11 @@ document.write([
 </div>
 <!-- include "./script/mod/share/main.coffee" -->
 <script>
-require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, wx) {
+require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js', app], function($, wx, app) {
     //var shareUrl = 'http://www.createcdigital.com/yuanxiao/app/bxn-201501/index.html';
     var friendsCountIncrease = function() {
-        $.ajax({
-            url:"http://www.createcdigital.com:8080/web/sharing/increaseSharingFriends/552a705bd4c651f53c7e592c.json",
-            type: "post",
+        app.ajax.post({
+            url:"web/sharing/increaseSharingFriends/552a705bd4c651f53c7e592c",
             success: function(response) {
                 
                 //$(".content").text("put success");
@@ -168,9 +167,8 @@ require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, 
         });
     };
     var momentsCountIncrease = function() {
-        $.ajax({
-            url:"http://www.createcdigital.com:8080/web/sharing/increaseSharingMoments/552a705bd4c651f53c7e592c.json",
-            type: "post",
+        app.ajax.post({
+            url:"web/sharing/increaseSharingMoments/552a705bd4c651f53c7e592c",
             success: function(response) {
                 
                 //$(".content").text("put success");
@@ -182,12 +180,9 @@ require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, 
     }; 
     var shareUrl = location.href.split('#')[0];
     $(document).ready(function() {
-        $.ajax({
-                url:'http://www.createcdigital.com:8080/web/sharing/signWxshare/54f1b82a58f24d7d16c11e18.json',
-                type:'post',
-                data:JSON.stringify({url: shareUrl}),
-                dataType:'json',
-                contentType: "application/json;charset=utf-8",
+        app.ajax.post({
+                url:'web/sharing/signWxshare/54f1b82a58f24d7d16c11e18',
+                data: {url: shareUrl},
                 timeout:1000,
                 error:function(){alert('Error');},
                 success:function(result) {
