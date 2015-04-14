@@ -100,12 +100,7 @@ body {
 #dialog-nowin .modal-dialog {
     height: 250px;
 }
-#dialog-nowin .modal-dialog .modal-content{
-    margin-top: 100px;
-}
-#dialog-nowin .modal-dialog .modal-btn-close {
-    margin-top: 69px;
-}
+
 .modal-form {
     margin: 6px;
 }
@@ -239,4 +234,7 @@ body {
     margin-top: -16px;
     color: #ff0082;
     text-decoration: underline;
+    position: fixed;
+    right: 0px;
+    border-bottom: 10px;
 }

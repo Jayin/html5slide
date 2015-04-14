@@ -1,0 +1,10 @@
+{
+ "code" : 0,
+ "message" : "",
+ "data" : {
+   "id" : "1",
+   "likeNum" : 50,
+   "relativePath" : "image/test_user_img.png"
+ },
+ "debugInfo" : null
+}
