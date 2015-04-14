@@ -138,7 +138,6 @@ class Mod extends Skateboard.BaseMod
 			@imgWh = 
 				w: newImg.width * @CONTEXT_H / newImg.height
 				h: @CONTEXT_H
-			@img.src = newImg.url
 			@img.onload = =>
 				EXIF.getData @img, =>
 					URL = window.URL || window.webkitURL
@@ -155,6 +154,7 @@ class Mod extends Skateboard.BaseMod
 						@deg = 0
 					@draw()
 					app.ajax.hideLoading()
+			@img.src = newImg.url
 		, 500
 
 	drawImg: ->
