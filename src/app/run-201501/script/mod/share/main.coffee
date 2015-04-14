@@ -73,7 +73,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         $('#btn-like').css('opacity', '1')
         $('#btn-show').show()
         $('.get-prize').show();
-    alert(frame)
+
     $(".text-slogan-#{frame}").show()
 
     # 点赞
