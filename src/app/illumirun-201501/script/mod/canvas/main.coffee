@@ -180,10 +180,18 @@ class Mod extends Skateboard.BaseMod
 		context.drawImage maskImg, 0, 0, @CONTEXT_W, @CONTEXT_H
 		context.restore()
 
+	drawQRCode:->
+		context = @context
+		context.save()
+		img_qr_code = $('#qr_code')[0]
+		context.drawImage img_qr_code, 0, 0, img_qr_code.width, img_qr_code.height, @CONTEXT_W-100,@CONTEXT_H-100,100, 100
+		context.restore()
+
 	draw: ->
 		@context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
 		@drawImg()
 		@drawFrame()
+		@drawQRCode()
 
 	confirm: =>
 		Mod.clipData = @canvas.toDataURL()
