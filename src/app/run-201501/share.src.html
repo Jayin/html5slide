@@ -19,7 +19,7 @@ document.write([
         <div class="img-user-img">
             <div class="img-preview">
                 <!-- 预览的图片 -->
-                <img class="img-preview-size" src="">
+                <img class="img-preview-size" src="" style="width=50%;height=auto;">
                 <div id="btn-like" class="like-container" style="opacity: 0">
                     <div><img src="./image/img_btn_like.png" height="20" width="20"></div>
                     <p><span id="like-num">0</span>赞</p>
@@ -27,49 +27,30 @@ document.write([
             </div>
         </div>
         <!-- 钻石 -->
-        <div class="text-slogan text-slogan-1">
-            <p>哇! 这么blingbling闪闪发亮，你是最棒
+        <div class="text-slogan text-slogan-zuanshi">
+<!--             <p>哇! 这么blingbling闪闪发亮，你是最棒
                 的钻石荧光人类！赶紧分享到朋友圈吧
                 搜集50个赞，就有机会获得限量荧光头带，
                 非我不炫，本色当道！
-            </p>
+            </p> -->
+            <img src="image/style_diamond.png" width="85%">
         </div>
-        <!-- 摩登 
-        <div class="text-slogan text-slogan-2">
-            <p>哇！ 你是最性感的摩登荧光女郎！黑夜因
-                你而明亮！赶紧分享到朋友圈吧！搜集50
-                个赞， 就有机会获太限量荧光头带，非我
-                不炫，本色当道！
-            </p>
+        <!-- 摩登 -->
+        <div class="text-slogan text-slogan-modeng">
+            <img src="image/style_modern.png" width="85%">
         </div>
-        -->
-        <!-- 海洋 
-        <div class="text-slogan text-slogan-3">
-            <p>哇！你海水吃太多啦！你现在是海洋荧光
-                人类吗？赶紧分享到朋友圈！搜集50个
-                赞，就有机会获得限量荧光头带，非我不
-                炫，本色当道！
-            </p>
+        <!-- 海洋 -->
+        <div class="text-slogan text-slogan-haiyang">
+            <img src="image/style_ocean.png" width="85%">
         </div>
-        -->
-        <!-- 泼墨 
-        <div class="text-slogan text-slogan-4">
-            <p>哇！你是如此的热情似火，激情四射，你
-                是最闪耀的荧光人类！赶紧分享到朋友圈
-                吧！搜集50个赞，就有机会获得限量荧
-                光头带，非我不炫，本色当道！
-            </p>
+        <!-- 泼墨 -->
+        <div class="text-slogan text-slogan-jiqing">
+            <img src="image/style_ink.png" width="85%">
         </div>
-        -->
-        <!-- 时代 
-        <div class="text-slogan text-slogan-5">
-            <p>哇！你是最具时代先锋的荧光人类哦，魅
-                力无极限！那就赶快分享到朋友圈吧！搜
-                集50个赞，就有机会获得限量荧光头带，
-                非我不炫，本色当道！
-            </p>
+        <!-- 时代 -->
+        <div class="text-slogan text-slogan-shidai">
+            <img src="image/style_time.png" width="85%">
         </div>
-        -->
         <!-- 我要炫 -->
         <div id="btn-show" class="btn-toshow" style"display:none" >
             <img src="./image/btn_toshow.png" height="80" width="80" alt="我要炫" onclick="location='http://www.createcdigital.com/static/app/illumirun-201501/index.html'">
@@ -85,7 +66,10 @@ document.write([
         <div id="dialog-win" class="modal">
             <div class="modal-dialog">
                 <div class="modal-content">
+                <!--
                     <p style="text-align: center">哇，你是最棒的荧光人类！竟然用了这么短的时间就集齐50个赞啦，立刻留下您的姓名和联系方式，我们将第一时间送出Xtep ILLUMI RUN专属发带哦</p>
+                    -->
+                    <img src="image/prize.png" width="90%">
                     <div class="modal-form">
                         <span>姓名</span>
                         <input id="submit-name" type="text">
@@ -102,7 +86,7 @@ document.write([
                         <input type="radio" name="sex" value="0" />
                     </div>
                     <div class="modal-form">
-                        <button id="btn-submit" > 提交</button>
+                        <button id="btn-submit" >提交</button>
                     </div>
                 </div>
                 <div class="modal-btn-close">
@@ -111,13 +95,13 @@ document.write([
             </div>
         </div>
         <!-- 提交成功框 -->
-        <div id="dialog-submit-ok" class="modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
+        <div id="dialog-submit-ok" class="modal" style="height=250px;">
+            <div class="modal-dialog" >
+                <div class="modal-content" style="margin-top:97px;">
                     <p style="margin-top: 30px;">提交成功~
                     </p>
                 </div>
-                <div class="modal-btn-close">
+                <div class="modal-btn-close" style="margin-top:65px;">
                     <img onclick="document.getElementById('dialog-submit-ok').style.display='none'" src="./image/img_close.png" class="img-close" />
                 </div>
             </div>
@@ -125,11 +109,10 @@ document.write([
         <!-- 未中奖框 -->
         <div id="dialog-nowin" class="modal">
             <div class="modal-dialog">
-                <div class="modal-content">
-                    <p>客官，您太心急啦，继续努力让朋友给你点赞哦~再差一点点就可以拿到Xtep ILLUMI RUN 专属头带了哦！
-                    </p>
+                <div class="modal-content" style="margin-top:87px;">
+                    <img src="image/no_prize.png" width="90%">
                 </div>
-                <div class="modal-btn-close">
+                <div class="modal-btn-close" style="margin-top:60px;">
                     <img onclick="document.getElementById('dialog-nowin').style.display='none'" src="./image/img_close.png" class="img-close" />
                 </div>
             </div>
@@ -152,12 +135,11 @@ document.write([
 </div>
 <!-- include "./script/mod/share/main.coffee" -->
 <script>
-require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, wx) {
+require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js', 'app'], function($, wx, app) {
     //var shareUrl = 'http://www.createcdigital.com/yuanxiao/app/bxn-201501/index.html';
     var friendsCountIncrease = function() {
-        $.ajax({
-            url:"http://www.createcdigital.com:8080/web/sharing/increaseSharingFriends/552a705bd4c651f53c7e592c.json",
-            type: "post",
+        app.ajax.post({
+            url:"web/sharing/increaseSharingFriends/552a705bd4c651f53c7e592c",
             success: function(response) {
                 
                 //$(".content").text("put success");
@@ -168,9 +150,8 @@ require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, 
         });
     };
     var momentsCountIncrease = function() {
-        $.ajax({
-            url:"http://www.createcdigital.com:8080/web/sharing/increaseSharingMoments/552a705bd4c651f53c7e592c.json",
-            type: "post",
+        app.ajax.post({
+            url:"web/sharing/increaseSharingMoments/552a705bd4c651f53c7e592c",
             success: function(response) {
                 
                 //$(".content").text("put success");
@@ -182,12 +163,9 @@ require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, 
     }; 
     var shareUrl = location.href.split('#')[0];
     $(document).ready(function() {
-        $.ajax({
-                url:'http://www.createcdigital.com:8080/web/sharing/signWxshare/54f1b82a58f24d7d16c11e18.json',
-                type:'post',
-                data:JSON.stringify({url: shareUrl}),
-                dataType:'json',
-                contentType: "application/json;charset=utf-8",
+        app.ajax.post({
+                url:'web/sharing/signWxshare/54f1b82a58f24d7d16c11e18',
+                data: {url: shareUrl},
                 timeout:1000,
                 error:function(){alert('Error');},
                 success:function(result) {

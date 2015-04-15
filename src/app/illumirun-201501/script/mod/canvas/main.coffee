@@ -16,8 +16,8 @@ class Mod extends Skateboard.BaseMod
 
 	_bodyTpl: require './body.tpl.html'
 
-	CONTEXT_W: 328
-	CONTEXT_H: 584
+	CONTEXT_W: 640
+	CONTEXT_H: 960
 	ENABLE_ROTATE: false
 
 	frame: 'shidai'
@@ -195,9 +195,9 @@ class Mod extends Skateboard.BaseMod
 			data:
 				imgData: Mod.clipData
 				openId: app.cookie.get('wxopenid')
-			success: (res) ->
+			success: (res) =>
 				if res.code is 0
-					location.href = '/static/app/run-201501/share.html?designId=' + res.data.designId
+					location.href = "/static/app/run-201501/share.html?designId=#{res.data.designId}&style=#{@frame}"
 				else
 					alert res.code + ': ' + res.msg
 			error: ->
