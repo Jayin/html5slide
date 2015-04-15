@@ -78,4 +78,87 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 
 });
 </script>
+<script>
+require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js', 'app'], function($, wx, app) {
+    //var shareUrl = 'http://www.createcdigital.com/yuanxiao/app/bxn-201501/index.html';
+    var friendsCountIncrease = function() {
+        app.ajax.post({
+            url:"web/sharing/increaseSharingFriends/552a705bd4c651f53c7e592c",
+            success: function(response) {
+                
+                //$(".content").text("put success");
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                //$(".content").text(textStatus);
+            }
+        });
+    };
+    var momentsCountIncrease = function() {
+        app.ajax.post({
+            url:"web/sharing/increaseSharingMoments/552a705bd4c651f53c7e592c",
+            success: function(response) {
+                
+                //$(".content").text("put success");
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                //$(".content").text(textStatus);
+            }
+        });
+    }; 
+    var shareUrl = location.href.split('#')[0];
+    $(document).ready(function() {
+        app.ajax.post({
+                url:'web/sharing/signWxshare/54f1b82a58f24d7d16c11e18',
+                data: {url: shareUrl},
+                timeout:1000,
+                error:function(){},
+                success:function(result) {
+                      wx.config({
+                        debug: false,
+                        appId: result.data.appId,
+                            timestamp: result.data.timestamp,
+                            nonceStr: result.data.nonceStr,
+                            signature: result.data.signature,
+                        jsApiList: [
+                          'onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo'
+                        ]
+                      });
+                      wx.ready(function () {
+                        // 在这里调用 API
+                        wx.onMenuShareTimeline({
+                            title: '荧光人类，本色当道！', // 分享标题        
+                            link: shareUrl, // 分享链接
+                            imgUrl: G.CDN_ORIGIN + '/static/app/run-201501/image/illumi_run_share.jpg', // 分享图标
+                            success: function () { 
+                                // 用户确认分享后执行的回调函数
+                               momentsCountIncrease();
+                            },
+                            cancel: function () { 
+                                // 用户取消分享后执行的回调函数
+                               // $('.close-bt').click();
+                            }
+                        });
+                        wx.onMenuShareAppMessage({
+                            
+                            title: '荧光人类，本色当道！', // 分享标题        
+                            desc: '激情爆棚！快来给我点个赞，让我遇见TA.荧光人类，本色当道！',
+                            link: shareUrl, // 分享链接
+                            imgUrl: G.CDN_ORIGIN + '/static/app/run-201501/image/illumi_run_share.jpg', // 分享图标
+                            type: '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () { 
+                                // 用户确认分享后执行的回调函数
+                               friendsCountIncrease();
+                            },
+                            cancel: function () { 
+                                // 用户取消分享后执行的回调函数
+                                
+                            }
+                        });
+                      });
+                }
+            })
+          });
+    }); 
+</script>
 <!-- /section -->
