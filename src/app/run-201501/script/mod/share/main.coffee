@@ -65,7 +65,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         $('#btn-again').css('opacity', '1')
         $('#btn-like').css('opacity', '0')
         $('#btn-show').hide()
-        $('.get-prize').show()
+        $('.get-prize').hide()
 
     else
         $('#btn-share').hide()
