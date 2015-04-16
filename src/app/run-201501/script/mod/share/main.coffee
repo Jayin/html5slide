@@ -74,7 +74,10 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         $('#btn-show').show()
         $('.get-prize').show();
 
-    $(".text-slogan-#{frame}").show()
+    if not from
+        $(".text-slogan-#{frame}").show()
+    else 
+        $('.text-slogan-timeline').show()
 
     # 点赞
     $('#btn-like').on 'click', ->
