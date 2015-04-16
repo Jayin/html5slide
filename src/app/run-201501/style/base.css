@@ -97,6 +97,7 @@ body {
     border-radius: 10px;
     font-weight: 2;
 }
+
 #dialog-nowin .modal-dialog {
     height: 250px;
 }
@@ -144,7 +145,7 @@ body {
 }
 
 .edit-body {
-    height:421px;
+    height: 421px;
     margin: 35px auto;
     text-align: center;
 }
@@ -205,7 +206,6 @@ body {
     height: auto;
 }
 
-
 .text-slogan {
     display: none;
     text-align: center;
@@ -213,6 +213,7 @@ body {
     padding-left: 24px;
     padding-right: 24px;
 }
+
 .text-slogan p {
     text-align: left;
     width: 70%;
@@ -241,28 +242,41 @@ body {
     right: 0px;
     border-bottom: 10px;
 }
+
 #btn-submit {
     /*background-image: url('../image/submit_btn.png');*/
+    
     width: 10em;
 }
+
+.bg-share {
+    background-image: url('../image/bg_share.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 514px;
+}
+
 @media (min-height: 480px) {
     .img-preview-size {
         width: 40%;
         height: auto;
     }
 }
+
 @media (min-height: 568px) {
     .img-preview-size {
         width: 45%;
         height: auto;
     }
 }
+
 @media (min-height: 667px) {
     .img-preview-size {
         width: 50%;
         height: auto;
     }
 }
+
 @media (min-height: 736px) {
     .img-preview-size {
         width: 52%;
