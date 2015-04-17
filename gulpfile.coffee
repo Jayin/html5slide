@@ -143,7 +143,7 @@ gulp.task 'amd-bundle', ->
 			'src/**/main.tpl.html'
 			'src/**/*-main.tpl.html'
 		]).pipe amdBundler
-			base64img: false
+			base64img: true
 			beautifyTemplate: true
 			trace: true
 			postcss: (file) ->
