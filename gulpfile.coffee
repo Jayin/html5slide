@@ -61,8 +61,8 @@ gulp.task 'copy', ->
 gulp.task 'less', ->
 	gulp.src(['src/**/main.less', 'src/**/*-main.less'])
 		.pipe less()
-		# .pipe sus
-		# 	baseSurfix: false
+		.pipe sus
+			baseSurfix: false
 		.pipe digestVersioning
 			digestLength: 8
 			basePath: destBase
@@ -72,8 +72,8 @@ gulp.task 'less', ->
 gulp.task 'sass', ->
 	gulp.src(['src/**/main.scss', 'src/**/*-main.scss'])
 		.pipe sass()
-		# .pipe sus
-		# 	baseSurfix: false
+		.pipe sus
+			baseSurfix: false
 		.pipe digestVersioning
 			digestLength: 8
 			basePath: destBase
@@ -86,8 +86,8 @@ gulp.task 'postcss', ->
 			postcssImport()
 			autoprefixer browsers: ['last 2 version']
 		]
-		# .pipe sus
-		# 	baseSurfix: false
+		.pipe sus
+			baseSurfix: false
 		.pipe digestVersioning
 			digestLength: 8
 			basePath: destBase
