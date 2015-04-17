@@ -16,18 +16,6 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
                 return sParameterName[1]
         return null
 
-    getWxOpenId = ()->
-        openIdCookie = app.cookie.get('wxopenid');
-        if not openIdCookie
-            urlParamOpenId = getUrlParameter('code')
-            if not urlParamOpenId
-                requestOpenIdUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd4f26aea63a05347&redirect_uri=#{encodeURIComponent(location.href.split('#')[0])}&response_type=code&scope=snsapi_base&state=null#wechat_redirect"
-                window.location.href = requestOpenIdUrl
-            else
-                app.cookie.set('wxopenid', urlParamOpenId, G.DOMAIN, '/', 24)
-                wxOpenId = urlParamOpenId
-        return openIdCookie
-
     loadDesign = (designId)->
         app.ajax.get 
             url: "web/design/#{designId}"
@@ -40,7 +28,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
                     $(".img-preview-size").attr('src', result.data.relativePath)
 
     if not G.IS_PROTOTYPE
-        wxOpenId = getWxOpenId()
+        wxOpenId = '12345678'
     designId = getUrlParameter("designId")
     from = getUrlParameter("from")
     frame = getUrlParameter("style")

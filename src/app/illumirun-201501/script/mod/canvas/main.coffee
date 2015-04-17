@@ -202,7 +202,7 @@ class Mod extends Skateboard.BaseMod
 			url: 'web/uploadImage/54f1b82a58f24d7d16c11e18'
 			data:
 				imgData: Mod.clipData
-				openId: app.cookie.get('wxopenid')
+				openId: '12345678'
 			success: (res) =>
 				if res.code is 0
 					location.href = "/static/app/run-201501/share.html?designId=#{res.data.designId}&style=#{@frame}"
