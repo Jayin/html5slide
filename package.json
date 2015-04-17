@@ -27,7 +27,7 @@
     "gulp-trace": "^0.0.1",
     "gulp-backtrace": "^0.0.5",
     "gulp-karma": "^0.0.4",
-    "gulp-postcss": "^4.0.3",
+    "gulp-postcss": "^5.1.1",
     "postcss-import": "^5.0.0",
     "postcss": "^4.0.3",
     "autoprefixer-core": "^5.1.0",
