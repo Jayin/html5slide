@@ -284,6 +284,7 @@ body {
     left: 10%;
     width: 70%;
     height: 40px;
+    margin-top: 8px;
 }
 
 .rank-item-txt {
@@ -291,6 +292,12 @@ body {
     right: 0;
     top: 0;
     text-align: right;
+}
+
+.rank-item-right{
+    float: right;
+    width: 70%;  
+    margin-top: 4%;
 }
 
 @media (min-height: 480px) {
