@@ -76,14 +76,6 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
     $(".text-slogan-#{frame}").show()
 
 
-    $(".btn-lottery").on 'click', ->
-        # $("#dialog-win").show()
-        if likeNum >= 50 or reachReward
-            $("#dialog-win").show()
-        else
-            $("#dialog-nowin").show()
-
-
     $('#btn-submit').on 'click', ->
         name = $("#submit-name").val()
         phone = $("#submit-phone").val()
