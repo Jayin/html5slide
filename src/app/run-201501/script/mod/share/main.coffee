@@ -1,7 +1,6 @@
 require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, app, wx)->
 
     designId = null
-    from = null
     templateCode = "sd"
 
     getUrlParameter = (sParam)->
@@ -27,11 +26,11 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         app.ajax.get
             url:'web/run/templates.json'
             success:(result)->
-                jiqing = result.data.templates[4].number;
-                haiyang = result.data.templates[3].number;
-                zuanshi = result.data.templates[1].number;
-                modeng = result.data.templates[2].number;
-                shidai   = result.data.templates[0].number;
+                jiqing = result.data.templates[3].number;
+                haiyang = result.data.templates[2].number;
+                zuanshi = result.data.templates[4].number;
+                modeng = result.data.templates[0].number;
+                shidai   = result.data.templates[1].number;
                 total = jiqing + haiyang + zuanshi + modeng + shidai 
 
                 $('#rank-number-jiqing').text(jiqing+'')
@@ -50,8 +49,8 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
                 alert '系统繁忙，请您稍后重试。'
 
     designId = getUrlParameter("designId")
-    from = getUrlParameter("from")
     templateCode = getUrlParameter("templateCode")
+    frame = templateCode
 
     loadDesign(designId)
 
@@ -73,26 +72,8 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         
     )()
 
-    # 根据用户状态显示
-    #if location.href.indexOf('status=1') != -1 
-    if not from 
-        $('#btn-share').show()
-        $('#btn-again').css('opacity', '1')
-        $('#btn-like').css('opacity', '0')
-        $('#btn-show').hide()
-        # $('.get-prize').hide()
-
-    else
-        $('#btn-share').hide()
-        $('#btn-again').css('opacity', '0')
-        $('#btn-like').css('opacity', '1')
-        $('#btn-show').show()
-        # $('.get-prize').show();
-
-    if not from
-        $(".text-slogan-#{frame}").show()
-    else 
-        $('.text-slogan-timeline').show()
+    
+    $(".text-slogan-#{frame}").show()
 
 
     $(".btn-lottery").on 'click', ->
@@ -123,7 +104,6 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
                 sex: sex
                 templateCode: templateCode
             success: (result)->
-                console.log result
                 $("#dialog-win").hide()
                 $("#dialog-submit-ok").show()
             error: (e)->
