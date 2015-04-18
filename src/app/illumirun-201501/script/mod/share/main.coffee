@@ -67,8 +67,8 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         $('.share-bg').css 'height', need_height + "px"
 
         # 全屏模态框
-        $('.modal-full').css 'background-size', document.body.clientWidth + 'px ' + need_height + "px"
-        $('.modal-full').css 'height', need_height + "px"
+        $('.ranklist-bg').css 'background-size', document.body.clientWidth + 'px ' + need_height + "px"
+        $('.ranklist-bg').css 'height', need_height + "px"
         
     )()
 
@@ -100,4 +100,13 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
                 $("#dialog-submit-ok").show()
             error: (e)->
                 console.log e
+
+
+    $('#btn-ranklist-close').on 'click',()->
+        $('.ranklist-bg').hide()
+        $('.share-bg').show()
+
+    $('#btn-ranklist').on 'click',()->
+        $('.ranklist-bg').show()
+        $('.share-bg').hide()
         

@@ -21,7 +21,68 @@ document.write([
 ].join(''));
 </script>
 <div class="container">
-    <div class="share-bg">
+    <!-- 排行榜-->
+    <div class="ranklist-bg" style="color: white;">
+        <div id="btn-ranklist-close" style="height: 10%;width: 15%;position:absolute;top:0;right:0" onclick="document.getElementById('dialog-ranklist').style.display='none'"></div>
+        <div >
+            <!-- 激情 -->
+            <div class="rank-item rank-item-jiqing">
+                <div class="rank-item-txt">
+                    <div id="rank-number-jiqing" style="display:inline">
+                        0
+                    </div>
+                </div>
+                <div style="height: 6px;border: 1px solid #FF0082;border-radius: 5px;">
+                    <div id="rank-rating-jiqing" style="background:#FF0082;width:0%;height:100%"></div>
+                </div>
+            </div>
+            <!-- 海洋 -->
+            <div class="rank-item rank-item-haiyang">
+                <div class="rank-item-txt">
+                    <div id="rank-number-haiyang" style="display:inline">
+                        0
+                    </div>
+                </div>
+                <div style="height: 6px;border: 1px solid #FF0082;border-radius: 5px;">
+                    <div id="rank-rating-haiyang" style="background:#FF0082;width:0%;height:100%"></div>
+                </div>
+            </div>
+            <!-- 钻石 -->
+            <div class="rank-item rank-item-zuanshi">
+                <div class="rank-item-txt">
+                    <div id="rank-number-zuanshi" style="display:inline">
+                        0
+                    </div>
+                </div>
+                <div style="height: 6px;border: 1px solid #FF0082;border-radius: 5px;">
+                    <div id="rank-rating-zuanshi" style="background:#FF0082;width:0%;height:100%"></div>
+                </div>
+            </div>
+            <!-- 摩登 -->
+            <div class="rank-item rank-item-modeng">
+                <div class="rank-item-txt">
+                    <div id="rank-number-modeng" style="display:inline">
+                        0
+                    </div>
+                </div>
+                <div style="height: 6px;border: 1px solid #FF0082;border-radius: 5px;">
+                    <div id="rank-rating-modeng" style="background:#FF0082;width:0%;height:100%"></div>
+                </div>
+            </div>
+            <!-- 时代 -->
+            <div class="rank-item rank-item-shidai">
+                <div class="rank-item-txt">
+                    <div id="rank-number-shidai" style="display:inline">
+                        0
+                    </div>
+                </div>
+                <div style="height: 6px;border: 1px solid #FF0082;border-radius: 5px;">
+                    <div id="rank-rating-shidai" style="background:#FF0082;width:0%;height:100%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="share-bg" style="display:none">
         <!-- 重来 -->
         <div id="btn-again" class="btn-again" onclick="location='/static/app/illumirun-201501/index.html'" style="opacity: 1">
             <img src="./image/btn_again.png" height="70" width="70" alt="">
@@ -56,8 +117,9 @@ document.write([
         <div class="text-slogan text-slogan-timeline">
             <img src="image/style_from_timeline.png" width="85%">
         </div>
+        <!-- 按钮组  -->
         <div class="btn-lottery" onclick="document.getElementById('dialog-win').style.display='block'"></div>
-        <div class="btn-ranklist" onclick="document.getElementById('dialog-ranklist').style.display='block'"></div>
+        <div id="btn-ranklist" class="btn-ranklist" onclick="document.getElementById('dialog-ranklist').style.display='block'"></div>
         <!-- 中奖框 -->
         <div id="dialog-win" class="modal">
             <div class="modal-dialog">
@@ -96,71 +158,6 @@ document.write([
                 </div>
                 <div class="modal-btn-close" style="margin-top:65px;">
                     <img onclick="document.getElementById('dialog-submit-ok').style.display='none'" src="./image/img_close.png" class="img-close" />
-                </div>
-            </div>
-        </div>
-        <!-- 排行榜 -->
-        <div id="dialog-ranklist" class="modal-full">
-            <div class="modal-content" style="color: #FF0082;">
-                <div class="ranklist-bg" style="color: white;">
-
-
-                    <div style="height: 20%;width: 30%;position:absolute;top:0;right:0" onclick="document.getElementById('dialog-ranklist').style.display='none'"></div>
-                    <!-- 激情 -->
-                    <div class="rank-item rank-item-jiqing">
-                        <div class="rank-item-txt">
-                            <div id="rank-number-jiqing" style="display:inline">
-                                0
-                            </div>
-                        </div>
-                        <div style="height: 6px;border: 1px solid #FF0082;border-radius: 5px;">
-                            <div id="rank-rating-jiqing" style="background:#FF0082;width:0%;height:100%"></div>
-                        </div>
-                    </div>
-                    <!-- 海洋 -->
-                    <div class="rank-item rank-item-haiyang">
-                        <div class="rank-item-txt">
-                            <div id="rank-number-haiyang" style="display:inline">
-                                0
-                            </div>
-                        </div>
-                        <div style="height: 6px;border: 1px solid #FF0082;border-radius: 5px;">
-                            <div id="rank-rating-haiyang" style="background:#FF0082;width:0%;height:100%"></div>
-                        </div>
-                    </div>
-                    <!-- 钻石 -->
-                    <div class="rank-item rank-item-zuanshi">
-                        <div class="rank-item-txt">
-                            <div id="rank-number-zuanshi" style="display:inline">
-                                0
-                            </div>
-                        </div>
-                        <div style="height: 6px;border: 1px solid #FF0082;border-radius: 5px;">
-                            <div id="rank-rating-zuanshi" style="background:#FF0082;width:0%;height:100%"></div>
-                        </div>
-                    </div>
-                    <!-- 摩登 -->
-                    <div class="rank-item rank-item-modeng">
-                        <div class="rank-item-txt">
-                            <div id="rank-number-modeng" style="display:inline">
-                                0
-                            </div>
-                        </div>
-                        <div style="height: 6px;border: 1px solid #FF0082;border-radius: 5px;">
-                            <div id="rank-rating-modeng" style="background:#FF0082;width:0%;height:100%"></div>
-                        </div>
-                    </div>
-                    <!-- 时代 -->
-                    <div class="rank-item rank-item-shidai">
-                        <div class="rank-item-txt">
-                            <div id="rank-number-shidai" style="display:inline">
-                                0
-                            </div>
-                        </div>
-                        <div style="height: 6px;border: 1px solid #FF0082;border-radius: 5px;">
-                            <div id="rank-rating-shidai" style="background:#FF0082;width:0%;height:100%"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -271,6 +271,13 @@ body {
     width: 30%;
 }
 
+.rank-item-list {
+    position: absolute;
+    top: 3%;
+    width: 100%;
+    height: 100%;
+}
+
 .rank-item {
     position: absolute;
     top: 42%;
@@ -292,19 +299,19 @@ body {
         height: auto;
     }
     .rank-item-jiqing {
-        top: 40%;
+        top: 42%;
     }
     .rank-item-haiyang {
-        top: 51%;
+        top: 54%;
     }
     .rank-item-zuanshi {
-        top: 62%;
+        top: 66%;
     }
     .rank-item-modeng {
-        top: 72%;
+        top: 77%;
     }
     .rank-item-shidai {
-        top: 84%;
+        top: 89%;
     }
 }
 
@@ -314,19 +321,19 @@ body {
         height: auto;
     }
     .rank-item-jiqing {
-        top: 40%;
+        top: 36%;
     }
     .rank-item-haiyang {
-        top: 52%;
+        top: 46%;
     }
     .rank-item-zuanshi {
-        top: 63%;
+        top: 56%;
     }
     .rank-item-modeng {
-        top: 73%;
+        top: 65%;
     }
     .rank-item-shidai {
-        top: 85%;
+        top: 76%;
     }
     .btn-ranklist,
     .btn-lottery {
@@ -340,19 +347,19 @@ body {
         height: auto;
     }
     .rank-item-jiqing {
-        top: 33%;
+        top: 36%;
     }
     .rank-item-haiyang {
-        top: 43%;
+        top: 46%;
     }
     .rank-item-zuanshi {
-        top: 53%;
+        top: 56%;
     }
     .rank-item-modeng {
-        top: 61%;
+        top: 66%;
     }
     .rank-item-shidai {
-        top: 72%;
+        top: 76%;
     }
 }
 
@@ -362,18 +369,18 @@ body {
         height: auto;
     }
     .rank-item-jiqing {
-        top: 31%;
+        top: 37%;
     }
     .rank-item-haiyang {
-        top: 39%;
+        top: 47%;
     }
     .rank-item-zuanshi {
-        top: 48%;
+        top: 57%;
     }
     .rank-item-modeng {
-        top: 56%;
+        top: 66%;
     }
     .rank-item-shidai {
-        top: 65%;
+        top: 77%;
     }
 }
