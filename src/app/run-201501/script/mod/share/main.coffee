@@ -22,11 +22,40 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
                 else 
                     $(".img-preview-size").attr('src', result.data.relativePath)
 
+
+    loadRanklist = ()->
+        app.ajax.get
+            url:'web/run/templates.json'
+            success:(result)->
+                jiqing = result.data.templates[4].number;
+                haiyang = result.data.templates[3].number;
+                zuanshi = result.data.templates[1].number;
+                modeng = result.data.templates[2].number;
+                shidai   = result.data.templates[0].number;
+                total = jiqing + haiyang + zuanshi + modeng + shidai 
+
+                $('#rank-number-jiqing').text(jiqing+'')
+                $('#rank-number-haiyang').text(haiyang+'')
+                $('#rank-number-zuanshi').text(zuanshi+'')
+                $('#rank-number-modeng').text(modeng+'')
+                $('#rank-number-shidai').text(shidai+'')
+
+                $('#rank-rating-jiqing').css 'width', (jiqing/total*100) + '%'
+                $('#rank-rating-haiyang').css 'width', (haiyang/total*100) + '%'
+                $('#rank-rating-zuanshi').css 'width', (zuanshi/total*100) + '%'
+                $('#rank-rating-modeng').css 'width', (modeng/total*100) + '%'
+                $('#rank-rating-shidai').css 'width', (shidai/total*100) + '%'
+
+            error:->
+                alert '系统繁忙，请您稍后重试。'
+
     designId = getUrlParameter("designId")
     from = getUrlParameter("from")
     templateCode = getUrlParameter("templateCode")
 
     loadDesign(designId)
+
+    loadRanklist();
 
     window.onload = ->
         app.ajax.hideLoading();
@@ -86,13 +115,13 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
             return
 
         app.ajax.post
-            url: "web/reward/#{designId}"
+            url: "web/run/user"
             contentType: 'application/json; charset=UTF-8'
             data: JSON.stringify
                 name: name
                 phone: phone
                 sex: sex
-                openId: wxOpenId
+                templateCode: templateCode
             success: (result)->
                 console.log result
                 $("#dialog-win").hide()
