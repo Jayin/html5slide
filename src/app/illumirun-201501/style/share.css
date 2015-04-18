@@ -296,8 +296,8 @@ body {
 
 .rank-item-right{
     float: right;
-    width: 70%;  
-    margin-top: 4%;
+    width: 66%;  
+    margin-top: 2%;
 }
 
 @media (min-height: 480px) {
