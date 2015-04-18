@@ -1,12 +1,8 @@
 require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, app, wx)->
 
-    wxOpenId = null
     designId = null
     from = null
-    likeNum = 0
-    alreadyLike = false
-    reachReward = false
-    frame = "shidai"
+    templateCode = "sd"
 
     getUrlParameter = (sParam)->
         sPageURL = window.location.search.substring(1);
@@ -19,20 +15,16 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 
     loadDesign = (designId)->
         app.ajax.get 
-            url: "web/design/#{designId}"
+            url: "web/run/design/#{designId}"
             success: (result)->
-                likeNum = result.data.likeNum
-                $("#like-num").text(result.data.likeNum)
                 if not G.IS_PROTOTYPE
                     $(".img-preview-size").attr('src', "/" + result.data.relativePath)
                 else 
                     $(".img-preview-size").attr('src', result.data.relativePath)
 
-    if not G.IS_PROTOTYPE
-        wxOpenId = '12345678'
     designId = getUrlParameter("designId")
     from = getUrlParameter("from")
-    frame = getUrlParameter("style")
+    templateCode = getUrlParameter("templateCode")
 
     loadDesign(designId)
 
@@ -72,22 +64,6 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         $(".text-slogan-#{frame}").show()
     else 
         $('.text-slogan-timeline').show()
-
-    # 点赞
-    $('#btn-like').on 'click', ->
-        console.log "点赞"
-        app.ajax.post
-            url: "web/design/#{designId}"
-            contentType: 'application/json; charset=UTF-8'
-            data: JSON.stringify
-                openId: wxOpenId
-            error: (e)->
-                alert 'hello error'
-            success: (result)->
-                alreadyLike = result.data.alreadyLike
-                reachReward = result.data.reachReward
-                if not alreadyLike
-                    $("#like-num").text(likeNum+1)
 
 
     $(".btn-lottery").on 'click', ->

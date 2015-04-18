@@ -21,6 +21,7 @@ class Mod extends Skateboard.BaseMod
 	ENABLE_ROTATE: false
 
 	frame: 'shidai'
+	selectTemplateCode: 'sd'
 
 	_afterFadeIn: ->
 		require ['../home/main'], (HomeMod) =>
@@ -123,6 +124,7 @@ class Mod extends Skateboard.BaseMod
 
 	changeFrame: (evt) =>
 		@frame = $(evt.target).data 'frame'
+		@selectTemplateCode = $(evt.target).data 'value'
 		@draw()
 
 	resetImg: (newImg) ->
@@ -199,13 +201,13 @@ class Mod extends Skateboard.BaseMod
 		#Skateboard.core.view '/view/motion'
 		#return
 		app.ajax.post
-			url: 'web/uploadImage/54f1b82a58f24d7d16c11e18'
+			url: 'web/run/design'
 			data:
 				imgData: Mod.clipData
-				openId: '12345678'
+				templateCode: @selectTemplateCode
 			success: (res) =>
 				if res.code is 0
-					location.href = "/static/app/run-201501/share.html?designId=#{res.data.designId}&style=#{@frame}"
+					location.href = "/static/app/run-201501/share.html?designId=#{res.data.designId}&templateCode=#{@selectTemplateCode}"
 				else
 					alert res.code + ': ' + res.msg
 			error: ->
