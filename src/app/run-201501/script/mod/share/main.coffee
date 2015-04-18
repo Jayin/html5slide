@@ -1,4 +1,5 @@
 require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, app, wx)->
+
     wxOpenId = null
     designId = null
     from = null
@@ -44,6 +45,11 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
     (->
         $('.share-bg').css 'background-size', document.body.clientWidth + 'px ' + need_height + "px"
         $('.share-bg').css 'height', need_height + "px"
+
+        # 全屏模态框
+        $('.modal-full').css 'background-size', document.body.clientWidth + 'px ' + need_height + "px"
+        $('.modal-full').css 'height', need_height + "px"
+        
     )()
 
     # 根据用户状态显示
@@ -53,14 +59,14 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
         $('#btn-again').css('opacity', '1')
         $('#btn-like').css('opacity', '0')
         $('#btn-show').hide()
-        $('.get-prize').hide()
+        # $('.get-prize').hide()
 
     else
         $('#btn-share').hide()
         $('#btn-again').css('opacity', '0')
         $('#btn-like').css('opacity', '1')
         $('#btn-show').show()
-        $('.get-prize').show();
+        # $('.get-prize').show();
 
     if not from
         $(".text-slogan-#{frame}").show()
@@ -84,7 +90,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
                     $("#like-num").text(likeNum+1)
 
 
-    $(".get-prize a").on 'click', ->
+    $(".btn-lottery").on 'click', ->
         # $("#dialog-win").show()
         if likeNum >= 50 or reachReward
             $("#dialog-win").show()
