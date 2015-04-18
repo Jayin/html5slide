@@ -207,7 +207,7 @@ class Mod extends Skateboard.BaseMod
 				templateCode: @selectTemplateCode
 			success: (res) =>
 				if res.code is 0
-					location.href = "/static/app/run-201501/share.html?designId=#{res.data.designId}&templateCode=#{@selectTemplateCode}"
+					location.href = "/static/app/illumirun-201501/share.html?designId=#{res.data.designId}&templateCode=#{@selectTemplateCode}"
 				else
 					alert res.code + ': ' + res.msg
 			error: ->

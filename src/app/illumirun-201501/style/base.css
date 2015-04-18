@@ -57,6 +57,21 @@ body {
 	opacity: .8;
 }
 
+.audio-btn {
+	background-image: url(../image/audio-off.png);
+	position:absolute;
+	top: 15%;
+	right: 10px;
+	width: 26px;
+	height: 26px;
+	background-size: auto 26px;
+}
+.audio-btn.on {
+	background-image: url(../image/audio-on.png);
+	animation: audio 3s infinite;
+	animation-timing-function: linear;
+}
+
 @keyframes audio {
 	0% {
 		transform: rotate(0);
