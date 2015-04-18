@@ -43,6 +43,9 @@ document.write([
 <script type="text/javascript">
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 
+    $('#audio1')[0].pause();
+    $('#audio1')[0].play();
+
 	//adjust
 	var wrapper = $('.page-wrapper');
 	ww = $(window).width();

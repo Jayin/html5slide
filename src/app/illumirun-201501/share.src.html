@@ -106,7 +106,7 @@ document.write([
             </div>
         </div>
     </div>
-    <div class="share-bg" >
+    <div class="share-bg">
         <!-- 重来 -->
         <div id="btn-again" class="btn-again" onclick="location='/static/app/illumirun-201501/index.html'" style="opacity: 1">
             <img src="./image/btn_again.png" height="70" width="70" alt="">
@@ -155,7 +155,7 @@ document.write([
                     </div>
                     <div class="modal-form">
                         <span>电话</span>
-                        <input id="submit-phone" type="text">
+                        <input id="submit-phone" type="tel">
                     </div>
                     <div class="modal-form">
                         <span>性别</span>
@@ -196,7 +196,8 @@ document.write([
 <!-- include "./script/mod/share/main.coffee" -->
 <script>
 require(['jquery', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js', 'app'], function($, wx, app) {
-    //var shareUrl = 'http://www.createcdigital.com/yuanxiao/app/bxn-201501/index.html';
+    $('#audio1')[0].pause();
+    $('#audio1')[0].play();
     var friendsCountIncrease = function() {
         app.ajax.post({
             url: "web/sharing/increaseSharingFriends/552a705bd4c651f53c7e592c",
