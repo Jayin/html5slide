@@ -279,11 +279,11 @@ body {
 }
 
 .rank-item {
-    position: absolute;
+ /*   position: absolute;
     top: 42%;
-    left: 10%;
+    left: 10%;*/
     width: 70%;
-    height: 40px;
+    height: 50px;
     margin-top: 8px;
 }
 
