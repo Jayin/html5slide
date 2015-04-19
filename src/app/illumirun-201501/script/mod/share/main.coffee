@@ -17,9 +17,9 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
             url: "web/run/design/#{designId}"
             success: (result)->
                 if not G.IS_PROTOTYPE
-                    $(".img-preview-size").attr('src', "/" + result.data.relativePath)
+                    $(".img-preview-size").attr('src', '/' + result.data.relativePath)
                 else 
-                    $(".img-preview-size").attr('src', result.data.relativePath)
+                    $(".img-preview-size").attr('src', G.CDN_ORIGIN + '/' +result.data.relativePath)
 
 
     loadRanklist = ()->
