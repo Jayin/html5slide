@@ -4,8 +4,8 @@
 	"domain": "document.domain",
 	"origin": "'http://h5.createcdigital.com'",
 	"cgiOrigin": "'http://h5.createcdigital.com'",
-	"cdnOrigin2": "'http://7xijzi.com1.z0.glb.clouddn.com'",
-	"cdnOrigin": "'http://h5.createcdigital.com'",
+	"cdnOrigin2": "'http://h5.createcdigital.com'",
+	"cdnOrigin": "'http://7xijzi.com2.z0.glb.qiniucdn.com'",
 
 	"pageAside": "3",
 	"itemsPerPage": "15",
