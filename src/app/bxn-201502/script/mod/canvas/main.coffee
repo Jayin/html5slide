@@ -20,9 +20,6 @@ class Mod extends Skateboard.BaseMod
     CONTEXT_H: 537
     ENABLE_ROTATE: false
 
-    frame: 'shidai'
-    selectTemplateCode: 'sd'
-
     _afterFadeIn: ->
         require ['../chooseImg/main'], (chooseImgMod) =>
             if not chooseImgMod.img
@@ -189,8 +186,8 @@ class Mod extends Skateboard.BaseMod
     draw: ->
         @context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
         @drawImg()
-        @drawFrame()
         @drawLine()
+        @drawFrame()
 
     confirm: =>
         # TODO 把虚线去掉
