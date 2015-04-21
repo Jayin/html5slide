@@ -3,7 +3,7 @@ PRD_SERVER_HOST = root@115.29.211.120
 UAT_SERVER_HOST = root@120.55.101.128
 
 main:
-	gulp --minify true
+	gulp --minify
 
 prototype:
 	BUILD_TARGET=prototype gulp
