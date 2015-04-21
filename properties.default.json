@@ -2,10 +2,10 @@
 	"isPrototype": "false",
 	
 	"domain": "document.domain",
-	"origin": "'http://www.createcdigital.com'",
-	"cgiOrigin": "'http://www.createcdigital.com'",
-	"cdnOrigin2": "'http://7xijzi.com1.z0.glb.clouddn.com'",
-	"cdnOrigin": "'http://www.createcdigital.com'",
+	"origin": "'http://h5.createcdigital.com'",
+	"cgiOrigin": "'http://h5.createcdigital.com'",
+	"cdnOrigin2": "'http://h5.createcdigital.com'",
+	"cdnOrigin": "'http://7xijzi.com2.z0.glb.qiniucdn.com'",
 
 	"pageAside": "3",
 	"itemsPerPage": "15",

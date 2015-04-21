@@ -190,7 +190,7 @@ gulp.task 'html-optimize', ['gen-md5map'], ->
 		.pipe htmlOptimizer
 			requireBaseDir: 'src/script'
 			beautifyTemplate: true
-			base64img: true
+			base64img: false
 			trace: true
 			postcss: (file) ->
 				res = postcss()

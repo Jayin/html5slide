@@ -1,9 +1,19 @@
 <!-- extend "../../html/layout/layout.base.html" -->
 
 <!-- section "head" -->
-<meta name="keywords" content="illumirun" />
-<meta name="description" content="illumirun" />
-<title>illumirun</title>
+<meta name="keywords" content="ILLUMI RUN" />
+<meta name="description" content="ILLUMI RUN" />
+<title>ILLUMI RUN</title>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?59d8dd9f20155c3688f219de3fb31384";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 <!-- /section -->
 
 <!-- section "body" -->
@@ -16,29 +26,50 @@ document.write([
 <div class="page-wrapper"></div>
 
 <div style="display: none;">
-	<img id="frame-shidai" src="./image/frame-shidai.png" />
-	<img id="frame-zuanshi" src="./image/frame-zuanshi.png" />
-	<img id="frame-modeng" src="./image/frame-modeng.png" />
-	<img id="frame-haiyang" src="./image/frame-haiyang.png" />
-	<img id="frame-jiqing" src="./image/frame-jiqing.png" />
+    <script type="text/javascript">
+    document.write([
+        '<img id="frame-shidai" crossorigin="anonymous" src="' + G.CDN_ORIGIN + '/static/app/illumirun-201501/image/frame-shidai.png"/>'
+    ].join(''));
+    </script>
+
+    <script type="text/javascript">
+    document.write([
+        '<img id="frame-zuanshi" crossorigin="anonymous" src="' + G.CDN_ORIGIN + '/static/app/illumirun-201501/image/frame-zuanshi.png"/>'
+    ].join(''));
+    </script>
+
+
+    <script type="text/javascript">
+    document.write([
+        '<img id="frame-modeng" crossorigin="anonymous" src="' + G.CDN_ORIGIN + '/static/app/illumirun-201501/image/frame-modeng.png"/>'
+    ].join(''));
+    </script>
+
+    <script type="text/javascript">
+    document.write([
+        '<img id="frame-haiyang" crossorigin="anonymous" src="' + G.CDN_ORIGIN + '/static/app/illumirun-201501/image/frame-haiyang.png"/>'
+    ].join(''));
+    </script>
+
+    <script type="text/javascript">
+    document.write([
+        '<img id="frame-jiqing" crossorigin="anonymous" src="' + G.CDN_ORIGIN + '/static/app/illumirun-201501/image/frame-jiqing.png"/>'
+    ].join(''));
+    </script>
 </div>
 
 <script type="text/javascript">
+document.write([
+    '<audio id="audio1" src="' + G.CDN_ORIGIN + '/static/app/illumirun-201501/image/bg.mp3" loop autoplay></audio>'
+].join(''));
+</script>
+<button class="img-btn audio-btn on" onclick="if($(this).hasClass('on')) {$('#audio1')[0].pause(); $(this).removeClass('on')} else {$('#audio1')[0].play(); $(this).addClass('on')}"></button>
+
+<script type="text/javascript">
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
-	if(!G.IS_PROTOTYPE) {
-		if(!app.cookie.get('wxopenid')) {
-			var urlParamOpenId = app.util.getUrlParam('code');
-			if(urlParamOpenId) {
-				app.cookie.set('wxopenid', urlParamOpenId);
-			} else {
-				location.href = [
-					'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd4f26aea63a05347&redirect_uri=', 
-					encodeURIComponent(location.href.split('#')[0]), 
-					'&response_type=code&scope=snsapi_base&state=null'
-				].join('');
-			}
-		}
-	}
+
+    $('#audio1')[0].pause();
+    $('#audio1')[0].play();
 
 	//adjust
 	var wrapper = $('.page-wrapper');
@@ -77,5 +108,88 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 }, function() {
 
 });
+</script>
+<script>
+require(['jquery','http://res.wx.qq.com/open/js/jweixin-1.0.0.js', 'app'], function($, wx, app) {
+    //var shareUrl = 'http://www.createcdigital.com/yuanxiao/app/bxn-201501/index.html';
+    var friendsCountIncrease = function() {
+        app.ajax.post({
+            url:"web/sharing/increaseSharingFriends/552a705bd4c651f53c7e592c",
+            success: function(response) {
+                
+                //$(".content").text("put success");
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                //$(".content").text(textStatus);
+            }
+        });
+    };
+    var momentsCountIncrease = function() {
+        app.ajax.post({
+            url:"web/sharing/increaseSharingMoments/552a705bd4c651f53c7e592c",
+            success: function(response) {
+                
+                //$(".content").text("put success");
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                //$(".content").text(textStatus);
+            }
+        });
+    }; 
+    var shareUrl = location.href.split('#')[0];
+    $(document).ready(function() {
+        app.ajax.post({
+                url:'web/sharing/signWxshare/54f1b82a58f24d7d16c11e18',
+                data: {url: shareUrl},
+                timeout:1000,
+                error:function(){},
+                success:function(result) {
+                      wx.config({
+                        debug: false,
+                        appId: result.data.appId,
+                            timestamp: result.data.timestamp,
+                            nonceStr: result.data.nonceStr,
+                            signature: result.data.signature,
+                        jsApiList: [
+                          'onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo'
+                        ]
+                      });
+                      wx.ready(function () {
+                        // 在这里调用 API
+                        wx.onMenuShareTimeline({
+                            title: '激情爆棚！快来观摩我的荧光人类照片吧！让我遇见TA, 荧光人类，本色当道！', // 分享标题        
+                            link: shareUrl, // 分享链接
+                            imgUrl: G.CDN_ORIGIN + '/static/app/illumirun-201501/image/illumi_run_share.jpg', // 分享图标
+                            success: function () { 
+                                // 用户确认分享后执行的回调函数
+                               momentsCountIncrease();
+                            },
+                            cancel: function () { 
+                                // 用户取消分享后执行的回调函数
+                               // $('.close-bt').click();
+                            }
+                        });
+                        wx.onMenuShareAppMessage({
+                            
+                            title: '荧光人类，本色当道！', // 分享标题        
+                            desc: '激情爆棚！快来观摩我的荧光人类照片吧！让我遇见TA, 荧光人类，本色当道！',
+                            link: shareUrl, // 分享链接
+                            imgUrl: G.CDN_ORIGIN + '/static/app/illumirun-201501/image/illumi_run_share.jpg', // 分享图标
+                            type: '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () { 
+                                // 用户确认分享后执行的回调函数
+                               friendsCountIncrease();
+                            },
+                            cancel: function () { 
+                                // 用户取消分享后执行的回调函数
+                                
+                            }
+                        });
+                      });
+                }
+            })
+          });
+    }); 
 </script>
 <!-- /section -->

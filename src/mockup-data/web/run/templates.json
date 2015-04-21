@@ -1,0 +1,23 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": {
+        "templates": [{
+            "name": "摩登",
+            "number": 200
+        }, {
+            "name": "时代",
+            "number": 100
+        }, {
+            "name": "海洋",
+            "number": 100
+        }, {
+            "name": "激情",
+            "number": 100
+        }, {
+            "name": "钻石",
+            "number": 100
+        }]
+    },
+    "debugInfo": null
+}

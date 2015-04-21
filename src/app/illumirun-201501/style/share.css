@@ -19,6 +19,13 @@ body {
     height: 514px;
 }
 
+.ranklist-bg {
+    background-image: url('../image/img_bg_share_ranklist.png');
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: 320px 514px;
+}
+
 .hidden {
     display: none;
 }
@@ -32,7 +39,7 @@ body {
 }
 
 .container {
-    height: auto;
+    height: 100%;
 }
 
 .camera {
@@ -85,7 +92,9 @@ body {
     display: none;
     overflow: hidden;
     background-color: #000;
-    height: 100%;
+    /*height: 100%;*/
+    
+    width: 100%;
 }
 
 .modal-dialog {
@@ -97,6 +106,7 @@ body {
     border-radius: 10px;
     font-weight: 2;
 }
+
 #dialog-nowin .modal-dialog {
     height: 250px;
 }
@@ -128,6 +138,7 @@ body {
 
 .modal-content {
     text-align: center;
+    height: 100%;
 }
 
 .toolbar {
@@ -144,7 +155,7 @@ body {
 }
 
 .edit-body {
-    height:421px;
+    height: 421px;
     margin: 35px auto;
     text-align: center;
 }
@@ -205,7 +216,6 @@ body {
     height: auto;
 }
 
-
 .text-slogan {
     display: none;
     text-align: center;
@@ -213,6 +223,7 @@ body {
     padding-left: 24px;
     padding-right: 24px;
 }
+
 .text-slogan p {
     text-align: left;
     width: 70%;
@@ -231,41 +242,101 @@ body {
     margin: 0px;
 }
 
-.get-prize {
-    text-align: right;
-    margin-right: 20px;
-    margin-top: -16px;
-    color: #ff0082;
-    text-decoration: underline;
-    position: fixed;
-    right: 0px;
-    border-bottom: 10px;
-}
 #btn-submit {
     /*background-image: url('../image/submit_btn.png');*/
+    
     width: 10em;
 }
+
+.bg-share {
+    background-image: url('../image/bg_share.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 514px;
+}
+
+.btn-lottery {
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    height: 20%;
+    width: 30%;
+}
+
+.btn-ranklist {
+    position: absolute;
+    bottom: -10%;
+    right: 0;
+    height: 20%;
+    width: 30%;
+}
+
+.rank-item-list {
+    position: absolute;
+    top: 3%;
+    width: 100%;
+    height: 100%;
+}
+
+.rank-item {
+    /*   position: absolute;
+    top: 42%;
+    left: 10%;*/
+    
+    width: 70%;
+    height: 50px;
+    margin-top: 8px;
+}
+
+.rank-item-txt {
+    position: relative;
+    right: 0;
+    top: 0;
+    text-align: right;
+}
+
+.rank-item-right {
+    float: right;
+    width: 66%;
+    margin-top: 2%;
+}
+
 @media (min-height: 480px) {
     .img-preview-size {
         width: 40%;
         height: auto;
     }
 }
+
 @media (min-height: 568px) {
     .img-preview-size {
         width: 45%;
         height: auto;
     }
+    .btn-ranklist,
+    .btn-lottery {
+        bottom: 5%;
+    }
 }
+
 @media (min-height: 667px) {
     .img-preview-size {
         width: 50%;
         height: auto;
     }
+    .btn-ranklist,
+    .btn-lottery {
+        bottom: 7%;
+    }
 }
+
 @media (min-height: 736px) {
     .img-preview-size {
         width: 52%;
         height: auto;
+    }
+    .btn-ranklist,
+    .btn-lottery {
+        bottom: 8%;
     }
 }
