@@ -143,7 +143,7 @@ gulp.task 'amd-bundle', ->
 			'src/**/main.tpl.html'
 			'src/**/*-main.tpl.html'
 		]).pipe amdBundler
-			base64img: true
+			generateDataUri: true
 			beautifyTemplate: true
 			trace: true
 			postcss: (file) ->
@@ -190,7 +190,7 @@ gulp.task 'html-optimize', ['gen-md5map'], ->
 		.pipe htmlOptimizer
 			requireBaseDir: 'src/script'
 			beautifyTemplate: true
-			base64img: false
+			generateDataUri: false
 			trace: true
 			postcss: (file) ->
 				res = postcss()
