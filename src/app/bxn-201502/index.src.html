@@ -16,14 +16,6 @@ document.write([
 <div class="page-wrapper">
 	
 </div>
-<div class="share-layer">
-	<div class="cover"></div>
-	<div class="text">
-		点击右上角<br />
-		分享给好友
-	</div>
-	<button class="img-btn close-btn" onclick="$('.share-layer').hide();">close</button>
-</div>
 
 <div style="display: none;">
 	<img id="face-mask" src="./image/face-mask.png" />
@@ -31,13 +23,10 @@ document.write([
 
 <script type="text/javascript">
 require(['jquery', 'app', 'skateboard', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], function($, app, Skateboard, wx) {
+		//adjust
 	var wrapper = $('.page-wrapper');
-	wh = $(window).height();
-	bh = wrapper.height();
-	//centralize the content
-	if(wh > bh) {
-		wrapper.css('marginTop', ((wh - bh) / 2) + 'px');
-	}
+	ww = $(window).width();
+	wrapper.height(ww * 1067 / 600);
 
 	$.extend(G.MD5_MAP, %{{md5map.bxn-201502}}%);
 
@@ -45,7 +34,7 @@ require(['jquery', 'app', 'skateboard', 'http://res.wx.qq.com/open/js/jweixin-1.
 		container: $('.page-wrapper'),
 		modBase: '../../../app/bxn-201502/script/',
 		animate: {
-			type: 'slide',
+			type: 'fade',
 			timingFunction: 'linear',
 			duration: 300
 		},
@@ -66,33 +55,6 @@ require(['jquery', 'app', 'skateboard', 'http://res.wx.qq.com/open/js/jweixin-1.
 				'</div>'
 			].join('')).prependTo($('.page-wrapper'));
 			return contentDom;
-		},
-		switchNavTab: function(modInst) {
-		}
-	});
-	return;
-	$.ajax({
-		url: 'http://www.createcdigital.com:8080/wechat/sharing/signWxshare/54f1b82a58f24d7d16c11e17.json',
-		type: 'post',
-		data: JSON.stringify({
-			url: 'http://www.createcdigital.com/static/app/bxn-201502/index.html'
-		}),
-		dataType: 'json',
-		contentType: 'application/json; charset=utf-8',
-		error: function() {
-			alert('Error');
-		},
-		success: function(result) {
-			wx.config({
-				debug: false,
-				appId: result.data.appId,
-				timestamp: result.data.timestamp,
-				nonceStr: result.data.nonceStr,
-				signature: result.data.signature,
-				jsApiList: [
-					'chooseImage'
-				]
-			});
 		}
 	});
 	

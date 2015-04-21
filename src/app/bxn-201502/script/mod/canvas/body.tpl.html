@@ -3,14 +3,18 @@ var $ = require('jquery');
 var app = require('app');
 %>
 
-<!-- include "body.css" -->
+
+<!-- include "body.scss" -->
 
 <div class="body-inner">
-	<canvas width="310" height="310">
+	<canvas width="484" height="537">
 		Your browser does not support HTML5 Canvas.
 	</canvas>
-	<div class="btns">
-		<a class="btn" href="/view/home">重新选图</a> 
-		<button class="btn btn-confirm" class="btn">确定使用</button> 
-	</div>
+    <div style="display:none">
+        <img id="mask-head" src="../../../image/mask_head.png">
+        <img id="mask-line" src="../../../image/mask_line.png">
+    </div>
+	<div class="btn-confirm"></div>
 </div>
+
+

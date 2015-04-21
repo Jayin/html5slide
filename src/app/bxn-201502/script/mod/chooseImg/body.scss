@@ -1,0 +1,26 @@
+.sb-mod.sb-mod--chooseImg {
+    background-image: url(../../../image/bg_chooseImg.jpg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .upload-btn {
+        width: 77%;
+        height: 60%;
+        left: 12%;
+        top: 15%;
+        position: absolute;
+        overflow: hidden;
+    }
+    .upload-btn input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4000px;
+        height: 4000px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        opacity: 0;
+    }
+}

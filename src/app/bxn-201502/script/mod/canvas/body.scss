@@ -1,0 +1,20 @@
+.sb-mod.sb-mod--canvas {
+    background-image: url(../../../image/bg_edit_avatar.jpg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    canvas {
+        position: absolute;
+        top: 22%;
+        left: 18%;
+        width: 68%;
+        height: 45%;
+    }
+    .btn-confirm {
+        position: absolute;
+        bottom: 1%;
+        left: 34%;
+        width: 35%;
+        height: 11%;
+    }
+}
