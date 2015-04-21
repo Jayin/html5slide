@@ -1,0 +1,15 @@
+.sb-mod.sb-mod--home {
+    background-image: url(../../../image/bg_home.jpg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    .btn-next {
+        width: 30%;
+        height: 15%;
+        left: 34%;
+        bottom: 0;
+        position: absolute;
+        overflow: hidden;
+    }
+}
