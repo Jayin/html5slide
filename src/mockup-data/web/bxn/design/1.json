@@ -1,0 +1,23 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": {
+        "color": "black",
+        "imgData": "static/app/bxn-201502/image/mask_head.png",
+        "queue": [
+            "top_left",
+            "top_right",
+            "mid_left",
+            "mid_right",
+            "lower_left",
+            "lower_right",
+            "top_left",
+            "top_right",
+            "mid_left",
+            "mid_right",
+            "lower_left",
+            "lower_right"
+        ]
+    },
+    "debugInfo": null
+}

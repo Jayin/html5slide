@@ -1,0 +1,34 @@
+<!-- extend "../../html/layout/layout.base.html" -->
+<!-- section "head" -->
+<meta name="keywords" content="bxn" />
+<meta name="description" content="bxn" />
+<title>bxn</title>
+<!-- /section -->
+<!-- section "body" -->
+<script type="text/javascript">
+document.write([
+    '<link rel="stylesheet" href="' + G.CDN_BASE + '/app/bxn-201502/style/main.css" />'
+].join(''));
+</script>
+<div class="page-wrapper share-bg share-bg-finish">
+    <canvas id="action_canvas" width="600" height="1067">
+        Your browser not support canvas
+    </canvas>
+    <div style="display: none;"> <img id="action_start" src="./image/action_start.png"></div>
+    <!-- action image -->
+    <div id="action_image" style="display: none;">
+        
+    </div>
+</div>
+<script type="text/javascript">
+require(['jquery'], function($) {
+            //adjust
+            var wrapper = $('.page-wrapper');
+            ww = $(window).width();
+            wrapper.height(ww * 1067 / 600);
+        }, function() {
+
+        });
+</script>
+<!-- include "./script/mod/share/main.coffee" -->
+<!-- /section -->
