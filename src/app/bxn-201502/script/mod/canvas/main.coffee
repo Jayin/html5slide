@@ -189,12 +189,46 @@ class Mod extends Skateboard.BaseMod
         @drawLine()
         @drawFrame()
 
+    drawWithoutLine: ->
+        @context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
+        @drawImg()
+        @drawFrame()
+
+
+    white2trasparent = (img, range) ->
+        range = range or 5
+        canvas = document.createElement('canvas')
+        canvas.height = img.height
+        canvas.width = img.width
+        ctx = canvas.getContext('2d')
+        ctx.drawImage img, 0, 0, img.width, img.height
+        imgData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+        i = 0
+        while i < imgData.data.length
+            dt = Math.abs(imgData.data[i] - 255) + Math.abs(imgData.data[i + 1] - 255) + Math.abs(imgData.data[i + 2] - 255)
+            if dt < 5
+              imgData.data[i + 3] = 0
+            i += 4
+        ctx.putImageData imgData, 0, 0
+        newImg = new Image
+        newImg.src = canvas.toDataURL()
+        newImg
+
     confirm: =>
-        # TODO 把虚线去掉
-        Mod.clipData = @canvas.toDataURL()
-        $(Mod).trigger 'clipchange', Mod.clipData
+        # TODO 选择不同的颜色
+        @drawWithoutLine()
+        tmpImg = new Image
+        tmpImg.src = @canvas.toDataURL()
+        tmpImg = white2trasparent(tmpImg)
+        console.log '处理后的图片'
+        console.log tmpImg.src
+        Mod.clipData = tmpImg.src
+        Mod.color = 'black'
         console.log Mod.clipData
-        alert 'Confirm'
+        console.log Mod.color
+        $(Mod).trigger 'clipchange', Mod.clipData
+        Skateboard.core.view '/view/action'
+        # TODO 保存数据
         #Skateboard.core.view '/view/motion'
         #return
         # app.ajax.post

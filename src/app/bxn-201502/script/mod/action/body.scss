@@ -1,0 +1,33 @@
+.sb-mod.sb-mod--action {
+    background-image: url(../../../image/bg_action.jpg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    canvas {
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        width: 75%;
+        height: 80%;
+    }
+    .btn-action {
+        position: absolute;
+        width: 20%;
+        height: 10%;
+    }
+    .btn-left {
+        left: 5%;
+    }
+    .btn-right {
+        right: 5%;
+    }
+    .btn-top {
+        top: 14%;
+    }
+    .btn-mid {
+        top: 40%
+    }
+    .btn-lower {
+        top: 69%
+    }
+}
