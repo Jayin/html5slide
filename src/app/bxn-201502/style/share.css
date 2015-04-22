@@ -1,15 +1,15 @@
-.share-bg {
+.share-container .share-bg {
     width: 100%;
     height: 100%;
 }
 
-.share-bg-finish {
+.share-container .share-bg-finish {
     background-image: url('../image/bg_share_finish.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-#action_canvas {
+.share-container #action_canvas {
     position: absolute;
     top: 18%;
     left: 14%;

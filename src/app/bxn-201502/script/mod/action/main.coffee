@@ -11,6 +11,8 @@ class Mod extends Skateboard.BaseMod
         'click .btn-top-right': 'click_top_right'
         'click .btn-mid-right': 'click_mid_right'
         'click .btn-lower-right': 'click_lower_right'
+        'click #btn-action-confirm': 'confirm'
+        'click #btn-action-reset': 'reset'
 
     _bodyTpl: require './body.tpl.html'
     blackTpl = require './black.tpl.html'
@@ -21,10 +23,13 @@ class Mod extends Skateboard.BaseMod
 
     action_img: null
 
-    avatar: null
+    avatar: null # 头像数据(base64)
     avatar_direction: 'straight'
     AvatarTarget_Width: 137
     AvatarTarget_Height: 145
+
+    queue: [] # 选择的顺序
+    selectColor: null # 选择的颜色
 
     action_data:
         straight: 
@@ -76,6 +81,7 @@ class Mod extends Skateboard.BaseMod
                 @action_lower_right = $("#action_#{CanvasMod.color}_lower_right")[0]
 
                 @avatar = CanvasMod.clipData
+                @selectColor = CanvasMod.color
     
                 @action_straight.onload = =>
                     @action_img =  @action_straight
@@ -89,8 +95,6 @@ class Mod extends Skateboard.BaseMod
         ele = $('.action-img-container')
         if color is 'black'
             ele.html(blackTpl.render())
-        else if color is 'red'
-            ele.html(redTpl.render())
         else
             ele.html(blueTpl.render())
 
@@ -128,37 +132,71 @@ class Mod extends Skateboard.BaseMod
         @drawAction()
         @drawAvatar()
 
+    addActionQueue: (action)=>
+        if @queue.length >= 12 
+            return
+        @queue.push action
+        $("#round-#{@queue.length}").removeClass().addClass("round round-#{action}")
+
 
     click_top_left: =>
         @action_img = @action_top_left
         @avatar_direction = 'top_left'
+        @addActionQueue(@avatar_direction)
         @draw()
 
     click_mid_left: =>
         @action_img = @action_mid_left
         @avatar_direction = 'mid_left'
+        @addActionQueue(@avatar_direction)
         @draw()
 
     click_lower_left: =>
         @action_img = @action_lower_left
         @avatar_direction = 'lower_left'
+        @addActionQueue(@avatar_direction)
         @draw()
 
     click_top_right: =>
         @action_img = @action_top_right
         @avatar_direction = 'top_right'
+        @addActionQueue(@avatar_direction)
         @draw()
 
     click_mid_right: =>
         @action_img = @action_mid_right
         @avatar_direction = 'mid_right'
+        @addActionQueue(@avatar_direction)
         @draw()
 
     click_lower_right: =>
         @action_img = @action_lower_right
         @avatar_direction = 'lower_right'
+        @addActionQueue(@avatar_direction)
         @draw()
 
+
+    confirm: =>
+        if @queue.length isnt 12
+            app.alerts.alert '请选择12个动作', 'info', 3000
+            return
+        console.log 'upload info:'
+        console.log @queue
+        console.log @selectColor
+        console.log @avatar
+
+
+    reset: =>
+        # 动作复原
+        @action_img =  @action_straight
+        @avatar_direction = 'straight'
+        @draw()
+
+        @queue = []
+        i = 1
+        while i <= 12
+            $("#round-#{i}").removeClass().addClass('round')
+            i++
 
 module.exports = Mod
 
@@ -172,24 +210,24 @@ var app = require('app');
 
 @@ black.tpl.html
 
-<img id="action_black_straight" src="../../../image/action_black_straight.png" height="1067" width="600">
-<img id="action_black_lower_left" src="../../../image/action_black_lower_left.png" height="1067" width="600">
-<img id="action_black_mid_left" src="../../../image/action_black_mid_left.png" height="1067" width="600">
-<img id="action_black_top_left" src="../../../image/action_black_top_left.png" height="1067" width="600">
-<img id="action_black_lower_right" src="../../../image/action_black_lower_right.png" height="1067" width="600">
-<img id="action_black_mid_right" src="../../../image/action_black_mid_right.png" height="1067" width="600">
-<img id="action_black_top_right" src="../../../image/action_black_top_right.png" height="1067" width="600">
+<img id="action_black_straight" src="../../../image/action_black_straight.png" >
+<img id="action_black_lower_left" src="../../../image/action_black_lower_left.png" >
+<img id="action_black_mid_left" src="../../../image/action_black_mid_left.png" >
+<img id="action_black_top_left" src="../../../image/action_black_top_left.png" >
+<img id="action_black_lower_right" src="../../../image/action_black_lower_right.png" >
+<img id="action_black_mid_right" src="../../../image/action_black_mid_right.png" >
+<img id="action_black_top_right" src="../../../image/action_black_top_right.png" >
 
 
 @@ blue.tpl.html
 
-<img id="action_black_straight" src="../../../image/action_black_straight.png" height="1067" width="600">
-<img id="action_black_lower_left" src="../../../image/action_black_lower_left.png" height="1067" width="600">
-<img id="action_black_mid_left" src="../../../image/action_black_mid_left.png" height="1067" width="600">
-<img id="action_black_top_left" src="../../../image/action_black_top_left.png" height="1067" width="600">
-<img id="action_black_lower_right" src="../../../image/action_black_lower_right.png" height="1067" width="600">
-<img id="action_black_mid_right" src="../../../image/action_black_mid_right.png" height="1067" width="600">
-<img id="action_black_top_right" src="../../../image/action_black_top_right.png" height="1067" width="600">
+<img id="action_black_straight" src="../../../image/action_black_straight.png" >
+<img id="action_black_lower_left" src="../../../image/action_black_lower_left.png" >
+<img id="action_black_mid_left" src="../../../image/action_black_mid_left.png" >
+<img id="action_black_top_left" src="../../../image/action_black_top_left.png" >
+<img id="action_black_lower_right" src="../../../image/action_black_lower_right.png" >
+<img id="action_black_mid_right" src="../../../image/action_black_mid_right.png" >
+<img id="action_black_top_right" src="../../../image/action_black_top_right.png" >
 
 
 
