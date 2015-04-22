@@ -14,7 +14,6 @@ class Mod extends Skateboard.BaseMod
 
     _bodyTpl: require './body.tpl.html'
     blackTpl = require './black.tpl.html'
-    redTpl = require './red.tpl.html'
     blueTpl = require './blue.tpl.html'
 
     CONTEXT_W: 600
@@ -172,17 +171,6 @@ var app = require('app');
 %>
 
 @@ black.tpl.html
-
-<img id="action_black_straight" src="../../../image/action_black_straight.png" height="1067" width="600">
-<img id="action_black_lower_left" src="../../../image/action_black_lower_left.png" height="1067" width="600">
-<img id="action_black_mid_left" src="../../../image/action_black_mid_left.png" height="1067" width="600">
-<img id="action_black_top_left" src="../../../image/action_black_top_left.png" height="1067" width="600">
-<img id="action_black_lower_right" src="../../../image/action_black_lower_right.png" height="1067" width="600">
-<img id="action_black_mid_right" src="../../../image/action_black_mid_right.png" height="1067" width="600">
-<img id="action_black_top_right" src="../../../image/action_black_top_right.png" height="1067" width="600">
-
-
-@@ red.tpl.html
 
 <img id="action_black_straight" src="../../../image/action_black_straight.png" height="1067" width="600">
 <img id="action_black_lower_left" src="../../../image/action_black_lower_left.png" height="1067" width="600">
