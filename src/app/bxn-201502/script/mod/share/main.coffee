@@ -154,6 +154,10 @@ require ['jquery', 'app'], ($, app)->
         tmpQueue = app.util.cloneObject(play_queue, 1)
         tmpTimeline = app.util.cloneObject(timeline, 1)
 
+        # 最后要等到第10秒才结束
+        tmpQueue[tmpQueue.length] = tmpQueue[tmpQueue.length - 1]
+        tmpTimeline[tmpTimeline.length] = 10*1000;
+
         console.log '播放信息'
         console.log tmpQueue
         console.log tmpTimeline
