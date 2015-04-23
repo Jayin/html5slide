@@ -196,7 +196,7 @@ class Mod extends Skateboard.BaseMod
 
 
     white2trasparent = (img, range) ->
-        range = range or 5
+        range = range or 10
         canvas = document.createElement('canvas')
         canvas.height = img.height
         canvas.width = img.width
@@ -206,7 +206,7 @@ class Mod extends Skateboard.BaseMod
         i = 0
         while i < imgData.data.length
             dt = Math.abs(imgData.data[i] - 255) + Math.abs(imgData.data[i + 1] - 255) + Math.abs(imgData.data[i + 2] - 255)
-            if dt < 5
+            if dt < range
               imgData.data[i + 3] = 0
             i += 4
         ctx.putImageData imgData, 0, 0

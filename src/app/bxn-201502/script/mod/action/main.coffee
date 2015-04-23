@@ -177,13 +177,29 @@ class Mod extends Skateboard.BaseMod
 
 
     confirm: =>
-        if @queue.length isnt 12
+        alert(@queue.length)
+        if @queue.length < 12
             app.alerts.alert '请选择12个动作', 'info', 3000
             return
         console.log 'upload info:'
         console.log @queue
         console.log @selectColor
         console.log @avatar
+        app.ajax.post
+            url: 'web/bxn/design'
+            data:
+                imgData: @avatar
+                color: @selectColor
+                sequence: @queue
+            success: (res) =>
+                console.log res
+                alert('request ok')
+                if res.code is 0
+                    location.href = "/static/app/bxn-201502/share.html?designId=#{res.data.designId}"
+                else
+                    alert res.code + ': ' + res.msg
+            error: ->
+                alert '系统繁忙，请您稍后重试。'
 
 
     reset: =>

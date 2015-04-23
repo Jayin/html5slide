@@ -28,7 +28,7 @@ require ['jquery', 'app'], ($, app)->
     clolor = 'black'
     play_queue = [] # 播放动作顺序
     timeline = [
-        1000,2500,3000,3500,4000,4500,5000,5500,6000,6500,7000,7500
+        3000,3250,3500,4750,4250,4500,5750,5000,6500,6750,7000,7250
 
     ] # 显示的时间点
     isPlaying = false
@@ -230,11 +230,12 @@ require ['jquery', 'app'], ($, app)->
     app.ajax.get
         url: "web/bxn/design/#{designId}"
         success: (result)->
+            console.log result
             if result.code is 0
                 avatar = new Image
-                avatar.src = G.CDN_ORIGIN + '/'  + result.data.imgData
+                avatar.src = G.CDN_ORIGIN + '/'  + result.data.relativePath
                 color = result.data.color
-                play_queue = result.data.queue
+                play_queue = result.data.sequence
 
                 action.straight.src = tpl[color][0]
                 action.lower_left.src = tpl[color][1]
@@ -244,7 +245,8 @@ require ['jquery', 'app'], ($, app)->
                 action.mid_right.src = tpl[color][5]
                 action.top_right.src = tpl[color][6]
 
-
+            else 
+                app.alerts.alert '请刷新'
 
         error: ->
             alert '系统繁忙，请您稍后重试。'
