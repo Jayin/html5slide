@@ -15,8 +15,20 @@ class Mod extends Skateboard.BaseMod
         'click #btn-action-reset': 'reset'
 
     _bodyTpl: require './body.tpl.html'
-    blackTpl = require './black.tpl.html'
-    blueTpl = require './blue.tpl.html'
+
+    tpl: # 蓝色+红色
+        black:[
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_straight.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_lower_left.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_mid_left.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_top_left.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_lower_right.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_mid_right.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_top_right.png'
+        ]
+        blue:[
+            # TODO
+        ]
 
     CONTEXT_W: 600
     CONTEXT_H: 1067
@@ -63,40 +75,62 @@ class Mod extends Skateboard.BaseMod
             left: 0.865
             deg: 45
 
+    # 人物动作
+    action: 
+        straight: new Image
+        top_left: new Image
+        mid_left: new Image
+        lower_left: new Image
+        top_right: new Image
+        mid_right: new Image
+        lower_right: new Image
+
+    # 人物动作图片加载
+    loadImageNumber: 0
+    loadImageTotal: 7
+    imageLoadCallback : =>
+        @loadImageNumber += 1
+        console.log "load img: #{@loadImageNumber}"
+        if @loadImageNumber < @loadImageTotal
+            app.ajax.showLoading()
+        else 
+            app.ajax.hideLoading()
+
+
     render: =>
         super
         @canvas = @$('#action_canvas')[0]
         @context = @canvas.getContext('2d')
 
+        # Draw this first
+        @action.straight.onload = =>
+                @imageLoadCallback()
+                @action_img =  @action.straight
+                @draw()
+
+        @action.top_left.onload = @imageLoadCallback
+        @action.mid_left.onload = @imageLoadCallback
+        @action.lower_left.onload = @imageLoadCallback
+        @action.top_right.onload = @imageLoadCallback
+        @action.mid_right.onload = @imageLoadCallback
+        @action.lower_right.onload = @imageLoadCallback
 
         require ['../canvas/main'],(CanvasMod) =>
             if CanvasMod.color and CanvasMod.clipData
-                @addClothesImage(CanvasMod.color)
-                @action_straight = $("#action_#{CanvasMod.color}_straight")[0]
-                @action_top_left = $("#action_#{CanvasMod.color}_top_left")[0]
-                @action_mid_left = $("#action_#{CanvasMod.color}_mid_left")[0]
-                @action_lower_left = $("#action_#{CanvasMod.color}_lower_left")[0]
-                @action_top_right = $("#action_#{CanvasMod.color}_top_right")[0]
-                @action_mid_right = $("#action_#{CanvasMod.color}_mid_right")[0]
-                @action_lower_right = $("#action_#{CanvasMod.color}_lower_right")[0]
-
                 @avatar = CanvasMod.clipData
                 @selectColor = CanvasMod.color
-    
-                @action_straight.onload = =>
-                    @action_img =  @action_straight
-                    @draw()
+
+                @action.straight.src = @tpl[CanvasMod.color][0]
+                @action.lower_left.src = @tpl[CanvasMod.color][1]
+                @action.mid_left.src = @tpl[CanvasMod.color][2]
+                @action.top_left.src = @tpl[CanvasMod.color][3]
+                @action.lower_right.src = @tpl[CanvasMod.color][4]
+                @action.mid_right.src = @tpl[CanvasMod.color][5]
+                @action.top_right.src = @tpl[CanvasMod.color][6]
                 
                 
             else
                 Skateboard.core.view '/view/chooseImg', replaceState: true
-
-    addClothesImage:(color) ->
-        ele = $('.action-img-container')
-        if color is 'black'
-            ele.html(blackTpl.render())
-        else
-            ele.html(blueTpl.render())
 
     drawAction: =>
         context = @context
@@ -140,44 +174,43 @@ class Mod extends Skateboard.BaseMod
 
 
     click_top_left: =>
-        @action_img = @action_top_left
+        @action_img = @action.top_left
         @avatar_direction = 'top_left'
         @addActionQueue(@avatar_direction)
         @draw()
 
     click_mid_left: =>
-        @action_img = @action_mid_left
+        @action_img = @action.mid_left
         @avatar_direction = 'mid_left'
         @addActionQueue(@avatar_direction)
         @draw()
 
     click_lower_left: =>
-        @action_img = @action_lower_left
+        @action_img = @action.lower_left
         @avatar_direction = 'lower_left'
         @addActionQueue(@avatar_direction)
         @draw()
 
     click_top_right: =>
-        @action_img = @action_top_right
+        @action_img = @action.top_right
         @avatar_direction = 'top_right'
         @addActionQueue(@avatar_direction)
         @draw()
 
     click_mid_right: =>
-        @action_img = @action_mid_right
+        @action_img = @action.mid_right
         @avatar_direction = 'mid_right'
         @addActionQueue(@avatar_direction)
         @draw()
 
     click_lower_right: =>
-        @action_img = @action_lower_right
+        @action_img = @action.lower_right
         @avatar_direction = 'lower_right'
         @addActionQueue(@avatar_direction)
         @draw()
 
 
     confirm: =>
-        alert(@queue.length)
         if @queue.length < 12
             app.alerts.alert '请选择12个动作', 'info', 3000
             return
@@ -192,8 +225,6 @@ class Mod extends Skateboard.BaseMod
                 color: @selectColor
                 sequence: @queue
             success: (res) =>
-                console.log res
-                alert('request ok')
                 if res.code is 0
                     location.href = "/static/app/bxn-201502/share.html?designId=#{res.data.designId}"
                 else
@@ -204,7 +235,7 @@ class Mod extends Skateboard.BaseMod
 
     reset: =>
         # 动作复原
-        @action_img =  @action_straight
+        @action_img =  @action.straight
         @avatar_direction = 'straight'
         @draw()
 
@@ -215,35 +246,6 @@ class Mod extends Skateboard.BaseMod
             i++
 
 module.exports = Mod
-
-
-__END__
-
-<%
-var $ = require('jquery');
-var app = require('app');
-%>
-
-@@ black.tpl.html
-
-<img id="action_black_straight" src="../../../image/action_black_straight.png" >
-<img id="action_black_lower_left" src="../../../image/action_black_lower_left.png" >
-<img id="action_black_mid_left" src="../../../image/action_black_mid_left.png" >
-<img id="action_black_top_left" src="../../../image/action_black_top_left.png" >
-<img id="action_black_lower_right" src="../../../image/action_black_lower_right.png" >
-<img id="action_black_mid_right" src="../../../image/action_black_mid_right.png" >
-<img id="action_black_top_right" src="../../../image/action_black_top_right.png" >
-
-
-@@ blue.tpl.html
-
-<img id="action_black_straight" src="../../../image/action_black_straight.png" >
-<img id="action_black_lower_left" src="../../../image/action_black_lower_left.png" >
-<img id="action_black_mid_left" src="../../../image/action_black_mid_left.png" >
-<img id="action_black_top_left" src="../../../image/action_black_top_left.png" >
-<img id="action_black_lower_right" src="../../../image/action_black_lower_right.png" >
-<img id="action_black_mid_right" src="../../../image/action_black_mid_right.png" >
-<img id="action_black_top_right" src="../../../image/action_black_top_right.png" >
 
 
 

@@ -3,8 +3,8 @@
     "msg": "",
     "data": {
         "color": "black",
-        "imgData": "static/app/bxn-201502/image/mask_head.png",
-        "queue": [
+        "relativePath": "static/app/bxn-201502/image/mask_head.png",
+        "sequence": [
             "top_left",
             "top_right",
             "mid_left",

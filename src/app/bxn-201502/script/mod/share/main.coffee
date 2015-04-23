@@ -35,10 +35,11 @@ require ['jquery', 'app'], ($, app)->
 
     # 人物动作图片加载回调
     loadImageNumber = 0
+    loadImageTotal = 7
     imageLoadCallback = =>
         loadImageNumber += 1
         console.log "load img: #{loadImageNumber}" 
-        if loadImageNumber < 7
+        if loadImageNumber < loadImageTotal
             app.ajax.showLoading()
         else 
             app.ajax.hideLoading()
@@ -153,6 +154,10 @@ require ['jquery', 'app'], ($, app)->
         tmpQueue = app.util.cloneObject(play_queue, 1)
         tmpTimeline = app.util.cloneObject(timeline, 1)
 
+        # 最后要等到第10秒才结束
+        tmpQueue[tmpQueue.length] = tmpQueue[tmpQueue.length - 1]
+        tmpTimeline[tmpTimeline.length] = 10*1000;
+
         console.log '播放信息'
         console.log tmpQueue
         console.log tmpTimeline
@@ -227,6 +232,7 @@ require ['jquery', 'app'], ($, app)->
     # 获取designId -> 获取设计顺序
     url_obj = parser(window.location)
     designId = url_obj.search.designId
+
     app.ajax.get
         url: "web/bxn/design/#{designId}"
         success: (result)->
@@ -253,7 +259,7 @@ require ['jquery', 'app'], ($, app)->
 
 
     $('#action_canvas').on 'click',=>
-        if loadImageNumber < 7 
+        if loadImageNumber < loadImageTotal
             alert('加载中ing,请稍等')
             return
         if isPlaying 
