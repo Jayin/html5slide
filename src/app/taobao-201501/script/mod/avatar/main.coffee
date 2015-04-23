@@ -18,6 +18,11 @@ class Mod extends Skateboard.BaseMod
 		G.state.on 'change', (evt, obj) =>
 			@$('.nick').text obj.nick if obj.nick
 
+	render: ->
+		super
+		# preload next page
+		require ['../canvas/main']
+
 	resetFileInput: ->
 		$('.upload-btn input').remove()
 		$('<input type="file" capture="camera" accept="image/*" />').appendTo $('.upload-btn')
