@@ -1,0 +1,72 @@
+body {
+	background-color: #de980c;
+}
+
+.btn {
+	line-height: 36px;
+	text-align: center;
+	border: solid 1px #ccc;
+	background-color: #eee;
+	color: #555;
+	display: inline-block;
+	padding: 0 10px;
+	text-decoration: none;
+}
+
+.page-wrapper {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+.sb-mod {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.sb-mod__body {
+	width: 100%;
+	height: 100%;
+}
+
+.share-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+	display: none;
+}
+.share-layer .cover {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #000;
+	opacity: .8;
+}
+
+@keyframes audio {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes bounce_circleG{
+	0%{
+	}
+
+	50%{
+		background-color: #FF4200;
+	}
+
+	100%{
+	}
+}

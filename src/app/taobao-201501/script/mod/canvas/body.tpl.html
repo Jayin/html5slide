@@ -1,0 +1,24 @@
+<%
+var $ = require('jquery');
+var app = require('app');
+%>
+
+<!-- include "body.scss" -->
+
+<div class="body-inner">
+	<canvas width="640" height="960">
+		Your browser does not support HTML5 Canvas.
+	</canvas>
+	<a class="img-btn btn-reset" href="/view/home">重新选图</a> 
+	<button class="img-btn btn-confirm">确定使用</button> 
+	<div class="frame-btns">
+		<button class="img-btn frame-btns__btn" data-frame="shidai">时代</button>
+		<button class="img-btn frame-btns__btn" data-frame="zuanshi">钻石</button>
+		<button class="img-btn frame-btns__btn" data-frame="modeng">摩登</button>
+		<button class="img-btn frame-btns__btn" data-frame="haiyang">海洋</button>
+		<button class="img-btn frame-btns__btn" data-frame="jiqing">激情</button>
+	</div>
+	<div style="display:none">
+		<img id="qr_code" src="../../../image/Illumirun_wechat_QR_code.jpg" height="258" width="258">
+	</div>
+</div>

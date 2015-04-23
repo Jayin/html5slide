@@ -1,0 +1,53 @@
+body.body-sb-mod--avatar {
+	background-color: #f4d6a1;
+}
+.sb-mod.sb-mod--avatar {
+	background-image: url(../../../image/avatar/bg.jpg);
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.upload-btn {
+		width: 33%;
+		height: 21%;
+		left: 34%;
+		top: 60%;
+		position: absolute;
+		overflow: hidden;
+	}
+	.upload-btn input {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 4000px;
+		height: 4000px;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		opacity: 0;
+	}
+	.btn-arrow-left {
+		width: 10%;
+		height: 8%;
+		left: 8%;
+		top: 43%;
+	}
+	.btn-arrow-right {
+		width: 10%;
+		height: 8%;
+		left: 83%;
+		top: 43%;
+	}
+	.btn-back {
+		width: 30%;
+		height: 8%;
+		left: 12%;
+		top: 87.5%;
+	}
+	.btn-next {
+		width: 30%;
+		height: 8%;
+		left: 60%;
+		top: 87.5%;
+	}
+}

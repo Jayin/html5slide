@@ -57,6 +57,34 @@ if(G.DOMAIN && G.DOMAIN != document.domain) {
 		}
 	}
 })();
+
+G.state = (function() {
+	var _state = null;
+
+	return {
+		set: function(obj) {
+			if(typeof obj == 'object' && obj) {
+				if(_state) {
+					for(var p in obj) {
+						if(Object.prototype.hasOwnProperty.call(obj, p)) {
+							_state[p] = obj[p];
+						}
+					}
+				} else {
+					_state = obj;
+				}
+			}
+		},
+
+		get: function(key) {
+			if(key) {
+				return _state && _state[key];
+			} else {
+				return _state;
+			}
+		}
+	};
+})();
 </script>
 
 <script type="text/javascript">
@@ -65,7 +93,9 @@ document.write([
 ].join(''));
 </script>
 
+<!-- yield "ajax-loading" -->
 <!-- include "../inc/loading.inc.html" -->
+<!-- /yield -->
 
 <script type="text/javascript">
 document.write([
