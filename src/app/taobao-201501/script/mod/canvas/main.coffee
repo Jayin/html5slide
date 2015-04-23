@@ -12,27 +12,20 @@ class Mod extends Skateboard.BaseMod
 		'touchmove canvas': 'touchMove'
 		'touchend canvas': 'touchEnd'
 		'click .btn-confirm': 'confirm'
-		'click .frame-btns__btn': 'changeFrame'
 
 	_bodyTpl: require './body.tpl.html'
 
-	CONTEXT_W: 640
-	CONTEXT_H: 960
+	CONTEXT_W: 411
+	CONTEXT_H: 411
 	ENABLE_ROTATE: false
-
-	frame: 'shidai'
 
 	render: ->
 		super
 		@canvas = @$('canvas')[0]
 		@context = @canvas.getContext('2d')
-		require ['../home/main'], (HomeMod) =>
-			if HomeMod.img
-				@resetImg HomeMod.img
-			else
-				Skateboard.core.view '/view/home', replaceState: true
-			$(HomeMod).on 'imgchange', @imgChange
-			@initPinch()
+		@resetImg G.state.get('avatar')
+		G.state.on 'change', @imgChange
+		@initPinch()
 
 	initPinch: ->
 		toRef = null
@@ -113,12 +106,8 @@ class Mod extends Skateboard.BaseMod
 	touchEnd: (evt) =>
 		@movePt = null
 
-	imgChange: (evt, newImg) =>
-		@resetImg newImg
-
-	changeFrame: (evt) =>
-		@frame = $(evt.target).data 'frame'
-		@draw()
+	imgChange: (evt, obj) =>
+		@resetImg obj.avatar
 
 	resetImg: (newImg) ->
 		app.ajax.showLoading()
@@ -171,7 +160,7 @@ class Mod extends Skateboard.BaseMod
 		context = @context
 		context.save()
 		context.globalAlpha = 1
-		maskImg = $('#frame-' + @frame)[0]
+		maskImg = $('#canvas-frame')[0]
 		context.drawImage maskImg, 0, 0, @CONTEXT_W, @CONTEXT_H
 		context.restore()
 
@@ -204,3 +193,25 @@ class Mod extends Skateboard.BaseMod
 			$(HomeMod).off 'imgchange', @imgChange
 
 module.exports = Mod
+
+__END__
+
+@@ body.tpl.html
+<%
+var $ = require('jquery');
+var app = require('app');
+%>
+
+<!-- include "body.scss" -->
+
+<div class="body-inner">
+	<canvas width="411" height="411">
+		Your browser does not support HTML5 Canvas.
+	</canvas>
+	<a class="img-btn btn-back" href="/:back">返回</a>
+	<button class="img-btn btn-next">下一步</button>
+	<div style="display:none">
+		<img id="canvas-frame" src="../../../image/canvas/canvas-frame.png" />
+	</div>
+</div>
+

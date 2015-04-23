@@ -13,6 +13,8 @@ class Mod extends Skateboard.BaseMod
 		super
 		require ['./dialog-main'], (dialog) =>
 			dialog.on 'confirm', @confirm
+		# preload next page
+		require ['../avatar/main']
 
 	showDialog: =>
 		require ['./dialog-main'], (dialog) ->

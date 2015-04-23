@@ -57,34 +57,6 @@ if(G.DOMAIN && G.DOMAIN != document.domain) {
 		}
 	}
 })();
-
-G.state = (function() {
-	var _state = null;
-
-	return {
-		set: function(obj) {
-			if(typeof obj == 'object' && obj) {
-				if(_state) {
-					for(var p in obj) {
-						if(Object.prototype.hasOwnProperty.call(obj, p)) {
-							_state[p] = obj[p];
-						}
-					}
-				} else {
-					_state = obj;
-				}
-			}
-		},
-
-		get: function(key) {
-			if(key) {
-				return _state && _state[key];
-			} else {
-				return _state;
-			}
-		}
-	};
-})();
 </script>
 
 <script type="text/javascript">
@@ -106,9 +78,39 @@ document.write([
 
 <script type="text/javascript">
 FastClick.attach(document.body);
+
 window.addEventListener('load', function() {
 	document.body.className = document.body.className + ' loaded';
 }, false);
+
+require(['jquery'], function($) {
+	var _state = null;
+
+	G.state = $.extend($({}), {
+		set: function(obj) {
+			if(typeof obj == 'object' && obj) {
+				if(_state) {
+					for(var p in obj) {
+						if(Object.prototype.hasOwnProperty.call(obj, p)) {
+							_state[p] = obj[p];
+						}
+					}
+				} else {
+					_state = obj;
+				}
+				G.state.trigger('change', obj);
+			}
+		},
+
+		get: function(key) {
+			if(key) {
+				return _state && _state[key];
+			} else {
+				return _state;
+			}
+		}
+	});
+});
 </script>
 
 <!-- yield "body" --><!-- /yield -->

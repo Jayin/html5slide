@@ -7,8 +7,16 @@ class Mod extends Skateboard.BaseMod
 	events:
 		'change .upload-btn': 'fileChange'
 		'click .btn-next': 'next'
+		'click .btn-arrow-left': 'prevAvatar'
+		'click .btn-arrow-right': 'nextAvatar'
 
 	_bodyTpl: require './body.tpl.html'
+
+	avatarNo: 1
+
+	init: ->
+		G.state.on 'change', (evt, obj) =>
+			@$('.nick').text obj.nick if obj.nick
 
 	resetFileInput: ->
 		$('.upload-btn input').remove()
@@ -20,16 +28,30 @@ class Mod extends Skateboard.BaseMod
 		imgUrl = URL.createObjectURL(file)
 		img = new Image()
 		img.onload = =>
-			newImg = 
+			avatar = 
 				file: file
 				url: imgUrl
 				width: img.naturalWidth
 				height: img.naturalHeight
-			Mod.img = newImg
-			$(Mod).trigger 'imgchange', newImg
+			G.state.set avatar: avatar
 			@resetFileInput()
 			Skateboard.core.view '/view/canvas'
 		img.src = imgUrl
+
+	updateAvatar: ->
+		$('#avatar-wrapper')[0].className = 'a' + @avatarNo
+		if @avatarNo is 5
+			@$('.upload-btn').show()
+		else
+			@$('.upload-btn').hide()
+
+	prevAvatar: =>
+		@avatarNo = (@avatarNo - 1) || 5
+		@updateAvatar()
+
+	nextAvatar: =>
+		@avatarNo = (@avatarNo % 5) + 1
+		@updateAvatar()
 
 	back: =>
 		Skateboard.core.view '/view/home'
@@ -52,11 +74,11 @@ var app = require('app');
 <div class="body-inner">
 	<div id="avatar-wrapper" class="a1">
 		<div class="avatar-title">
-			<div class="a1">萌蠢少女</div>
-			<div class="a2">多汁小鲜肉</div>
-			<div class="a3">顶级女神经</div>
-			<div class="a4">抠脚糙汉</div>
-			<div class="a5">上传靓照</div>
+			<div class="a1"><span>萌蠢少女</span></div>
+			<div class="a2"><span>多汁小鲜肉</span></div>
+			<div class="a3"><span>顶级女神经</span></div>
+			<div class="a4"><span>抠脚糙汉</span></div>
+			<div class="a5"><span>上传靓照</span></div>
 		</div>
 		<div class="avatars">
 			<div class="a1">
@@ -73,15 +95,17 @@ var app = require('app');
 			</div>
 			<div class="a5">
 				<img src="../../../image/avatar/avatar-05.png" />
+				<div class="upload-btn">
+					<input type="file" capture="camera" accept="image/*" />
+				</div>
 			</div>
 		</div>
-		<div class="nick">王大花</div>
+		<div class="nick"><%==G.state.get('nick')%></div>
 		<div class="avatar-desc">
 			<div class="a1">卖萌撒娇都无敌</div>
 			<div class="a2">八面玲珑巧舌如簧</div>
 			<div class="a3">擦大气粗真土豪</div>
 			<div class="a4">奔放洋气有深度</div>
-			<div class="a5"></div>
 		</div>
 		<ul class="indicator">
 			<li class="indicator__item a1">1</li>
@@ -90,9 +114,6 @@ var app = require('app');
 			<li class="indicator__item a4">4</li>
 			<li class="indicator__item a5">5</li>
 		</ul>
-		<div class="upload-btn">
-			<input type="file" capture="camera" accept="image/*" />
-		</div>
 		<button class="img-btn btn-arrow-left">&lt;</button>
 		<button class="img-btn btn-arrow-right">&gt;</button>
 		<a class="img-btn btn-back" href="/:back">返回</a>
