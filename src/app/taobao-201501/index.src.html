@@ -63,6 +63,16 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			app.alerts.modal.hide();
 		},
 		onAfterViewChange: function(modInst) {
+			var modClassName = 'body-sb-mod--' + modInst._modName.replace(/\//g, '-');
+			var bodyClassName = document.body.className.replace((/\bbody-sb-mod--\S+/), modClassName);
+			if((/\bsb-show-nav\b/).test(bodyClassName)) {
+				if(!modInst.showNavTab) {
+					bodyClassName = bodyClassName.replace((/\s*\bsb-show-nav\b/), '');
+				}
+			} else if(modInst.showNavTab) {
+				bodyClassName = bodyClassName + ' sb-show-nav';
+			}
+			document.body.className = bodyClassName;
 			if(modInst.getModName() != 'home' && !G.state.get()) {
 				Skateboard.core.view('/view/home', {replaceState: true});
 			}
