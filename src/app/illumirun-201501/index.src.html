@@ -88,7 +88,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 		},
 		transformAnimation: false,
 		isSupportHistoryState: false,
-		onBeforeChangeView: function() {
+		onBeforeViewChange: function() {
 			app.ajax.hideLoading();
 			app.alerts.alert.hide();
 			app.alerts.modal.hide();

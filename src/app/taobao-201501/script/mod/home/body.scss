@@ -1,0 +1,17 @@
+body.body-sb-mod--home {
+	background-color: #de980c;
+}
+.sb-mod.sb-mod--home {
+	background-image: url(../../../image/home/bg.jpg);
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.btn-go {
+		width: 33%;
+		height: 8.5%;
+		left: 34%;
+		top: 87.5%;
+		position: absolute;
+	}
+}

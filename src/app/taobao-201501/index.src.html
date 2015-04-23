@@ -1,0 +1,86 @@
+<!-- extend "../../html/layout/layout.base.html" -->
+
+<!-- section "head" -->
+<meta name="keywords" content="taobao" />
+<meta name="description" content="taobao" />
+<title>taobao</title>
+<!-- /section -->
+
+<!-- section "body" -->
+<script type="text/javascript">
+document.write([
+	'<link rel="stylesheet" href="' + G.CDN_BASE + '/app/taobao-201501/style/main.css" />'
+].join(''));
+</script>
+
+<div class="page-wrapper"></div>
+
+<div style="display: none;">
+	<img id="frame-shidai" src="./image/frame-shidai.png" />
+	<img id="frame-zuanshi" src="./image/frame-zuanshi.png" />
+	<img id="frame-modeng" src="./image/frame-modeng.png" />
+	<img id="frame-haiyang" src="./image/frame-haiyang.png" />
+	<img id="frame-jiqing" src="./image/frame-jiqing.png" />
+</div>
+
+<script type="text/javascript">
+require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
+	if(!G.IS_PROTOTYPE) {
+		if(!app.cookie.get('wxopenid')) {
+			var urlParamOpenId = app.util.getUrlParam('code');
+			if(urlParamOpenId) {
+				app.cookie.set('wxopenid', urlParamOpenId);
+			} else {
+				location.href = [
+					'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd4f26aea63a05347&redirect_uri=', 
+					encodeURIComponent(location.href.split('#')[0]), 
+					'&response_type=code&scope=snsapi_base&state=null'
+				].join('');
+			}
+		}
+	}
+
+	//adjust
+	var wrapper = $('.page-wrapper');
+	ww = $(window).width();
+	wrapper.height(ww * 604 / 375);
+
+	$.extend(G.MD5_MAP, %{{md5map.taobao-201501}}%);
+
+	Skateboard.core.init({
+		container: $('.page-wrapper'),
+		modBase: '../../../app/taobao-201501/script/',
+		animate: {
+			type: 'fade',
+			timingFunction: 'linear',
+			duration: 300
+		},
+		transformAnimation: false,
+		isSupportHistoryState: false,
+		onBeforeViewChange: function() {
+			app.ajax.hideLoading();
+			app.alerts.alert.hide();
+			app.alerts.modal.hide();
+		},
+		onAfterViewChange: function(modInst) {
+			if(modInst.getModName() != 'home' && !G.state.get()) {
+				Skateboard.core.view('/view/home', {replaceState: true});
+			}
+		},
+		constructContentDom: function(modName, args, opt) {
+			var contentDom = $([
+				'<div class="sb-mod sb-mod--' + modName.replace(/\//g, '-') + '" data-sb-mod="' + modName + '" data-sb-scene="0" onscroll="require(\'app\').mod.scroll(this.scrollTop);">',
+					'<div class="sb-mod__body">',
+						'<div class="body-inner" data-sb-mod-not-renderred>',
+						'</div>',
+					'</div>',
+				'</div>'
+			].join('')).prependTo($('.page-wrapper'));
+			return contentDom;
+		}
+	});
+}, function() {
+
+});
+</script>
+<!-- /section -->
