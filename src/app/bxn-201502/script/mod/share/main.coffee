@@ -259,7 +259,7 @@ require ['jquery', 'app'], ($, app)->
 
 
     $('#action_canvas').on 'click',=>
-        if loadImageNumber < 7 
+        if loadImageNumber < loadImageTotal
             alert('加载中ing,请稍等')
             return
         if isPlaying 
