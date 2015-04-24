@@ -87,6 +87,44 @@
 		}
 	}
 
+	.customize {
+		position: absolute;
+		width: 68.4%;
+		height: 34.5%;
+		top: 44.7%;
+		left: 50%;
+		margin-left: -34.2%;
+		display: none;
+	}
+	.customize-title {
+		width: 100%;
+		height: auto;
+	}
+	#customized-good-name {
+		position: absolute;
+		border: none;
+		left: 14%;
+		top: 56%;
+		width: 80%;
+		height: 15%;
+		background-color: transparent;
+		&.focus {
+			background-color: #fff;
+		}
+	}
+	#customized-good-detail {
+		position: absolute;
+		border: none;
+		left: 14%;
+		top: 73%;
+		width: 80%;
+		height: 26%;
+		background-color: transparent;
+		&.focus {
+			background-color: #fff;
+		}
+	}
+
 	.btn-arrow-left {
 		width: 10%;
 		height: 8%;

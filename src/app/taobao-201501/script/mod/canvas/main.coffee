@@ -167,8 +167,8 @@ class Mod extends Skateboard.BaseMod
 		@drawFrame()
 
 	getClipData: ->
-		fw = @CONTEXT_W - 10
-		fh = @CONTEXT_H - 10
+		fw = @CONTEXT_W - 12
+		fh = @CONTEXT_H - 12
 		@context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
 		@drawImg()
 		tmpCanvas = document.createElement 'canvas'

@@ -14,7 +14,7 @@ class Mod extends Skateboard.BaseMod
 		require ['./dialog-main'], (dialog) =>
 			dialog.on 'confirm', @confirm
 		# preload next page
-		require ['../avatar/main']
+		require ['../avatar/main', '../avatar/default-avatars-main.tpl.html']
 
 	showDialog: =>
 		require ['./dialog-main'], (dialog) ->

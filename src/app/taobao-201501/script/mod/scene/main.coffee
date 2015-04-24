@@ -70,7 +70,11 @@ var app = require('app');
 <div class="body-inner">
 	<div id="scene-wrapper" class="s1">
 		<img id="scene-avatar" />
-		
+		<div class="customize">
+			<img class="customize-title" src="../../../image/scene/customize-title.png" />
+			<input id="customized-good-name" type="text" maxlength="12" />
+			<textarea id="customized-good-detail"></textarea>
+		</div>
 		<button class="img-btn btn-arrow-left">&lt;</button>
 		<button class="img-btn btn-arrow-right">&gt;</button>
 		<a class="img-btn btn-back" href="/:back">返回</a>

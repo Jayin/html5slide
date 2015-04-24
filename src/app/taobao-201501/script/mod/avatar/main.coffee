@@ -18,6 +18,8 @@ class Mod extends Skateboard.BaseMod
 		super
 		G.state.on 'change', @stateChange
 		# preload next page
+		require ['./default-avatars-main.tpl.html'], (tpl) =>
+			@$('.default-avatars').html tpl.render()
 		require ['../canvas/main', '../scene/main']
 
 	resetFileInput: ->
@@ -96,18 +98,7 @@ var app = require('app');
 			<div class="a5"><span>上传靓照</span></div>
 		</div>
 		<div class="avatars">
-			<div class="a1">
-				<img id="avatar-1" src="../../../image/avatar/avatar-01.png" />
-			</div>
-			<div class="a2">
-				<img id="avatar-2" src="../../../image/avatar/avatar-02.png" />
-			</div>
-			<div class="a3">
-				<img id="avatar-3" src="../../../image/avatar/avatar-03.png" />
-			</div>
-			<div class="a4">
-				<img id="avatar-4" src="../../../image/avatar/avatar-04.png" />
-			</div>
+			<div class="default-avatars"></div>
 			<div class="a5">
 				<img src="../../../image/avatar/avatar-05.png" />
 				<div class="upload-btn">
