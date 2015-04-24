@@ -1,0 +1,194 @@
+.sb-mod.sb-mod--avatar {
+	background-image: url(../../../image/avatar/bg.jpg);
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.avatar-title {
+		position: absolute;
+		width: 160px;
+		height: 7%;
+		top: 20%;
+		left: 50%;
+		margin-left: -80px;
+		> div {
+			color: #fff;
+			font-size: 1.2rem;
+			font-weight: 700;
+			text-align: center;
+			opacity: 0;
+			transition: opacity 0.5s;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			> span {
+				position: relative;
+				top: 50%;
+				margin-top: -15px;
+				display: block;
+			}
+		}
+	}
+	.a1 .avatar-title > .a1, 
+	.a2 .avatar-title > .a2, 
+	.a3 .avatar-title > .a3, 
+	.a4 .avatar-title > .a4, 
+	.a5 .avatar-title > .a5 {
+		opacity: 1;
+	}
+
+	.avatars {
+		position: absolute;
+		top: 30%;
+		left: 50%;
+		width: 54.8%;
+		margin-left: -27.4%;
+		> div {
+			opacity: 0;
+			transition: opacity 0.5s;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			> img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+	.a1 .avatars > .a1, 
+	.a2 .avatars > .a2, 
+	.a3 .avatars > .a3, 
+	.a4 .avatars > .a4, 
+	.a5 .avatars > .a5 {
+		opacity: 1;
+	}
+
+	.avatar-desc {
+		position: absolute;
+		width: 220px;
+		height: 33px;
+		top: 75%;
+		left: 50%;
+		margin-left: -110px;
+		> div {
+			height: 100%;
+			text-indent: -9999px;
+		}
+		.a1, .a2, .a3, .a4 {
+			background-position: left top;
+			background-repeat: no-repeat;
+			background-size: cover;
+			opacity: 0;
+			transition: opacity 0.5s;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.a1 {
+			background-image: url(../../../image/avatar/desc-01.png);
+		}
+		.a2 {
+			background-image: url(../../../image/avatar/desc-02.png);
+		}
+		.a3 {
+			background-image: url(../../../image/avatar/desc-03.png);
+		}
+		.a4 {
+			background-image: url(../../../image/avatar/desc-04.png);
+		}
+	}
+	.a1 .avatar-desc > .a1, 
+	.a2 .avatar-desc > .a2, 
+	.a3 .avatar-desc > .a3, 
+	.a4 .avatar-desc > .a4 {
+		opacity: 1;
+	}
+
+	.upload-btn {
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		position: absolute;
+		overflow: hidden;
+		display: none;
+	}
+	.upload-btn input {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 4000px;
+		height: 4000px;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		opacity: 0;
+	}
+
+	.indicator {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		width: 60px;
+		top: 66%;
+		left: 50%;
+		margin-left: -30px;
+	}
+	.indicator__item  {
+		display: inline-block;
+		width: 6px;
+		height: 6px;
+		border-radius: 3px;
+		background-color: #ff9203;
+		margin: 0 3px;
+		text-indent: -9999px;
+	}
+	.a1 .indicator > .a1, 
+	.a2 .indicator > .a2, 
+	.a3 .indicator > .a3, 
+	.a4 .indicator > .a4, 
+	.a5 .indicator > .a5 {
+		background-color: #df5100;
+	}
+
+	.nick {
+		position: absolute;
+		width: 100%;
+		top: 68%;
+		text-align: center;
+		color: #70462f;
+		font-size: 1.6rem;
+		font-weight: 700;
+	}
+
+	.btn-arrow-left {
+		width: 10%;
+		height: 8%;
+		left: 8%;
+		top: 43%;
+	}
+	.btn-arrow-right {
+		width: 10%;
+		height: 8%;
+		left: 83%;
+		top: 43%;
+	}
+	.btn-back {
+		width: 30%;
+		height: 8%;
+		left: 12%;
+		top: 87%;
+	}
+	.btn-next {
+		width: 30%;
+		height: 8%;
+		left: 60%;
+		top: 87%;
+	}
+}

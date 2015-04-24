@@ -12,33 +12,20 @@ class Mod extends Skateboard.BaseMod
 
 	_bodyTpl: require './body.tpl.html'
 
-	avatarNo: 1
+	sceneNo: 1
 
 	render: ->
 		super
+		@setAvatar G.state.get('avatar')
 		G.state.on 'change', @stateChange
 		# preload next page
-		require ['../canvas/main', '../scene/main']
+		require ['../canvas/main']
 
-	resetFileInput: ->
-		$('.upload-btn input').remove()
-		$('<input type="file" capture="camera" accept="image/*" />').appendTo $('.upload-btn')
-
-	fileChange: (evt) =>
-		URL = window.URL || window.webkitURL
-		file = evt.originalEvent.srcElement.files[0]
-		imgUrl = URL.createObjectURL(file)
-		img = new Image()
-		img.onload = =>
-			uploadedImg = 
-				file: file
-				url: imgUrl
-				width: img.naturalWidth
-				height: img.naturalHeight
-			G.state.set uploadedImg: uploadedImg
-			@resetFileInput()
-			Skateboard.core.view '/view/canvas'
-		img.src = imgUrl
+	setAvatar: (avatar) ->
+		if avatar.no is 5
+			$('#scene-avatar')[0].src = avatar.clipData
+		else
+			$('#scene-avatar')[0].src = $('#avatar-' + avatar.no)[0].src
 
 	updateAvatar: ->
 		$('#avatar-wrapper')[0].className = 'a' + @avatarNo
@@ -59,16 +46,10 @@ class Mod extends Skateboard.BaseMod
 		Skateboard.core.view '/view/home'
 
 	next: =>
-		if @avatarNo is 5
-			alert '请客官上传靓照'
-		else
-			G.state.set
-				avatar:
-					no: @avatarNo
-			Skateboard.core.view '/view/scene'
+		Skateboard.core.view '/view/canvas'
 
 	stateChange: (evt, obj) =>
-		@$('.nick').text obj.nick if obj.nick
+		@setAvatar obj.avatar if obj.avatar
 
 	destroy: ->
 		super
@@ -88,6 +69,7 @@ var app = require('app');
 
 <div class="body-inner">
 	<div id="avatar-wrapper" class="a1">
+		<img id="scene-avatar" />
 		<div class="avatar-title">
 			<div class="a1"><span>萌蠢少女</span></div>
 			<div class="a2"><span>多汁小鲜肉</span></div>
@@ -97,16 +79,16 @@ var app = require('app');
 		</div>
 		<div class="avatars">
 			<div class="a1">
-				<img id="avatar-1" src="../../../image/avatar/avatar-01.png" />
+				<img src="../../../image/avatar/avatar-01.png" />
 			</div>
 			<div class="a2">
-				<img id="avatar-2" src="../../../image/avatar/avatar-02.png" />
+				<img src="../../../image/avatar/avatar-02.png" />
 			</div>
 			<div class="a3">
-				<img id="avatar-3" src="../../../image/avatar/avatar-03.png" />
+				<img src="../../../image/avatar/avatar-03.png" />
 			</div>
 			<div class="a4">
-				<img id="avatar-4" src="../../../image/avatar/avatar-04.png" />
+				<img src="../../../image/avatar/avatar-04.png" />
 			</div>
 			<div class="a5">
 				<img src="../../../image/avatar/avatar-05.png" />
