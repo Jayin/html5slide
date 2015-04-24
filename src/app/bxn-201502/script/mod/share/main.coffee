@@ -1,18 +1,25 @@
 require ['jquery', 'app'], ($, app)->
     tpl = {}
 
-    tpl.black = [
-        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_straight.png',
-        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_lower_left.png',
-        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_mid_left.png',
-        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_top_left.png',
-        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_lower_right.png',
-        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_mid_right.png',
-        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_top_right.png'
+    tpl.blue = [
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_straight.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_lower_left.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_mid_left.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_top_left.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_lower_right.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_mid_right.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_top_right.png'
     ]
 
-    tpl.background =  G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/bg_canvas_play.jpg';
-    
+    tpl.red = [
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_straight.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_lower_left.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_mid_left.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_top_left.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_lower_right.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_mid_right.png',
+        G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_top_right.png'
+    ]
 
     canvas = $('#action_canvas')[0]
     context = canvas.getContext('2d')
@@ -23,19 +30,19 @@ require ['jquery', 'app'], ($, app)->
 
     avatar = null
     avatar_direction =  'straight'
-    AvatarTarget_Width = 137
-    AvatarTarget_Height = 145
+    AvatarTarget_Width = 102
+    AvatarTarget_Height = 113
     clolor = 'black'
     play_queue = [] # 播放动作顺序
     timeline = [
-        3000,3250,3500,4750,4250,4500,5750,5000,6500,6750,7000,7250
+        3500,3750,4000,5250,5750,6000,6250,6500,6750,7000,7250,7500
 
     ] # 显示的时间点
     isPlaying = false
 
     # 人物动作图片加载回调
     loadImageNumber = 0
-    loadImageTotal = 7
+    loadImageTotal = 6
     imageLoadCallback = =>
         loadImageNumber += 1
         console.log "load img: #{loadImageNumber}" 
@@ -54,8 +61,6 @@ require ['jquery', 'app'], ($, app)->
     action.mid_right = new Image
     action.lower_right = new Image
 
-    action.background = new Image
-
 
     action.straight.onload = imageLoadCallback
     action.top_left.onload = imageLoadCallback
@@ -65,45 +70,44 @@ require ['jquery', 'app'], ($, app)->
     action.mid_right.onload = imageLoadCallback
     action.lower_right.onload = imageLoadCallback
 
-    action.background.onload = imageLoadCallback
-    action.background.src = tpl.background
+    audio = $('.audio1')[0]
 
-    console.log action.background
 
     # 播放按钮
     action.start = $('#action_start')[0]
 
     action_data = 
         straight: 
-            top: 0.060
-            left: 0.375
+            top: 0.093
+            left: 0.405
             deg: 0
         top_left: 
-            top: 0.08
-            left: 0.33
+            top: 0.120
+            left: 0.362
             deg: -5
         mid_left: 
-            top: 0.240
-            left: -0.360
+            top: 0.270
+            left: -0.320
             deg: -45
         lower_left: 
-            top: 0.270
-            left: -0.345
+            top:  0.315
+            left: -0.305
             deg: -45
 
         top_right: 
-            top: 0.089
-            left: 0.358
+            top: 0.12
+            left: 0.395
             deg: -5
 
         mid_right: 
-            top: -0.035
-            left: 0.73
+            top: -0.010
+            left: 0.775
             deg: 30
         lower_right: 
-            top: -0.091
-            left: 0.865
+            top: -0.071
+            left: 0.895
             deg: 45
+
 
     drawAction = =>
         context.save()
@@ -130,20 +134,17 @@ require ['jquery', 'app'], ($, app)->
         context.drawImage(action.start,0,0,CONTEXT_W,CONTEXT_H)
         context.restore()
 
-    # 舞台背景
-    drawBackground = =>
-        context.save()
-        context.drawImage(action.background,0,0,CONTEXT_W,CONTEXT_H)
-        context.restore()
-
     draw = =>
         context.clearRect 0, 0, CONTEXT_W, CONTEXT_H
-        drawBackground()
-        drawAction()
+        # drawBackground()
+        
         drawAvatar()
+        drawAction()
 
 
     play = =>
+        $('#audio1')[0].pause()
+        $('#audio1')[0].play()
         console.log '开始播放'
         cur_time_point = 0
         action_img =  action.straight
@@ -187,6 +188,7 @@ require ['jquery', 'app'], ($, app)->
                 console.log '结束播放'
                 console.log '原来的isPlaying=' + isPlaying
                 isPlaying = false
+                $('#audio1').pause()
                 
 
         setTimeout ()=>
@@ -233,6 +235,16 @@ require ['jquery', 'app'], ($, app)->
     url_obj = parser(window.location)
     designId = url_obj.search.designId
 
+    #  判断是否来朋友圈
+    from = url_obj.search.from
+    console.log url_obj
+    if from
+        $('.group-share-finish-timeline').show()
+        $('.group-share-finish-default').hide()      
+    else
+        $('.group-share-finish-timeline').hide()
+        $('.group-share-finish-default').show()
+
     app.ajax.get
         url: "web/bxn/design/#{designId}"
         success: (result)->
@@ -257,7 +269,7 @@ require ['jquery', 'app'], ($, app)->
         error: ->
             alert '系统繁忙，请您稍后重试。'
 
-
+    # 播放
     $('#action_canvas').on 'click',=>
         if loadImageNumber < loadImageTotal
             alert('加载中ing,请稍等')
@@ -267,10 +279,26 @@ require ['jquery', 'app'], ($, app)->
         isPlaying = true
         play()
 
+    # 分享
+    $('#btn-finish-share').on 'click', =>
+       document.getElementById('dialog-share').style.display = 'block' 
+
+    # 重来
+    $('#btn-finish-again').on 'click', =>
+        window.location = 'index.html'
+
+    # 定制
+    $('#btn-finish-custom').on 'click', =>
+        window.location = 'http://www.baoxiniao.com.cn';
+    # 惊喜
+    $('#btn-finish-suprise').on 'click', =>
+        document.getElementById('dialog-suprise').style.display = 'block' 
+
+    # 我也要玩
+    $('#btn-finish-want-play').on 'click',=>
+        window.location = 'index.html'
 
 
-
-    # drawAvatar: ->
 
      
 

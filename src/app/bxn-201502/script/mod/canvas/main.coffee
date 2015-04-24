@@ -12,6 +12,8 @@ class Mod extends Skateboard.BaseMod
         'touchstart canvas': 'touchStart'
         'touchmove canvas': 'touchMove'
         'touchend canvas': 'touchEnd'
+        'click #btn-canvas-chose-blue': 'choseBlue'
+        'click #btn-canvas-chose-red': 'choseRed'
         'click .btn-confirm': 'confirm'
 
     _bodyTpl: require './body.tpl.html'
@@ -120,6 +122,13 @@ class Mod extends Skateboard.BaseMod
     imgChange: (evt, newImg) =>
         @resetImg newImg
 
+    choseBlue: =>
+        $('#btn-canvas-choose').removeClass().addClass('btn-choose-color btn-chose-color-blue')
+
+    choseRed: =>
+        $('#btn-canvas-choose').removeClass().addClass('btn-choose-color btn-chose-color-red')
+
+
     resetImg: (newImg) ->
         app.ajax.showLoading()
         @context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
@@ -217,13 +226,20 @@ class Mod extends Skateboard.BaseMod
     confirm: =>
         # TODO 选择不同的颜色
         @drawWithoutLine()
-        tmpImg = new Image
-        tmpImg.src = @canvas.toDataURL()
-        tmpImg = white2trasparent(tmpImg)
+        # tmpImg = new Image
+        # tmpImg.src = @canvas.toDataURL()
+        # tmpImg = white2trasparent(tmpImg)
+
         console.log '处理后的图片'
-        console.log tmpImg.src
-        Mod.clipData = tmpImg.src
-        Mod.color = 'black'
+        # console.log tmpImg.src
+
+        Mod.clipData = @canvas.toDataURL()
+        
+        if $('#btn-canvas-choose').hasClass('btn-chose-color-blue')
+            Mod.color = 'blue'
+        else
+            Mod.color = 'red'
+        
         console.log Mod.clipData
         console.log Mod.color
         $(Mod).trigger 'clipchange', Mod.clipData

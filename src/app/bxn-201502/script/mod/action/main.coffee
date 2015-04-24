@@ -17,17 +17,23 @@ class Mod extends Skateboard.BaseMod
     _bodyTpl: require './body.tpl.html'
 
     tpl: # 蓝色+红色
-        black:[
-            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_straight.png',
-            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_lower_left.png',
-            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_mid_left.png',
-            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_top_left.png',
-            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_lower_right.png',
-            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_mid_right.png',
-            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_black_top_right.png'
-        ]
         blue:[
-            # TODO
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_straight.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_lower_left.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_mid_left.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_top_left.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_lower_right.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_mid_right.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_top_right.png'
+        ]
+        red:[
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_straight.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_lower_left.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_mid_left.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_top_left.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_lower_right.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_mid_right.png',
+            G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_top_right.png'
         ]
 
     CONTEXT_W: 600
@@ -37,42 +43,42 @@ class Mod extends Skateboard.BaseMod
 
     avatar: null # 头像数据(base64)
     avatar_direction: 'straight'
-    AvatarTarget_Width: 137
-    AvatarTarget_Height: 145
+    AvatarTarget_Width: 102
+    AvatarTarget_Height: 113
 
     queue: [] # 选择的顺序
     selectColor: null # 选择的颜色
 
     action_data:
         straight: 
-            top: 0.060
-            left: 0.375
+            top: 0.093
+            left: 0.405
             deg: 0
         top_left: 
-            top: 0.08
-            left: 0.33
+            top: 0.120
+            left: 0.362
             deg: -5
         mid_left: 
-            top: 0.240
-            left: -0.360
+            top: 0.270
+            left: -0.320
             deg: -45
         lower_left: 
-            top: 0.270
-            left: -0.345
+            top:  0.315
+            left: -0.305
             deg: -45
 
         top_right: 
-            top: 0.089
-            left: 0.358
+            top: 0.12
+            left: 0.395
             deg: -5
 
         mid_right: 
-            top: -0.035
-            left: 0.73
+            top: -0.010
+            left: 0.775
             deg: 30
         lower_right: 
-            top: -0.091
-            left: 0.865
+            top: -0.071
+            left: 0.895
             deg: 45
 
     # 人物动作
@@ -163,8 +169,11 @@ class Mod extends Skateboard.BaseMod
 
     draw: =>
         @context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
-        @drawAction()
+       
         @drawAvatar()
+        @drawAction()
+        
+        
 
     addActionQueue: (action)=>
         if @queue.length >= 12 

@@ -1,14 +1,21 @@
 .sb-mod.sb-mod--action {
-    background-image: url(../../../image/bg_action.jpg);
-    background-position: left top;
-    background-repeat: no-repeat;
-    background-size: cover;
     canvas {
         position: absolute;
-        top: 15%;
-        left: 15%;
-        width: 75%;
-        height: 80%;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    .action-btns {
+        background-image: url(../../../image/bg_action.png);
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 1000;
     }
     .btn-action {
         position: absolute;
@@ -35,7 +42,8 @@
         bottom: 0%;
         left: 13%;
         width: 250px;
-        height: 120px
+        height: 120px;
+         z-index: 1000;
     }
     .round {
         background-image: url(../../../image/round.png);

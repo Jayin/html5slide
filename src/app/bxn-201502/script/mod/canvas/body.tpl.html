@@ -7,9 +7,15 @@ var app = require('app');
 <!-- include "body.scss" -->
 
 <div class="body-inner">
-	<canvas width="484" height="537">
-		Your browser does not support HTML5 Canvas.
-	</canvas>
+        <canvas width="484" height="537">
+            Your browser does not support HTML5 Canvas.
+        </canvas>
+        <div id="btn-canvas-choose" class="btn-choose-color btn-chose-color-blue">
+             <div id="btn-canvas-chose-blue" style="float:left;height:100%;width:50%;"></div>
+  
+            <div id="btn-canvas-chose-red"  style="float:right;height:100%;width:50%;"></div>
+        </div>
+
     <div style="display:none">
         <img id="mask-head" src="../../../image/mask_head.png">
         <img id="mask-line" src="../../../image/mask_line.png">
