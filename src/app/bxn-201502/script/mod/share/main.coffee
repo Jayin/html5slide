@@ -188,7 +188,7 @@ require ['jquery', 'app'], ($, app)->
                 console.log '结束播放'
                 console.log '原来的isPlaying=' + isPlaying
                 isPlaying = false
-                $('#audio1').pause()
+                $('#audio1')[0].pause()
                 
 
         setTimeout ()=>
