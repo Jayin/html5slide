@@ -11,6 +11,13 @@ dialog = $.extend $({}),
 		if not el.length
 			el = $(dialogTpl.render()).appendTo document.body
 			$('.home-dialog__close, .home-dialog__mask', el).on 'click', dialog.hide
+			$('.home-dialog__input').on 'focus', ->
+				$('.home-dialog__content').addClass 'focus'
+			$('.home-dialog__input').on 'change blur', ->
+				if this.value
+					$('.home-dialog__content').addClass 'focus'
+				else
+					$('.home-dialog__content').removeClass 'focus'
 			$('.home-dialog__confirm', el).on 'click', ->
 				val = $('.home-dialog__input').val()
 				if val

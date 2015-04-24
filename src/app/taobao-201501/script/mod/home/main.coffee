@@ -38,5 +38,8 @@ var app = require('app');
 <!-- include "body.scss" -->
 
 <div class="body-inner">
+	<div class="head">
+		<img src="../../../image/home/head.png" />
+	</div>
 	<button class="img-btn btn-go">go</button>
 </div>

@@ -1,5 +1,5 @@
 body.body-sb-mod--home {
-	background-color: #de980c;
+	background-color: #feb85c;
 }
 .sb-mod.sb-mod--home {
 	background-image: url(../../../image/home/bg.jpg);
@@ -7,11 +7,33 @@ body.body-sb-mod--home {
 	background-repeat: no-repeat;
 	background-size: cover;
 
+	.head {
+		width: 39.2%;
+		left: 32.3%;
+		top: 38.3%;
+		position: absolute;
+		animation: home-head 3s infinite;
+		animation-timing-function: linear;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
 	.btn-go {
 		width: 33%;
 		height: 8.5%;
 		left: 34%;
 		top: 87.5%;
 		position: absolute;
+	}
+}
+
+@keyframes home-head {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
 	}
 }

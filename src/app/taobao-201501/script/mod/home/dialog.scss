@@ -15,24 +15,27 @@
 	background-color: rgba(0, 0, 0, 0.7);
 }
 .home-dialog__content {
-	width: 208px;
-	height: 251px;
+	width: 248px;
+	height: 228px;
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	margin-left: -104px;
-	margin-top: -125px;
+	margin-left: -124px;
+	margin-top: -114px;
 	background-image: url(../../../image/home/dialog-bg.png);
 	background-position: left top;
 	background-repeat: no-repeat;
 	background-size: cover;
+	&.focus {
+		background-image: url(../../../image/home/dialog-bg-focus.png);
+	}
 }
 .home-dialog__input {
 	position: absolute;
-	left: 10px;
-	top: 45px;
+	left: 0;
+	top: 23px;
 	height: 50px;
-	width: 85%;
+	width: 100%;
 	font-size: 1.5rem;
 	color: #fff;
 	text-align: center;
@@ -40,8 +43,8 @@
 	background-color: transparent;
 }
 .home-dialog__confirm {
-	left: 62px;
-	top: 198px;
+	left: 78px;
+	top: 175px;
 	width: 80px;
 	height: 54px;
 }
