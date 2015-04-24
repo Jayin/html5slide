@@ -15,14 +15,6 @@ document.write([
 
 <div class="page-wrapper"></div>
 
-<div style="display: none;">
-	<img id="frame-shidai" src="./image/frame-shidai.png" />
-	<img id="frame-zuanshi" src="./image/frame-zuanshi.png" />
-	<img id="frame-modeng" src="./image/frame-modeng.png" />
-	<img id="frame-haiyang" src="./image/frame-haiyang.png" />
-	<img id="frame-jiqing" src="./image/frame-jiqing.png" />
-</div>
-
 <script type="text/javascript">
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	if(!G.IS_PROTOTYPE) {
@@ -57,15 +49,26 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 		},
 		transformAnimation: false,
 		isSupportHistoryState: false,
-		onBeforeViewChange: function() {
+		onBeforeViewChange: function(modName, modInst) {
 			app.ajax.hideLoading();
 			app.alerts.alert.hide();
 			app.alerts.modal.hide();
-		},
-		onAfterViewChange: function(modInst) {
-			if(modInst.getModName() != 'home' && !G.state.get()) {
+			if(modName != 'home' && !G.state.get()) {
 				Skateboard.core.view('/view/home', {replaceState: true});
+				return false;
 			}
+		},
+		onAfterViewChange: function(modName, modInst) {
+			var modClassName = 'body-sb-mod--' + modInst._modName.replace(/\//g, '-');
+			var bodyClassName = document.body.className.replace((/\bbody-sb-mod--\S+/), modClassName);
+			if((/\bsb-show-nav\b/).test(bodyClassName)) {
+				if(!modInst.showNavTab) {
+					bodyClassName = bodyClassName.replace((/\s*\bsb-show-nav\b/), '');
+				}
+			} else if(modInst.showNavTab) {
+				bodyClassName = bodyClassName + ' sb-show-nav';
+			}
+			document.body.className = bodyClassName;
 		},
 		constructContentDom: function(modName, args, opt) {
 			var contentDom = $([

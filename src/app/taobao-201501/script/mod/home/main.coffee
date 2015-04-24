@@ -13,6 +13,8 @@ class Mod extends Skateboard.BaseMod
 		super
 		require ['./dialog-main'], (dialog) =>
 			dialog.on 'confirm', @confirm
+		# preload next page
+		require ['../avatar/main']
 
 	showDialog: =>
 		require ['./dialog-main'], (dialog) ->
@@ -36,5 +38,8 @@ var app = require('app');
 <!-- include "body.scss" -->
 
 <div class="body-inner">
+	<div class="head">
+		<img src="../../../image/home/head.png" />
+	</div>
 	<button class="img-btn btn-go">go</button>
 </div>

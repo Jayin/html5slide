@@ -11,28 +11,21 @@ class Mod extends Skateboard.BaseMod
 		'touchstart canvas': 'touchStart'
 		'touchmove canvas': 'touchMove'
 		'touchend canvas': 'touchEnd'
-		'click .btn-confirm': 'confirm'
-		'click .frame-btns__btn': 'changeFrame'
+		'click .btn-next': 'confirm'
 
 	_bodyTpl: require './body.tpl.html'
 
-	CONTEXT_W: 640
-	CONTEXT_H: 960
+	CONTEXT_W: 411
+	CONTEXT_H: 411
 	ENABLE_ROTATE: false
-
-	frame: 'shidai'
 
 	render: ->
 		super
 		@canvas = @$('canvas')[0]
 		@context = @canvas.getContext('2d')
-		require ['../home/main'], (HomeMod) =>
-			if HomeMod.img
-				@resetImg HomeMod.img
-			else
-				Skateboard.core.view '/view/home', replaceState: true
-			$(HomeMod).on 'imgchange', @imgChange
-			@initPinch()
+		@resetImg G.state.get('uploadedImg')
+		G.state.on 'change', @stateChange
+		@initPinch()
 
 	initPinch: ->
 		toRef = null
@@ -113,13 +106,6 @@ class Mod extends Skateboard.BaseMod
 	touchEnd: (evt) =>
 		@movePt = null
 
-	imgChange: (evt, newImg) =>
-		@resetImg newImg
-
-	changeFrame: (evt) =>
-		@frame = $(evt.target).data 'frame'
-		@draw()
-
 	resetImg: (newImg) ->
 		app.ajax.showLoading()
 		@context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
@@ -171,7 +157,7 @@ class Mod extends Skateboard.BaseMod
 		context = @context
 		context.save()
 		context.globalAlpha = 1
-		maskImg = $('#frame-' + @frame)[0]
+		maskImg = $('#canvas-frame')[0]
 		context.drawImage maskImg, 0, 0, @CONTEXT_W, @CONTEXT_H
 		context.restore()
 
@@ -181,26 +167,51 @@ class Mod extends Skateboard.BaseMod
 		@drawFrame()
 
 	confirm: =>
-		Mod.clipData = @canvas.toDataURL()
-		$(Mod).trigger 'clipchange', Mod.clipData
-		#Skateboard.core.view '/view/motion'
-		#return
-		app.ajax.post
-			url: 'web/uploadImage/54f1b82a58f24d7d16c11e18'
-			data:
-				imgData: Mod.clipData
-				openId: app.cookie.get('wxopenid')
-			success: (res) =>
-				if res.code is 0
-					location.href = "/static/app/run-201501/share.html?designId=#{res.data.designId}&style=#{@frame}"
-				else
-					alert res.code + ': ' + res.msg
-			error: ->
-				alert '系统繁忙，请您稍后重试。'
+		fw = 411
+		fh = 411
+		@context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
+		@drawImg()
+		tmpCanvas = document.createElement 'canvas'
+		tmpCanvas.width = fw
+		tmpCanvas.height = fh
+		tmpCtx = tmpCanvas.getContext '2d'
+		tmpCtx.drawImage @canvas, (@CONTEXT_W - fw) / 2, (@CONTEXT_H - fh) / 2, fw, fh, 0, 0, fw, fh
+		@drawFrame()
+		G.state.set 
+			avatar: 
+				no: 5
+				clipData: tmpCanvas.toDataURL()
+		Skateboard.core.view '/view/scene'
+
+	stateChange: (evt, obj) =>
+		@$('.nick').text obj.nick if obj.nick
+		@resetImg obj.uploadedImg if obj.uploadedImg
 
 	destroy: ->
 		super
-		require ['../home/main'], (HomeMod) =>
-			$(HomeMod).off 'imgchange', @imgChange
+		G.state.off 'change', @stateChange
 
 module.exports = Mod
+
+__END__
+
+@@ body.tpl.html
+<%
+var $ = require('jquery');
+var app = require('app');
+%>
+
+<!-- include "body.scss" -->
+
+<div class="body-inner">
+	<canvas width="411" height="411">
+		Your browser does not support HTML5 Canvas.
+	</canvas>
+	<div class="nick"><%==G.state.get('nick')%></div>
+	<a class="img-btn btn-back" href="/:back">返回</a>
+	<button class="img-btn btn-next">下一步</button>
+	<div style="display:none">
+		<img id="canvas-frame" src="../../../image/canvas/canvas-frame.png" />
+	</div>
+</div>
+
