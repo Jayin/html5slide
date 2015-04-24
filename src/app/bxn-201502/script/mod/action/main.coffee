@@ -42,6 +42,7 @@ class Mod extends Skateboard.BaseMod
     action_img: null
 
     avatar: null # 头像数据(base64)
+    avatar_img: new Image
     avatar_direction: 'straight'
     AvatarTarget_Width: 102
     AvatarTarget_Height: 113
@@ -124,6 +125,7 @@ class Mod extends Skateboard.BaseMod
         require ['../canvas/main'],(CanvasMod) =>
             if CanvasMod.color and CanvasMod.clipData
                 @avatar = CanvasMod.clipData
+                @avatar_img.src = CanvasMod.clipData
                 @selectColor = CanvasMod.color
 
                 @action.straight.src = @tpl[CanvasMod.color][0]
@@ -133,8 +135,6 @@ class Mod extends Skateboard.BaseMod
                 @action.lower_right.src = @tpl[CanvasMod.color][4]
                 @action.mid_right.src = @tpl[CanvasMod.color][5]
                 @action.top_right.src = @tpl[CanvasMod.color][6]
-                
-                
             else
                 Skateboard.core.view '/view/chooseImg', replaceState: true
 
@@ -148,9 +148,7 @@ class Mod extends Skateboard.BaseMod
 
     drawAvatar: =>
         context = @context
-
         direction = @action_data[@avatar_direction]
-
         
         deg = direction.deg
         dest_x = @CONTEXT_W * direction.left
@@ -158,13 +156,9 @@ class Mod extends Skateboard.BaseMod
         dest_width = @AvatarTarget_Width
         dest_height = @AvatarTarget_Height
 
-
-        avatar = new Image()
-        avatar.src = @avatar
-
         context.save()
         context.rotate(deg * Math.PI / 180)
-        context.drawImage(avatar, 0, 0, avatar.width, avatar.height, dest_x, dest_y, dest_width, dest_height)
+        context.drawImage(@avatar_img, 0, 0, @avatar_img.width, @avatar_img.height, dest_x, dest_y, dest_width, dest_height)
         context.restore()
 
     draw: =>
@@ -173,8 +167,6 @@ class Mod extends Skateboard.BaseMod
         @drawAvatar()
         @drawAction()
         
-        
-
     addActionQueue: (action)=>
         if @queue.length >= 12 
             return
@@ -217,7 +209,6 @@ class Mod extends Skateboard.BaseMod
         @avatar_direction = 'lower_right'
         @addActionQueue(@avatar_direction)
         @draw()
-
 
     confirm: =>
         if @queue.length < 12
