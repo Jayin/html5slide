@@ -68,8 +68,6 @@ require ['jquery', 'app'], ($, app)->
     action.background.onload = imageLoadCallback
     action.background.src = tpl.background
 
-    console.log action.background
-
     # 播放按钮
     action.start = $('#action_start')[0]
 
@@ -104,6 +102,7 @@ require ['jquery', 'app'], ($, app)->
             top: -0.091
             left: 0.865
             deg: 45
+
 
     drawAction = =>
         context.save()
@@ -233,6 +232,16 @@ require ['jquery', 'app'], ($, app)->
     url_obj = parser(window.location)
     designId = url_obj.search.designId
 
+    #  判断是否来朋友圈
+    from = url_obj.search.from
+    console.log url_obj
+    if from
+        $('.group-share-finish-timeline').show()
+        $('.group-share-finish-default').hide()      
+    else
+        $('.group-share-finish-timeline').hide()
+        $('.group-share-finish-default').show()
+
     app.ajax.get
         url: "web/bxn/design/#{designId}"
         success: (result)->
@@ -257,7 +266,7 @@ require ['jquery', 'app'], ($, app)->
         error: ->
             alert '系统繁忙，请您稍后重试。'
 
-
+    # 播放
     $('#action_canvas').on 'click',=>
         if loadImageNumber < loadImageTotal
             alert('加载中ing,请稍等')
@@ -267,10 +276,26 @@ require ['jquery', 'app'], ($, app)->
         isPlaying = true
         play()
 
+    # 分享
+    $('#btn-finish-share').on 'click', =>
+       document.getElementById('dialog-share').style.display = 'block' 
+
+    # 重来
+    $('#btn-finish-again').on 'click', =>
+        window.location = 'index.html'
+
+    # 定制
+    $('#btn-finish-custom').on 'click', =>
+        window.location = 'http://www.baoxiniao.com.cn';
+    # 惊喜
+    $('#btn-finish-suprise').on 'click', =>
+        document.getElementById('dialog-suprise').style.display = 'block' 
+
+    # 我也要玩
+    $('#btn-finish-want-play').on 'click',=>
+        window.location = 'index.html'
 
 
-
-    # drawAvatar: ->
 
      
 

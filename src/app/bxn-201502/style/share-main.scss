@@ -1,0 +1,61 @@
+.share-container .share-bg {
+    width: 100%;
+    height: 100%;
+}
+
+.share-container {
+    .share-bg-finish {
+        background-image: url('../image/bg_share_finish.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #action_canvas {
+        position: absolute;
+        top: 18%;
+        left: 14%;
+        width: 73%;
+        height: 65%;
+    }
+    .group-share-finish-default {
+        background-image: url('../image/group_share_finish.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 10.4%;
+        width: 87.2%;
+        position: absolute;
+        bottom: 4%;
+        left: 6.2%;
+    }
+    .group-share-finish-timeline {
+        background-image: url('../image/btn-want-play.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 5.7%;
+        width: 30%;
+        position: absolute;
+        bottom: 4%;
+        left: 35%;
+    }
+    .modal {
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.6);
+        background-size: cover;
+    }
+    .modal-share {
+        background-image: url('../image/modal-share.png')
+    }
+    .modal-suprise {
+        background-image: url('../image/modal-suprise.png')
+    }
+    .btn-modal-close {
+        height: 10%;
+        width: 20%;
+        position: absolute;
+        top: 10%;
+        left: 10%
+    }
+}
