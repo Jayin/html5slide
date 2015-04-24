@@ -7,8 +7,8 @@ class Mod extends Skateboard.BaseMod
 	events:
 		'change .upload-btn': 'fileChange'
 		'click .btn-next': 'next'
-		'click .btn-arrow-left': 'prevAvatar'
-		'click .btn-arrow-right': 'nextAvatar'
+		'click .btn-arrow-left': 'prevScene'
+		'click .btn-arrow-right': 'nextScene'
 
 	_bodyTpl: require './body.tpl.html'
 
@@ -27,20 +27,20 @@ class Mod extends Skateboard.BaseMod
 		else
 			$('#scene-avatar')[0].src = $('#avatar-' + avatar.no)[0].src
 
-	updateAvatar: ->
-		$('#avatar-wrapper')[0].className = 'a' + @avatarNo
-		if @avatarNo is 5
-			@$('.upload-btn').show()
+	updateScene: ->
+		$('#scene-wrapper')[0].className = 's' + @sceneNo
+		if @sceneNo is 9
+			@$('.customize').show()
 		else
-			@$('.upload-btn').hide()
+			@$('.customize').hide()
 
-	prevAvatar: =>
-		@avatarNo = (@avatarNo - 1) || 5
-		@updateAvatar()
+	prevScene: =>
+		@sceneNo = (@sceneNo - 1) || 9
+		@updateScene()
 
-	nextAvatar: =>
-		@avatarNo = (@avatarNo % 5) + 1
-		@updateAvatar()
+	nextScene: =>
+		@sceneNo = (@sceneNo % 9) + 1
+		@updateScene()
 
 	back: =>
 		Skateboard.core.view '/view/home'
@@ -68,49 +68,9 @@ var app = require('app');
 <!-- include "body.scss" -->
 
 <div class="body-inner">
-	<div id="avatar-wrapper" class="a1">
+	<div id="scene-wrapper" class="s1">
 		<img id="scene-avatar" />
-		<div class="avatar-title">
-			<div class="a1"><span>萌蠢少女</span></div>
-			<div class="a2"><span>多汁小鲜肉</span></div>
-			<div class="a3"><span>顶级女神经</span></div>
-			<div class="a4"><span>抠脚糙汉</span></div>
-			<div class="a5"><span>上传靓照</span></div>
-		</div>
-		<div class="avatars">
-			<div class="a1">
-				<img src="../../../image/avatar/avatar-01.png" />
-			</div>
-			<div class="a2">
-				<img src="../../../image/avatar/avatar-02.png" />
-			</div>
-			<div class="a3">
-				<img src="../../../image/avatar/avatar-03.png" />
-			</div>
-			<div class="a4">
-				<img src="../../../image/avatar/avatar-04.png" />
-			</div>
-			<div class="a5">
-				<img src="../../../image/avatar/avatar-05.png" />
-				<div class="upload-btn">
-					<input type="file" capture="camera" accept="image/*" />
-				</div>
-			</div>
-		</div>
-		<div class="nick"><%==G.state.get('nick')%></div>
-		<div class="avatar-desc">
-			<div class="a1">卖萌撒娇都无敌</div>
-			<div class="a2">八面玲珑巧舌如簧</div>
-			<div class="a3">擦大气粗真土豪</div>
-			<div class="a4">奔放洋气有深度</div>
-		</div>
-		<ul class="indicator">
-			<li class="indicator__item a1">1</li>
-			<li class="indicator__item a2">2</li>
-			<li class="indicator__item a3">3</li>
-			<li class="indicator__item a4">4</li>
-			<li class="indicator__item a5">5</li>
-		</ul>
+		
 		<button class="img-btn btn-arrow-left">&lt;</button>
 		<button class="img-btn btn-arrow-right">&gt;</button>
 		<a class="img-btn btn-back" href="/:back">返回</a>

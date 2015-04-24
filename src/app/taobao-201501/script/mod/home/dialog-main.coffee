@@ -25,8 +25,7 @@ dialog = $.extend $({}),
 					dialog.trigger 'confirm', val
 				else
 					alert '客官请留下您的大名吧'
-		el.fadeIn ->
-			$('.home-dialog__input')[0].focus()
+		el.fadeIn()
 
 	hide: ->
 		$('.home-dialog').hide()

@@ -166,9 +166,9 @@ class Mod extends Skateboard.BaseMod
 		@drawImg()
 		@drawFrame()
 
-	confirm: =>
-		fw = 411
-		fh = 411
+	getClipData: ->
+		fw = @CONTEXT_W - 10
+		fh = @CONTEXT_H - 10
 		@context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
 		@drawImg()
 		tmpCanvas = document.createElement 'canvas'
@@ -177,10 +177,24 @@ class Mod extends Skateboard.BaseMod
 		tmpCtx = tmpCanvas.getContext '2d'
 		tmpCtx.drawImage @canvas, (@CONTEXT_W - fw) / 2, (@CONTEXT_H - fh) / 2, fw, fh, 0, 0, fw, fh
 		@drawFrame()
+		imgData = tmpCtx.getImageData 0, 0, fw, fh
+		i = 0
+		ox = Math.floor fw / 2
+		oy = Math.floor fh / 2
+		while i < imgData.data.length
+			y = Math.floor i / 4 / fw
+			x = i / 4 % fw
+			if Math.sqrt(Math.pow(Math.abs(x - ox), 2) + Math.pow(Math.abs(y - oy), 2)) > ox
+				imgData.data[i + 3] = 0
+			i += 4
+		tmpCtx.putImageData imgData, 0, 0
+		tmpCanvas.toDataURL()
+
+	confirm: =>
 		G.state.set 
 			avatar: 
 				no: 5
-				clipData: tmpCanvas.toDataURL()
+				clipData: @getClipData()
 		Skateboard.core.view '/view/scene'
 
 	stateChange: (evt, obj) =>
