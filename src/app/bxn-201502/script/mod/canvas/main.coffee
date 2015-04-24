@@ -226,21 +226,20 @@ class Mod extends Skateboard.BaseMod
     confirm: =>
         # TODO 选择不同的颜色
         @drawWithoutLine()
-        tmpImg = new Image
-        tmpImg.src = @canvas.toDataURL()
-        tmpImg = white2trasparent(tmpImg)
+        # tmpImg = new Image
+        # tmpImg.src = @canvas.toDataURL()
+        # tmpImg = white2trasparent(tmpImg)
 
         console.log '处理后的图片'
-        console.log tmpImg.src
+        # console.log tmpImg.src
 
-        Mod.clipData = tmpImg.src
+        Mod.clipData = @canvas.toDataURL()
         
         if $('#btn-canvas-choose').hasClass('btn-chose-color-blue')
             Mod.color = 'blue'
         else
             Mod.color = 'red'
         
-
         console.log Mod.clipData
         console.log Mod.color
         $(Mod).trigger 'clipchange', Mod.clipData
