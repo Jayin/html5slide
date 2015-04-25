@@ -105,8 +105,19 @@ class Mod extends Skateboard.BaseMod
             @draw()
 
 
+    resize: =>
+        wrapper = $('.page-wrapper')
+        ww = $(window).width()
+        wrapper.height ww * 1067 / 600
+
+
+    _afterFadeIn: =>
+        @resize()
+
     render: =>
         super
+
+        @resize()
 
         $audio = $('#audio1')[0]
         console.log $audio

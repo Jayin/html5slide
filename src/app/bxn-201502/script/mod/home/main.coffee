@@ -9,12 +9,12 @@ class Mod extends Skateboard.BaseMod
 
     _bodyTpl: require './body.tpl.html'
 
+
     jump: (evt) =>
         Skateboard.core.view '/view/chooseImg'
 
     render: ->
         super
-
         $audio = $('#audio1')[0]
         console.log $audio
         if $('#audio-btn').hasClass('on')

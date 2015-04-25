@@ -21,14 +21,23 @@ class Mod extends Skateboard.BaseMod
     CONTEXT_W: 484
     CONTEXT_H: 537
     ENABLE_ROTATE: false
+    resize: =>
+        wrapper = $('.page-wrapper')
+        ww = $(window).width()
+        wrapper.height ww * 1208 / 750
 
     _afterFadeIn: ->
+        @resize()
+
         require ['../chooseImg/main'], (chooseImgMod) =>
             if not chooseImgMod.img
                 Skateboard.core.view '/view/home', replaceState: true
 
+
     render: ->
         super
+
+        @resize()
 
         $audio = $('#audio1')[0]
         console.log $audio

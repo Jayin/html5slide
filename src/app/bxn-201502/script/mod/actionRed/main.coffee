@@ -102,10 +102,22 @@ class Mod extends Skateboard.BaseMod
             app.ajax.showLoading()
         else 
             app.ajax.hideLoading()
+            @draw()
 
+
+    resize: =>
+        wrapper = $('.page-wrapper')
+        ww = $(window).width()
+        wrapper.height ww * 1067 / 600
+
+
+    _afterFadeIn: =>
+        @resize()
 
     render: =>
         super
+
+        @resize()
 
         $audio = $('#audio1')[0]
         console.log $audio
@@ -133,7 +145,6 @@ class Mod extends Skateboard.BaseMod
 
         require ['../canvas/main'],(CanvasMod) =>
             if CanvasMod.color and CanvasMod.clipData
-
                 @avatar_img.onload = =>
                     @draw()
 
@@ -159,16 +170,16 @@ class Mod extends Skateboard.BaseMod
                 
                 # Draw this first
                 @action.straight.onload = =>
-                    # @imageLoadCallback()
+                    @imageLoadCallback()
                     @action_img =  @action.straight
-                    @draw()
+                    
 
-                # @action.top_left.onload = @imageLoadCallback
-                # @action.mid_left.onload = @imageLoadCallback
-                # @action.lower_left.onload = @imageLoadCallback
-                # @action.top_right.onload = @imageLoadCallback
-                # @action.mid_right.onload = @imageLoadCallback
-                # @action.lower_right.onload = @imageLoadCallback
+                @action.top_left.onload = @imageLoadCallback
+                @action.mid_left.onload = @imageLoadCallback
+                @action.lower_left.onload = @imageLoadCallback
+                @action.top_right.onload = @imageLoadCallback
+                @action.mid_right.onload = @imageLoadCallback
+                @action.lower_right.onload = @imageLoadCallback
 
 
                 # @action_img =  @action.straight
