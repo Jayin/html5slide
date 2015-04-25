@@ -30,6 +30,14 @@ class Mod extends Skateboard.BaseMod
     render: ->
         super
 
+        $audio = $('#audio1')[0]
+        console.log $audio
+        if $('#audio-btn').hasClass('on')
+            $audio.pause()
+            $audio.play()
+        else 
+            $audio.pause()
+
         @canvas = @$('canvas')[0]
         @context = @canvas.getContext('2d')
         require ['../chooseImg/main'], (chooseImgMod) =>
@@ -232,13 +240,17 @@ class Mod extends Skateboard.BaseMod
         
         if $('#btn-canvas-choose').hasClass('btn-chose-color-blue')
             Mod.color = 'blue'
+            Skateboard.core.view '/view/actionBlue'
         else
             Mod.color = 'red'
+            Skateboard.core.view '/view/actionRed'
         
-        console.log Mod.clipData
-        console.log Mod.color
-        $(Mod).trigger 'clipchange', Mod.clipData
-        Skateboard.core.view '/view/action'
+        # Mod.color = 'red'
+        # console.log Mod.clipData
+        # console.log Mod.color
+        # Skateboard.core.view '/view/actionRed'
+        # $(Mod).trigger 'clipchange', Mod.clipData
+        # Skateboard.core.view '/view/action'
 
     destroy: ->
         super

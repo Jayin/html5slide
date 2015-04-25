@@ -2,7 +2,7 @@
 
 <!-- section "head" -->
 <meta name="keywords" content="bxn" />
-<meta name="description" content="为你的爱人定制属于你们的爱情舞步,与大家一起分享你们的幸福时光吧!" />
+<meta name="description" content="我为最爱的人奉上了 求婚之舞，快来见证我们的幸福时刻吧！" />
 <title>奉舞成婚</title>
 <!-- /section -->
 
@@ -16,6 +16,12 @@ document.write([
 <div class="page-wrapper">
 	
 </div>
+<script type="text/javascript">
+document.write([
+    '<audio id="audio1" src="' + G.CDN_ORIGIN + '/static/app/bxn-201502/image/bg.mp3" loop ></audio>'
+].join(''));
+</script>
+<button id="audio-btn" class="img-btn audio-btn on" onclick="if($(this).hasClass('on')) {$('#audio1')[0].pause(); $(this).removeClass('on')} else {$('#audio1')[0].play(); $(this).addClass('on')}"></button>
 
 <div style="display: none;">
 	<img id="face-mask" src="./image/face-mask.png" />

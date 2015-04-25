@@ -46,9 +46,9 @@ require(['jquery', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js', 'app'], func
                 wx.ready(function() {
                     // 在这里调用 API
                     wx.onMenuShareTimeline({
-                        title: '与爱共舞,用心定制 您们的幸福时光吧!', // 分享标题        
+                        title: '我为最爱的人奉上了 求婚之舞，快来见证我们的幸福时刻吧！', // 分享标题        
                         link: shareUrl, // 分享链接
-                        imgUrl: G.CDN_ORIGIN + '/static/app/illumirun-201501/image/illumi_run_share.jpg', // 分享图标
+                        imgUrl: G.CDN_ORIGIN + '/static/app/bxn-201502/image/icon_share.jpg', // 分享图标
                         success: function() {
                             // 用户确认分享后执行的回调函数
                             momentsCountIncrease();
@@ -61,9 +61,9 @@ require(['jquery', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js', 'app'], func
                     wx.onMenuShareAppMessage({
 
                         title: '奉舞成婚', // 分享标题        
-                        desc: '与爱共舞,用心定制 您们的幸福时光吧!',
+                        desc: '我为最爱的人奉上了 求婚之舞，快来见证我们的幸福时刻吧！',
                         link: shareUrl, // 分享链接
-                        imgUrl: G.CDN_ORIGIN + '/static/app/illumirun-201501/image/illumi_run_share.jpg', // 分享图标
+                        imgUrl: G.CDN_ORIGIN + '/static/app/bxn-201502/image/icon_share.jpg', // 分享图标
                         type: '', // 分享类型,music、video或link，不填默认为link
                         dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                         success: function() {

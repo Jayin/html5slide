@@ -10,6 +10,17 @@ class Mod extends Skateboard.BaseMod
 
     _bodyTpl: require './body.tpl.html'
 
+    render: ->
+        super
+
+        $audio = $('#audio1')[0]
+        console.log $audio
+        if $('#audio-btn').hasClass('on')
+            $audio.pause()
+            $audio.play()
+        else 
+            $audio.pause()
+
     resetFileInput: ->
         $('.upload-btn input').remove()
         $('<input type="file" capture="camera" accept="image/*" />').appendTo $('.upload-btn')

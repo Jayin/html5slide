@@ -41,6 +41,7 @@ require ['jquery', 'app'], ($, app)->
     isPlaying = false
 
     # 人物动作图片加载回调
+    app.ajax.showLoading()
     loadImageNumber = 0
     loadImageTotal = 6
     imageLoadCallback = =>
@@ -50,6 +51,7 @@ require ['jquery', 'app'], ($, app)->
             app.ajax.showLoading()
         else 
             app.ajax.hideLoading()
+            drawReady()
 
     # 人物动作
     action = {}
@@ -131,8 +133,10 @@ require ['jquery', 'app'], ($, app)->
     # 开始按钮
     drawStart = =>
         context.save()
+        context.fillRect(0,0,@CONTEXT_W,@CONTEXT_H)
         context.drawImage(action.start,0,0,CONTEXT_W,CONTEXT_H)
         context.restore()
+
 
     draw = =>
         context.clearRect 0, 0, CONTEXT_W, CONTEXT_H
@@ -141,9 +145,18 @@ require ['jquery', 'app'], ($, app)->
         drawAvatar()
         drawAction()
 
+    drawReady = =>
+        action_img = action.straight
+        avatar_direction = 'straight'
+        draw()
+        context.save('draw action.start')
+        context.drawImage(action.start,0,0,CONTEXT_W,CONTEXT_H)
+        context.restore()
+
 
     play = =>
-        $('#audio1')[0].pause()
+        $('#audio1')[0].pause();
+        $('#audio1')[0].currentTime = 0;
         $('#audio1')[0].play()
         console.log '开始播放'
         cur_time_point = 0
@@ -183,8 +196,12 @@ require ['jquery', 'app'], ($, app)->
                     , tmp_time_point - cur_time_point
             else
                 # play is done
-                drawStart()
-                
+                # drawStart()
+                action_img =  action.straight
+                console.log action
+                avatar_direction = 'straight'
+                draw()        
+
                 console.log '结束播放'
                 console.log '原来的isPlaying=' + isPlaying
                 isPlaying = false
@@ -272,7 +289,7 @@ require ['jquery', 'app'], ($, app)->
     # 播放
     $('#action_canvas').on 'click',=>
         if loadImageNumber < loadImageTotal
-            alert('加载中ing,请稍等')
+            app.alerts.alert('加载中,请稍等','info',1500)
             return
         if isPlaying 
             return
