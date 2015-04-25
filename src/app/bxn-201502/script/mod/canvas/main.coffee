@@ -224,14 +224,8 @@ class Mod extends Skateboard.BaseMod
         newImg
 
     confirm: =>
-        # TODO 选择不同的颜色
-        @drawWithoutLine()
-        # tmpImg = new Image
-        # tmpImg.src = @canvas.toDataURL()
-        # tmpImg = white2trasparent(tmpImg)
-
-        console.log '处理后的图片'
-        # console.log tmpImg.src
+        # @drawWithoutLine()
+        @drawImg()
 
         Mod.clipData = @canvas.toDataURL()
         
@@ -244,21 +238,6 @@ class Mod extends Skateboard.BaseMod
         console.log Mod.color
         $(Mod).trigger 'clipchange', Mod.clipData
         Skateboard.core.view '/view/action'
-        # TODO 保存数据
-        #Skateboard.core.view '/view/motion'
-        #return
-        # app.ajax.post
-        #     url: 'web/run/design'
-        #     data:
-        #         imgData: Mod.clipData
-        #         templateCode: @selectTemplateCode
-        #     success: (res) =>
-        #         if res.code is 0
-        #             location.href = "/static/app/illumirun-201501/share.html?designId=#{res.data.designId}&templateCode=#{@selectTemplateCode}"
-        #         else
-        #             alert res.code + ': ' + res.msg
-        #     error: ->
-        #         alert '系统繁忙，请您稍后重试。'
 
     destroy: ->
         super
