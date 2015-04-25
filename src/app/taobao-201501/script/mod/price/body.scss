@@ -1,0 +1,114 @@
+.sb-mod.sb-mod--price {
+	.body-inner {
+		height: 100%;
+	}
+
+	.price-bg-img {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+
+	#price-avatar {
+		position: absolute;
+		height: auto;
+	}
+	.p1 #price-avatar {
+		left: 42.7%;
+		top: 17.3%;
+		width: 14.8%;
+	}
+	.p2 #price-avatar {
+		left: 47.9%;
+		top: 32.3%;
+		width: 15.2%;
+	}
+	.p3 #price-avatar {
+		left: 62.9%;
+		top: 32.9%;
+		width: 15.8%;
+	}
+	.p4 #price-avatar {
+		left: 37.9%;
+		top: 23.6%;
+		width: 23.8%;
+	}
+	.p5 #price-avatar {
+		left: 35.9%;
+		top: 32.5%;
+		width: 14.9%;
+	}
+	.p6 #price-avatar {
+		left: 47.5%;
+		top: 23.7%;
+		width: 24.4%;
+	}
+	.p7 #price-avatar {
+		left: 35.5%;
+		top: 31.3%;
+		width: 20.7%;
+	}
+	.p8 #price-avatar {
+		left: 41.3%;
+		top: 22.7%;
+		width: 12.9%;
+	}
+	.p9 #price-avatar {
+		left: 23.7%;
+		top: 18.9%;
+		width: 52.7%;
+	}
+
+	.customize {
+		position: absolute;
+		width: 51.8%;
+		height: 26%;
+		top: 37.2%;
+		left: 50%;
+		margin-left: -25.9%;
+		display: none;
+	}
+	.customize-title {
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	#price-customized-good-name {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		color: #fff;
+		text-align: center;
+		font-weight: 700;
+		top: 11%;
+		margin-top: -12px;
+	}
+	#price-customized-good-detail {
+		position: absolute;
+		left: 15%;
+		top: 56%;
+		width: 78%;
+		height: 40%;
+		font-size: 0.9rem;
+		color: #fff;
+		text-align: center;
+	}
+
+	.btn-back {
+		width: 30%;
+		height: 8%;
+		left: 12%;
+		top: 87%;
+	}
+	.btn-next {
+		width: 30%;
+		height: 8%;
+		left: 60%;
+		top: 87%;
+	}
+}
