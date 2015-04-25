@@ -41,11 +41,11 @@
 
 	.avatars {
 		position: absolute;
-		top: 30%;
+		top: 29.6%;
 		left: 50%;
-		width: 54.8%;
-		margin-left: -27.4%;
-		> div {
+		width: 53.2%;
+		margin-left: -26.6%;
+		.a1, .a2, .a3, .a4, .a5 {
 			opacity: 0;
 			transition: opacity 0.5s;
 			position: absolute;
@@ -58,11 +58,11 @@
 			}
 		}
 	}
-	.a1 .avatars > .a1, 
-	.a2 .avatars > .a2, 
-	.a3 .avatars > .a3, 
-	.a4 .avatars > .a4, 
-	.a5 .avatars > .a5 {
+	.a1 .avatars .a1, 
+	.a2 .avatars .a2, 
+	.a3 .avatars .a3, 
+	.a4 .avatars .a4, 
+	.a5 .avatars .a5 {
 		opacity: 1;
 	}
 
