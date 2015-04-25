@@ -225,6 +225,7 @@ class Mod extends Skateboard.BaseMod
 
     confirm: =>
         # @drawWithoutLine()
+        @context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
         @drawImg()
 
         Mod.clipData = @canvas.toDataURL()
