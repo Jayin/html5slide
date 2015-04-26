@@ -16,26 +16,6 @@ class Mod extends Skateboard.BaseMod
 
     _bodyTpl: require './body.tpl.html'
 
-    # tpl: # 蓝色+红色
-    #     blue:[
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_straight.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_lower_left.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_mid_left.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_top_left.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_lower_right.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_mid_right.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_blue_top_right.png'
-    #     ]
-    #     red:[
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_straight.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_lower_left.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_mid_left.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_top_left.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_lower_right.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_mid_right.png',
-    #         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_top_right.png'
-    #     ]
-
     CONTEXT_W: 600
     CONTEXT_H: 1067
 
@@ -130,19 +110,6 @@ class Mod extends Skateboard.BaseMod
         @canvas = @$('#action_canvas')[0]
         @context = @canvas.getContext('2d')
 
-        # Draw this first
-        # @action.straight.onload = =>
-        #         @imageLoadCallback()
-        #         @action_img =  @action.straight
-        #         @draw()
-
-        # @action.top_left.onload = @imageLoadCallback
-        # @action.mid_left.onload = @imageLoadCallback
-        # @action.lower_left.onload = @imageLoadCallback
-        # @action.top_right.onload = @imageLoadCallback
-        # @action.mid_right.onload = @imageLoadCallback
-        # @action.lower_right.onload = @imageLoadCallback
-
         require ['../canvas/main'],(CanvasMod) =>
             if CanvasMod.color and CanvasMod.clipData
                 @avatar_img.onload = =>
@@ -152,14 +119,6 @@ class Mod extends Skateboard.BaseMod
                 @avatar_img.src = CanvasMod.clipData
                 @selectColor = CanvasMod.color
 
-                # @action.straight.src = @tpl[CanvasMod.color][0]
-                # @action.lower_left.src = @tpl[CanvasMod.color][1]
-                # @action.mid_left.src = @tpl[CanvasMod.color][2]
-                # @action.top_left.src = @tpl[CanvasMod.color][3]
-                # @action.lower_right.src = @tpl[CanvasMod.color][4]
-                # @action.mid_right.src = @tpl[CanvasMod.color][5]
-                # @action.top_right.src = @tpl[CanvasMod.color][6]
-                # 
                 @action.straight = $('#action_straight')[0]
                 @action.lower_left = $('#action_lower_left')[0]
                 @action.mid_left = $('#action_mid_left')[0]
