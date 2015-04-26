@@ -34,10 +34,7 @@ require ['jquery', 'app'], ($, app)->
     AvatarTarget_Height = 113
     clolor = 'black'
     play_queue = [] # 播放动作顺序
-    timeline = [
-        3500,3750,4000,5250,5750,6000,6250,6500,6750,7000,7250,7500
-
-    ] # 显示的时间点
+    timeline = [] # 显示的时间点
     isPlaying = false
 
     # 人物动作图片加载回调
@@ -197,11 +194,11 @@ require ['jquery', 'app'], ($, app)->
             else
                 # play is done
                 # drawStart()
-                action_img =  action.straight
-                console.log action
-                avatar_direction = 'straight'
-                draw()        
-
+                # action_img =  action.straight
+                # console.log action
+                # avatar_direction = 'straight'
+                # draw()        
+                drawReady()
                 console.log '结束播放'
                 console.log '原来的isPlaying=' + isPlaying
                 isPlaying = false
@@ -271,6 +268,7 @@ require ['jquery', 'app'], ($, app)->
                 avatar.src = G.CDN_ORIGIN + '/'  + result.data.relativePath
                 color = result.data.color
                 play_queue = result.data.sequence
+                timeline = result.data.timeline
 
                 action.straight.src = tpl[color][0]
                 action.lower_left.src = tpl[color][1]
