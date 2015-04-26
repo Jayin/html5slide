@@ -1,0 +1,23 @@
+@import "../buy/goods.scss";
+body.body-sb-mod--home {
+	background-color: #fff;
+}
+.sb-mod.sb-mod--preview {
+	.body-inner {
+		height: 100%;
+	}
+
+	.btn-back {
+		left: 0;
+		top: 0;
+		width: 50%;
+		height: 100%;
+	}
+
+	.btn-share {
+		left: 50%;
+		top: 0;
+		width: 50%;
+		height: 100%;
+	}
+}
