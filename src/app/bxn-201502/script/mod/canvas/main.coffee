@@ -178,8 +178,8 @@ class Mod extends Skateboard.BaseMod
             @img.src = newImg.url
         , 500
 
-    drawImg: ->
-        context = @context
+    drawImg: (ctx)->
+        context = ctx or @context
         context.save()
         context.translate @po.x, @po.y
         if @deg
@@ -220,7 +220,7 @@ class Mod extends Skateboard.BaseMod
         @drawImg()
         @drawFrame()
 
-
+    # 把白色变为透明
     white2trasparent = (img, range) ->
         range = range or 10
         canvas = document.createElement('canvas')
@@ -241,11 +241,12 @@ class Mod extends Skateboard.BaseMod
         newImg
 
     confirm: =>
-        # @drawWithoutLine()
-        @context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
-        @drawImg()
+        tmpCanvas = document.createElement 'canvas'
+        tmpCanvas.width = @CONTEXT_W
+        tmpCanvas.height = @CONTEXT_H
+        @drawImg(tmpCanvas.getContext('2d'))
 
-        Mod.clipData = @canvas.toDataURL()
+        Mod.clipData = tmpCanvas.toDataURL()
         
         if $('#btn-canvas-choose').hasClass('btn-chose-color-blue')
             Mod.color = 'blue'
@@ -254,11 +255,6 @@ class Mod extends Skateboard.BaseMod
             Mod.color = 'red'
             Skateboard.core.view '/view/actionRed'
         
-        # Mod.color = 'red'
-        # console.log Mod.clipData
-        # console.log Mod.color
-        # Skateboard.core.view '/view/actionRed'
-        # $(Mod).trigger 'clipchange', Mod.clipData
         # Skateboard.core.view '/view/action'
 
     destroy: ->
