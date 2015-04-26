@@ -89,6 +89,9 @@ class Mod extends Skateboard.BaseMod
         wrapper = $('.page-wrapper')
         ww = $(window).width()
         wrapper.height ww * 1067 / 600
+        wrapper.css 'width', '100%'
+        
+        $('#action_canvas').css 'height',(ww * 1067 / 600) + 'px'
 
 
     _afterFadeIn: =>
