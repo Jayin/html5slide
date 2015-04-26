@@ -6,14 +6,28 @@ class Mod extends Skateboard.BaseMod
 
 	events:
 		'click .btn-next': 'next'
+		'click .price .img-btn': 'clickPriceBtn'
 
 	_bodyTpl: require './body.tpl.html'
+
+	price: ''
 
 	render: ->
 		super
 		@setAvatar G.state.get('avatar')
 		@stateChange null, G.state.get()
 		G.state.on 'change', @stateChange
+		$('#customized-price').on 'focus', (evt) =>
+			$(evt.target).addClass 'focus'
+			@$('.price .img-btn').removeClass 'on'
+		$('#customized-price').on 'change blur', (evt) =>
+			target = evt.target
+			target.value = target.value.trim()
+			if target.value
+				$(target).addClass 'focus'
+			else
+				$(target).removeClass 'focus'
+			@price = target.value
 
 	setAvatar: (avatar) ->
 		if avatar.no is 5
@@ -33,8 +47,19 @@ class Mod extends Skateboard.BaseMod
 		else
 			@$('.customize').hide()
 
+	clickPriceBtn: (evt) =>
+		@$('.price .img-btn').removeClass 'on'
+		$(evt.target).addClass 'on'
+		@price = $(evt.target).text()
+		$('#customized-price').val('').removeClass 'focus'
+
 	next: =>
-		
+		if @price
+			G.state.set
+				price: @price
+			Skateboard.core.view '/view/preview'
+		else
+			alert '请给宝贝定个价吧'
 
 	stateChange: (evt, obj) =>
 		@setAvatar obj.avatar if obj.avatar
@@ -65,6 +90,12 @@ var app = require('app');
 				<div id="price-customized-good-name"></div>
 			</div>
 			<div id="price-customized-good-detail"></div>
+		</div>
+		<div class="price">
+			<button class="img-btn price-btn-1">3美元</button>
+			<button class="img-btn price-btn-2">打4下PP</button>
+			<button class="img-btn price-btn-3">5下亲亲</button>
+			<input id="customized-price" type="text" maxlength="5" />
 		</div>
 		<a class="img-btn btn-back" href="/:back">返回</a>
 		<button class="img-btn btn-next">下一步</button>
