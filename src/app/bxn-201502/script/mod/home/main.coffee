@@ -9,12 +9,26 @@ class Mod extends Skateboard.BaseMod
 
     _bodyTpl: require './body.tpl.html'
 
+    resize: =>
+        wrapper = $('.page-wrapper')
+        ww = $(window).width()
+        wrapper.height ww * 1208 / 750
+
+    _afterFadeIn: ->
+        @resize()
+
+        require ['../chooseImg/main'], (chooseImgMod) =>
+            if not chooseImgMod.img
+                Skateboard.core.view '/view/home', replaceState: true
 
     jump: (evt) =>
         Skateboard.core.view '/view/chooseImg'
 
     render: ->
         super
+
+        @resize()
+        
         $audio = $('#audio1')[0]
         console.log $audio
         if $('#audio-btn').hasClass('on')
