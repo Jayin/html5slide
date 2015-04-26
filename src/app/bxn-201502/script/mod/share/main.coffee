@@ -28,7 +28,7 @@ require ['jquery', 'app'], ($, app)->
     CONTEXT_W = 600
     CONTEXT_H = 1067
 
-    avatar = null
+    avatar = new Image
     avatar_direction =  'straight'
     AvatarTarget_Width = 102
     AvatarTarget_Height = 113
@@ -40,7 +40,7 @@ require ['jquery', 'app'], ($, app)->
     # 人物动作图片加载回调
     app.ajax.showLoading()
     loadImageNumber = 0
-    loadImageTotal = 6
+    loadImageTotal = 8
     imageLoadCallback = =>
         loadImageNumber += 1
         console.log "load img: #{loadImageNumber}" 
@@ -61,6 +61,7 @@ require ['jquery', 'app'], ($, app)->
     action.lower_right = new Image
 
 
+    avatar.onload = imageLoadCallback
     action.straight.onload = imageLoadCallback
     action.top_left.onload = imageLoadCallback
     action.mid_left.onload = imageLoadCallback
@@ -264,7 +265,6 @@ require ['jquery', 'app'], ($, app)->
         success: (result)->
             console.log result
             if result.code is 0
-                avatar = new Image
                 avatar.src = G.CDN_ORIGIN + '/'  + result.data.relativePath
                 color = result.data.color
                 play_queue = result.data.sequence
