@@ -5,7 +5,6 @@ class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	events:
-		'change .upload-btn': 'fileChange'
 		'click .btn-next': 'next'
 		'click .btn-arrow-left': 'prevScene'
 		'click .btn-arrow-right': 'nextScene'
@@ -18,6 +17,17 @@ class Mod extends Skateboard.BaseMod
 		super
 		@setAvatar G.state.get('avatar')
 		G.state.on 'change', @stateChange
+		$('#customized-good-name, #customized-good-detail').on 'focus', ->
+			$(this).addClass 'focus'
+		$('#customized-good-name, #customized-good-detail').on 'change blur', ->
+			this.value = this.value.trim()
+			if this.value
+				$(this).addClass 'focus'
+			else
+				$(this).removeClass 'focus'
+			if this.id is 'customized-good-detail'
+				if this.value.length > 25
+					this.value = this.value.slice 0, 25
 		# preload next page
 		require ['../canvas/main']
 
@@ -42,11 +52,24 @@ class Mod extends Skateboard.BaseMod
 		@sceneNo = (@sceneNo % 9) + 1
 		@updateScene()
 
-	back: =>
-		Skateboard.core.view '/view/home'
-
 	next: =>
-		Skateboard.core.view '/view/canvas'
+		if @sceneNo is 9
+			customized =
+				goodName: $('#customized-good-name').val()
+				goodDetail: $('#customized-good-detail').val()
+			if customized.goodName and customized.goodDetail
+				G.state.set
+					scene:
+						no: @sceneNo
+						customized: customized
+				Skateboard.core.view '/view/price'
+			else
+				alert '请输入宝贝名称和宝贝详情'
+		else
+			G.state.set
+				scene:
+					no: @sceneNo
+			Skateboard.core.view '/view/price'
 
 	stateChange: (evt, obj) =>
 		@setAvatar obj.avatar if obj.avatar
