@@ -60,6 +60,7 @@ class Mod extends Skateboard.BaseMod
 			G.state.set
 				price: @price
 			Skateboard.core.view '/view/preview'
+			$('#audio-create')[0].play()
 		else
 			alert '请给宝贝定个价吧'
 

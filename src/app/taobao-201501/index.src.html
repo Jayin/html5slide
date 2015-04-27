@@ -6,6 +6,10 @@
 <title>taobao</title>
 <!-- /section -->
 
+<!-- section "ajax-loading" -->
+<div style="display: none;"></div>
+<!-- /section -->
+
 <!-- section "body" -->
 <script type="text/javascript">
 document.write([
@@ -16,22 +20,16 @@ document.write([
 <div class="page-wrapper"></div>
 
 <script type="text/javascript">
-require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
-	if(!G.IS_PROTOTYPE) {
-		if(!app.cookie.get('wxopenid')) {
-			var urlParamOpenId = app.util.getUrlParam('code');
-			if(urlParamOpenId) {
-				app.cookie.set('wxopenid', urlParamOpenId);
-			} else {
-				location.href = [
-					'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd4f26aea63a05347&redirect_uri=', 
-					encodeURIComponent(location.href.split('#')[0]), 
-					'&response_type=code&scope=snsapi_base&state=null'
-				].join('');
-			}
-		}
-	}
+document.write([
+    '<audio id="audio-bg" src="' + G.CDN_BASE + '/app/taobao-201501/image/bg.mp3" loop></audio>',
+    '<audio id="audio-create" src="' + G.CDN_BASE + '/app/taobao-201501/image/create.mp3"></audio>',
+    '<audio id="audio-click" src="' + G.CDN_BASE + '/app/taobao-201501/image/click.mp3"></audio>'
+].join(''));
+</script>
+<button id="audio-btn" class="img-btn audio-btn on" onclick="if($(this).hasClass('on')) {$('#audio-bg')[0].pause(); $(this).removeClass('on')} else {$('#audio-bg')[0].play(); $(this).addClass('on')}"></button>
 
+<script type="text/javascript">
+require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	//adjust
 	var wrapper = $('.page-wrapper');
 	ww = $(window).width();
@@ -102,6 +100,13 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			].join('')).prependTo($('.page-wrapper'));
 			return contentDom;
 		}
+	});
+	
+	$(document.body).on('click', '.img-btn', function(evt) {
+		//$('#audio-click')[0].play();
+	}).on('click', function palyBgAudio(evt) {
+		$('#audio-bg')[0].play();
+		$(document.body).off('click', palyBgAudio);
 	});
 }, function() {
 
