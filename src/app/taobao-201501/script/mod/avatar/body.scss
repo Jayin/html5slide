@@ -76,7 +76,7 @@
 			height: 100%;
 			text-indent: -9999px;
 		}
-		.a1, .a2, .a3, .a4 {
+		.a2, .a3, .a4, .a5 {
 			background-position: left top;
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -88,9 +88,6 @@
 			width: 100%;
 			height: 100%;
 		}
-		.a1 {
-			background-image: url(../../../image/avatar/desc-01.png);
-		}
 		.a2 {
 			background-image: url(../../../image/avatar/desc-02.png);
 		}
@@ -100,11 +97,14 @@
 		.a4 {
 			background-image: url(../../../image/avatar/desc-04.png);
 		}
+		.a5 {
+			background-image: url(../../../image/avatar/desc-05.png);
+		}
 	}
-	.a1 .avatar-desc > .a1, 
 	.a2 .avatar-desc > .a2, 
 	.a3 .avatar-desc > .a3, 
-	.a4 .avatar-desc > .a4 {
+	.a4 .avatar-desc > .a4, 
+	.a5 .avatar-desc > .a5 {
 		opacity: 1;
 	}
 

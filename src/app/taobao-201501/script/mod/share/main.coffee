@@ -5,6 +5,7 @@ class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	events:
+		'click .btn-back': 'back'
 		'click .btn-share': 'showShare'
 		'click .btn-close': 'closeShare'
 
@@ -28,7 +29,7 @@ class Mod extends Skateboard.BaseMod
 				alert '系统繁忙，请您稍后重试。'
 
 	setAvatar: (avatar) ->
-		if avatar.no is 5
+		if avatar.no is 1
 			$('<img id="good-avatar" src="' + avatar.clipData + '" />').appendTo $('#good-wrapper')
 		else
 			require ['../buy/avatar-0' + avatar.no + '-main.tpl.html'], (tpl) ->
@@ -51,6 +52,9 @@ class Mod extends Skateboard.BaseMod
 
 	closeShare: =>
 		@$('.share-instruction').fadeOut()
+
+	back: =>
+		history.back()
 
 module.exports = Mod
 
@@ -76,7 +80,7 @@ var app = require('app');
 		</div>
 		<div class="good-actions">
 			<img src="../../../image/share/good-action.png" />
-			<a class="img-btn btn-back" href="/:back">返回</a>
+			<button class="img-btn btn-back">返回</button>
 			<button class="img-btn btn-share">分享</button>
 		</div>
 		<div class="share-instruction">

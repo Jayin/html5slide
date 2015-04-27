@@ -5,6 +5,7 @@ class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	events:
+		'click .btn-back': 'back'
 		'click .btn-next': 'next'
 		'click .price .img-btn': 'clickPriceBtn'
 
@@ -32,7 +33,7 @@ class Mod extends Skateboard.BaseMod
 		require ['../preview/main', '../buy/bg-0' + G.state.get('scene').no + '-main.tpl.html']
 
 	setAvatar: (avatar) ->
-		if avatar.no is 5
+		if avatar.no is 1
 			$('#price-avatar')[0].src = avatar.clipData
 		else
 			$('#price-avatar')[0].src = $('#avatar-' + avatar.no)[0].src
@@ -55,11 +56,15 @@ class Mod extends Skateboard.BaseMod
 		@price = $(evt.target).text()
 		$('#customized-price').val('').removeClass 'focus'
 
+	back: =>
+		history.back()
+
 	next: =>
 		if @price
 			G.state.set
 				price: @price
 			Skateboard.core.view '/view/preview'
+			$('#audio-create')[0].play()
 		else
 			alert '请给宝贝定个价吧'
 
@@ -99,7 +104,7 @@ var app = require('app');
 			<button class="img-btn price-btn-3">5下亲亲</button>
 			<input id="customized-price" type="text" maxlength="5" />
 		</div>
-		<a class="img-btn btn-back" href="/:back">返回</a>
+		<button class="img-btn btn-back">返回</button>
 		<button class="img-btn btn-next">下一步</button>
 	</div>
 </div>

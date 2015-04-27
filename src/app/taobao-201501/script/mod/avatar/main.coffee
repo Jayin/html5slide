@@ -6,6 +6,7 @@ class Mod extends Skateboard.BaseMod
 
 	events:
 		'change .upload-btn': 'fileChange'
+		'click .btn-back': 'back'
 		'click .btn-next': 'next'
 		'click .btn-arrow-left': 'prevAvatar'
 		'click .btn-arrow-right': 'nextAvatar'
@@ -44,7 +45,7 @@ class Mod extends Skateboard.BaseMod
 
 	updateAvatar: ->
 		$('#avatar-wrapper')[0].className = 'a' + @avatarNo
-		if @avatarNo is 5
+		if @avatarNo is 1
 			@$('.upload-btn').show()
 		else
 			@$('.upload-btn').hide()
@@ -58,10 +59,10 @@ class Mod extends Skateboard.BaseMod
 		@updateAvatar()
 
 	back: =>
-		Skateboard.core.view '/view/home'
+		history.back()
 
 	next: =>
-		if @avatarNo is 5
+		if @avatarNo is 1
 			alert '请客官上传靓照'
 		else
 			G.state.set
@@ -91,16 +92,16 @@ var app = require('app');
 <div class="body-inner">
 	<div id="avatar-wrapper" class="a1">
 		<div class="avatar-title">
-			<div class="a1"><span>萌蠢少女</span></div>
-			<div class="a2"><span>多汁小鲜肉</span></div>
-			<div class="a3"><span>顶级女神经</span></div>
-			<div class="a4"><span>抠脚糙汉</span></div>
-			<div class="a5"><span>上传靓照</span></div>
+			<div class="a1"><span>上传靓照</span></div>
+			<div class="a2"><span>萌蠢少女</span></div>
+			<div class="a3"><span>多汁小鲜肉</span></div>
+			<div class="a4"><span>顶级女神经</span></div>
+			<div class="a5"><span>抠脚糙汉</span></div>
 		</div>
 		<div class="avatars">
 			<div class="default-avatars"></div>
-			<div class="a5">
-				<img src="../../../image/avatar/avatar-05.png" />
+			<div class="a1">
+				<img src="../../../image/avatar/avatar-01.png" />
 				<div class="upload-btn">
 					<input type="file" capture="camera" accept="image/*" />
 				</div>
@@ -108,10 +109,10 @@ var app = require('app');
 		</div>
 		<div class="nick"><%==G.state.get('nick')%></div>
 		<div class="avatar-desc">
-			<div class="a1">卖萌撒娇都无敌</div>
-			<div class="a2">八面玲珑巧舌如簧</div>
-			<div class="a3">擦大气粗真土豪</div>
-			<div class="a4">奔放洋气有深度</div>
+			<div class="a2">卖萌撒娇都无敌</div>
+			<div class="a3">八面玲珑巧舌如簧</div>
+			<div class="a4">擦大气粗真土豪</div>
+			<div class="a5">奔放洋气有深度</div>
 		</div>
 		<ul class="indicator">
 			<li class="indicator__item a1">1</li>
@@ -122,7 +123,7 @@ var app = require('app');
 		</ul>
 		<button class="img-btn btn-arrow-left">&lt;</button>
 		<button class="img-btn btn-arrow-right">&gt;</button>
-		<a class="img-btn btn-back" href="/:back">返回</a>
+		<button class="img-btn btn-back">返回</button>
 		<button class="img-btn btn-next">下一步</button>
 	</div>
 </div>

@@ -109,6 +109,7 @@ define(function(require) {
 			};
 			opt.loading === false || ajax.hideLoading();
 		});
+		return xhrObj;
 	};
 	
 	/**
@@ -157,6 +158,7 @@ define(function(require) {
 			};
 			opt.loading === false || ajax.hideLoading();
 		});
+		return xhrObj;
 	};
 	
 	/**

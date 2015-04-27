@@ -5,6 +5,7 @@ class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	events:
+		'click .btn-back': 'back'
 		'click .btn-share': 'share'
 
 	_bodyTpl: require './body.tpl.html'
@@ -18,7 +19,7 @@ class Mod extends Skateboard.BaseMod
 		G.state.on 'change', @stateChange
 
 	setAvatar: (avatar) ->
-		if avatar.no is 5
+		if avatar.no is 1
 			$('#good-avatar')[0].src = avatar.clipData
 		else
 			$('#good-avatar')[0].src = $('#avatar-' + avatar.no)[0].src
@@ -34,6 +35,9 @@ class Mod extends Skateboard.BaseMod
 			@$('.customize').show()
 		else
 			@$('.customize').hide()
+
+	back: =>
+		history.back()
 
 	share: =>
 		state = G.state.get()
@@ -83,7 +87,7 @@ var app = require('app');
 		</div>
 		<div class="good-actions">
 			<img src="../../../image/share/good-action.png" />
-			<a class="img-btn btn-back" href="/:back">返回</a>
+			<button class="img-btn btn-back">返回</button>
 			<button class="img-btn btn-share">分享</button>
 		</div>
 	</div>

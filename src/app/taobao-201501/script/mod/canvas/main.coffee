@@ -12,6 +12,7 @@ class Mod extends Skateboard.BaseMod
 		'touchmove canvas': 'touchMove'
 		'touchend canvas': 'touchEnd'
 		'click .btn-next': 'confirm'
+		'click .btn-back': 'back'
 
 	_bodyTpl: require './body.tpl.html'
 
@@ -190,10 +191,13 @@ class Mod extends Skateboard.BaseMod
 		tmpCtx.putImageData imgData, 0, 0
 		tmpCanvas.toDataURL()
 
+	back: =>
+		history.back()
+
 	confirm: =>
 		G.state.set 
 			avatar: 
-				no: 5
+				no: 1
 				clipData: @getClipData()
 		Skateboard.core.view '/view/scene'
 
@@ -222,7 +226,7 @@ var app = require('app');
 		Your browser does not support HTML5 Canvas.
 	</canvas>
 	<div class="nick"><%==G.state.get('nick')%></div>
-	<a class="img-btn btn-back" href="/:back">返回</a>
+		<button class="img-btn btn-back">返回</button>
 	<button class="img-btn btn-next">下一步</button>
 	<div style="display:none">
 		<img id="canvas-frame" src="../../../image/canvas/canvas-frame.png" />
