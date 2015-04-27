@@ -1,13 +1,50 @@
 .sb-mod.sb-mod--actionBlue {
-    canvas {
-        position: relative;
+    .img-action {
+        position: absolute;
         top: 0;
         left: 0;
-      
-        width: 100%;
         height: 100%;
-
-      
+        width: 100%;
+    }
+    .img-avatar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 11%;
+        width: 18%;
+    }
+    .action-straight {
+        top: 9.5%;
+        left: 40%;
+    }
+    .action-top_left {
+        top: 9%;
+        left: 38%;
+        transform: rotate(-10deg);
+    }
+    .action-mid_left {
+        top: 27%;
+        left: 15%;
+        transform: rotate(-45deg);
+    }
+    .action-lower_left {
+        top: 29%;
+        left: 22%;
+        transform: rotate(-45deg);
+    }
+    .action-top_right {
+        top: 9.8%;
+        left: 41.2%;
+    }
+    .action-mid_right {
+        top: 23%;
+        left: 61%;
+        transform: rotate(45deg);
+    }
+    .action-lower_right {
+        top: 32%;
+        left: 63%;
+        transform: rotate(50deg);
     }
     .layer2 {
         background-image: url(../../../image/bg_action.png);
