@@ -26,23 +26,20 @@
 	&.good-price--1 {
 		background-image: url(../../../image/buy/price-bg-01.png);
 		.price {
-			top: 28%;
-			margin-top: -10px;
+			top: 17.5%;
 			font-size: 0.8rem;
 		}
 	}
 	&.good-price--2 {
 		background-image: url(../../../image/buy/price-bg-02.png);
 		.price {
-			top: 50%;
-			margin-top: -12px;
+			top: 40%;
 		}
 	}
 	&.good-price--3 {
 		background-image: url(../../../image/buy/price-bg-03.png);
 		.price {
-			top: 50%;
-			margin-top: -12px;
+			top: 40%;
 		}
 	}
 }
