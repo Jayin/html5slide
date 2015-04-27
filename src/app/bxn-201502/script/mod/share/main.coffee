@@ -45,7 +45,6 @@ require ['jquery', 'app'], ($, app)->
     loadImageTotal = 8
     imageLoadCallback = =>
         loadImageNumber += 1
-        console.log "load img: #{loadImageNumber}" 
         if loadImageNumber < loadImageTotal
             app.ajax.showLoading()
         else 
@@ -182,7 +181,6 @@ require ['jquery', 'app'], ($, app)->
             avatar_direction = tmp_action
             action_img = action[tmp_action]
             draw()
-            console.log "play action: #{tmp_action}"
 
             cur_time_point = tmp_time_point
             tmp_action = tmpQueue.shift()
@@ -255,7 +253,6 @@ require ['jquery', 'app'], ($, app)->
     app.ajax.get
         url: "web/bxn/design/#{designId}"
         success: (result)->
-            console.log result
             if result.code is 0
                 avatar.src = G.CDN_ORIGIN + '/'  + result.data.relativePath
                 color = result.data.color

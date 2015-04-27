@@ -28,7 +28,7 @@ class Mod extends Skateboard.BaseMod
         @resize()
 
         $audio = $('#audio1')[0]
-        console.log $audio
+
         if $('#audio-btn').hasClass('on')
             $audio.pause()
             $audio.play()

@@ -97,7 +97,7 @@ class Mod extends Skateboard.BaseMod
     loadImageTotal: 7
     imageLoadCallback : =>
         @loadImageNumber += 1
-        console.log "load img: #{@loadImageNumber}"
+
         if @loadImageNumber < @loadImageTotal
             app.ajax.showLoading()
         else 
@@ -108,7 +108,7 @@ class Mod extends Skateboard.BaseMod
         super
 
         $audio = $('#audio1')[0]
-        console.log $audio
+
         if $('#audio-btn').hasClass('on')
             $audio.pause()
             $audio.play()
@@ -223,10 +223,7 @@ class Mod extends Skateboard.BaseMod
         if @queue.length < 12
             app.alerts.alert '请选择12个动作', 'info', 3000
             return
-        console.log 'upload info:'
-        console.log @queue
-        console.log @selectColor
-        console.log @avatar
+
         app.ajax.post
             url: 'web/bxn/design'
             data:
