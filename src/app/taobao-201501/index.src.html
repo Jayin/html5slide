@@ -36,9 +36,9 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	var wrapper = $('.page-wrapper');
 	ww = $(window).width();
 	wrapper.height(ww * 604 / 375);
-	if(ww <= 320) {
-		$('html').addClass('small');
-	}
+	$('html').css({
+		fontSize: ww / 375 * 100 + '%'
+	});
 
 	$.extend(G.MD5_MAP, %{{md5map.taobao-201501}}%);
 
