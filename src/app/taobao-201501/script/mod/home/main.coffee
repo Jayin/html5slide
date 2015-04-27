@@ -7,10 +7,7 @@ class Mod extends Skateboard.BaseMod
 	events:
 		'click .btn-go': 'showDialog'
 
-	_bodyTpl: require './body.tpl.html'
-
 	render: ->
-		super
 		require ['./dialog-main'], (dialog) =>
 			dialog.on 'confirm', @confirm
 		# preload next page
@@ -26,20 +23,3 @@ class Mod extends Skateboard.BaseMod
 		Skateboard.core.view '/view/avatar'
 
 module.exports = Mod
-
-__END__
-
-@@ body.tpl.html
-<%
-var $ = require('jquery');
-var app = require('app');
-%>
-
-<!-- include "body.scss" -->
-
-<div class="body-inner">
-	<div class="head">
-		<img src="../../../image/home/head.png" />
-	</div>
-	<button class="img-btn btn-go">go</button>
-</div>

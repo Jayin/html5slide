@@ -1,32 +1,126 @@
-<!-- extend "../../html/layout/layout.base.html" -->
-
-<!-- section "head" -->
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no" />
 <meta name="keywords" content="taobao" />
 <meta name="description" content="taobao" />
 <title>taobao</title>
-<!-- /section -->
-
-<!-- section "ajax-loading" -->
-<div style="display: none;"></div>
-<!-- /section -->
-
-<!-- section "body" -->
+</head>
+<body class="body-sb-mod--home">
 <script type="text/javascript">
+var G = G || {
+	DOMAIN: %{{domain}}%,
+	ORIGIN: %{{origin}}%,
+	CGI_ORIGIN: %{{cgiOrigin}}%,
+	CDN_ORIGIN: %{{cdnOrigin}}%,
+	CDN_CONTEXT: %{{cdnContext}}%,
+	
+	MD5_MAP: %{{md5map.app}}%,
+
+	IS_PROTOTYPE: %{{isPrototype}}%,
+	
+	pageTime: [new Date()]
+};
+
+if(G.CDN_CONTEXT) {
+	G.CDN_BASE = G.CDN_ORIGIN + '/' + G.CDN_CONTEXT
+} else {
+	G.CDN_BASE = G.CDN_ORIGIN
+}
+
+G.id = function(id) {
+	return document.getElementById(id);
+};
+
+if(G.DOMAIN && G.DOMAIN != document.domain) {
+	document.domain = G.DOMAIN;
+}
+
+(function() {
+	var list = ['CGI_ORIGIN', 'CDN_ORIGIN'];
+	for(var i = 0; i < list.length; i++) {
+		if(G[list[i]].indexOf('//') === 0) {
+			G[list[i]] = location.protocol + G[list[i]];
+		}
+	}
+	if(location.protocol == 'file:') {
+		var m = location.href.match(/^(.+)\/static\//);
+		if(m) {
+			G.ORIGIN = G.CDN_ORIGIN = G.CGI_ORIGIN = m[1];
+		}
+	}
+})();
+</script>
+
+<!-- include "../../style/app/main.css" -->
+
+<!-- include "style/main.css" -->
+
+<!-- include "script/mod/home/body.scss" -->
+
+<div id="page-wrapper" class="page-wrapper">
+	<div class="sb-mod sb-mod--home" data-sb-scene="0">
+		<div class="sb-mod__body">
+			<!-- require "script/mod/home/body.tpl.html" render="true" -->
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+;(function() {
+	//adjust
+	var wrapper = G.id('page-wrapper');
+	ww = document.documentElement.clientWidth;
+	wrapper.style.height = (ww * 604 / 375) + 'px';
+})();
+
 document.write([
-	'<link rel="stylesheet" href="' + G.CDN_BASE + '/app/taobao-201501/style/main.css" />'
+	'<script type="text/javascript" src="' + G.CDN_BASE + '/script/lib/fastclick/fastclick.js"></s', 'cript>',
+	'<script type="text/javascript" src="' + G.CDN_BASE + '/script/lib/yom/require-lite.js"></s', 'cript>'
 ].join(''));
 </script>
 
-<div class="page-wrapper"></div>
-
 <script type="text/javascript">
-document.write([
-    '<audio id="audio-bg" src="' + G.CDN_BASE + '/app/taobao-201501/image/bg.mp3" loop></audio>',
-    '<audio id="audio-create" src="' + G.CDN_BASE + '/app/taobao-201501/image/create.mp3"></audio>',
-    '<audio id="audio-click" src="' + G.CDN_BASE + '/app/taobao-201501/image/click.mp3"></audio>'
-].join(''));
+FastClick.attach(document.body);
+
+require(['jquery'], function($) {
+	var _state = null;
+
+	G.state = $.extend($({}), {
+		set: function(obj) {
+			if(typeof obj == 'object' && obj) {
+				if(_state) {
+					for(var p in obj) {
+						if(Object.prototype.hasOwnProperty.call(obj, p)) {
+							_state[p] = obj[p];
+						}
+					}
+				} else {
+					_state = obj;
+				}
+				G.state.trigger('change', obj);
+			}
+		},
+
+		get: function(key) {
+			if(key) {
+				return _state && _state[key];
+			} else {
+				return _state;
+			}
+		}
+	});
+});
 </script>
-<button id="audio-btn" class="img-btn audio-btn on" onclick="if($(this).hasClass('on')) {$('#audio-bg')[0].pause(); $(this).removeClass('on')} else {$('#audio-bg')[0].play(); $(this).addClass('on')}"></button>
 
 <script type="text/javascript">
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
@@ -68,6 +162,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 		},
 		transformAnimation: false,
 		isSupportHistoryState: false,
+		initContentDom: $('.sb-mod--home'),
 		onBeforeViewChange: function(modName, modInst) {
 			app.ajax.hideLoading();
 			app.alerts.alert.hide();
@@ -112,4 +207,15 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 
 });
 </script>
-<!-- /section -->
+
+<script type="text/javascript">
+document.write([
+    '<audio id="audio-bg" src="' + G.CDN_BASE + '/app/taobao-201501/image/bg.mp3" loop></audio>',
+    '<audio id="audio-create" src="' + G.CDN_BASE + '/app/taobao-201501/image/create.mp3"></audio>',
+    '<audio id="audio-click" src="' + G.CDN_BASE + '/app/taobao-201501/image/click.mp3"></audio>'
+].join(''));
+</script>
+<button id="audio-btn" class="img-btn audio-btn on" onclick="if($(this).hasClass('on')) {$('#audio-bg')[0].pause(); $(this).removeClass('on')} else {$('#audio-bg')[0].play(); $(this).addClass('on')}"></button>
+
+</body>
+</html>
