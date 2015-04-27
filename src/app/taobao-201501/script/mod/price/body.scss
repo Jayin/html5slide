@@ -80,13 +80,12 @@
 	#price-customized-good-name {
 		position: absolute;
 		left: 0;
-		top: 0;
 		width: 100%;
 		color: #fff;
 		text-align: center;
 		font-weight: 700;
-		top: 11%;
-		margin-top: -12px;
+		top: 5%;
+		font-size: 0.8rem;
 	}
 	#price-customized-good-detail {
 		position: absolute;
@@ -102,7 +101,7 @@
 	.price {
 		position: absolute;
 		width: 58.2%;
-		height: 16.8%;
+		height: 16.7%;
 		left: 50%;
 		top: 68.3%;
 		margin-left: -29.1%;
@@ -141,7 +140,7 @@
 		bottom: 0;
 		left: 17%;
 		border: none;
-		height: 24.15%;
+		height: 23.5%;
 		text-align: center;
 		background-color: transparent;
 		&.focus {

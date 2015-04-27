@@ -29,7 +29,7 @@ class Mod extends Skateboard.BaseMod
 				if this.value.length > 25
 					this.value = this.value.slice 0, 25
 		# preload next page
-		require ['../canvas/main']
+		require ['../price/main', '../price/bg-01-main.tpl.html']
 
 	setAvatar: (avatar) ->
 		if avatar.no is 5
@@ -43,6 +43,8 @@ class Mod extends Skateboard.BaseMod
 			@$('.customize').show()
 		else
 			@$('.customize').hide()
+		# preload next page
+		require ['../price/bg-0' + @sceneNo + '-main.tpl.html']
 
 	prevScene: =>
 		@sceneNo = (@sceneNo - 1) || 9

@@ -16,7 +16,7 @@ deploy-prd-idc:
 	cd $(TARGET_PATH) && tar -czvf package.tar.gz static
 	scp $(TARGET_PATH)/package.tar.gz $(PRD_SERVER_HOST):package.tar.gz
 	-rm $(TARGET_PATH)/package.tar.gz
-	ssh -t $(PRD_SERVER_HOST) "tar -xzvf package.tar.gz && cp -R static /usr/share/nginx/html && rm -R static package.tar.gz"
+	ssh -t $(PRD_SERVER_HOST) "tar -xzvf package.tar.gz && cp -R static /usr/h5/nginx/html && rm -R static package.tar.gz"
 
 deploy-uat-idc:
 	-rm -fr $(TARGET_PATH)/static/coverage
@@ -27,8 +27,5 @@ deploy-uat-idc:
 
 deploy-prd-cdn:
 	qrsync qiniu-prd.json
-
-deploy-uat-cdn:
-	qrsync qiniu-uat.json
 
 .PHONY: main prototype deploy

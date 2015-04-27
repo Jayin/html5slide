@@ -1,6 +1,0 @@
-{
-    "src": "./dist/static",
-    "dest": "qiniu:access_key=WSICWTP-NJyZfoq309LG3mtGdP7yrAyJEnBUn-en&secret_key=0Izri7p4_Obq70HXtlzU5SCqCPUMUzWQF2VE5GXA&bucket=html5slide-uat&key_prefix=static/&threshold=1048576",
-    "deletable": 0,
-    "debug_level": 1
-}

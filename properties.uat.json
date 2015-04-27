@@ -2,9 +2,9 @@
 	"isPrototype": "false",
 	
 	"domain": "document.domain",
-	"origin": "'http://uat.html5slide.me'",
-	"cgiOrigin": "'http://uat.html5slide.me'",
-	"cdnOrigin": "'http://uat.html5slide.me'",
+	"origin": "'http://demo.createcdigital.com'",
+	"cgiOrigin": "'http://demo.createcdigital.com'",
+	"cdnOrigin": "'http://demo.createcdigital.com'",
 
 	"pageAside": "3",
 	"itemsPerPage": "15",
