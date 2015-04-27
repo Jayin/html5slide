@@ -7,54 +7,158 @@
 	z-index: -1;
 }
 
+.good-price {
+	position: absolute;
+	width: 26.4%;
+	height: 16.4%;
+	text-align: center;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	.price {
+		text-align: center;
+		color: #fff;
+		font-weight: 700;
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+	&.good-price--1 {
+		background-image: url(../../../image/buy/price-bg-01.png);
+		.price {
+			top: 28%;
+			margin-top: -10px;
+			font-size: 0.8rem;
+		}
+	}
+	&.good-price--2 {
+		background-image: url(../../../image/buy/price-bg-02.png);
+		.price {
+			top: 50%;
+			margin-top: -12px;
+		}
+	}
+	&.good-price--3 {
+		background-image: url(../../../image/buy/price-bg-03.png);
+		.price {
+			top: 50%;
+			margin-top: -12px;
+		}
+	}
+}
+.g1 .good-price {
+	left: 7.7%;
+	top: 7.8%;
+}
+.g2 .good-price {
+	left: 2.6%;
+	top: 2%;
+}
+.g3 .good-price {
+	left: 1.8%;
+	top: 1%;
+}
+.g4 .good-price {
+	left: 1.8%;
+	top: 1%;
+}
+.g5 .good-price {
+	left: 1.7%;
+	top: 1.4%;
+}
+.g6 .good-price {
+	left: 1.6%;
+	top: 1%;
+}
+.g7 .good-price {
+	left: 71.7%;
+	top: 1%;
+}
+.g8 .good-price {
+	left: 2.1%;
+	top: 1%;
+}
+.g9 .good-price {
+	left: 10%;
+	top: 10%;
+}
+
 #good-avatar {
 	position: absolute;
 	height: auto;
 }
 .g1 #good-avatar {
-	left: 44.7%;
-	top: 16.3%;
-	width: 11.3%;
+	left: 39.4%;
+	top: 3.8%;
+	width: 21.3%;
 }
 .g2 #good-avatar {
-	left: 48.2%;
-	top: 27.8%;
-	width: 11.9%;
+	left: 44.4%;
+	top: 27.3%;
+	width: 23.5%;
 }
 .g3 #good-avatar {
-	left: 59.9%;
-	top: 28.2%;
-	width: 12%;
+	left: 66.7%;
+	top: 30.6%;
+	width: 19.7%;
 }
 .g4 #good-avatar {
-	left: 40.9%;
-	top: 21.4%;
-	width: 18.2%;
+	left: 33.9%;
+	top: 14.9%;
+	width: 28.5%;
 }
 .g5 #good-avatar {
-	left: 39.4%;
-	top: 27.7%;
-	width: 11.6%;
+	left: 35.2%;
+	top: 28.8%;
+	width: 19.4%;
 }
 .g6 #good-avatar {
-	left: 48.3%;
-	top: 21.2%;
-	width: 18.3%;
+	left: 39.3%;
+	top: 15.6%;
+	width: 31.5%;
 }
 .g7 #good-avatar {
-	left: 39.1%;
-	top: 27%;
-	width: 15.5%;
+	left: 29.5%;
+	top: 24.2%;
+	width: 23.5%;
 }
 .g8 #good-avatar {
-	left: 43.8%;
-	top: 20.7%;
-	width: 9.5%;
+	left: 37.9%;
+	top: 14.2%;
+	width: 18.5%;
 }
 .g9 #good-avatar {
 	left: 30.27%;
 	top: 17.7%;
 	width: 39.7%;
+}
+
+#good-nick {
+	position: absolute;
+	top: 55%;
+	right: 50%;
+	text-align: right;
+	color: #fce089;
+}
+
+.customize {
+	position: absolute;
+	left: 50%;
+	top: 58.5%;
+	width: 60%;
+	margin-left: -30%;
+	height: 27%;
+}
+#good-customized-good-name {
+	color: #fff;
+	font-weight: 700;
+	text-align: center;
+}
+#good-customized-good-detail {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 65%;
 }
 
 .good-actions {

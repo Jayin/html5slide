@@ -46,6 +46,8 @@ class Mod extends Skateboard.BaseMod
 	stateChange: (evt, obj) =>
 		@setAvatar obj.avatar if obj.avatar
 		@setScene obj.scene if obj.scene
+		$('#good-nick').text obj.nick if obj.nick
+		$('.good-price .price').text obj.price if obj.price
 
 	destroy: ->
 		super
@@ -65,7 +67,11 @@ var app = require('app');
 
 <div class="body-inner">
 	<div id="good-wrapper">
+		<div class="good-price good-price--1">
+			<div class="price"><%==G.state.get('price')%></div>
+		</div>
 		<img id="good-avatar" />
+		<div id="good-nick"><%==G.state.get().nick%></div>
 		<div class="customize">
 			<div id="good-customized-good-name"></div>
 			<div id="good-customized-good-detail"></div>

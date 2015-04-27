@@ -28,6 +28,8 @@ class Mod extends Skateboard.BaseMod
 			else
 				$(target).removeClass 'focus'
 			@price = target.value
+		# preload next page
+		require ['../preview/main', '../buy/bg-0' + G.state.get('scene').no + '-main.tpl.html']
 
 	setAvatar: (avatar) ->
 		if avatar.no is 5
