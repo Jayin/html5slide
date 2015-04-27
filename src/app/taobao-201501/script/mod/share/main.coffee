@@ -5,23 +5,34 @@ class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	events:
-		'click .btn-share': 'share'
+		'click .btn-share': 'showShare'
+		'click .btn-close': 'closeShare'
 
 	_bodyTpl: require './body.tpl.html'
 
-	price: ''
-
 	render: ->
 		super
-		@setAvatar G.state.get('avatar')
-		@stateChange null, G.state.get()
-		G.state.on 'change', @stateChange
+		designId = app.util.getUrlParam 'designId'
+		app.ajax.get
+			url: 'web/taobao/design/' + designId
+			success: (res) =>
+				if res.code is 0
+					obj = res.data
+					@setAvatar obj.avatar if obj.avatar
+					@setScene obj.scene if obj.scene
+					$('#good-nick').text obj.nick if obj.nick
+					$('.good-price .price').text obj.price if obj.price
+				else
+					alert res.code + ': ' + res.msg
+			error: ->
+				alert '系统繁忙，请您稍后重试。'
 
 	setAvatar: (avatar) ->
 		if avatar.no is 5
-			$('#good-avatar')[0].src = avatar.clipData
+			$('<img id="good-avatar" src="' + avatar.clipData + '" />').appendTo $('#good-wrapper')
 		else
-			$('#good-avatar')[0].src = $('#avatar-' + avatar.no)[0].src
+			require ['../buy/avatar-0' + avatar.no + '-main.tpl.html'], (tpl) ->
+				$(tpl.render()).appendTo $('#good-wrapper')
 
 	setScene: (scene) ->
 		$('#good-wrapper')[0].className = 'g' + scene.no
@@ -35,28 +46,11 @@ class Mod extends Skateboard.BaseMod
 		else
 			@$('.customize').hide()
 
-	share: =>
-		state = G.state.get()
-		app.ajax.post
-			url: 'web/taobao/design'
-			data: state
-			success: (res) =>
-				if res.code is 0
-					location.href = "/static/app/taobao-201501/index.html?designId=#{res.data.designId}&home=share"
-				else
-					alert res.code + ': ' + res.msg
-			error: ->
-				alert '系统繁忙，请您稍后重试。'
+	showShare: =>
+		@$('.share-instruction').removeClass('singlemessage').fadeIn()
 
-	stateChange: (evt, obj) =>
-		@setAvatar obj.avatar if obj.avatar
-		@setScene obj.scene if obj.scene
-		$('#good-nick').text obj.nick if obj.nick
-		$('.good-price .price').text obj.price if obj.price
-
-	destroy: ->
-		super
-		G.state.off 'change', @stateChange
+	closeShare: =>
+		@$('.share-instruction').fadeOut()
 
 module.exports = Mod
 
@@ -73,10 +67,9 @@ var app = require('app');
 <div class="body-inner">
 	<div id="good-wrapper">
 		<div class="good-price good-price--1">
-			<div class="price"><%==G.state.get('price')%></div>
+			<div class="price"></div>
 		</div>
-		<img id="good-avatar" />
-		<div id="good-nick"><%==G.state.get().nick%></div>
+		<div id="good-nick"></div>
 		<div class="customize">
 			<div id="good-customized-good-name"></div>
 			<div id="good-customized-good-detail"></div>
@@ -85,6 +78,9 @@ var app = require('app');
 			<img src="../../../image/share/good-action.png" />
 			<a class="img-btn btn-back" href="/:back">返回</a>
 			<button class="img-btn btn-share">分享</button>
+		</div>
+		<div class="share-instruction">
+			<button class="img-btn btn-close">关闭</button>
 		</div>
 	</div>
 </div>

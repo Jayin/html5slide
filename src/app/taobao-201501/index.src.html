@@ -42,8 +42,26 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 
 	$.extend(G.MD5_MAP, %{{md5map.taobao-201501}}%);
 
+	var urlParams = app.util.getUrlParams();
+	var defaultModName = 'home';
+	if(urlParams.home == 'share') {
+		if(urlParams.from == 'timeline') {
+			defaultModName = 'timeline';
+		} else if(urlParams.from == 'singlemessage') {
+			defaultModName = 'mom-open';
+		} else {
+			defaultModName = 'share';
+		}
+	} else if(urlParams.home == 'momshare') {
+		if(urlParams.from == 'timeline') {
+			defaultModName = 'mom-timeline';
+		} else {
+			defaultModName = 'buy-success';
+		}
+	}
 	Skateboard.core.init({
 		container: $('.page-wrapper'),
+		defaultModName: defaultModName,
 		modBase: '../../../app/taobao-201501/script/',
 		animate: {
 			type: 'fade',
@@ -56,8 +74,8 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			app.ajax.hideLoading();
 			app.alerts.alert.hide();
 			app.alerts.modal.hide();
-			if(modName != 'home' && !G.state.get()) {
-				Skateboard.core.view('/view/home', {replaceState: true});
+			if(modName != defaultModName && !G.state.get()) {
+				Skateboard.core.view('/view/' + defaultModName, {replaceState: true});
 				return false;
 			}
 		},
