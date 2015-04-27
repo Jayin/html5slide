@@ -153,13 +153,14 @@ require ['jquery', 'app'], ($, app)->
 
 
     play = =>
+        alert 'invoke play()'
         $('#audio1')[0].pause();
         $('#audio1')[0].currentTime = 0;
         $('#audio1')[0].play()
-        console.log '开始播放'
+  
         cur_time_point = 0
         action_img =  action.straight
-        console.log action
+ 
         avatar_direction = 'straight'
         draw()
 
@@ -170,9 +171,6 @@ require ['jquery', 'app'], ($, app)->
         tmpQueue[tmpQueue.length] = tmpQueue[tmpQueue.length - 1]
         tmpTimeline[tmpTimeline.length] = 10*1000;
 
-        console.log '播放信息'
-        console.log tmpQueue
-        console.log tmpTimeline
 
         tmp_action = tmpQueue.shift()
         tmp_time_point = tmpTimeline.shift()
@@ -200,14 +198,13 @@ require ['jquery', 'app'], ($, app)->
                 # avatar_direction = 'straight'
                 # draw()        
                 drawReady()
-                console.log '结束播放'
-                console.log '原来的isPlaying=' + isPlaying
+                app.alerts.alert '播放完毕','infoo',1000
                 isPlaying = false
                 $('#audio1')[0].pause()
                 
 
         setTimeout ()=>
-            console.log '执行repeate'
+            app.alerts.alert '播放开始','infoo',1000
             repeat()
         , tmp_time_point - cur_time_point
         
@@ -252,7 +249,7 @@ require ['jquery', 'app'], ($, app)->
 
     #  判断是否来朋友圈
     from = url_obj.search.from
-    console.log url_obj
+
     if from
         $('.group-share-finish-timeline').show()
         $('.group-share-finish-default').hide()      
@@ -279,17 +276,19 @@ require ['jquery', 'app'], ($, app)->
                 action.top_right.src = tpl[color][6]
 
             else 
-                app.alerts.alert '请刷新'
+                app.alerts.alert '该视频不存在','info',1500
 
         error: ->
-            alert '系统繁忙，请您稍后重试。'
+            app.alerts.alert '系统繁忙，请您稍后重试。','info',1500
 
     # 播放
-    $('#action_canvas').on 'click',=>
+    $('#btn-play').on 'click',=>
+        alert '你点击了播放按钮'
         if loadImageNumber < loadImageTotal
-            app.alerts.alert('加载中,请稍等','info',1500)
+            app.alerts.alert '加载中,请稍等','info',1500
             return
-        if isPlaying 
+        if isPlaying
+            app.alerts.alert '正在播放', 'info', 1000 
             return
         isPlaying = true
         play()
