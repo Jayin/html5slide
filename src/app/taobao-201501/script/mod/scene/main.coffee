@@ -5,6 +5,7 @@ class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	events:
+		'click .btn-back': 'back'
 		'click .btn-next': 'next'
 		'click .btn-arrow-left': 'prevScene'
 		'click .btn-arrow-right': 'nextScene'
@@ -32,7 +33,7 @@ class Mod extends Skateboard.BaseMod
 		require ['../price/main', '../price/bg-01-main.tpl.html']
 
 	setAvatar: (avatar) ->
-		if avatar.no is 5
+		if avatar.no is 1
 			$('#scene-avatar')[0].src = avatar.clipData
 		else
 			$('#scene-avatar')[0].src = $('#avatar-' + avatar.no)[0].src
@@ -53,6 +54,9 @@ class Mod extends Skateboard.BaseMod
 	nextScene: =>
 		@sceneNo = (@sceneNo % 9) + 1
 		@updateScene()
+
+	back: =>
+		history.back()
 
 	next: =>
 		if @sceneNo is 9
@@ -102,7 +106,7 @@ var app = require('app');
 		</div>
 		<button class="img-btn btn-arrow-left">&lt;</button>
 		<button class="img-btn btn-arrow-right">&gt;</button>
-		<a class="img-btn btn-back" href="/:back">返回</a>
+		<button class="img-btn btn-back">返回</button>
 		<button class="img-btn btn-next">下一步</button>
 	</div>
 </div>

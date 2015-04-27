@@ -103,7 +103,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	});
 	
 	$(document.body).on('click', '.img-btn', function(evt) {
-		//$('#audio-click')[0].play();
+		$('#audio-click')[0].play();
 	}).on('click', function palyBgAudio(evt) {
 		$('#audio-bg')[0].play();
 		$(document.body).off('click', palyBgAudio);

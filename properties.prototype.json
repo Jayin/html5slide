@@ -2,9 +2,9 @@
 	"isPrototype": "true",
 
 	"domain": "document.domain",
-	"origin": "'http://prototype.html5slide.me'",
-	"cgiOrigin": "'http://prototype.html5slide.me'",
-	"cdnOrigin": "'http://cdn.prototype.html5slide.me'",
+	"origin": "location.protocol + '//' + location.host",
+	"cgiOrigin": "location.protocol + '//' + location.host",
+	"cdnOrigin": "location.protocol + '//' + location.host",
 
 	"pageAside": "3",
 	"itemsPerPage": "15",
