@@ -23,16 +23,8 @@ document.write([
 </script>
 <button id="audio-btn" class="img-btn audio-btn on" onclick="if($(this).hasClass('on')) {$('#audio1')[0].pause(); $(this).removeClass('on')} else {$('#audio1')[0].play(); $(this).addClass('on')}"></button>
 
-<div style="display: none;">
-	<img id="face-mask" src="./image/face-mask.png" />
-</div>
-
 <script type="text/javascript">
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
-		//adjust
-	// var wrapper = $('.page-wrapper');
-	// ww = $(window).width();
-	// wrapper.height(ww * 1208 / 750);
 
 	$.extend(G.MD5_MAP, %{{md5map.bxn-201502}}%);
 

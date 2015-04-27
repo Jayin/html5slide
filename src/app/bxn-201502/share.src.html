@@ -7,43 +7,48 @@
 <!-- section "body" -->
 <script type="text/javascript">
 document.write([
-    '<link rel="stylesheet" href="' + G.CDN_BASE + '/app/bxn-201502/style/main.css" />'
-    ,'<link rel="stylesheet" href="' + G.CDN_BASE + '/app/bxn-201502/style/share-main.css" />'
+    '<link rel="stylesheet" href="' + G.CDN_BASE + '/app/bxn-201502/style/main.css" />', '<link rel="stylesheet" href="' + G.CDN_BASE + '/app/bxn-201502/style/share-main.css" />'
 ].join(''));
 </script>
 <div class="page-wrapper share-container">
     <div class="share-bg share-bg-finish">
-        
         <canvas id="action_canvas" width="600" height="1067">
             Your browser not support canvas
         </canvas>
-        <button id="btn-play" ></button>
+        <button id="btn-play"></button>
         <div class="group-share-finish-default" style="display: none;">
             <div id="btn-finish-share" style="float:left; width:33%; height: 45%;"></div>
             <div id="btn-finish-again" style="float:left; width:33%; height: 45%;"></div>
             <div id="btn-finish-custom" style="float:left; width:33%; height: 45%;"></div>
             <div id="btn-finish-suprise" style="float:left; width:100%; height: 55%;"></div>
         </div>
-        <div id="btn-finish-want-play" class="group-share-finish-timeline"  style="display: none;">
+        <div id="btn-finish-want-play" class="group-share-finish-timeline" style="display: none;">
         </div>
-
         <div id="dialog-share" class="modal modal-share" style="display:none;">
             <div class="btn-modal-close" onclick="document.getElementById('dialog-share').style.display='none'"></div>
         </div>
         <div id="dialog-suprise" class="modal modal-suprise" style="display:none;">
-                <img class="qrcode" src="image/qrcode.jpg" height="258" width="258">
-             <div class="btn-modal-close" onclick="document.getElementById('dialog-suprise').style.display='none'"></div>
+            <script type="text/javascript">
+            document.write([
+                '<img class="qrcode" src="' + G.CDN_ORIGIN + '/static/app/bxn-201502/image/qrcode.jpg" >'
+            ].join(''));
+            </script>
+            <div class="btn-modal-close" onclick="document.getElementById('dialog-suprise').style.display='none'"></div>
         </div>
-        <div style="display: none;"> 
-            <img id="action_start" src="./image/action_start_btn.png">
+        <div style="display: none;">
+            >
         </div>
         <!-- action image -->
         <div id="action_image" style="display: none;">
             <div id="btn-finish-share" style="positon:absolute;"></div>
-
         </div>
     </div>
-    <audio id="audio1" ></audio>
+    <audio id="audio1"></audio>
+    <script type="text/javascript">
+    document.write([
+        '<img id="action_start" src="' + G.CDN_ORIGIN + '/static/app/bxn-201502/image/action_start_btn.png"'
+    ].join(''));
+    </script>
 </div>
 <script type="text/javascript">
 require(['jquery'], function($) {

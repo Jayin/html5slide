@@ -38,6 +38,7 @@ require ['jquery', 'app'], ($, app)->
     play_queue = [] # 播放动作顺序
     timeline = [] # 显示的时间点
     isPlaying = false
+    retry = 0
 
     # 人物动作图片加载回调
     app.ajax.showLoading()
@@ -195,6 +196,10 @@ require ['jquery', 'app'], ($, app)->
                 drawReady()
                 isPlaying = false
                 audio.pause()
+                retry += 1
+                console.log "Retry:#{retry}"
+                if retry % 2 != 0
+                    play()
                 
 
         setTimeout ()=>
