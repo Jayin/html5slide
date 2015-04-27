@@ -1,5 +1,6 @@
 app = require 'app'
 Skateboard = require 'skateboard'
+$ = require 'jquery'
 
 class Mod extends Skateboard.BaseMod
     cachable: false
@@ -16,51 +17,14 @@ class Mod extends Skateboard.BaseMod
 
     _bodyTpl: require './body.tpl.html'
 
-    CONTEXT_W: 600
-    CONTEXT_H: 1067
-
-    action_img: null
-
     avatar: null # 头像数据(base64)
-    avatar_img: new Image
-    avatar_direction: 'straight'
-    AvatarTarget_Width: 102
-    AvatarTarget_Height: 113
+    avatar_img: null
+    avatar_img_arr: null
+    action_img: null
+    action_img_arr: null
 
     queue: [] # 选择的顺序
     selectColor: null # 选择的颜色
-
-    action_data:
-        straight: 
-            top: 0.093
-            left: 0.405
-            deg: 0
-        top_left: 
-            top: 0.120
-            left: 0.362
-            deg: -5
-        mid_left: 
-            top: 0.270
-            left: -0.320
-            deg: -45
-        lower_left: 
-            top:  0.315
-            left: -0.305
-            deg: -45
-
-        top_right: 
-            top: 0.12
-            left: 0.395
-            deg: -5
-
-        mid_right: 
-            top: -0.010
-            left: 0.775
-            deg: 30
-        lower_right: 
-            top: -0.071
-            left: 0.895
-            deg: 45
 
     # 人物动作
     action: 
@@ -82,17 +46,13 @@ class Mod extends Skateboard.BaseMod
             app.ajax.showLoading()
         else 
             app.ajax.hideLoading()
-            @draw()
-
+            @draw('straight')
 
     resize: =>
         wrapper = $('.page-wrapper')
         ww = $(window).width()
         wrapper.height ww * 1067 / 600
         wrapper.css 'width', '100%'
-        
-        $('#action_canvas').css 'height',(ww * 1067 / 600) + 'px'
-
 
     _afterFadeIn: =>
         @resize()
@@ -110,13 +70,20 @@ class Mod extends Skateboard.BaseMod
         else 
             $audio.pause()
 
-        @canvas = @$('#action_canvas')[0]
-        @context = @canvas.getContext('2d')
+        @avatar_img_arr = $('#img-avatar');
+        @avatar_img = @avatar_img_arr[0]
+
+        @action_img_arr = $('#img-action')
+        @action_img = @action_img_arr[0]
+
+        console.log @avatar_img
+        console.log @avatar_img_arr
+        console.log @action_img
+        console.log @action_img_arr
+
 
         require ['../canvas/main'],(CanvasMod) =>
             if CanvasMod.color and CanvasMod.clipData
-                @avatar_img.onload = =>
-                    @draw()
 
                 @avatar = CanvasMod.clipData
                 @avatar_img.src = CanvasMod.clipData
@@ -133,7 +100,6 @@ class Mod extends Skateboard.BaseMod
                 # Draw this first
                 @action.straight.onload = =>
                     @imageLoadCallback()
-                    @action_img =  @action.straight
                     
 
                 @action.top_left.onload = @imageLoadCallback
@@ -144,83 +110,51 @@ class Mod extends Skateboard.BaseMod
                 @action.lower_right.onload = @imageLoadCallback
 
 
-                # @action_img =  @action.straight
-                # @draw()
             else
                 Skateboard.core.view '/view/chooseImg', replaceState: true
         
 
-    drawAction: =>
-        context = @context
+    drawAction: (action_name)=>
+        @action_img.src = @action[action_name].src
 
-        context.save()
-        if @action_img
-            context.drawImage(@action_img,0,0,@CONTEXT_W,@CONTEXT_H)
-        context.restore()
+    drawAvatar:(action_name) =>
+        @avatar_img_arr.removeClass().addClass("img-avatar action-#{action_name}")
 
-    drawAvatar: =>
-        context = @context
-        direction = @action_data[@avatar_direction]
-        
-        deg = direction.deg
-        dest_x = @CONTEXT_W * direction.left
-        dest_y = @CONTEXT_H * direction.top
-        dest_width = @AvatarTarget_Width
-        dest_height = @AvatarTarget_Height
-
-        context.save()
-        context.rotate(deg * Math.PI / 180)
-        context.drawImage(@avatar_img, 0, 0, @avatar_img.width, @avatar_img.height, dest_x, dest_y, dest_width, dest_height)
-        context.restore()
-
-    draw: =>
-        @context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
+    draw: (action_name)=>
        
-        @drawAvatar()
-        @drawAction()
+        @drawAvatar(action_name)
+        @drawAction(action_name)
         
-    addActionQueue: (action)=>
+    addActionQueue: (action_name)=>
         if @queue.length >= 12 
             return
-        @queue.push action
-        $("#round-#{@queue.length}").removeClass().addClass("round round-#{action}")
+        @queue.push action_name
+        $("#round-#{@queue.length}").removeClass().addClass("round round-#{action_name}")
 
 
     click_top_left: =>
-        @action_img = @action.top_left
-        @avatar_direction = 'top_left'
-        @addActionQueue(@avatar_direction)
-        @draw()
+        @addActionQueue('top_left')
+        @draw('top_left')
 
     click_mid_left: =>
-        @action_img = @action.mid_left
-        @avatar_direction = 'mid_left'
-        @addActionQueue(@avatar_direction)
-        @draw()
+        @addActionQueue('mid_left')
+        @draw('mid_left')
 
     click_lower_left: =>
-        @action_img = @action.lower_left
-        @avatar_direction = 'lower_left'
-        @addActionQueue(@avatar_direction)
-        @draw()
+        @addActionQueue('lower_left')
+        @draw('lower_left')
 
     click_top_right: =>
-        @action_img = @action.top_right
-        @avatar_direction = 'top_right'
-        @addActionQueue(@avatar_direction)
-        @draw()
+        @addActionQueue('top_right')
+        @draw('top_right')
 
     click_mid_right: =>
-        @action_img = @action.mid_right
-        @avatar_direction = 'mid_right'
-        @addActionQueue(@avatar_direction)
-        @draw()
+        @addActionQueue('mid_right')
+        @draw('mid_right')
 
     click_lower_right: =>
-        @action_img = @action.lower_right
-        @avatar_direction = 'lower_right'
-        @addActionQueue(@avatar_direction)
-        @draw()
+        @addActionQueue('lower_right')
+        @draw('lower_right')
 
     confirm: =>
         if @queue.length < 12
@@ -244,9 +178,7 @@ class Mod extends Skateboard.BaseMod
 
     reset: =>
         # 动作复原
-        @action_img =  @action.straight
-        @avatar_direction = 'straight'
-        @draw()
+        @draw('straight')
 
         @queue = []
         i = 1
