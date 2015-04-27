@@ -21,6 +21,8 @@ require ['jquery', 'app'], ($, app)->
         G.CDN_ORIGIN + '/static/app/bxn-201502/' +'image/action_red_top_right.png'
     ]
 
+    bg_music = G.CDN_ORIGIN + '/static/app/bxn-201502/image/bg_dance.mp3'
+
     canvas = $('#action_canvas')[0]
     context = canvas.getContext('2d')
     action_img = null
@@ -61,6 +63,10 @@ require ['jquery', 'app'], ($, app)->
     action.lower_right = new Image
 
 
+    audio = $('#audio1')[0]
+
+    audio.onloadeddata = imageLoadCallback
+
     avatar.onload = imageLoadCallback
     action.straight.onload = imageLoadCallback
     action.top_left.onload = imageLoadCallback
@@ -69,9 +75,6 @@ require ['jquery', 'app'], ($, app)->
     action.top_right.onload = imageLoadCallback
     action.mid_right.onload = imageLoadCallback
     action.lower_right.onload = imageLoadCallback
-
-    audio = $('.audio1')[0]
-
 
     # 播放按钮
     action.start = $('#action_start')[0]
@@ -153,10 +156,9 @@ require ['jquery', 'app'], ($, app)->
 
 
     play = =>
-        alert 'invoke play()'
-        $('#audio1')[0].pause();
-        $('#audio1')[0].currentTime = 0;
-        $('#audio1')[0].play()
+        audio.pause();
+        audio.currentTime = 0;
+        audio.play()
   
         cur_time_point = 0
         action_img =  action.straight
@@ -192,19 +194,12 @@ require ['jquery', 'app'], ($, app)->
                     , tmp_time_point - cur_time_point
             else
                 # play is done
-                # drawStart()
-                # action_img =  action.straight
-                # console.log action
-                # avatar_direction = 'straight'
-                # draw()        
                 drawReady()
-                app.alerts.alert '播放完毕','infoo',1000
                 isPlaying = false
-                $('#audio1')[0].pause()
+                audio.pause()
                 
 
         setTimeout ()=>
-            app.alerts.alert '播放开始','infoo',1000
             repeat()
         , tmp_time_point - cur_time_point
         
@@ -267,6 +262,9 @@ require ['jquery', 'app'], ($, app)->
                 play_queue = result.data.sequence
                 timeline = result.data.timeline
 
+                audio.src = bg_music
+                audio.load()
+
                 action.straight.src = tpl[color][0]
                 action.lower_left.src = tpl[color][1]
                 action.mid_left.src = tpl[color][2]
@@ -283,7 +281,6 @@ require ['jquery', 'app'], ($, app)->
 
     # 播放
     $('#btn-play').on 'click',=>
-        alert '你点击了播放按钮'
         if loadImageNumber < loadImageTotal
             app.alerts.alert '加载中,请稍等','info',1500
             return
