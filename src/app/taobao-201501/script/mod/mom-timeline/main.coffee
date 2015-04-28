@@ -4,15 +4,23 @@ Skateboard = require 'skateboard'
 class Mod extends Skateboard.BaseMod
 	cachable: true
 
-	_bodyTpl: require './body.tpl.html'
-
 	render: ->
-		super
-		obj = G.state.get()
-		@setAvatar obj.avatar if obj.avatar
-		@setScene obj.scene if obj.scene
-		$('#good-nick').text obj.nick if obj.nick
-		$('.good-price .price').text obj.price if obj.price
+		designId = app.util.getUrlParam 'designId'
+		app.ajax.get
+			url: 'web/taobao/design/' + designId
+			success: (res) =>
+				if res.code is 0
+					obj = res.data
+					@setAvatar obj.avatar if obj.avatar
+					@setScene obj.scene if obj.scene
+					$('#good-nick').text obj.nick if obj.nick
+					$('.good-price .price').text obj.price if obj.price
+				else
+					alert res.code + ': ' + res.msg
+				G.hideLoading()
+			error: ->
+				alert '系统繁忙，请您稍后重试。'
+				G.hideLoading()
 
 	setAvatar: (avatar) ->
 		if avatar.no is 1
@@ -33,26 +41,3 @@ class Mod extends Skateboard.BaseMod
 			@$('.customize').hide()
 
 module.exports = Mod
-
-__END__
-
-@@ body.tpl.html
-<!-- include "body.scss" -->
-
-<div class="body-inner">
-	<div id="good-wrapper">
-		<div class="good-price good-price--1">
-			<div class="price"></div>
-		</div>
-		<div id="good-nick"></div>
-		<div class="customize">
-			<div id="good-customized-good-name"></div>
-			<div id="good-customized-good-detail"></div>
-		</div>
-		<div class="good-actions">
-			<img src="../../../image/buy/good-action.png" />
-			<a class="img-btn btn-go" href="/view/buy-confirm">我要下单</a>
-		</div>
-	</div>
-</div>
-
