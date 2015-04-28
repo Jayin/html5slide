@@ -11,7 +11,7 @@ class Mod extends Skateboard.BaseMod
 			success: (res) =>
 				if res.code is 0
 					obj = res.data
-					@setAvatar obj.avatar if obj.avatar
+					@setAvatar obj.imgRelativePath if obj.imgRelativePath
 					@setScene obj.scene if obj.scene
 					$('#good-nick').text obj.nick if obj.nick
 					$('.good-price .price').text obj.price if obj.price
@@ -22,12 +22,8 @@ class Mod extends Skateboard.BaseMod
 				alert '系统繁忙，请您稍后重试。'
 				G.hideLoading()
 
-	setAvatar: (avatar) ->
-		if avatar.no is 1
-			$('<img id="good-avatar" src="' + avatar.clipData + '" />').appendTo $('#good-wrapper')
-		else
-			require ['../buy/avatar-0' + avatar.no + '-main.tpl.html'], (tpl) ->
-				$(tpl.render()).appendTo $('#good-wrapper')
+	setAvatar: (imgRelativePath) ->
+		$('<img id="good-avatar" src="' + G.CDN_BASE + '/' + imgRelativePath + '" />').appendTo $('#good-wrapper')
 
 	setScene: (scene) ->
 		$('#good-wrapper')[0].className = 'g' + scene.no

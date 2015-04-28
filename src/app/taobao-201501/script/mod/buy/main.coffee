@@ -18,7 +18,7 @@ class Mod extends Skateboard.BaseMod
 		if avatar.no is 1
 			$('<img id="good-avatar" src="' + avatar.clipData + '" />').appendTo $('#good-wrapper')
 		else
-			require ['../buy/avatar-0' + avatar.no + '-main.tpl.html'], (tpl) ->
+			require ['../avatar/avatar-0' + avatar.no + '-main.tpl.html'], (tpl) ->
 				$(tpl.render()).appendTo $('#good-wrapper')
 
 	setScene: (scene) ->
