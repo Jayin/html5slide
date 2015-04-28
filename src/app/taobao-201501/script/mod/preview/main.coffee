@@ -46,7 +46,7 @@ class Mod extends Skateboard.BaseMod
 			data: state
 			success: (res) =>
 				if res.code is 0
-					location.href = "/static/app/taobao-201501/index.html?designId=#{res.data.designId}&home=share"
+					location.href = "share.html?designId=#{res.data.designId}"
 				else
 					alert res.code + ': ' + res.msg
 			error: ->
