@@ -49,6 +49,10 @@ body {
 	animation-timing-function: linear;
 }
 
+#g-loading {
+	display: none;
+}
+
 @keyframes audio {
 	0% {
 		transform: rotate(0);

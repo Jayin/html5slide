@@ -40,7 +40,7 @@ animation-direction:linear;
 border-radius:4px;
 }
 
-#circleG_1{
+.circleG_1{
 -moz-animation-delay:0.27s;
 -webkit-animation-delay:0.27s;
 -ms-animation-delay:0.27s;
@@ -48,7 +48,7 @@ border-radius:4px;
 animation-delay:0.27s;
 }
 
-#circleG_2{
+.circleG_2{
 -moz-animation-delay:0.63s;
 -webkit-animation-delay:0.63s;
 -ms-animation-delay:0.63s;
@@ -56,7 +56,7 @@ animation-delay:0.27s;
 animation-delay:0.63s;
 }
 
-#circleG_3{
+.circleG_3{
 -moz-animation-delay:0.8099999999999999s;
 -webkit-animation-delay:0.8099999999999999s;
 -ms-animation-delay:0.8099999999999999s;

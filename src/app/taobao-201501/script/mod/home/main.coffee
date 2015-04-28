@@ -8,6 +8,9 @@ class Mod extends Skateboard.BaseMod
 		'click .btn-go': 'showDialog'
 
 	render: ->
+		if G.goClicked
+			@showDialog()
+			G.goClicked = false
 		require ['./dialog-main'], (dialog) =>
 			dialog.on 'confirm', @confirm
 		# preload next page
