@@ -197,7 +197,7 @@ require ['jquery', 'app'], ($, app)->
                 isPlaying = false
                 audio.pause()
                 retry += 1
-                console.log "Retry:#{retry}"
+
                 if retry % 2 != 0
                     play()
                 
