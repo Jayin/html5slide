@@ -26,7 +26,8 @@ require(['jquery', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js', 'app'], func
     var shareUrl = location.href.split('#')[0];
     $(document).ready(function() {
         app.ajax.post({
-            url: 'web/sharing/signWxshare/54f1b82a58f24d7d16c11e16',
+            // url: 'web/sharing/signWxshare/54f1b82a58f24d7d16c11e17',
+            url: 'web/bxn/weixin/signature',
             data: {
                 url: shareUrl
             },
