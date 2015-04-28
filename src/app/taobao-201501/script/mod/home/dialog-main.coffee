@@ -7,6 +7,7 @@ dialog = $({})
 
 dialog = $.extend $({}), 
 	show: () ->
+		G.hideLoading()
 		el = $('.home-dialog')
 		if not el.length
 			el = $(dialogTpl.render()).appendTo document.body

@@ -59,13 +59,24 @@ if(G.DOMAIN && G.DOMAIN != document.domain) {
 		}
 	}
 })();
+
+G.showLoading = function() {
+	G.id('g-loading').style.display = 'block';
+};
+G.hideLoading = function() {
+	G.id('g-loading').style.display = 'none';
+};
 </script>
 
 <!-- include "../../style/app/main.css" -->
-
 <!-- include "style/main.css" -->
-
 <!-- include "script/mod/home/body.scss" -->
+
+<div id="g-loading" class="circleG_wrapper">
+	<div id="circleG_1" class="circleG"></div>
+	<div id="circleG_2" class="circleG"></div>
+	<div id="circleG_3" class="circleG"></div>
+</div>
 
 <div id="page-wrapper" class="page-wrapper">
 	<div class="sb-mod sb-mod--home" data-sb-scene="0">
@@ -91,10 +102,16 @@ document.write([
 
 <script type="text/javascript">
 FastClick.attach(document.body);
-
-require(['jquery'], function($) {
+;(function() {
+	var m = %{{md5map.taobao-201501}}%;
+	for(var p in m) {
+		if(Object.prototype.hasOwnProperty.call(m, p)) {
+			G.MD5_MAP[p] = m[p];
+		}
+	}
+})();
+require(['jquery', 'app', 'skateboard', '../app/taobao-201501/script/mod/home/main', '../app/taobao-201501/script/mod/home/dialog-main'], function($, app, Skateboard) {
 	var _state = null;
-
 	G.state = $.extend($({}), {
 		set: function(obj) {
 			if(typeof obj == 'object' && obj) {
@@ -119,11 +136,7 @@ require(['jquery'], function($) {
 			}
 		}
 	});
-});
-</script>
 
-<script type="text/javascript">
-require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	//adjust
 	var wrapper = $('.page-wrapper');
 	ww = $(window).width();
@@ -131,8 +144,6 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	$('html').css({
 		fontSize: ww / 375 * 100 + '%'
 	});
-
-	$.extend(G.MD5_MAP, %{{md5map.taobao-201501}}%);
 
 	var urlParams = app.util.getUrlParams();
 	var defaultModName = 'home';
@@ -189,6 +200,11 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 				'<div class="sb-mod sb-mod--' + modName.replace(/\//g, '-') + '" data-sb-mod="' + modName + '" data-sb-scene="0" onscroll="require(\'app\').mod.scroll(this.scrollTop);">',
 					'<div class="sb-mod__body">',
 						'<div class="body-inner" data-sb-mod-not-renderred>',
+							'<div class="circleG_wrapper">',
+								'<div class="circleG circleG_1"></div>',
+								'<div class="circleG circleG_2"></div>',
+								'<div class="circleG circleG_3"></div>',
+							'</div>',
 						'</div>',
 					'</div>',
 				'</div>'
@@ -196,26 +212,25 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			return contentDom;
 		}
 	});
-	
-	$(document.body).on('click', '.img-btn', function(evt) {
-		$('#audio-click')[0].play();
-	}).on('click', function palyBgAudio(evt) {
-		$('#audio-bg')[0].play();
-		$(document.body).off('click', palyBgAudio);
-	});
+
+	setTimeout(function() {
+		$([
+			'<audio id="audio-bg" src="' + G.CDN_BASE + '/app/taobao-201501/image/bg.mp3" loop></audio>',
+			'<audio id="audio-create" src="' + G.CDN_BASE + '/app/taobao-201501/image/create.mp3"></audio>',
+			'<audio id="audio-click" src="' + G.CDN_BASE + '/app/taobao-201501/image/click.mp3"></audio>',
+			'<button id="audio-btn" class="img-btn audio-btn on" onclick="if($(this).hasClass(\'on\')) {$(\'#audio-bg\')[0].pause(); $(this).removeClass(\'on\')} else {$(\'#audio-bg\')[0].play(); $(this).addClass(\'on\')}"></button>'
+		].join('')).appendTo(document.body);
+		
+		$(document.body).on('click', '.img-btn', function(evt) {
+			$('#audio-click')[0].play();
+		}).on('click', function palyBgAudio(evt) {
+			$('#audio-bg')[0].play();
+			$(document.body).off('click', palyBgAudio);
+		});
+	}, 1000);
 }, function() {
 
 });
 </script>
-
-<script type="text/javascript">
-document.write([
-    '<audio id="audio-bg" src="' + G.CDN_BASE + '/app/taobao-201501/image/bg.mp3" loop></audio>',
-    '<audio id="audio-create" src="' + G.CDN_BASE + '/app/taobao-201501/image/create.mp3"></audio>',
-    '<audio id="audio-click" src="' + G.CDN_BASE + '/app/taobao-201501/image/click.mp3"></audio>'
-].join(''));
-</script>
-<button id="audio-btn" class="img-btn audio-btn on" onclick="if($(this).hasClass('on')) {$('#audio-bg')[0].pause(); $(this).removeClass('on')} else {$('#audio-bg')[0].play(); $(this).addClass('on')}"></button>
-
 </body>
 </html>
