@@ -17,9 +17,6 @@
             "mid_right",
             "lower_left",
             "lower_right"
-        ],
-        "timeline": [
-            3500,3750,4000,5250,5750,6000,6250,6500,6750,7000,7250,7500
         ]
     },
     "debugInfo": null

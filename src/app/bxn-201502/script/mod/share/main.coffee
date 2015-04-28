@@ -36,7 +36,7 @@ require ['jquery', 'app'], ($, app)->
     AvatarTarget_Height = 113
     clolor = 'black'
     play_queue = [] # 播放动作顺序
-    timeline = [] # 显示的时间点
+    timeline = [4000,4500,5000,5500,5800,6100,6600,7300,7800,8300,9000,9500] # 显示的时间点
     isPlaying = false
     retry = 0
 
@@ -262,7 +262,6 @@ require ['jquery', 'app'], ($, app)->
                 avatar.src = G.CDN_ORIGIN + '/'  + result.data.relativePath
                 color = result.data.color
                 play_queue = result.data.sequence
-                timeline = result.data.timeline
 
                 audio.src = bg_music
                 audio.load()
