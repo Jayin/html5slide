@@ -2,9 +2,9 @@
 	"isPrototype": "false",
 	
 	"domain": "document.domain",
-	"origin": "'http://h5.createcdigital.com'",
-	"cgiOrigin": "'http://h5.createcdigital.com'",
-	"cdnOrigin2": "'http://h5.createcdigital.com'",
+	"origin": "location.protocol + '//' + location.host",
+	"cgiOrigin": "location.protocol + '//' + location.host",
+	"cdnOrigin2": "location.protocol + '//' + location.host",
 	"cdnOrigin": "'http://7xijzi.com2.z0.glb.qiniucdn.com'",
 
 	"pageAside": "3",
