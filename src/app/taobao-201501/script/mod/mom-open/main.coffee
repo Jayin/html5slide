@@ -12,6 +12,7 @@ class Mod extends Skateboard.BaseMod
 		$('#mo-title-' + (titleNo || 1)).show();
 		setTimeout =>
 			@$('.body-inner').removeClass 'off'
+			G.hideLoading();
 		, 0
 		designId = app.util.getUrlParam 'designId'
 		@dataPromise = app.ajax.get
@@ -31,6 +32,10 @@ class Mod extends Skateboard.BaseMod
 
 	open: =>
 		@dataPromise.success ->
-			Skateboard.core.view '/view/buy'
+			if G.state.get 'buyPrice'
+				designId = app.util.getUrlParam 'designId'
+				location.href = "buy-success.html?designId=#{designId}"
+			else
+				Skateboard.core.view '/view/buy'
 
 module.exports = Mod

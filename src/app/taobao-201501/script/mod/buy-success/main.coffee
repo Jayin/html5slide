@@ -15,10 +15,10 @@ class Mod extends Skateboard.BaseMod
 			success: (res) =>
 				if res.code is 0
 					obj = res.data
-					@setAvatar obj.imgRelativePath if obj.imgRelativePath
-					@setScene obj.scene if obj.scene
-					$('#buy-success-nick').text obj.nick if obj.nick
-					@$('.buy-success-price').text obj.price if obj.price
+					@setAvatar obj.imgRelativePath
+					@setScene obj.scene
+					$('#buy-success-nick').text obj.nick
+					@$('.buy-success-price').text (obj.buyPrice || obj.price)
 				else
 					alert res.code + ': ' + res.msg
 				G.hideLoading();
