@@ -4,15 +4,31 @@ Skateboard = require 'skateboard'
 class Mod extends Skateboard.BaseMod
 	cachable: true
 
-	_bodyTpl: require './body.tpl.html'
+	events:
+		'click .mom-open__open-btn': 'openPackage'
 
 	render: ->
-		super
-		obj = G.state.get()
-		@setAvatar obj.imgRelativePath if obj.imgRelativePath
-		@setScene obj.scene if obj.scene
-		$('#good-nick').text obj.nick if obj.nick
-		$('.good-price .price').text obj.price if obj.price
+		titleNo = Math.ceil Math.random() * 4
+		$('#mo-title-' + (titleNo || 1)).show();
+		setTimeout =>
+			@$('.body-inner').removeClass 'off'
+			G.hideLoading();
+		, 0
+		designId = app.util.getUrlParam 'designId'
+		@dataPromise = app.ajax.get
+			url: 'web/taobao/design/' + designId
+			success: (res) =>
+				if res.code is 0
+					obj = res.data
+					G.state.set obj
+					@setAvatar obj.imgRelativePath if obj.imgRelativePath
+					@setScene obj.scene if obj.scene
+					$('#good-nick').text obj.nick if obj.nick
+					$('.good-price .price').text obj.price if obj.price
+				else
+					alert res.code + ': ' + res.msg
+			error: ->
+				alert '系统繁忙，请您稍后重试。'
 		# preload next page
 		require ['../buy-confirm/main']
 
@@ -32,27 +48,7 @@ class Mod extends Skateboard.BaseMod
 		# preload next page
 		require ['../buy-confirm/bg-0' + scene.no + '-main.tpl.html']
 
+	openPackage: =>
+		@$('.mom-open').fadeOut()
+
 module.exports = Mod
-
-__END__
-
-@@ body.tpl.html
-<!-- include "body.scss" -->
-
-<div class="body-inner">
-	<div id="good-wrapper">
-		<div class="good-price good-price--2">
-			<div class="price"></div>
-		</div>
-		<div id="good-nick"></div>
-		<div class="customize">
-			<div id="good-customized-good-name"></div>
-			<div id="good-customized-good-detail"></div>
-		</div>
-		<div class="good-actions">
-			<img src="../../../image/buy/good-action.png" />
-			<a class="img-btn btn-go" href="/view/buy-confirm">我要下单</a>
-		</div>
-	</div>
-</div>
-
