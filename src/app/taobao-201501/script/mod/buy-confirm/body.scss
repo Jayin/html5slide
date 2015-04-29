@@ -157,10 +157,25 @@ body.body-sb-mod--buy-confirm {
 		margin-left: -35%;
 	}
 
-	.btn-go {
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
+	#buy-confrim-price {
+		position: absolute;
+		width: 55%;
+		height: 3.6%;
+		left: 48%;
+		top: 64.8%;
+		margin-left: -25.5%;
+		border: none;
+		background-color: transparent;
+		text-align: center;
+		&.focus {
+			background-color: #fff;
+		}
+	}
+
+	.buy-btn {
+		left: 35%;
+		top: 71%;
+		width: 30%;
+		height: 22%;
 	}
 }
