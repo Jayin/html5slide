@@ -1,5 +1,4 @@
 var require = require || {
-	debug: true,
 	baseUrl: G.CDN_BASE + '/script',
 	paths: {
 		'async': 'lib/async/main',
