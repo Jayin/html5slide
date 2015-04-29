@@ -542,6 +542,7 @@ var define, require
 				_gcfg.onLoadEnd()
 			} catch(e) {
 				if(_gcfg.debug) {
+					global.console && global.console.error && global.console.error(e.stack)
 					throw e
 				}
 			}
@@ -586,6 +587,7 @@ var define, require
 				_gcfg.onLoadStart()
 			} catch(e) {
 				if(_gcfg.debug) {
+					global.console && global.console.error && global.console.error(e.stack)
 					throw e
 				}
 			}
@@ -886,6 +888,7 @@ var define, require
 							_dealError(errCode, opt, errCallback)
 						} catch(e) {
 							if(_gcfg.debug) {
+								global.console && global.console.error && global.console.error(e.stack)
 								throw e
 							}
 						}
@@ -911,6 +914,7 @@ var define, require
 									callback.apply(null, callArgs)
 								} catch(e) {
 									if(_gcfg.debug) {
+										global.console && global.console.error && global.console.error(e.stack)
 										throw e
 									}
 								}
