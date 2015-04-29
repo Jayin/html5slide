@@ -1,34 +1,181 @@
-@import "../buy/goods.scss";
-body.body-sb-mod--share {
-	background-color: #fff;
+body.body-sb-mod--buy-success {
 }
-.sb-mod.sb-mod--share {
+.sb-mod.sb-mod--buy-success {
 	.body-inner {
 		height: 100%;
 	}
 
-	.btn-back {
+	.buy-success-bg-img {
+		position: absolute;
 		left: 0;
 		top: 0;
-		width: 50%;
+		width: 100%;
 		height: 100%;
+		z-index: -1;
 	}
 
-	.btn-share {
+	.buy-success-price {
+		position: absolute;
+		width: 24.4%;
+		left: 3%;
+		top: 24%;
+		text-align: center;
+		color: #fff;
+		font-weight: 700;
+		background-position: left top;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	#buy-success-avatar {
+		position: absolute;
+		height: auto;
+	}
+	.g1 #buy-success-avatar {
+		left: 43%;
+		top: 19.2%;
+		width: 13%;
+	}
+	.g2 #buy-success-avatar {
+		left: 48.1%;
+		top: 30.6%;
+		width: 12.9%;
+	}
+	.g3 #buy-success-avatar {
+		left: 60.5%;
+		top: 30.8%;
+		width: 13.3%;
+	}
+	.g4 #buy-success-avatar {
+		left: 39.4%;
+		top: 23%;
+		width: 20.5%;
+	}
+	.g5 #buy-success-avatar {
+		left: 37.6%;
+		top: 30.4%;
+		width: 13%;
+	}
+	.g6 #buy-success-avatar {
+		left: 47.4%;
+		top: 23%;
+		width: 20.8%;
+	}
+	.g7 #buy-success-avatar {
+		left: 38.6%;
+		top: 29.5%;
+		width: 17.5%;
+	}
+	.g8 #buy-success-avatar {
+		left: 42.6%;
+		top: 22.5%;
+		width: 10.9%;
+	}
+	.g9 #buy-success-avatar {
+		left: 27.6%;
+		top: 19.3%;
+		width: 44.5%;
+	}
+
+	#buy-success-nick {
+		position: absolute;
+		text-align: right;
+		color: #fce089;
+		z-index: 100;
+		font-size: 0.7rem;
+		right: 50%;
+	}
+	.g1 #buy-success-nick {
+		top: 42.9%;
+	}
+	.g2 #buy-success-nick {
+		top: 41.6%;
+	}
+	.g3 #buy-success-nick {
+		top: 41.4%;
+	}
+	.g4 #buy-success-nick {
+		top: 47.5%;
+	}
+	.g5 #buy-success-nick {
+		top: 41.5%;
+	}
+	.g6 #buy-success-nick {
+		top: 41.9%;
+	}
+	.g7 #buy-success-nick {
+		top: 46.9%;
+		right: 52%;
+	}
+	.g8 #buy-success-nick {
+		top: 41.4%;
+		right: 53%;
+	}
+	.g9 #buy-success-nick {
+		top: 41.4%;
+		right: 50.5%;
+	}
+
+	.customize {
+		display: none;
+		position: absolute;
 		left: 50%;
-		top: 0;
-		width: 50%;
-		height: 100%;
+		top: 40.7%;
+		width: 57.4%;
+		margin-left: -28.7%;
+		height: 29%;
+		z-index: 99;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	#buy-success-customized-good-name {
+		color: #fff;
+		font-weight: 700;
+		font-size: 0.8rem;
+		text-align: center;
+		position: absolute;
+		left: 0;
+		top: 10.5%;
+		width: 100%;
+	}
+	#buy-success-customized-good-detail {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 60%;
+		text-align: center;
+		color: #fff;
+		width: 70%;
+		left: 50%;
+		margin-left: -35%;
+	}
+
+	#buy-confrim-price {
+		position: absolute;
+		width: 55%;
+		height: 3.6%;
+		left: 48%;
+		top: 64.8%;
+		margin-left: -25.5%;
+		border: none;
+		background-color: transparent;
+		text-align: center;
+		&.focus {
+			background-color: #fff;
+		}
 	}
 
 	.share-instruction {
+		display: none;
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
 		z-index: 999;
-		background-image: url(../../../image/share/share-timeline.png);
+		background-image: url(../../../image/buy-success/share.png);
 		background-position: left top;
 		background-repeat: no-repeat;
 		background-size: 100% auto;
@@ -39,8 +186,18 @@ body.body-sb-mod--share {
 			width: 18%;
 			height: 10%;
 		}
-		&.singlemessage {
-			background-image: url(../../../image/share/share-singlemessage.png);
-		}
+	}
+
+	.btn-back {
+		width: 30%;
+		height: 8%;
+		left: 12%;
+		top: 87%;
+	}
+	.btn-share {
+		width: 30%;
+		height: 8%;
+		left: 60%;
+		top: 87%;
 	}
 }

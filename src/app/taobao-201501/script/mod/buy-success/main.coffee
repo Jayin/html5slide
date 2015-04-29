@@ -7,36 +7,37 @@ class Mod extends Skateboard.BaseMod
 	events:
 		'click .btn-back': 'back'
 		'click .btn-share': 'showShare'
-		'click .btn-close': 'closeShare'
 
 	render: ->
 		designId = app.util.getUrlParam 'designId'
-		app.ajax.get
+		@dataPromise = app.ajax.get
 			url: 'web/taobao/design/' + designId
 			success: (res) =>
 				if res.code is 0
 					obj = res.data
-					@setAvatar obj.imgRelativePath if obj.imgRelativePath
-					@setScene obj.scene if obj.scene
-					$('#good-nick').text obj.nick if obj.nick
-					$('.good-price .price').text obj.price if obj.price
+					@setAvatar obj.imgRelativePath
+					@setScene obj.scene
+					$('#buy-success-nick').text obj.nick
+					@$('.buy-success-price').text (obj.buyPrice || obj.price)
 				else
 					alert res.code + ': ' + res.msg
-				G.hideLoading()
+				G.hideLoading();
 			error: ->
 				alert '系统繁忙，请您稍后重试。'
-				G.hideLoading()
+				G.hideLoading();
+		# preload next page
+		require ['../buy/main']
 
 	setAvatar: (imgRelativePath) ->
-		$('<img id="good-avatar" src="' + G.CDN_BASE + '/' + imgRelativePath + '" />').appendTo $('#good-wrapper')
+		$('<img id="buy-success-avatar" src="' + G.CDN_BASE + '/' + imgRelativePath + '" />').appendTo $('#buy-success-wrapper')
 
 	setScene: (scene) ->
-		$('#good-wrapper')[0].className = 'g' + scene.no
-		require ['../buy/bg-0' + scene.no + '-main.tpl.html'], (tpl) ->
-			$(tpl.render()).appendTo $('#good-wrapper')
+		$('#buy-success-wrapper')[0].className = 'g' + scene.no
+		require ['./bg-0' + scene.no + '-main.tpl.html'], (tpl) ->
+			$(tpl.render()).appendTo $('#buy-success-wrapper')
 		if scene.no is 9
-			$('#good-customized-good-name').text scene.goodName
-			$('#good-customized-good-detail').text scene.goodDetail
+			$('#buy-success-customized-good-name').text scene.goodName
+			$('#buy-success-customized-good-detail').text scene.goodDetail
 			@$('.customize').show()
 		else
 			@$('.customize').hide()
@@ -51,3 +52,4 @@ class Mod extends Skateboard.BaseMod
 		history.back()
 
 module.exports = Mod
+

@@ -12,6 +12,7 @@ class Mod extends Skateboard.BaseMod
 		$('#mo-title-' + (titleNo || 1)).show();
 		setTimeout =>
 			@$('.body-inner').removeClass 'off'
+			G.hideLoading();
 		, 0
 		designId = app.util.getUrlParam 'designId'
 		@dataPromise = app.ajax.get
@@ -20,12 +21,8 @@ class Mod extends Skateboard.BaseMod
 				if res.code is 0
 					obj = res.data
 					G.state.set obj
-					if obj.avatar.no isnt 5
-						# preload next page
-						require ['../buy/avatar-0' + obj.avatar.no + '-main.tpl.html']
-					if obj.scene.no isnt 9
-						# preload next page
-						require ['../buy/bg-0' + obj.scene.no + '-main.tpl.html']
+					# preload next page
+					require ['../buy/bg-0' + obj.scene.no + '-main.tpl.html']
 				else
 					alert res.code + ': ' + res.msg
 			error: ->
@@ -35,6 +32,10 @@ class Mod extends Skateboard.BaseMod
 
 	open: =>
 		@dataPromise.success ->
-			Skateboard.core.view '/view/buy'
+			if G.state.get 'buyPrice'
+				designId = app.util.getUrlParam 'designId'
+				location.href = "buy-success.html?designId=#{designId}"
+			else
+				Skateboard.core.view '/view/buy'
 
 module.exports = Mod
