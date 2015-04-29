@@ -1,0 +1,46 @@
+@import "../buy/goods.scss";
+body.body-sb-mod--share {
+	background-color: #fff;
+}
+.sb-mod.sb-mod--share {
+	.body-inner {
+		height: 100%;
+	}
+
+	.btn-back {
+		left: 0;
+		top: 0;
+		width: 50%;
+		height: 100%;
+	}
+
+	.btn-share {
+		left: 50%;
+		top: 0;
+		width: 50%;
+		height: 100%;
+	}
+
+	.share-instruction {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 999;
+		background-image: url(../../../image/share/share-timeline.png);
+		background-position: left top;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-color: rgba(0, 0, 0, .9);
+		.btn-close {
+			left: 0;
+			top: 0;
+			width: 18%;
+			height: 10%;
+		}
+		&.singlemessage {
+			background-image: url(../../../image/share/share-singlemessage.png);
+		}
+	}
+}

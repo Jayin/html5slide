@@ -4,11 +4,6 @@ Skateboard = require 'skateboard'
 class Mod extends Skateboard.BaseMod
 	cachable: true
 
-	events:
-		'click .btn-back': 'back'
-		'click .btn-share': 'showShare'
-		'click .btn-close': 'closeShare'
-
 	render: ->
 		designId = app.util.getUrlParam 'designId'
 		app.ajax.get
@@ -40,14 +35,5 @@ class Mod extends Skateboard.BaseMod
 			@$('.customize').show()
 		else
 			@$('.customize').hide()
-
-	showShare: =>
-		@$('.share-instruction').removeClass('singlemessage').fadeIn()
-
-	closeShare: =>
-		@$('.share-instruction').fadeOut()
-
-	back: =>
-		history.back()
 
 module.exports = Mod

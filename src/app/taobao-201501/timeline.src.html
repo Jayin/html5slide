@@ -1,0 +1,22 @@
+<!-- extend "layout.base.html" -->
+
+<!-- section "body" -->
+<!-- include "script/mod/timeline/body.scss" -->
+<script type="text/javascript">
+G.showLoading();
+G.defaultModName = 'timeline';
+</script>
+<div id="page-wrapper" class="page-wrapper">
+	<div id="init-content-dom" class="sb-mod sb-mod--timeline" data-sb-scene="0">
+		<div class="sb-mod__body">
+			<!-- require "script/mod/timeline/body.tpl.html" render="true" -->
+		</div>
+	</div>
+</div>
+<!-- /section -->
+
+<!-- section "boost" -->
+<script type="text/javascript">
+require(['jquery', 'app', 'skateboard', '../app/taobao-201501/script/mod/timeline/main'], G.boost);
+</script>
+<!-- /section -->

@@ -14,15 +14,12 @@ class Mod extends Skateboard.BaseMod
 
 	render: ->
 		super
-		@setAvatar G.state.get('avatar')
+		@setAvatar G.state.get('imgData')
 		@stateChange null, G.state.get()
 		G.state.on 'change', @stateChange
 
-	setAvatar: (avatar) ->
-		if avatar.no is 1
-			$('#good-avatar')[0].src = avatar.clipData
-		else
-			$('#good-avatar')[0].src = $('#avatar-' + avatar.no)[0].src
+	setAvatar: (imgData) ->
+		$('#good-avatar')[0].src = imgData
 
 	setScene: (scene) ->
 		$('#good-wrapper')[0].className = 'g' + scene.no
@@ -46,14 +43,14 @@ class Mod extends Skateboard.BaseMod
 			data: state
 			success: (res) =>
 				if res.code is 0
-					location.href = "/static/app/taobao-201501/index.html?designId=#{res.data.designId}&home=share"
+					location.href = "share.html?designId=#{res.data.designId}"
 				else
 					alert res.code + ': ' + res.msg
 			error: ->
 				alert '系统繁忙，请您稍后重试。'
 
 	stateChange: (evt, obj) =>
-		@setAvatar obj.avatar if obj.avatar
+		@setAvatar obj.imgData if obj.imgData
 		@setScene obj.scene if obj.scene
 		$('#good-nick').text obj.nick if obj.nick
 		$('.good-price .price').text obj.price if obj.price

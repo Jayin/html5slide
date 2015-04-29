@@ -15,7 +15,7 @@ class Mod extends Skateboard.BaseMod
 
 	render: ->
 		super
-		@setAvatar G.state.get('avatar')
+		@setAvatar G.state.get('imgData')
 		@stateChange null, G.state.get()
 		G.state.on 'change', @stateChange
 		$('#customized-price').on 'focus', (evt) =>
@@ -32,11 +32,8 @@ class Mod extends Skateboard.BaseMod
 		# preload next page
 		require ['../preview/main', '../buy/bg-0' + G.state.get('scene').no + '-main.tpl.html']
 
-	setAvatar: (avatar) ->
-		if avatar.no is 1
-			$('#price-avatar')[0].src = avatar.clipData
-		else
-			$('#price-avatar')[0].src = $('#avatar-' + avatar.no)[0].src
+	setAvatar: (imgData) ->
+		$('#price-avatar')[0].src = imgData
 
 	setScene: (scene) ->
 		$('#price-wrapper')[0].className = 'p' + scene.no
@@ -69,7 +66,7 @@ class Mod extends Skateboard.BaseMod
 			alert '请给宝贝定个价吧'
 
 	stateChange: (evt, obj) =>
-		@setAvatar obj.avatar if obj.avatar
+		@setAvatar obj.imgData if obj.imgData
 		@setScene obj.scene if obj.scene
 
 	destroy: ->

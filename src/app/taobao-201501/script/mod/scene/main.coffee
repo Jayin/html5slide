@@ -16,7 +16,7 @@ class Mod extends Skateboard.BaseMod
 
 	render: ->
 		super
-		@setAvatar G.state.get('avatar')
+		@setAvatar G.state.get('imgData')
 		G.state.on 'change', @stateChange
 		$('#customized-good-name, #customized-good-detail').on 'focus', ->
 			$(this).addClass 'focus'
@@ -32,11 +32,8 @@ class Mod extends Skateboard.BaseMod
 		# preload next page
 		require ['../price/main', '../price/bg-01-main.tpl.html']
 
-	setAvatar: (avatar) ->
-		if avatar.no is 1
-			$('#scene-avatar')[0].src = avatar.clipData
-		else
-			$('#scene-avatar')[0].src = $('#avatar-' + avatar.no)[0].src
+	setAvatar: (imgData) ->
+		$('#scene-avatar')[0].src = imgData
 
 	updateScene: ->
 		$('#scene-wrapper')[0].className = 's' + @sceneNo
@@ -60,14 +57,14 @@ class Mod extends Skateboard.BaseMod
 
 	next: =>
 		if @sceneNo is 9
-			customized =
-				goodName: $('#customized-good-name').val()
-				goodDetail: $('#customized-good-detail').val()
-			if customized.goodName and customized.goodDetail
+			goodName = $('#customized-good-name').val()
+			goodDetail = $('#customized-good-detail').val()
+			if goodName and goodDetail
 				G.state.set
 					scene:
 						no: @sceneNo
-						customized: customized
+						goodName: goodName
+						goodDetail: goodDetail
 				Skateboard.core.view '/view/price'
 			else
 				alert '请输入宝贝名称和宝贝详情'
@@ -78,7 +75,7 @@ class Mod extends Skateboard.BaseMod
 			Skateboard.core.view '/view/price'
 
 	stateChange: (evt, obj) =>
-		@setAvatar obj.avatar if obj.avatar
+		@setAvatar obj.imgData if obj.imgData
 
 	destroy: ->
 		super

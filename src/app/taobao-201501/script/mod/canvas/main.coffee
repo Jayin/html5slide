@@ -196,9 +196,7 @@ class Mod extends Skateboard.BaseMod
 
 	confirm: =>
 		G.state.set 
-			avatar: 
-				no: 1
-				clipData: @getClipData()
+			imgData: @getClipData()
 		Skateboard.core.view '/view/scene'
 
 	stateChange: (evt, obj) =>

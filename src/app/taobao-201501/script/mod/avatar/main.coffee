@@ -8,8 +8,6 @@ class Mod extends Skateboard.BaseMod
 		'change .upload-btn': 'fileChange'
 		'click .btn-back': 'back'
 		'click .btn-next': 'next'
-		'click .btn-arrow-left': 'prevAvatar'
-		'click .btn-arrow-right': 'nextAvatar'
 
 	_bodyTpl: require './body.tpl.html'
 
@@ -19,8 +17,6 @@ class Mod extends Skateboard.BaseMod
 		super
 		G.state.on 'change', @stateChange
 		# preload next page
-		require ['./default-avatars-main.tpl.html'], (tpl) =>
-			@$('.default-avatars').html tpl.render()
 		require ['../canvas/main', '../scene/main']
 
 	resetFileInput: ->
@@ -43,32 +39,11 @@ class Mod extends Skateboard.BaseMod
 			Skateboard.core.view '/view/canvas'
 		img.src = imgUrl
 
-	updateAvatar: ->
-		$('#avatar-wrapper')[0].className = 'a' + @avatarNo
-		if @avatarNo is 1
-			@$('.upload-btn').show()
-		else
-			@$('.upload-btn').hide()
-
-	prevAvatar: =>
-		@avatarNo = (@avatarNo - 1) || 5
-		@updateAvatar()
-
-	nextAvatar: =>
-		@avatarNo = (@avatarNo % 5) + 1
-		@updateAvatar()
-
 	back: =>
 		history.back()
 
 	next: =>
-		if @avatarNo is 1
-			alert '请客官上传靓照'
-		else
-			G.state.set
-				avatar:
-					no: @avatarNo
-			Skateboard.core.view '/view/scene'
+		alert '请客官上传靓照'
 
 	stateChange: (evt, obj) =>
 		@$('.nick').text obj.nick if obj.nick
@@ -91,15 +66,7 @@ var app = require('app');
 
 <div class="body-inner">
 	<div id="avatar-wrapper" class="a1">
-		<div class="avatar-title">
-			<div class="a1"><span>上传靓照</span></div>
-			<div class="a2"><span>萌蠢少女</span></div>
-			<div class="a3"><span>多汁小鲜肉</span></div>
-			<div class="a4"><span>顶级女神经</span></div>
-			<div class="a5"><span>抠脚糙汉</span></div>
-		</div>
 		<div class="avatars">
-			<div class="default-avatars"></div>
 			<div class="a1">
 				<img src="../../../image/avatar/avatar-01.png" />
 				<div class="upload-btn">
@@ -108,21 +75,6 @@ var app = require('app');
 			</div>
 		</div>
 		<div class="nick"><%==G.state.get('nick')%></div>
-		<div class="avatar-desc">
-			<div class="a2">卖萌撒娇都无敌</div>
-			<div class="a3">八面玲珑巧舌如簧</div>
-			<div class="a4">擦大气粗真土豪</div>
-			<div class="a5">奔放洋气有深度</div>
-		</div>
-		<ul class="indicator">
-			<li class="indicator__item a1">1</li>
-			<li class="indicator__item a2">2</li>
-			<li class="indicator__item a3">3</li>
-			<li class="indicator__item a4">4</li>
-			<li class="indicator__item a5">5</li>
-		</ul>
-		<button class="img-btn btn-arrow-left">&lt;</button>
-		<button class="img-btn btn-arrow-right">&gt;</button>
 		<button class="img-btn btn-back">返回</button>
 		<button class="img-btn btn-next">下一步</button>
 	</div>
