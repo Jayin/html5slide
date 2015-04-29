@@ -27,8 +27,8 @@ class Mod extends Skateboard.BaseMod
 		require ['../buy/bg-0' + scene.no + '-main.tpl.html'], (tpl) ->
 			$(tpl.render()).appendTo $('#good-wrapper')
 		if scene.no is 9
-			$('#good-customized-good-name').html scene.customized.goodName
-			$('#good-customized-good-detail').html scene.customized.goodDetail
+			$('#good-customized-good-name').text scene.goodName
+			$('#good-customized-good-detail').text scene.goodDetail
 			@$('.customize').show()
 		else
 			@$('.customize').hide()

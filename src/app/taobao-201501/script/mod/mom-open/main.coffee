@@ -20,12 +20,8 @@ class Mod extends Skateboard.BaseMod
 				if res.code is 0
 					obj = res.data
 					G.state.set obj
-					if obj.avatar.no isnt 5
-						# preload next page
-						require ['../buy/avatar-0' + obj.avatar.no + '-main.tpl.html']
-					if obj.scene.no isnt 9
-						# preload next page
-						require ['../buy/bg-0' + obj.scene.no + '-main.tpl.html']
+					# preload next page
+					require ['../buy/bg-0' + obj.scene.no + '-main.tpl.html']
 				else
 					alert res.code + ': ' + res.msg
 			error: ->
