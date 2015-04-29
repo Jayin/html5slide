@@ -15,6 +15,7 @@ class Mod extends Skateboard.BaseMod
 			success: (res) =>
 				if res.code is 0
 					obj = res.data
+					G.state.set obj
 					@setAvatar obj.imgRelativePath
 					@setScene obj.scene
 					$('#buy-success-nick').text obj.nick
