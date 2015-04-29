@@ -18,5 +18,11 @@ G.defaultModName = 'buy';
 <!-- section "boost" -->
 <script type="text/javascript">
 require(['jquery', 'app', 'skateboard', '../app/taobao-201501/script/mod/buy/main'], G.boost);
+require(['jquery'], function($) {
+	titleNo = Math.ceil(Math.random() * 4);
+	$('#mo-title-' + (titleNo || 1)).show();
+	$('.body-inner').removeClass('off');
+	G.hideLoading();
+});
 </script>
 <!-- /section -->

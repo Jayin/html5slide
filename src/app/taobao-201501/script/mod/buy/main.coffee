@@ -8,12 +8,6 @@ class Mod extends Skateboard.BaseMod
 		'click .mom-open__open-btn': 'openPackage'
 
 	render: ->
-		titleNo = Math.ceil Math.random() * 4
-		$('#mo-title-' + (titleNo || 1)).show();
-		setTimeout =>
-			@$('.body-inner').removeClass 'off'
-			G.hideLoading();
-		, 0
 		designId = app.util.getUrlParam 'designId'
 		@dataPromise = app.ajax.get
 			url: 'web/taobao/design/' + designId
