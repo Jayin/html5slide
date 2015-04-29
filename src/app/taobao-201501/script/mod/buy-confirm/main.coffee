@@ -45,13 +45,14 @@ class Mod extends Skateboard.BaseMod
 			@$('.customize').hide()
 
 	buy: =>
+		designId = app.util.getUrlParam('designId')
 		app.ajax.put
-			url: 'web/taobao/design/' + app.util.getUrlParam('designId') + '/buy'
+			url: 'web/taobao/design/' + designId + '/buy'
 			data: 
 				buyPrice: @buyPrice || G.state.get('price')
 			success: (res) =>
 				if res.code is 0
-					location.href = "buy-success.html?designId=#{res.data.designId}"
+					location.href = "buy-success.html?designId=#{designId}"
 				else
 					alert res.code + ': ' + res.msg
 			error: ->
