@@ -11,6 +11,7 @@ class Mod extends Skateboard.BaseMod
 	_bodyTpl: require './body.tpl.html'
 
 	price: ''
+	customizeNumber: 1 #自定义场景的标号
 
 	render: ->
 		super
@@ -26,12 +27,11 @@ class Mod extends Skateboard.BaseMod
 		$('#good-wrapper .good-bg-img').remove()
 		require ['../buy/bg-0' + scene.no + '-main.tpl.html'], (tpl) ->
 			$(tpl.render()).appendTo $('#good-wrapper')
-		if scene.no is 9
-			$('#good-customized-good-name').text scene.goodName
-			$('#good-customized-good-detail').text scene.goodDetail
-			@$('.customize').show()
+
+		if scene.no is @customizeNumber
+			$('#good-customized-good-detail').text scene.goodDetail + @getNickDescription(scene.no).description
 		else
-			@$('.customize').hide()
+			$('#good-customized-good-detail').text  @getNickDescription(scene.no).description
 
 	back: =>
 		history.back()
@@ -50,14 +50,47 @@ class Mod extends Skateboard.BaseMod
 				alert '系统繁忙，请您稍后重试。'
 
 	stateChange: (evt, obj) =>
-		@setAvatar obj.imgData if obj.imgData
-		@setScene obj.scene if obj.scene
-		$('#good-nick').text obj.nick if obj.nick
-		$('.good-price .price').text obj.price if obj.price
+		if obj.imgData
+			@setAvatar obj.imgData 
+		if obj.scene
+			@setScene obj.scene 
+		if obj.nick
+			if G.state.get().scene.no is @customizeNumber
+				$('#nick-display').text obj.nick + @getNickDescription(G.state.get().scene.no).suffix
+			else
+				@getNickDescription(G.state.get().nick).suffix
+		if obj.price			
+			$('#price-display').text obj.price 
 
 	destroy: ->
 		super
 		G.state.off 'change', @stateChange
+
+
+	getNickDescription: (number)->
+		console.log number 
+		if number == 1
+			'suffix': '  无比机智与聪慧'
+			'description': ' 新品首发'
+		else if number ==  2
+			'suffix': ' 文武双全 随时待命'
+			'description': ' 防王姨勾搭 维护家庭和平 人气爆款特供'	
+		else if number ==  3
+			'suffix': ' 酷炫吊炸天'
+			'description': ' 老爸私房钱无缝探测 正品包邮'	
+		else if number ==  4
+			'suffix': ' 无比机智与聪慧'
+			'description': ' 雀神之手 逢把必自摸神技 新品首发'	
+		else if number ==  5
+			'suffix': ' 爱卖萌爱撒娇'
+			'description': ' 广场舞无条件陪练 量贩式配乐播放 超强音质'	
+		else if number ==  6
+			'suffix': ' 财大气粗 任性'
+			'description': '支付宝余额无限充值 全国联保'	
+		else 
+			'suffix': ' 洗护合一新升级'
+			'description': ' 我是人肉洗衣机 超强去渍 送装同步'	
+
 
 module.exports = Mod
 
@@ -73,14 +106,16 @@ var app = require('app');
 
 <div class="body-inner">
 	<div id="good-wrapper">
-		<div class="good-price good-price--1">
-			<div class="price"><%==G.state.get('price')%></div>
+		<div class="good-price">
+			<div class="price">
+				<div id="price-display" style="float: left;"><%==G.state.get('price')%></div>
+				<img src="../../../image/buy/price-baner.jpg" style="float:left;width: 25%;">
+			</div>
 		</div>
 		<img id="good-avatar" />
-		<div id="good-nick"><%==G.state.get().nick%></div>
-		<div class="customize">
-			<div id="good-customized-good-name"></div>
-			<div id="good-customized-good-detail"></div>
+		<div id="good-nick">
+			<p id="nick-display"></p>
+			<p id="good-customized-good-detail"></p>
 		</div>
 		<div class="good-actions">
 			<img src="../../../image/share/good-action.png" />

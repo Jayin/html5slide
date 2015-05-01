@@ -1,172 +1,125 @@
 .good-bg-img {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 .good-price {
-	position: absolute;
-	width: 26.4%;
-	height: 16.4%;
-	text-align: center;
-	background-position: left top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	.price {
-		text-align: center;
-		color: #fff;
-		font-weight: 700;
-		position: absolute;
-		left: 0;
-		right: 0;
-	}
-	&.good-price--1 {
-		background-image: url(../../../image/buy/price-bg-01.png);
-		.price {
-			top: 17.5%;
-			font-size: 0.8rem;
-		}
-	}
-	&.good-price--2 {
-		background-image: url(../../../image/buy/price-bg-02.png);
-		.price {
-			top: 40%;
-		}
-	}
-	&.good-price--3 {
-		background-image: url(../../../image/buy/price-bg-03.png);
-		.price {
-			top: 39%;
-		}
-	}
-}
-.g1 .good-price {
-	left: 7.7%;
-	top: 7.8%;
-}
-.g2 .good-price {
-	left: 2.6%;
-	top: 2%;
-}
-.g3 .good-price {
-	left: 1.8%;
-	top: 1%;
-}
-.g4 .good-price {
-	left: 1.8%;
-	top: 1%;
-}
-.g5 .good-price {
-	left: 1.7%;
-	top: 1.4%;
-}
-.g6 .good-price {
-	left: 1.6%;
-	top: 1%;
-}
-.g7 .good-price {
-	left: 71.7%;
-	top: 1%;
-}
-.g8 .good-price {
-	left: 2.1%;
-	top: 1%;
-}
-.g9 .good-price {
-	left: 1%;
-	top: 0.6%;
+    position: absolute;
+    left: 7.7%;
+    top: 62.5%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .price {
+        text-align: left;
+        color: #F54B00;
+        ;
+        font-weight: 700;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
 }
 
 #good-avatar {
-	position: absolute;
-	height: auto;
+    position: absolute;
+    height: auto;
 }
+
 .g1 #good-avatar {
-	left: 39.4%;
-	top: 3.8%;
-	width: 21.3%;
+    left: 16.3%;
+    top: 8%;
+    width: 66%;
 }
+
 .g2 #good-avatar {
-	left: 44.4%;
-	top: 27.3%;
-	width: 23.5%;
+    left: 41%;
+    top: 4%;
+    width: 21.3%;
 }
+
 .g3 #good-avatar {
-	left: 66.7%;
-	top: 30.6%;
-	width: 19.7%;
+    left: 44.4%;
+    top: 27.3%;
+    width: 23.5%;
 }
+
 .g4 #good-avatar {
-	left: 33.9%;
-	top: 14.9%;
-	width: 28.5%;
+    left: 66.7%;
+    top: 30.6%;
+    width: 19.7%;
 }
+
 .g5 #good-avatar {
-	left: 35.2%;
-	top: 28.8%;
-	width: 19.4%;
+    left: 33.9%;
+    top: 14.9%;
+    width: 28.5%;
 }
+
 .g6 #good-avatar {
-	left: 39.3%;
-	top: 15.6%;
-	width: 31.5%;
+    left: 35.2%;
+    top: 28.8%;
+    width: 19.4%;
 }
+
 .g7 #good-avatar {
-	left: 29.5%;
-	top: 24.2%;
-	width: 23.5%;
-}
-.g8 #good-avatar {
-	left: 37.9%;
-	top: 14.2%;
-	width: 18.5%;
-}
-.g9 #good-avatar {
-	left: 16.3%;
-	top: 8%;
-	width: 66%;
+    left: 38.5%;
+    top: 26%;
+    width: 23.5%;
 }
 
 #good-nick {
-	position: absolute;
-	top: 55%;
-	right: 50%;
-	text-align: right;
-	color: #fce089;
+    position: absolute;
+    top: 52%;
+    left: 0;
+    width: 100%;
+    text-align: right;
+    color: #000000;
+    p {
+        margin: 0;
+        text-align: left;
+        margin: 3px;
+    }
 }
 
 .customize {
-	position: absolute;
-	left: 50%;
-	top: 58.5%;
-	width: 60%;
-	margin-left: -30%;
-	height: 27%;
+    position: absolute;
+    left: 50%;
+    top: 58.5%;
+    width: 60%;
+    margin-left: -30%;
+    height: 27%;
 }
+
 #good-customized-good-name {
-	color: #fff;
-	font-weight: 700;
-	text-align: center;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
 }
+
 #good-customized-good-detail {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 65%;
-	text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 65%;
+    text-align: center;
 }
 
 .good-actions {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	img {
-		display: block;
-		width: 100%;
-		height: auto;
-	}
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
 }
