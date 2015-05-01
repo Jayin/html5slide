@@ -33,6 +33,9 @@ class Mod extends Skateboard.BaseMod
 		else
 			$('#good-customized-good-detail').text  @getNickDescription(scene.no).description
 
+		$('#suffix-display').text @getNickDescription(G.state.get().scene.no).suffix
+		
+
 	back: =>
 		history.back()
 
@@ -55,10 +58,8 @@ class Mod extends Skateboard.BaseMod
 		if obj.scene
 			@setScene obj.scene 
 		if obj.nick
-			if G.state.get().scene.no is @customizeNumber
-				$('#nick-display').text obj.nick + @getNickDescription(G.state.get().scene.no).suffix
-			else
-				@getNickDescription(G.state.get().nick).suffix
+			$('#nick-display').text obj.nick
+
 		if obj.price			
 			$('#price-display').text obj.price 
 
@@ -68,7 +69,6 @@ class Mod extends Skateboard.BaseMod
 
 
 	getNickDescription: (number)->
-		console.log number 
 		if number == 1
 			'suffix': '  无比机智与聪慧'
 			'description': ' 新品首发'
@@ -108,13 +108,13 @@ var app = require('app');
 	<div id="good-wrapper">
 		<div class="good-price">
 			<div class="price">
-				<div id="price-display" style="float: left;"><%==G.state.get('price')%></div>
+				<div id="price-display" style="float: left;"></div>
 				<img src="../../../image/buy/price-baner.jpg" style="float:left;width: 25%;">
 			</div>
 		</div>
 		<img id="good-avatar" />
 		<div id="good-nick">
-			<p id="nick-display"></p>
+			<p><span id="nick-display"></span><span id="suffix-display"></span></p>
 			<p id="good-customized-good-detail"></p>
 		</div>
 		<div class="good-actions">
