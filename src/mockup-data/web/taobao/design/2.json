@@ -1,0 +1,13 @@
+{
+    "code": 0,
+    "msg": "ok",
+    "data": {
+        "nick": "王大花",
+        "imgRelativePath": "app/taobao-201501/image/avatar/avatar-01.png",
+        "scene": {
+            "no": 2
+        },
+        "price": "998",
+        "buyPrice": ""
+    }
+}
