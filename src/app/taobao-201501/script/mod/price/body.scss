@@ -1,164 +1,149 @@
 .sb-mod.sb-mod--price {
-	.body-inner {
-		height: 100%;
-	}
-
-	.price-bg-img {
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-	}
-
-	#price-avatar {
-		position: absolute;
-		height: auto;
-	}
-	.p1 #price-avatar {
-		left: 44.7%;
-		top: 16.3%;
-		width: 11.3%;
-	}
-	.p2 #price-avatar {
-		left: 48.2%;
-		top: 27.8%;
-		width: 11.9%;
-	}
-	.p3 #price-avatar {
-		left: 59.9%;
-		top: 28.2%;
-		width: 12%;
-	}
-	.p4 #price-avatar {
-		left: 40.9%;
-		top: 21.4%;
-		width: 18.2%;
-	}
-	.p5 #price-avatar {
-		left: 39.4%;
-		top: 27.7%;
-		width: 11.6%;
-	}
-	.p6 #price-avatar {
-		left: 48.3%;
-		top: 21.2%;
-		width: 18.3%;
-	}
-	.p7 #price-avatar {
-		left: 39.1%;
-		top: 27%;
-		width: 15.5%;
-	}
-	.p8 #price-avatar {
-		left: 43.8%;
-		top: 20.7%;
-		width: 9.5%;
-	}
-	.p9 #price-avatar {
-		left: 30.27%;
-		top: 17.7%;
-		width: 39.7%;
-	}
-
-	.customize {
-		position: absolute;
-		width: 51.8%;
-		height: 26%;
-		top: 37.2%;
-		left: 50%;
-		margin-left: -25.9%;
-		display: none;
-	}
-	.customize-title {
-		img {
-			width: 100%;
-			height: auto;
-		}
-	}
-	#price-customized-good-name {
-		position: absolute;
-		left: 0;
-		width: 100%;
-		color: #fff;
-		text-align: center;
-		font-weight: 700;
-		top: 5%;
-		font-size: 0.8rem;
-	}
-	#price-customized-good-detail {
-		position: absolute;
-		left: 15%;
-		top: 56%;
-		width: 78%;
-		height: 40%;
-		font-size: 0.9rem;
-		color: #fff;
-		text-align: center;
-	}
-
-	.price {
-		position: absolute;
-		width: 58.2%;
-		height: 16.7%;
-		left: 50%;
-		top: 68.3%;
-		margin-left: -29.1%;
-		text-align: center;
-		.img-btn {
-			position: static;
-			width: 27%;
-			height: 59.2%;
-			margin: 0 3%;
-			background-position: left top;
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
-		.price-btn-1 {
-			background-image: url(../../../image/price/price-btn-01.png);
-			&.on {
-				background-image: url(../../../image/price/price-btn-on-01.png);
-			}
-		}
-		.price-btn-2 {
-			background-image: url(../../../image/price/price-btn-02.png);
-			&.on {
-				background-image: url(../../../image/price/price-btn-on-02.png);
-			}
-		}
-		.price-btn-3 {
-			background-image: url(../../../image/price/price-btn-03.png);
-			&.on {
-				background-image: url(../../../image/price/price-btn-on-03.png);
-			}
-		}
-	}
-	#customized-price {
-		position: absolute;
-		width: 80%;
-		bottom: 0;
-		left: 17%;
-		border: none;
-		height: 23.5%;
-		text-align: center;
-		background-color: transparent;
-		outline: none;
-		&.focus {
-			background-color: #fff;
-		}
-	}
-
-	.btn-back {
-		width: 30%;
-		height: 8%;
-		left: 12%;
-		top: 87%;
-	}
-	.btn-next {
-		width: 30%;
-		height: 8%;
-		left: 60%;
-		top: 87%;
-	}
+    .body-inner {
+        height: 100%;
+    }
+    .price-bg-img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    #price-avatar {
+        position: absolute;
+        height: auto;
+    }
+    .p1 #price-avatar {
+        left: 23.7%;
+        top: 22.4%;
+        width: 52.7%;
+    }
+    .p2 #price-avatar {
+        left: 42.7%;
+        top: 18%;
+        width: 14.8%;
+    }
+    .p3 #price-avatar {
+        left: 47.9%;
+        top: 37%;
+        width: 15.2%;
+    }
+    .p4 #price-avatar {
+        left: 62.9%;
+        top: 38%;
+        width: 15.8%;
+    }
+    .p5 #price-avatar {
+        left: 37.9%;
+        top: 23.6%;
+        width: 23.8%;
+    }
+    .p6 #price-avatar {
+        left: 35.9%;
+        top: 33.4%;
+        width: 14.9%;
+    }
+    .p7 #price-avatar {
+        left: 35.5%;
+        top: 31.3%;
+        width: 20.7%;
+    }
+    .customize {
+        position: absolute;
+        width: 68.4%;
+        height: 34.5%;
+        top: 52%;
+        left: 50%;
+        margin-left: -34.2%;
+        display: none;
+    }
+    .customize-title {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    #price-customized-good-name {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        color: #fff;
+        text-align: center;
+        font-weight: 700;
+        top: 5%;
+        font-size: 0.8rem;
+    }
+    #price-customized-good-detail {
+        position: absolute;
+        left: 15%;
+        top: 56%;
+        width: 78%;
+        height: 40%;
+        font-size: 0.9rem;
+        color: #fff;
+        text-align: center;
+    }
+    .price {
+        position: absolute;
+        width: 58.2%;
+        height: 16.7%;
+        left: 50%;
+        top: 68.3%;
+        margin-left: -29.1%;
+        text-align: center;
+        .img-btn {
+            position: static;
+            width: 27%;
+            height: 59.2%;
+            margin: 0 3%;
+            background-position: left top;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .price-btn-1 {
+            background-image: url(../../../image/price/price-btn-01.png);
+            &.on {
+                background-image: url(../../../image/price/price-btn-on-01.png);
+            }
+        }
+        .price-btn-2 {
+            background-image: url(../../../image/price/price-btn-02.png);
+            &.on {
+                background-image: url(../../../image/price/price-btn-on-02.png);
+            }
+        }
+        .price-btn-3 {
+            background-image: url(../../../image/price/price-btn-03.png);
+            &.on {
+                background-image: url(../../../image/price/price-btn-on-03.png);
+            }
+        }
+    }
+    #customized-price {
+        position: absolute;
+        width: 80%;
+        bottom: 5%;
+        left: 16%;
+        border: none;
+        height: 23.5%;
+        text-align: center;
+        background-color: transparent;
+        outline: none;
+        &.focus {
+            background-color: #fff;
+        }
+    }
+    .btn-back {
+        width: 30%;
+        height: 8%;
+        left: 12%;
+        top: 87%;
+    }
+    .btn-next {
+        width: 30%;
+        height: 8%;
+        left: 60%;
+        top: 87%;
+    }
 }

@@ -12,6 +12,7 @@ class Mod extends Skateboard.BaseMod
 	_bodyTpl: require './body.tpl.html'
 
 	price: ''
+	customizeNumber: 1 #自定义场景的标号
 
 	render: ->
 		super
@@ -40,7 +41,7 @@ class Mod extends Skateboard.BaseMod
 		$('#price-wrapper .price-bg-img').remove()
 		require ['./bg-0' + scene.no + '-main.tpl.html'], (tpl) ->
 			$(tpl.render()).appendTo $('#price-wrapper')
-		if scene.no is 9
+		if scene.no is @customizeNumber
 			$('#price-customized-good-name').html scene.goodName
 			$('#price-customized-good-detail').html scene.goodDetail
 			@$('.customize').show()
@@ -93,7 +94,7 @@ var app = require('app');
 				<img src="../../../image/price/customized-title-bg.png" />
 				<div id="price-customized-good-name"></div>
 			</div>
-			<div id="price-customized-good-detail"></div>
+			<div id="price-customized-good-detail" style="display: none;"></div>
 		</div>
 		<div class="price">
 			<button class="img-btn price-btn-1">3美元</button>
