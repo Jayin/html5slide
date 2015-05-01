@@ -71,7 +71,6 @@ class Mod extends Skateboard.BaseMod
 						no: @sceneNo
 						goodName: goodName
 						goodDetail: goodDetail
-				console.log G.state.get()
 				Skateboard.core.view '/view/price'
 			else
 				alert '请输入宝贝详情'
