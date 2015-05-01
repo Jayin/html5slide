@@ -97,7 +97,7 @@ var app = require('app');
 			<div id="price-customized-good-detail" style="display: none;"></div>
 		</div>
 		<div class="price">
-			<button class="img-btn price-btn-1">3美元</button>
+			<button class="img-btn price-btn-1">3元</button>
 			<button class="img-btn price-btn-2">打4下PP</button>
 			<button class="img-btn price-btn-3">5下亲亲</button>
 			<input id="customized-price" type="text" maxlength="5" />
