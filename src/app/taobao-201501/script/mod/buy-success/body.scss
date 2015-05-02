@@ -16,7 +16,7 @@ body.body-sb-mod--buy-success {}
         position: absolute;
         width: 100%;
         left: 8%;
-        top: 62.5%;
+        top: 62%;
         text-align: center;
         color: #F54B00;
         font-weight: 700;
@@ -26,6 +26,7 @@ body.body-sb-mod--buy-success {}
         img {
             float: left;
             width: 22%;
+            margin-top: 7px;
         }
     }
     #buy-success-avatar {

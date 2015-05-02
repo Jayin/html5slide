@@ -100,7 +100,7 @@ __END__
 <div class="body-inner">
 	<div id="buy-confirm-wrapper">
 		<div class="buy-confirm-price"></div>
-		<div class="buy-confirm-nick">
+		<div class="buy-confirm-nick" style="margin: 2px;">
 			<p ><sapn id="buy-confirm-nick"></sapn><span id="suffix-display"></span></p>
 			<p id="good-customized-good-detail"></p>
 		</div>
