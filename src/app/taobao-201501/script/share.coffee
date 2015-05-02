@@ -64,7 +64,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 				wx.onMenuShareTimeline
 					title: getShareMessage()   
 					link: shareUrl
-					imgUrl: G.CDN_BASE + '/app/taobao-201501/image/icon-share.jpg'
+					imgUrl: G.CDN_ORIGIN + "/" + G.state.get 'imgShareRelativePath'
 					success: ->
 						app.ajax.post url: 'web/sharing/increaseSharingMoments/54f308fbd4c6505329ee48e7'
 
@@ -72,6 +72,6 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 					title: '我是你的宝贝'
 					desc: getShareMessage()
 					link: shareUrl
-					imgUrl: G.CDN_BASE + '/app/taobao-201501/image/icon-share.jpg'
+					imgUrl: G.CDN_ORIGIN + "/" + G.state.get 'imgShareRelativePath'
 					success: ->
 						app.ajax.post url: 'web/sharing/increaseSharingFriends/54f308fbd4c6505329ee48e7'
