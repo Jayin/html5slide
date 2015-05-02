@@ -47,7 +47,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 
 	shareUrl = location.href.split('#')[0]
 	app.ajax.post
-		url: 'web/bxn/weixin/signature',
+		url: 'web/sharing/signWxshare/tao1b82a58f24d7d16c11e16',
 		data: 
 			url: shareUrl
 		success: (res) ->
