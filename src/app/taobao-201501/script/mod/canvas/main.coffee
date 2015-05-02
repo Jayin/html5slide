@@ -118,7 +118,6 @@ class Mod extends Skateboard.BaseMod
 				y: @CONTEXT_H / 2
 			@img = new Image()
 			#缩放图片，使图片填满圆圈
-			#如果高大于canvas，宽小于canvas
 			if (newImg.height / @CONTEXT_H) > (newImg.width / @CONTEXT_W)
 				@imgWh = 
 					w: @CONTEXT_W
