@@ -10,12 +10,17 @@ class Mod extends Skateboard.BaseMod
 		'click .btn-next': 'next'
 
 	_bodyTpl: require './body.tpl.html'
+	
 
 	avatarNo: 1
 
 	render: ->
 		super
 		G.state.on 'change', @stateChange
+		require ['../home/dialog-main'], (dialog)=>
+			dialog.on 'confirm', @confirm
+			@dialog = dialog
+			@dialog.show()
 		# preload next page
 		require ['../canvas/main', '../scene/main']
 
@@ -51,6 +56,12 @@ class Mod extends Skateboard.BaseMod
 	destroy: ->
 		super
 		G.state.off 'change', @stateChange
+
+	confirm: (evt, nick) =>
+		G.state.set
+			nick: nick
+
+
 
 module.exports = Mod
 
