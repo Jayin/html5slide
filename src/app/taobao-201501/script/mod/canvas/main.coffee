@@ -206,8 +206,10 @@ class Mod extends Skateboard.BaseMod
 		tmpCanvas.width = @CONTEXT_W / 4
 		tmpCanvas.height = @CONTEXT_H / 4
 		tmpCtx = tmpCanvas.getContext '2d'
-		tmpCtx.drawImage tmpImg, 0,0,@CONTEXT_W, @CONTEXT_H,  0, 0, @CONTEXT_W / 4, @CONTEXT_H / 4
-
+		@context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
+		@drawImg()
+		tmpCtx.drawImage @canvas, 0,0,@CONTEXT_W, @CONTEXT_H,  0, 0, @CONTEXT_W / 4, @CONTEXT_H / 4
+		@drawFrame()
 		maskImg = $('#canvas-frame')[0]
 		tmpCtx.drawImage maskImg, 0, 0, @CONTEXT_W, @CONTEXT_H,  0, 0, @CONTEXT_W / 4, @CONTEXT_H / 4
 		tmpCanvas.toDataURL()
