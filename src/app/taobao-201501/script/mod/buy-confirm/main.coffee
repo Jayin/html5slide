@@ -39,7 +39,7 @@ class Mod extends Skateboard.BaseMod
 			@$('.buy-confirm-price').text(@buyPrice || G.state.get('price'))
 
 	setAvatar: (imgRelativePath) ->
-		$('<img id="buy-confirm-avatar" src="' + G.CDN_BASE + '/' + imgRelativePath + '" />').appendTo $('#buy-confirm-wrapper')
+		$('<img id="buy-confirm-avatar" src="' + G.CDN_ORIGIN + '/' + imgRelativePath + '" />').appendTo $('#buy-confirm-wrapper')
 
 	setScene: (scene) ->
 		$('#buy-confirm-wrapper')[0].className = 'g' + scene.no
