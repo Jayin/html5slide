@@ -33,7 +33,7 @@ class Mod extends Skateboard.BaseMod
 		require ['../buy-confirm/main']
 
 	setAvatar: (imgRelativePath) ->
-		$('<img id="good-avatar" src="' + G.CDN_BASE + '/' + imgRelativePath + '" />').appendTo $('#good-wrapper')
+		$('<img id="good-avatar" src="' + G.CDN_ORIGIN + '/' + imgRelativePath + '" />').appendTo $('#good-wrapper')
 
 	setScene: (scene) ->
 		$('#good-wrapper')[0].className = 'g' + scene.no
