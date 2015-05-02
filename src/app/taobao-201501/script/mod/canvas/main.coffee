@@ -191,12 +191,29 @@ class Mod extends Skateboard.BaseMod
 		tmpCtx.putImageData imgData, 0, 0
 		tmpCanvas.toDataURL()
 
+	# 生成分享图片，宽高均为原图片的1/4
+	getShareData: ->
+		tmpImg = new Image
+		tmpImg.src = @getClipData()
+		tmpCanvas = document.createElement 'canvas'
+		tmpCanvas.width = @CONTEXT_W / 4
+		tmpCanvas.height = @CONTEXT_H / 4
+		tmpCtx = tmpCanvas.getContext '2d'
+		tmpCtx.drawImage tmpImg, 0,0,@CONTEXT_W, @CONTEXT_H,  0, 0, @CONTEXT_W / 4, @CONTEXT_H / 4
+
+		maskImg = $('#canvas-frame')[0]
+		tmpCtx.drawImage maskImg, 0, 0, @CONTEXT_W, @CONTEXT_H,  0, 0, @CONTEXT_W / 4, @CONTEXT_H / 4
+		tmpCanvas.toDataURL()
+
+
 	back: =>
 		history.back()
 
 	confirm: =>
 		G.state.set 
 			imgData: @getClipData()
+			imgDataShare: @getShareData()
+
 		Skateboard.core.view '/view/scene'
 
 	stateChange: (evt, obj) =>
