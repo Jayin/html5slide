@@ -12,6 +12,8 @@ class Mod extends Skateboard.BaseMod
 	customizeNumber: 1 #自定义场景的标号
 
 	render: ->
+		G.shareTimeLineCallback = @shareTimeLineCallback
+
 		designId = app.util.getUrlParam 'designId'
 		app.ajax.get
 			url: 'web/taobao/design/' + designId
@@ -49,6 +51,9 @@ class Mod extends Skateboard.BaseMod
 			
 		$('#suffix-display').text @getNickDescription(G.state.get().scene.no).suffix
 
+	shareTimeLineCallback: =>
+		@$('.share-instruction').addClass('singlemessage').fadeIn()
+
 	showShare: =>
 		@$('.share-instruction').removeClass('singlemessage').fadeIn()
 
@@ -57,6 +62,10 @@ class Mod extends Skateboard.BaseMod
 
 	back: =>
 		history.back()
+
+	destroy: ->
+		super
+		G.shareTimeLineCallback = null
 
 	getNickDescription: (number)->
 		console.log number 

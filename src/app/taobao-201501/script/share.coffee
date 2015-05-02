@@ -74,6 +74,8 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 					imgUrl: getShareIcon()
 					success: ->
 						app.ajax.post url: 'web/sharing/increaseSharingMoments/tao308fbd4c6505329ee48e6'
+						if G.shareTimeLineCallback
+							G.shareTimeLineCallback()
 
 				wx.onMenuShareAppMessage
 					title: '我是你的宝贝'
