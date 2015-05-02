@@ -11,13 +11,21 @@ class Mod extends Skateboard.BaseMod
 
 	buyPrice: ''
 
+	customizeNumber: 1 #自定义场景的标号
+
 	render: ->
 		super
 		obj = G.state.get()
-		@setAvatar obj.imgRelativePath if obj.imgRelativePath
-		@setScene obj.scene if obj.scene
-		$('#buy-confirm-nick').text obj.nick if obj.nick
-		@$('.buy-confirm-price').text obj.price if obj.price
+		
+		if obj.imgRelativePath	
+			@setAvatar obj.imgRelativePath 
+		if obj.scene	
+			@setScene obj.scene
+		if obj.nick 
+			$('#buy-confirm-nick').text obj.nick 
+		if obj.price
+			@$('.buy-confirm-price').text obj.price 
+
 		$('#buy-confrim-price').on 'focus', (evt) =>
 			$(evt.target).addClass 'focus'
 		$('#buy-confrim-price').on 'change blur', (evt) =>
@@ -37,12 +45,13 @@ class Mod extends Skateboard.BaseMod
 		$('#buy-confirm-wrapper')[0].className = 'g' + scene.no
 		require ['./bg-0' + scene.no + '-main.tpl.html'], (tpl) ->
 			$(tpl.render()).appendTo $('#buy-confirm-wrapper')
-		if scene.no is 9
-			$('#buy-confirm-customized-good-name').text scene.goodName
-			$('#buy-confirm-customized-good-detail').text scene.goodDetail
-			@$('.customize').show()
+
+		if scene.no is @customizeNumber
+			$('#good-customized-good-detail').text scene.goodDetail + @getNickDescription(scene.no).description
 		else
-			@$('.customize').hide()
+			$('#good-customized-good-detail').text  @getNickDescription(scene.no).description
+			
+		$('#suffix-display').text @getNickDescription(G.state.get().scene.no).suffix
 
 	buy: =>
 		designId = app.util.getUrlParam('designId')
@@ -58,6 +67,29 @@ class Mod extends Skateboard.BaseMod
 			error: ->
 				alert '系统繁忙，请您稍后重试。'
 
+	getNickDescription: (number)->
+		if number == 1
+			'suffix': '  无比机智与聪慧'
+			'description': ' 新品首发'
+		else if number ==  2
+			'suffix': ' 文武双全 随时待命'
+			'description': ' 防王姨勾搭 维护家庭和平 人气爆款特供'	
+		else if number ==  3
+			'suffix': ' 酷炫吊炸天'
+			'description': ' 老爸私房钱无缝探测 正品包邮'	
+		else if number ==  4
+			'suffix': ' 无比机智与聪慧'
+			'description': ' 雀神之手 逢把必自摸神技 新品首发'	
+		else if number ==  5
+			'suffix': ' 爱卖萌爱撒娇'
+			'description': ' 广场舞无条件陪练 量贩式配乐播放 超强音质'	
+		else if number ==  6
+			'suffix': ' 财大气粗 任性'
+			'description': '支付宝余额无限充值 全国联保'	
+		else 
+			'suffix': ' 洗护合一新升级'
+			'description': ' 我是人肉洗衣机 超强去渍 送装同步'	
+
 module.exports = Mod
 
 __END__
@@ -68,7 +100,10 @@ __END__
 <div class="body-inner">
 	<div id="buy-confirm-wrapper">
 		<div class="buy-confirm-price"></div>
-		<div id="buy-confirm-nick"></div>
+		<div class="buy-confirm-nick">
+			<p ><sapn id="buy-confirm-nick"></sapn><span id="suffix-display"></span></p>
+			<p id="good-customized-good-detail"></p>
+		</div>
 		<div class="customize">
 			<img src="../../../image/buy-confirm/customized-title.png" />
 			<div id="buy-confirm-customized-good-name"></div>
