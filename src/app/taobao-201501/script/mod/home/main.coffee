@@ -21,7 +21,7 @@ class Mod extends Skateboard.BaseMod
 			dialog.show()
 	next: =>
 		G.state.set
-			"home-to-next": true
+			nick: 'xxx'
 		Skateboard.core.view '/view/avatar'
 
 	confirm: (evt, nick) =>

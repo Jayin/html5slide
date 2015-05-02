@@ -11,7 +11,7 @@ dialog = $.extend $({}),
 		el = $('.home-dialog')
 		if not el.length
 			el = $(dialogTpl.render()).appendTo document.body
-			$('.home-dialog__close, .home-dialog__mask', el).on 'click', dialog.hide
+			# $('.home-dialog__close, .home-dialog__mask', el).on 'click', dialog.hide
 			$('.home-dialog__input').on 'focus', ->
 				$('.home-dialog__content').addClass 'focus'
 			$('.home-dialog__input').on 'change blur', ->

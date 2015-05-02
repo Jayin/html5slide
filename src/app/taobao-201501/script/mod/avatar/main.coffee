@@ -14,13 +14,17 @@ class Mod extends Skateboard.BaseMod
 
 	avatarNo: 1
 
+	_afterFadeIn: ->
+		if G.goClicked
+			G.goClicked = false
+			require ['../home/dialog-main'], (dialog)=>
+				dialog.on 'confirm', @confirm
+				dialog.show()
+
 	render: ->
 		super
 		G.state.on 'change', @stateChange
-		require ['../home/dialog-main'], (dialog)=>
-			dialog.on 'confirm', @confirm
-			@dialog = dialog
-			@dialog.show()
+		
 		# preload next page
 		require ['../canvas/main', '../scene/main']
 
@@ -45,7 +49,9 @@ class Mod extends Skateboard.BaseMod
 		img.src = imgUrl
 
 	back: =>
-		history.back()
+		#history.back()
+		require ['../home/dialog-main'], (dialog)=>
+			dialog.show()
 
 	next: =>
 		alert '请客官上传靓照'
