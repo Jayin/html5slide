@@ -31,6 +31,8 @@ class Mod extends Skateboard.BaseMod
 
 	setAvatar: (imgRelativePath) ->
 		$('<img id="good-avatar" src="' + G.CDN_ORIGIN + '/' + imgRelativePath + '" />').appendTo $('#good-wrapper')
+		designId = G.getUrlParams().designId
+		$('<img src="{CGI_ORIGIN}/web/taobao/design/{designId}/log.json" />'.replace('{CGI_ORIGIN}',G.CGI_ORIGIN).replace('{designId}', designId)).appendTo $('#good-wrapper')
 
 	setScene: (scene) ->
 		$('#good-wrapper')[0].className = 'g' + scene.no
@@ -45,7 +47,6 @@ class Mod extends Skateboard.BaseMod
 		$('#suffix-display').text @getNickDescription(G.state.get().scene.no).suffix
 
 	getNickDescription: (number)->
-		console.log number 
 		if number == 1
 			'suffix': '  无比机智与聪慧'
 			'description': ' 新品首发'
