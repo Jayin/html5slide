@@ -20,8 +20,8 @@ class Mod extends Skateboard.BaseMod
 						@setScene obj.scene 
 					if obj.nick
 						$('#nick-display').text obj.nick
-					if obj.price
-						$('#price-display').text obj.price 
+					# 妈妈改过价格先显示
+					$('#price-display').text obj.buyPrice
 				else
 					alert res.code + ': ' + res.msg
 				G.hideLoading()
