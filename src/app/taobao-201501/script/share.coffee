@@ -45,6 +45,13 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 			else
 				defaultMsg
 
+	getShareIcon = ->
+		if G.state.get 'imgShareRelativePath'
+			return G.CDN_ORIGIN + "/" + G.state.get 'imgShareRelativePath'
+		else
+			return G.CDN_ORIGIN + "/static/app/taobao-201501/image/home/head.png"
+		
+
 	shareUrl = location.href.split('#')[0]
 	app.ajax.post
 		url: 'web/sharing/signWxshare/tao1b82a58f24d7d16c11e16',
@@ -64,7 +71,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 				wx.onMenuShareTimeline
 					title: getShareMessage()   
 					link: shareUrl
-					imgUrl: G.CDN_ORIGIN + "/" + G.state.get 'imgShareRelativePath'
+					imgUrl: getShareIcon()
 					success: ->
 						app.ajax.post url: 'web/sharing/increaseSharingMoments/tao308fbd4c6505329ee48e6'
 
@@ -72,6 +79,6 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 					title: '我是你的宝贝'
 					desc: getShareMessage()
 					link: shareUrl
-					imgUrl: G.CDN_ORIGIN + "/" + G.state.get 'imgShareRelativePath'
+					imgUrl: getShareIcon()
 					success: ->
 						app.ajax.post url: 'web/sharing/increaseSharingFriends/tao308fbd4c6505329ee48e6'
