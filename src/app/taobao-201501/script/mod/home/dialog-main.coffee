@@ -42,7 +42,7 @@ __END__
 <div class="home-dialog">
 	<div class="home-dialog__mask"></div>
 	<div class="home-dialog__content">
-		<input type="text" class="home-dialog__input" maxlength="5" />
+		<input type="text" class="home-dialog__input" maxlength="8" />
 		<button class="img-btn home-dialog__confirm">确定</button>
 	</div>
 	<!-- <button class="img-btn home-dialog__close">关闭</button> -->
