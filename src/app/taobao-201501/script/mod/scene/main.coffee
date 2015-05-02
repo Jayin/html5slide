@@ -105,7 +105,7 @@ var app = require('app');
 		<div class="customize">
 			<img class="customize-title" src="../../../image/scene/customize-title.png" />
 			<input id="customized-good-name" type="text" maxlength="15" value="<%==G.state.get('nick')%>"/>
-			<textarea id="customized-good-detail"></textarea>
+			<textarea id="customized-good-detail" maxlength="15"></textarea>
 		</div>
 		<button class="img-btn btn-arrow-left">&lt;</button>
 		<button class="img-btn btn-arrow-right">&gt;</button>
