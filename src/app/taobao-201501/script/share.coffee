@@ -66,7 +66,7 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 					link: shareUrl
 					imgUrl: G.CDN_ORIGIN + "/" + G.state.get 'imgShareRelativePath'
 					success: ->
-						app.ajax.post url: 'web/sharing/increaseSharingMoments/54f308fbd4c6505329ee48e7'
+						app.ajax.post url: 'web/sharing/increaseSharingMoments/tao308fbd4c6505329ee48e6'
 
 				wx.onMenuShareAppMessage
 					title: '我是你的宝贝'
@@ -74,4 +74,4 @@ require ['jquery', 'app', 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js'], ($, 
 					link: shareUrl
 					imgUrl: G.CDN_ORIGIN + "/" + G.state.get 'imgShareRelativePath'
 					success: ->
-						app.ajax.post url: 'web/sharing/increaseSharingFriends/54f308fbd4c6505329ee48e7'
+						app.ajax.post url: 'web/sharing/increaseSharingFriends/tao308fbd4c6505329ee48e6'
