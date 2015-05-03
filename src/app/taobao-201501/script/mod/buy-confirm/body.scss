@@ -17,12 +17,14 @@ body.body-sb-mod--buy-confirm {}
         width: 22%;
         left: 7.5%;
         top: 62.5%;
-        text-align: center;
+        text-align: left;
         color: #FF4B00;
         font-weight: 700;
         background-position: left top;
         background-repeat: no-repeat;
         background-size: cover;
+        font-size: 1.2rem;
+
     }
     #buy-confirm-avatar {
         position: absolute;
@@ -71,6 +73,7 @@ body.body-sb-mod--buy-confirm {}
         top: 52%;
         left: 0;
         width: 100%;
+        margin: 3px;
         p {
             margin: 0;
             text-align: left;

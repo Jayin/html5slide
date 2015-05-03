@@ -109,7 +109,7 @@ var app = require('app');
 		<div class="good-price">
 			<div class="price">
 				<div id="price-display" style="float: left;font-size: 1.2rem;"></div>
-				<img src="../../../image/buy/price-baner.jpg" style="float:left;width: 25%;">
+				<img src="../../../image/buy/price-baner.jpg" style="float:left;">
 			</div>
 		</div>
 		<img id="good-avatar" />

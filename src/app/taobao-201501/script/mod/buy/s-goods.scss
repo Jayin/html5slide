@@ -24,10 +24,11 @@
         position: absolute;
         left: 0;
         right: 0;
+        top: 0.5%;
         img {
             float: left;
             width: 22%;
-            margin-top: 6px;
+            margin-top: 3px;
         }
     }
 }
@@ -86,6 +87,7 @@
     width: 100%;
     text-align: right;
     color: #000000;
+    margin: 3px;
     p {
         margin: 0;
         text-align: left;
