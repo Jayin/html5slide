@@ -18,7 +18,7 @@ var _hmt = _hmt || [];
 	var urlParams = G.getUrlParams();
 	if(urlParams.from == 'timeline') {
 		location.href = 'mom-timeline.html?designId=' + urlParams.designId;
-	} else if(urlParams.from == 'singlemessage') {
+	} else if(urlParams.from == 'singlemessage' || urlParams.from == 'groupmessage') {
 		location.href = 'mom-timeline.html?designId=' + urlParams.designId;
 	}
 })();
