@@ -18,9 +18,9 @@ class Mod extends Skateboard.BaseMod
     _afterFadeIn: ->
         @resize()
 
-        require ['../chooseImg/main'], (chooseImgMod) =>
-            if not chooseImgMod.img
-                Skateboard.core.view '/view/home', replaceState: true
+        # require ['../chooseImg/main'], (chooseImgMod) =>
+        #     if not chooseImgMod.img
+        #         Skateboard.core.view '/view/home', replaceState: true
 
     render: ->
         super
