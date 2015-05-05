@@ -144,7 +144,7 @@ class Mod extends Skateboard.BaseMod
 					@draw()
 					app.ajax.hideLoading()
 			@img.src = newImg.url
-		, 500
+		, 100
 
 	drawImg: ->
 		context = @context
