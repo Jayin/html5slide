@@ -20,9 +20,9 @@ class Mod extends Skateboard.BaseMod
 		require ['./dialog-main'], (dialog) ->
 			dialog.show()
 	next: =>
-		G.state.set
-			nick: 'xxx'
-		Skateboard.core.view '/view/avatar'
+		# G.state.set
+		# 	nick: 'xxx'
+		# Skateboard.core.view '/view/avatar'
 
 	confirm: (evt, nick) =>
 		G.state.set
