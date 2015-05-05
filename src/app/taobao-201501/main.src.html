@@ -1,0 +1,33 @@
+<!-- extend "layout.base.html" -->
+
+<!-- section "head" -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?815e7fa76e3202fc0bb445a2a4c76d12";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- /section -->
+
+<!-- section "body" -->
+<!-- include "script/mod/main/body.scss" -->
+<script type="text/javascript">
+G.defaultModName = 'main';
+</script>
+<div id="page-wrapper" class="page-wrapper">
+    <div id="init-content-dom" class="sb-mod sb-mod--home" data-sb-scene="0">
+        <div class="sb-mod__body">
+            <!-- require "script/mod/main/body.tpl.html" render="true" -->
+        </div>
+    </div>
+</div>
+<!-- /section -->
+
+<!-- section "boost" -->
+<script type="text/javascript">
+require(['jquery', 'app', 'skateboard'], G.boost);
+</script>
+<!-- /section -->

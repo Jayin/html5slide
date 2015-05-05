@@ -2,7 +2,7 @@ body.body-sb-mod--home {
 	background-color: #feb85c;
 }
 .sb-mod.sb-mod--home {
-	background-image: url(../../../image/home/bg.jpg);
+	background-image: url(../../../image/home/bg_tmp.jpg);
 	background-position: left top;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -10,8 +10,7 @@ body.body-sb-mod--home {
 	.head {
 		width: 39.2%;
 		left: 32.3%;
-		// top: 36%;
-		top: 40%;
+		top: 36%;
 		position: absolute;
 		animation: home-head 3s infinite;
 		animation-timing-function: linear;
