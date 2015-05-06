@@ -10,7 +10,7 @@ dialog = $.extend $({}),
 		G.hideLoading()
 		el = $('.home-dialog')
 		if not el.length
-			el = $(dialogTpl.render()).appendTo document.body
+			el = $(dialogTpl.render()).appendTo $('#page-wrapper')
 			# $('.home-dialog__close, .home-dialog__mask', el).on 'click', dialog.hide
 			$('.home-dialog__input').on 'focus', ->
 				$('.home-dialog__content').addClass 'focus'
