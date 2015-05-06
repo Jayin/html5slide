@@ -1,13 +1,12 @@
 app = require 'app'
 Skateboard = require 'skateboard'
+Hammer = require 'hammer'
 
 class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	events:
-		# 'click .buy-btn': 'buy'
-		'touchstart #btn-buy-comfrim': 'touchStart'
-		'touchend #btn-buy-comfrim': 'touchEnd'
+		'click .buy-btn': 'buy'
 
 	_bodyTpl: require './body.tpl.html'
 
@@ -44,6 +43,12 @@ class Mod extends Skateboard.BaseMod
 			@buyPrice = target.value
 			@$('.buy-confirm-price').text(@buyPrice || G.state.get('price'))
 
+		hm = new Hammer(document.getElementById('btn-buy-comfrim'))
+		hm.on 'press', @pressStart
+		hm.on 'pressup', @pressEnd
+
+
+
 	setAvatar: (imgRelativePath) ->
 		$('<img id="buy-confirm-avatar" src="' + G.CDN_ORIGIN + '/' + imgRelativePath + '" />').appendTo $('#buy-confirm-wrapper')
 
@@ -73,7 +78,7 @@ class Mod extends Skateboard.BaseMod
 			error: ->
 				alert '系统繁忙，请您稍后重试。'
 
-	touchStart: =>
+	pressStart: =>
 		@confirm_time = (new Date).getTime()
 		@isCounting = true
 		setTimeout ()=>
@@ -82,7 +87,7 @@ class Mod extends Skateboard.BaseMod
 				@buy()
 		,@Interval
 
-	touchEnd: =>
+	pressEnd: =>
 		@isCounting = false
 
 
@@ -130,7 +135,7 @@ __END__
 			<div id="buy-confirm-customized-good-detail"></div>
 		</div>
 		<input id="buy-confrim-price" type="text" maxlength="5"/>
-		<canvas id="btn-buy-comfrim"class="img-btn buy-btn">购买</canvas>
+		<button id="btn-buy-comfrim"class="img-btn buy-btn">购买</button>
 	</div>
 </div>
 
