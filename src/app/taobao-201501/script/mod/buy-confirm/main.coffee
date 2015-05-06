@@ -5,11 +5,17 @@ class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	events:
-		'click .buy-btn': 'buy'
+		# 'click .buy-btn': 'buy'
+		'touchstart #btn-buy-comfrim': 'touchStart'
+		'touchend #btn-buy-comfrim': 'touchEnd'
 
 	_bodyTpl: require './body.tpl.html'
 
 	buyPrice: ''
+
+	confirm_time: 0
+	Interval: 200
+	isCounting: false
 
 	customizeNumber: 1 #自定义场景的标号
 
@@ -67,6 +73,20 @@ class Mod extends Skateboard.BaseMod
 			error: ->
 				alert '系统繁忙，请您稍后重试。'
 
+	touchStart: =>
+		@confirm_time = (new Date).getTime()
+		@isCounting = true
+		setTimeout ()=>
+			cur_time = (new Date).getTime()
+			if cur_time - @confirm_time > @Interval - 50 and @isCounting
+				@buy()
+		,@Interval
+
+	touchEnd: =>
+		@isCounting = false
+
+
+
 	getNickDescription: (number)->
 		if number == 1
 			'suffix': '  无比机智与聪慧'
@@ -110,7 +130,7 @@ __END__
 			<div id="buy-confirm-customized-good-detail"></div>
 		</div>
 		<input id="buy-confrim-price" type="text" maxlength="5"/>
-		<button class="img-btn buy-btn">购买</button>
+		<canvas id="btn-buy-comfrim"class="img-btn buy-btn">购买</canvas>
 	</div>
 </div>
 
