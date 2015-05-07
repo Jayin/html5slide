@@ -11,6 +11,9 @@ prototype:
 uat:
 	BUILD_TARGET=uat gulp
 
+taobao:
+	BUILD_TARGET=taobao gulp --minify
+
 deploy-prd-idc:
 	-rm -fr $(TARGET_PATH)/static/coverage
 	cd $(TARGET_PATH) && tar -czvf package.tar.gz static
@@ -27,5 +30,8 @@ deploy-uat-idc:
 
 deploy-prd-cdn:
 	qrsync qiniu-prd.json
+
+deploy-taobao-cdn:
+	qrsync qiniu-taobao.json
 
 .PHONY: main prototype deploy
