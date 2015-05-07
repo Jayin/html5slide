@@ -3,7 +3,7 @@
 	"msg": "ok",
 	"data": {
 		"nick": "王大花",
-		"imgRelativePath": "static/app/taobao-201501/image/avatar/avatar-01.png",
+		"imgRelativePath": "static/app/taobao-201501/image/avatar/avatar-test.png",
 		"scene": {
 			"no": 1,
 			"goodName": "王大花",
