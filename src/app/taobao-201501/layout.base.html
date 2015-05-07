@@ -12,13 +12,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="keywords" content="我是你的宝贝" />
-<meta name="description" content="我是你的宝贝" />
+<meta name="description" content="把自己打包成淘宝宝贝，发给老妈下单！" />
+<meta name="sharecontent" data-msg-img="http://taobao.createcdigital.com/static/app/taobao-201501/image/home/head.png" data-msg-title="" data-msg-content="把自己打包成淘宝宝贝，发给老妈下单！" data-msg-callBack="" data-line-img="http://taobao.createcdigital.com/static/app/taobao-201501/image/home/head.png" data-line-title="把自己打包成淘宝宝贝，发给老妈下单！" data-line-callBack="" />
 <title>我是你的宝贝</title>
 <!-- yield "head" -->
 <!-- /yield -->
 
 </head>
-<body class="body-sb-mod--home">
+<body class="body-sb-mod--home" style="display: none;">
 <script type="text/javascript">
 var G = G || {
 	DOMAIN: %{{domain}}%,
@@ -93,8 +94,15 @@ G.getUrlParams = function(loc) {
 	return res;
 };
 </script>
+
 <!-- yield "redirect" -->
 <!-- /yield -->
+
+<script type="text/javascript">
+if(!G.redirected) {
+	document.body.style.display = 'block';
+}
+</script>
 
 <!-- include "../../style/app/main.css" -->
 <!-- include "style/main.css" -->
@@ -105,27 +113,22 @@ G.getUrlParams = function(loc) {
 	<div class="circleG circleG_3"></div>
 </div>
 
-<div id="g-wrapper">
-	<!-- yield "body" -->
-	<!-- include "script/mod/home/body.scss" -->
-	<script type="text/javascript">
-	G.defaultModName = 'home';
-	</script>
-	<div id="page-wrapper" class="page-wrapper">
-		<div id="init-content-dom" class="sb-mod sb-mod--home" data-sb-scene="0">
-			<div class="sb-mod__body">
-				<!-- require "script/mod/home/body.tpl.html" render="true" -->
-			</div>
+<!-- yield "body" -->
+<!-- include "script/mod/home/body.scss" -->
+<script type="text/javascript">
+G.defaultModName = 'home';
+</script>
+<div id="page-wrapper" class="page-wrapper">
+	<div id="init-content-dom" class="sb-mod sb-mod--home" data-sb-scene="0">
+		<div class="sb-mod__body">
+			<!-- require "script/mod/home/body.tpl.html" render="true" -->
 		</div>
 	</div>
-	<!-- /yield -->
 </div>
+<!-- /yield -->
 
 <script type="text/javascript">
 ;(function() {
-	if(!G.redirected) {
-		G.id('g-wrapper').style.display = 'block';
-	}
 	//adjust
 	var wrapper = G.id('page-wrapper');
 	ww = document.documentElement.clientWidth;
