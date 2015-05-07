@@ -18,7 +18,7 @@
 <!-- /yield -->
 
 </head>
-<body class="body-sb-mod--home">
+<body class="body-sb-mod--home" style="display: none;">
 <script type="text/javascript">
 var G = G || {
 	DOMAIN: %{{domain}}%,
@@ -93,8 +93,15 @@ G.getUrlParams = function(loc) {
 	return res;
 };
 </script>
+
 <!-- yield "redirect" -->
 <!-- /yield -->
+
+<script type="text/javascript">
+if(!G.redirected) {
+	document.body.style.display = 'block';
+}
+</script>
 
 <!-- include "../../style/app/main.css" -->
 <!-- include "style/main.css" -->
@@ -105,27 +112,22 @@ G.getUrlParams = function(loc) {
 	<div class="circleG circleG_3"></div>
 </div>
 
-<div id="g-wrapper">
-	<!-- yield "body" -->
-	<!-- include "script/mod/home/body.scss" -->
-	<script type="text/javascript">
-	G.defaultModName = 'home';
-	</script>
-	<div id="page-wrapper" class="page-wrapper">
-		<div id="init-content-dom" class="sb-mod sb-mod--home" data-sb-scene="0">
-			<div class="sb-mod__body">
-				<!-- require "script/mod/home/body.tpl.html" render="true" -->
-			</div>
+<!-- yield "body" -->
+<!-- include "script/mod/home/body.scss" -->
+<script type="text/javascript">
+G.defaultModName = 'home';
+</script>
+<div id="page-wrapper" class="page-wrapper">
+	<div id="init-content-dom" class="sb-mod sb-mod--home" data-sb-scene="0">
+		<div class="sb-mod__body">
+			<!-- require "script/mod/home/body.tpl.html" render="true" -->
 		</div>
 	</div>
-	<!-- /yield -->
 </div>
+<!-- /yield -->
 
 <script type="text/javascript">
 ;(function() {
-	if(!G.redirected) {
-		G.id('g-wrapper').style.display = 'block';
-	}
 	//adjust
 	var wrapper = G.id('page-wrapper');
 	ww = document.documentElement.clientWidth;
