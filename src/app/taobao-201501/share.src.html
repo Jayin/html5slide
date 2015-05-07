@@ -14,15 +14,17 @@
 <!-- /section -->
 
 <!-- section "body" -->
-<!-- include "script/mod/share/body.scss" -->
-<script type="text/javascript">
-G.showLoading();
-G.defaultModName = 'share';
-</script>
-<div id="page-wrapper" class="page-wrapper">
-	<div id="init-content-dom" class="sb-mod sb-mod--share" data-sb-scene="0">
-		<div class="sb-mod__body">
-			<!-- require "script/mod/share/body.tpl.html" render="true" -->
+<div id="g-wrapper" style="display: none;">
+	<!-- include "script/mod/share/body.scss" -->
+	<script type="text/javascript">
+	G.showLoading();
+	G.defaultModName = 'share';
+	</script>
+	<div id="page-wrapper" class="page-wrapper">
+		<div id="init-content-dom" class="sb-mod sb-mod--share" data-sb-scene="0">
+			<div class="sb-mod__body">
+				<!-- require "script/mod/share/body.tpl.html" render="true" -->
+			</div>
 		</div>
 	</div>
 </div>
@@ -30,6 +32,7 @@ G.defaultModName = 'share';
 
 <!-- section "boost" -->
 <script type="text/javascript">
+G.id('g-wrapper').style.display = 'block';
 require(['jquery', 'app', 'skateboard', '../app/taobao-201501/script/mod/share/main'], G.boost);
 </script>
 <!-- /section -->
