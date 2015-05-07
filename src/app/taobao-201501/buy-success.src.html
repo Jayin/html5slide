@@ -5,10 +5,8 @@
 ;(function() {
 	var urlParams = G.getUrlParams();
 	if(urlParams.from == 'timeline') {
-		G.redirected = true;
 		location.href = 'mom-timeline.html?designId=' + urlParams.designId;
 	} else if(urlParams.from == 'singlemessage' || urlParams.from == 'groupmessage') {
-		G.redirected = true;
 		location.href = 'mom-timeline.html?designId=' + urlParams.designId;
 	}
 })();
