@@ -13,6 +13,11 @@ class Mod extends Skateboard.BaseMod
 		# 	G.goClicked = false
 		# require ['./dialog-main'], (dialog) =>
 		# 	dialog.on 'confirm', @confirm
+		$audio = $('#audio-bg')[0]
+
+		if $('#audio-btn').hasClass('on')
+			$audio.play()
+
 		# preload next page
 		require ['../avatar/main']
 

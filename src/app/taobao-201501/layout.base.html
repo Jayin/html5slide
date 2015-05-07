@@ -252,6 +252,12 @@ G.boost = function($, app, Skateboard) {
 			$('#audio-bg')[0].play();
 			$(document.body).off('click', palyBgAudio);
 		});
+
+		$audio = $('#audio-bg')[0];
+
+		if($('#audio-btn').hasClass('on')){
+			$audio.play()
+		}
 	}, 1000);
 
 	G.record = function(pageId){
