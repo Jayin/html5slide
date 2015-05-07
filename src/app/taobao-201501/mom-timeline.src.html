@@ -5,6 +5,7 @@
 ;(function() {
 	var urlParams = G.getUrlParams();
 	if(urlParams.from == 'singlemessage' || urlParams.from == 'groupmessage') {
+		G.redirected = true;
 		location.href = 'index.html?from=mom-to-son';
 	}
 })();
