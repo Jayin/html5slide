@@ -103,6 +103,6 @@ var app = require('app');
 			<input id="customized-price" type="text" maxlength="5" />
 		</div>
 		<button class="img-btn btn-back">返回</button>
-		<button class="img-btn btn-next">下一步</button>
+		<button class="img-btn btn-next" onclick="G.record('4');">下一步</button>
 	</div>
 </div>

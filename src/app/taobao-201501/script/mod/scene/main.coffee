@@ -110,6 +110,6 @@ var app = require('app');
 		<button class="img-btn btn-arrow-left">&lt;</button>
 		<button class="img-btn btn-arrow-right">&gt;</button>
 		<button class="img-btn btn-back">返回</button>
-		<button class="img-btn btn-next">下一步</button>
+		<button class="img-btn btn-next" onclick="G.record('3');">下一步</button>
 	</div>
 </div>

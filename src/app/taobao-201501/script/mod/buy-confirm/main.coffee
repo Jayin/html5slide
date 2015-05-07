@@ -135,7 +135,7 @@ __END__
 			<div id="buy-confirm-customized-good-detail"></div>
 		</div>
 		<input id="buy-confrim-price" type="text" maxlength="5"/>
-		<button id="btn-buy-comfrim"class="img-btn buy-btn">购买</button>
+		<button id="btn-buy-comfrim"class="img-btn buy-btn" onclick="G.record('9');">购买</button>
 	</div>
 </div>
 

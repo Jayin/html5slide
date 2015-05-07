@@ -244,6 +244,10 @@ G.boost = function($, app, Skateboard) {
 		});
 	}, 1000);
 };
+
+G.record = function(pageId){
+	$.post('web/taobao/report/{pageId}.json'.replace('{pageId}',pageId));
+};
 </script>
 
 <!-- yield "boost" -->

@@ -251,7 +251,7 @@ var app = require('app');
 	</canvas>
 	<div class="nick"><%==G.state.get('nick')%></div>
 		<button class="img-btn btn-back">返回</button>
-	<button class="img-btn btn-next">下一步</button>
+	<button class="img-btn btn-next" onclick="G.record('2');">下一步</button>
 	<div style="display:none">
 		<img id="canvas-frame" src="../../../image/canvas/canvas-frame.png" />
 	</div>

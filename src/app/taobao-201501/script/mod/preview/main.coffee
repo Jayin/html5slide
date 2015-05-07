@@ -120,7 +120,7 @@ var app = require('app');
 		<div class="good-actions">
 			<img src="../../../image/share/good-action.png" />
 			<button class="img-btn btn-back">返回</button>
-			<button class="img-btn btn-share">分享</button>
+			<button class="img-btn btn-share" onclick="G.record('5');">分享</button>
 		</div>
 	</div>
 </div>
