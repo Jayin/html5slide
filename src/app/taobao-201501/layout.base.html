@@ -243,11 +243,13 @@ G.boost = function($, app, Skateboard) {
 			$(document.body).off('click', palyBgAudio);
 		});
 	}, 1000);
+
+	G.record = function(pageId){
+		app.ajax.post({url:'web/taobao/report/{pageId}.json'.replace('{pageId}',pageId)});
+	};
 };
 
-G.record = function(pageId){
-	$.post('web/taobao/report/{pageId}.json'.replace('{pageId}',pageId));
-};
+
 </script>
 
 <!-- yield "boost" -->
