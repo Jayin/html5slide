@@ -97,9 +97,9 @@ G.getUrlParams = function(loc) {
 <!-- yield "redirect" -->
 <!-- /yield -->
 
-<script type="text/javascript">		
-if(!G.redirected) {		
-	document.body.style.display = 'block';		
+<script type="text/javascript">
+if(!G.redirected) {
+	document.body.style.display = 'block';
 }
 </script>
 
@@ -136,6 +136,7 @@ document.write([
 	var fixWrapper = function(ww) {
 		var wrapper = G.id('page-wrapper');
 		wrapper.style.height = (ww * 604 / 375) + 'px';
+		document.documentElement.style.fontSize = ww / 375 * 100 + '%';
 	};
 	window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', function() {
 		setTimeout(function() {
@@ -186,14 +187,6 @@ G.boost = function($, app, Skateboard) {
 				return _state;
 			}
 		}
-	});
-
-	//adjust
-	var wrapper = $('.page-wrapper');
-	ww = $(window).width();
-	wrapper.height(ww * 604 / 375);
-	$('html').css({
-		fontSize: ww / 375 * 100 + '%'
 	});
 
 	var defaultModName = G.defaultModName || 'home';
@@ -264,7 +257,7 @@ G.boost = function($, app, Skateboard) {
 
 		$audio = $('#audio-bg')[0];
 
-		if($('#audio-btn').hasClass('on')){
+		if($('#audio-btn').hasClass('on')) {
 			$audio.play()
 		}
 	}, 1000);
@@ -273,8 +266,6 @@ G.boost = function($, app, Skateboard) {
 		app.ajax.post({url:'web/taobao/report/{pageId}.json'.replace('{pageId}',pageId)});
 	};
 };
-
-
 </script>
 
 <!-- yield "boost" -->
@@ -287,16 +278,16 @@ require(['jquery', 'app', 'skateboard'], G.boost);
 
 <script src="//assets.alicdn.com/s/aplus_wap.js"></script>
 <script type="text/javascript">
-	(function () {
-    	window.goldlog ? goldlog.record('/tbact.520.5', '', '', 'H46777408') : setTimeout(arguments.callee, 200);
-	})();
+(function () {
+	window.goldlog ? goldlog.record('/tbact.520.5', '', '', 'H46777408') : setTimeout(arguments.callee, 200);
+})();
 
-	setTimeout(function(){
-    		window.goldlog ? goldlog.record('/tbact.520.2', '', '', 'H46777405') : setTimeout(arguments.callee, 200);
-    	},30*1000);
-    setTimeout(function(){
-    		window.goldlog ? goldlog.record('/tbact.520.4', '', '', 'H46777407') : setTimeout(arguments.callee, 200);
-    	},60*1000);
+setTimeout(function(){
+	window.goldlog ? goldlog.record('/tbact.520.2', '', '', 'H46777405') : setTimeout(arguments.callee, 200);
+}, 30 * 1000);
+setTimeout(function(){
+	window.goldlog ? goldlog.record('/tbact.520.4', '', '', 'H46777407') : setTimeout(arguments.callee, 200);
+}, 60 * 1000);
 </script>
 </body>
 </html>
