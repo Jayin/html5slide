@@ -133,9 +133,16 @@ document.write([
 <script type="text/javascript">
 ;(function() {
 	//adjust
-	var wrapper = G.id('page-wrapper');
-	ww = document.documentElement.clientWidth;
-	wrapper.style.height = (ww * 604 / 375) + 'px';
+	var fixWrapper = function(ww) {
+		var wrapper = G.id('page-wrapper');
+		wrapper.style.height = (ww * 604 / 375) + 'px';
+	};
+	window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', function() {
+		setTimeout(function() {
+			fixWrapper(document.documentElement.clientWidth);
+		}, 200);
+	}, false);
+	fixWrapper(document.documentElement.clientWidth);
 })();
 
 document.write([
