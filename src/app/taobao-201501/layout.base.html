@@ -136,6 +136,7 @@ document.write([
 	var fixWrapper = function(ww) {
 		var wrapper = G.id('page-wrapper');
 		wrapper.style.height = (ww * 604 / 375) + 'px';
+		document.documentElement.style.fontSize = ww / 375 * 100 + '%';
 	};
 	window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', function() {
 		setTimeout(function() {
@@ -186,14 +187,6 @@ G.boost = function($, app, Skateboard) {
 				return _state;
 			}
 		}
-	});
-
-	//adjust
-	var wrapper = $('.page-wrapper');
-	ww = $(window).width();
-	wrapper.height(ww * 604 / 375);
-	$('html').css({
-		fontSize: ww / 375 * 100 + '%'
 	});
 
 	var defaultModName = G.defaultModName || 'home';
