@@ -52,10 +52,14 @@ class Mod extends Skateboard.BaseMod
 
 	prevScene: =>
 		@sceneNo = (@sceneNo - 1) || @sceneTotal
+		if @sceneNo == 5
+			@sceneNo = 2
 		@updateScene()
 
 	nextScene: =>
 		@sceneNo = (@sceneNo % @sceneTotal) + 1
+		if @sceneNo == 3
+			@sceneNo = 6
 		@updateScene()
 
 	back: =>
