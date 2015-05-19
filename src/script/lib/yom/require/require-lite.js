@@ -111,7 +111,8 @@ var define, require
 		DEFAULT: 1,
 		TIMEOUT: 2,
 		LOAD_ERROR: 3,
-		NO_DEFINE: 4
+		NO_DEFINE: 4,
+		DEFINE_FACTORY_ERROR: 5
 	}
 
 	var _DEFAULT_CONFIG = {
@@ -279,11 +280,12 @@ var define, require
 		},
 
 		loadShimDeps: function(callback) {
+			var id = this._id
 			var nrmId = this._nrmId
 			var config = this._config
 			var shim = this._shim
 			if(shim.deps) {
-				_makeRequire({config: config, base: {nrmId: nrmId, baseUrl: this._baseUrl}})(shim.deps, function() {
+				_makeRequire({config: config, base: {id: id, nrmId: nrmId, baseUrl: this._baseUrl}})(shim.deps, function() {
 					callback()
 				}, function(code) {
 					callback(code)
@@ -295,6 +297,7 @@ var define, require
 
 		shimDefine: function() {
 			var hold = this
+			var id = this._id
 			var nrmId = this._nrmId
 			var baseUrl = this._baseUrl
 			var config = this._config
@@ -309,7 +312,7 @@ var define, require
 					return false
 				}
 			}
-			_makeRequire({config: config, base: {nrmId: nrmId, baseUrl: baseUrl}})(shim && shim.deps || [], function() {
+			_makeRequire({config: config, base: {id: id, nrmId: nrmId, baseUrl: baseUrl}})(shim && shim.deps || [], function() {
 				var args = _getArray(arguments)
 				if(shim && shim.init) {
 					exports = shim.init.apply(global, args) || exports
@@ -675,6 +678,7 @@ var define, require
 		}
 		postDefQueue.push({
 			base: {
+				id: id,
 				nrmId: nrmId,
 				baseUrl: baseUrl,
 				config: baseConfig
@@ -703,7 +707,14 @@ var define, require
 				if(deps[1] == 'exports') {
 					exports = module.exports = args[1] = {}
 				}
-				exports = factory.apply(null, args) || module.exports
+				try {
+					exports = factory.apply(null, args) || module.exports
+				} catch(e) {
+					hold.remove()
+					hold.dispatch(_ERR_CODE.DEFINE_FACTORY_ERROR)
+					global && global.console && global.console.error && global.console.error(e.stack)
+					throw e
+				}
 			} else {
 				exports = factory
 			}
@@ -792,7 +803,7 @@ var define, require
 		if(base) {
 			baseFullUrl = _getFullUrl(base.nrmId, base.baseUrl)
 			_setDepReverseMap(fullUrl, baseFullUrl)
-			if(!def && _hasCircularDep(baseFullUrl, fullUrl)) {//cirular dependency
+			if(!def && !_getDefined(base.id, base.nrmId, base.config || conf) && _hasCircularDep(baseFullUrl, fullUrl)) {//cirular dependency
 				return {}
 			}
 		}
