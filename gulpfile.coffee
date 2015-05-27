@@ -21,13 +21,14 @@ trace = require 'gulp-trace'
 minify = require 'gulp-minifier'
 backtrace = require 'gulp-backtrace'
 sus = require 'gulp-sus'
+imgCssSprite = require 'gulp-img-css-sprite'
 argv = require('minimist') process.argv.slice(2)
 
 BUILD_CONTEXT = process.env.BUILD_CONTEXT || 'static'
 if BUILD_CONTEXT is 'NONE'
 	BUILD_CONTEXT = ''
 BUILD_TARGET = process.env.BUILD_TARGET || 'default'
-DEST_BASES = 
+DEST_BASES =
 	default: './dist/' + (BUILD_CONTEXT || 'root')
 	prototype: './dist/prototype/' + (BUILD_CONTEXT || 'root')
 
@@ -58,36 +59,42 @@ gulp.task 'copy', ->
 		gulp.src('src/mockup-data/**/*.json')
 			.pipe gulp.dest(destBase + '/mockup-data')
 
-gulp.task 'less', ->
+gulp.task 'sprite', ->
+	gulp.src('src/**/*.+(jpg|png|gif)')
+		.pipe imgCssSprite.imgStream
+			padding: 2
+		.pipe gulp.dest(destBase)
+
+gulp.task 'less', ['sprite'], ->
 	gulp.src(['src/**/main.less', 'src/**/*-main.less'])
 		.pipe less()
-		.pipe sus
-			baseSurfix: false
+		.pipe imgCssSprite.cssStream()
+		.pipe sus()
 		.pipe digestVersioning
 			digestLength: 8
 			basePath: destBase
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
 
-gulp.task 'sass', ->
+gulp.task 'sass', ['sprite'], ->
 	gulp.src(['src/**/main.scss', 'src/**/*-main.scss'])
 		.pipe sass()
-		.pipe sus
-			baseSurfix: false
+		.pipe imgCssSprite.cssStream()
+		.pipe sus()
 		.pipe digestVersioning
 			digestLength: 8
 			basePath: destBase
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
 
-gulp.task 'postcss', ->
+gulp.task 'postcss', ['sprite'], ->
 	gulp.src(['src/**/main.css', 'src/**/*-main.css'])
 		.pipe gulpPostcss [
 			postcssImport()
 			autoprefixer browsers: ['last 2 version']
 		]
-		.pipe sus
-			baseSurfix: false
+		.pipe imgCssSprite.cssStream()
+		.pipe sus()
 		.pipe digestVersioning
 			digestLength: 8
 			basePath: destBase
@@ -146,6 +153,10 @@ gulp.task 'amd-bundle', ->
 			generateDataUri: true
 			beautifyTemplate: true
 			trace: true
+			cssSprite:
+				base:
+					url: '//7xijzi.com2.z0.glb.qiniucdn.com'
+					dir: 'src'
 			postcss: (file) ->
 				res = postcss()
 					.use postcssImport()
@@ -192,6 +203,10 @@ gulp.task 'html-optimize', ['gen-md5map'], ->
 			beautifyTemplate: true
 			generateDataUri: true
 			trace: true
+			cssSprite:
+				base:
+					url: '//7xijzi.com2.z0.glb.qiniucdn.com'
+					dir: 'src'
 			postcss: (file) ->
 				res = postcss()
 					.use postcssImport()
