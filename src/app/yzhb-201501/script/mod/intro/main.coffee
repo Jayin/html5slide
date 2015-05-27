@@ -6,12 +6,12 @@ class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	page: 1 # 当前页
-	totalPage: 7
+	totalPage: 7 #总页数
 
 	events:
 		'click .btn-pre': 'pre'
 		'click .btn-next': 'next'
-		'click .body-inner': 'next'
+		'click .shadow': 'nextPage'
 
 	_bodyTpl: require './body.tpl.html'
 
@@ -35,13 +35,20 @@ class Mod extends Skateboard.BaseMod
 
 	next: (evt)=>
 		className = evt.currentTarget.className
-		if (className == 'body-inner' and (@page == 1 or @page == 7)) or className == 'btn img-btn btn-next'
-			@page = @page + 1
-			if @page > @totalPage
-				@page = 1
-				Skateboard.core.view '/view/home'
-			else
-				@updateScene()
+		@page = @page + 1
+		if @page > @totalPage
+			@page = 7
+			@nextPage()
+		else
+		@updateScene()
+
+	nextPage: =>
+		if @page == 1
+			@page = 2
+			@updateScene()
+		else if @page == 7
+			@page = 1
+			Skateboard.core.view '/view/home'
 
 	updateScene: =>
 		if @page == 1
@@ -65,6 +72,7 @@ __END__
 <!-- include "body.scss" -->
 
 <div class="body-inner">
+	<div class="shadow" style="height:100%;width:100%;position: absolute;top: 0;bottom: 0;"></div>
 	<div id="container"></div>
 	<div class="btn img-btn btn-pre"></div>
 	<div class="btn img-btn btn-next"></div>
