@@ -1,0 +1,89 @@
+.sb-mod.sb-mod--vote {
+    background-image: url(../../../image/vote/vote.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .body-inner {
+        height: 100%;
+        width: 100%;
+    }
+    .option-group {
+        position: absolute;
+        top: 32%;
+        width: 79%;
+        height: 22%;
+        left: 12%;
+        .option {
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 25%;
+            width: 100%;
+            margin: 2px;
+        }
+        .option1-0 {
+            background-image: url(../../../image/vote/option1_0.png);
+        }
+        .option1-1 {
+            background-image: url(../../../image/vote/option1_1.png);
+        }
+        .option1-2 {
+            background-image: url(../../../image/vote/option1_2.png);
+        }
+        .option1-3 {
+            background-image: url(../../../image/vote/option1_3.png);
+        }
+        .option2-0 {
+            background-image: url(../../../image/vote/option2_0.png);
+        }
+        .option2-1 {
+            background-image: url(../../../image/vote/option2_1.png);
+        }
+        .option2-2 {
+            background-image: url(../../../image/vote/option1_2.png);
+        }
+        .option2-3 {
+            background-image: url(../../../image/vote/option2_3.png);
+        }
+        .option3-0 {
+            background-image: url(../../../image/vote/option3_0.png);
+        }
+        .option3-1 {
+            background-image: url(../../../image/vote/option3_1.png);
+        }
+        .option3-2 {
+            background-image: url(../../../image/vote/option3_2.png);
+        }
+        .option3-3 {
+            background-image: url(../../../image/vote/option3_3.png);
+        }
+        .option4-0 {
+            background-image: url(../../../image/vote/option4_0.png);
+        }
+        .option4-1 {
+            background-image: url(../../../image/vote/option4_1.png);
+        }
+        .option4-2 {
+            background-image: url(../../../image/vote/option4_2.png);
+        }
+        .option4-3 {
+            background-image: url(../../../image/vote/option4_3.png);
+        }
+    }
+    .btn {
+        width: 30%;
+        height: 10%;
+        position: absolute;
+        &.btn-pre {
+            top: 0;
+            left: 0
+        }
+        &.btn-next {
+            bottom: 3%;
+            right: 0;
+        }
+        &.btn-comfirm {
+            left: 35%;
+            top: 57%;
+        }
+    }
+}

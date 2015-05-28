@@ -1,0 +1,27 @@
+.sb-mod.sb-mod--home {
+    background-image: url(../../../image/home/home1.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .btn-next {
+        width: 40%;
+        height: 8%;
+        left: 30%;
+        bottom: 0;
+        position: absolute;
+        overflow: hidden;
+    }
+    .btn-intro {
+        top: 34%;
+    }
+    .btn-s {
+        top: 43%;
+    }
+    .btn-vote {
+        top: 53.5%;
+    }
+}
+
+.sb-mod.sb-mod--home.show-option {
+    background-image: url(../../../image/home/home2.jpg);
+}

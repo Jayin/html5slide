@@ -1,0 +1,33 @@
+.sb-mod.sb-mod--intro {
+    background-image: url(../../../image/intro/intro1.jpg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .body-inner {
+        height: 100%;
+        width: 100%;
+    }
+    #container {
+        height: 100%;
+        width: 100%;
+        .img-intro {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .btn {
+        width: 30%;
+        height: 10%;
+        position: absolute;
+
+        &.btn-pre{
+        	top: 0;
+        	left: 0
+
+        }
+        &.btn-next{
+        	bottom: 3%;
+        	right: 0;
+        }
+    }
+}
