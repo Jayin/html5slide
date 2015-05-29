@@ -17,6 +17,7 @@ class Mod extends Skateboard.BaseMod
 		super
 		setTimeout ()->
 			$('.sb-mod.sb-mod--home').addClass('show-option')
+			G.state = 'visited first page'
 		, 1500
 
 	intro: ->
