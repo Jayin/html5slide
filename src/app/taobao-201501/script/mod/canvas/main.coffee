@@ -38,10 +38,10 @@ class Mod extends Skateboard.BaseMod
 		pinch.recognizeWith rotate if @ENABLE_ROTATE
 		mc.add [pinch, rotate]
 		mc.on 'pinchstart', (evt) =>
-			@imgWhPinch = 
+			@imgWhPinch =
 				w: @imgWh.w
 				h: @imgWh.h
-			@poPinch = 
+			@poPinch =
 				x: @po.x
 				y: @po.y
 			tp1 = new Date().getTime()
@@ -72,10 +72,10 @@ class Mod extends Skateboard.BaseMod
 				@draw()
 
 	pinchDraw: (scale) ->
-		@imgWh = 
+		@imgWh =
 			w: @imgWhPinch.w * scale
 			h: @imgWhPinch.h * scale
-		@po = 
+		@po =
 			x: @CONTEXT_W / 2 + (@poPinch.x - @CONTEXT_W / 2) * scale
 			y: @CONTEXT_H / 2 + (@poPinch.y - @CONTEXT_H / 2) * scale
 		@draw()
@@ -84,7 +84,7 @@ class Mod extends Skateboard.BaseMod
 		touches = evt.originalEvent.targetTouches
 		if touches.length is 1
 			touch = touches[0]
-			@movePt = 
+			@movePt =
 				x: touch.clientX
 				y: touch.clientY
 		else
@@ -97,7 +97,7 @@ class Mod extends Skateboard.BaseMod
 			touch = touches[0]
 			@po.x = @po.x + touch.clientX - @movePt.x
 			@po.y = @po.y + touch.clientY - @movePt.y
-			@movePt = 
+			@movePt =
 				x: touch.clientX
 				y: touch.clientY
 			@draw()
@@ -113,17 +113,17 @@ class Mod extends Skateboard.BaseMod
 		setTimeout =>
 			app.ajax.showLoading()
 			@rawImg = newImg
-			@po = 
+			@po =
 				x: @CONTEXT_W / 2
 				y: @CONTEXT_H / 2
 			@img = new Image()
 			#缩放图片，使图片填满圆圈
 			if (newImg.height / @CONTEXT_H) > (newImg.width / @CONTEXT_W)
-				@imgWh = 
+				@imgWh =
 					w: @CONTEXT_W
 					h: newImg.height * @CONTEXT_W / newImg.width
 			else
-				@imgWh = 
+				@imgWh =
 					w: newImg.width * @CONTEXT_H / newImg.height
 					h: @CONTEXT_H
 			console.log "width:#{@imgWh.w} height:#{@imgWh.h}"
@@ -219,7 +219,7 @@ class Mod extends Skateboard.BaseMod
 		history.back()
 
 	confirm: =>
-		G.state.set 
+		G.state.set
 			imgData: @getClipData()
 			imgDataShare: @getShareData()
 
