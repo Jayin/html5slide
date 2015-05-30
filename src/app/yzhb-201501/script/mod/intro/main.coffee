@@ -53,6 +53,11 @@ class Mod extends Skateboard.BaseMod
 		if @page == 1
 			$('.container-intro').empty().append('')
 
+		if @page == 7
+			$('.intro-container-qrcode').show()
+		else
+			$('.intro-container-qrcode').hide()
+
 		if @page != 1
 			require ['../intro/intro-' + @page + '-main.tpl.html'], (tpl)=>
 				$('.container-intro').empty().append tpl.render()
@@ -73,6 +78,8 @@ __END__
 <div class="body-inner">
 	<div class="shadow" style="height:100%;width:100%;position: absolute;top: 0;bottom: 0;"></div>
 	<div class="container container-intro"></div>
+	<div class="intro-container-qrcode" style="height: 30%;width: 30%;position: absolute;bottom: 10%;left: 35%;">
+		<img src="./image/intro/qrcode.png" style="height: 120px;width: 120px;"></div>
 	<div class="btn img-btn btn-pre"></div>
 	<div class="btn img-btn btn-next"></div>
 </div>
