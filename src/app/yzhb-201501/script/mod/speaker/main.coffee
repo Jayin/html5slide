@@ -6,7 +6,7 @@ class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	page: 1 # 当前页
-	totalPage: 23
+	totalPage: 24
 
 	events:
 		'click .btn-pre': 'pre'
