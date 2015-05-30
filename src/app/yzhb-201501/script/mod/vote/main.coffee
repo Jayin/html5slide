@@ -37,6 +37,7 @@ class Mod extends Skateboard.BaseMod
 
 	comfirm: =>
 		data = {}
+		data.openId = window.wxOpenId
 		data.option1 = parseInt($('#option1').attr('data-value'))
 		data.option2 = parseInt($('#option2').attr('data-value'))
 		data.option3 = parseInt($('#option3').attr('data-value'))
@@ -44,6 +45,7 @@ class Mod extends Skateboard.BaseMod
 
 		sum = data.option1 + data.option2 + data.option3 + data.option4
 
+		console.log data
 		if sum != 3
 			alert '请投3票'
 			return
@@ -58,7 +60,7 @@ class Mod extends Skateboard.BaseMod
 						Skateboard.core.view '/view/home'
 					,1500
 				else
-					alert res.code + ': ' + res.msg
+					alert res.msg
 			error: ->
 				alert '系统繁忙，请您稍后重试。'
 
