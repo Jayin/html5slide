@@ -1,0 +1,14 @@
+.container-result {
+    background-image: url(../image/result.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .result-list {
+        left: 50%;
+        position: absolute;
+        top: 31%;
+        p {
+            margin: 18px;
+        }
+    }
+}
