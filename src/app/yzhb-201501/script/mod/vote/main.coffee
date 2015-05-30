@@ -38,14 +38,13 @@ class Mod extends Skateboard.BaseMod
 	comfirm: =>
 		data = {}
 		data.openId = window.wxOpenId
-		data.option1 = parseInt($('#option1').attr('data-value'))
-		data.option2 = parseInt($('#option2').attr('data-value'))
-		data.option3 = parseInt($('#option3').attr('data-value'))
-		data.option4 = parseInt($('#option4').attr('data-value'))
+		data.optionOne = parseInt($('#option1').attr('data-value'))
+		data.optionTwo = parseInt($('#option2').attr('data-value'))
+		data.optionThree = parseInt($('#option3').attr('data-value'))
+		data.optionFour = parseInt($('#option4').attr('data-value'))
 
 		sum = data.option1 + data.option2 + data.option3 + data.option4
 
-		console.log data
 		if sum != 3
 			alert '请投3票'
 			return
