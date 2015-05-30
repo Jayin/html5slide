@@ -37,28 +37,31 @@ class Mod extends Skateboard.BaseMod
 
 	comfirm: =>
 		data = {}
-		data.option1 = parseInt($('#option1').attr('data-value'))
-		data.option2 = parseInt($('#option2').attr('data-value'))
-		data.option3 = parseInt($('#option3').attr('data-value'))
-		data.option4 = parseInt($('#option4').attr('data-value'))
+		data.openId = window.wxOpenId
+		data.optionOne = parseInt($('#option1').attr('data-value'))
+		data.optionTwo = parseInt($('#option2').attr('data-value'))
+		data.optionThree = parseInt($('#option3').attr('data-value'))
+		data.optionFour = parseInt($('#option4').attr('data-value'))
 
-		sum = data.option1 + data.option2 + data.option3 + data.option4
+		sum = data.optionOne + data.optionTwo + data.optionThree + data.optionFour
 
 		if sum != 3
 			alert '请投3票'
 			return
 		app.ajax.post
-			url: 'web/yzhb/vote'
+			url: 'web/forum/vote.json'
 			data: data
 			success: (res) =>
-				console.log res
 				if res.code is 0
 					alert('投票成功!')
 					setTimeout ()->
 						Skateboard.core.view '/view/home'
 					,1500
+				else if res.code is 20
+					alert('你已经投票,不能重复投票')
 				else
-					alert res.code + ': ' + res.msg
+					alert('投票失败,请投3票')
+
 			error: ->
 				alert '系统繁忙，请您稍后重试。'
 

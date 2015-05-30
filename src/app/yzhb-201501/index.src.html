@@ -13,9 +13,19 @@ document.write([
 ].join(''));
 </script>
 
+<!-- 分享logo -->
+<div style='margin:0 auto;display:none;'>
+    <script type="text/javascript">
+		document.write([
+			'<img src="' + G.CDN_BASE + '/app/yzhb-201501/image/share_icon.jpg" />'
+		].join(''));
+	</script>
+</div>
 <div class="page-wrapper">
 	
 </div>
+<!-- include "./script/wx/wx-openid-main.js" -->
+
 <script type="text/javascript">
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 
@@ -24,6 +34,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 
 	$.extend(G.MD5_MAP, %{{md5map.yzhb-201501}}%);
 
+	G.state = null;
 	Skateboard.core.init({
 		container: $('.page-wrapper'),
 		modBase: '../../../app/yzhb-201501/script/',
@@ -34,10 +45,15 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 		},
 		transformAnimation: false,
 		isSupportHistoryState: false,
-		onBeforeViewChange: function() {
+		onBeforeViewChange: function(modName, modInst) {
 			app.ajax.hideLoading();
 			app.alerts.alert.hide();
 			app.alerts.modal.hide();
+			//如果是从别的页面进来，需要先进入主页
+			if(modName != 'home' && !G.state){
+				Skateboard.core.view('/view/home', {replaceState: true});
+				return false;
+			}
 		},
 		constructContentDom: function(modName, args, opt) {
 			var contentDom = $([

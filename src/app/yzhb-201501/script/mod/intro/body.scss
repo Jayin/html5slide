@@ -7,27 +7,27 @@
         height: 100%;
         width: 100%;
     }
-    #container {
-        height: 100%;
+    .container {
         width: 100%;
+        background-color: white;
         .img-intro {
             height: 100%;
             width: 100%;
+            animation-duration: 1s;
+            animation-name: fadeIn;
         }
     }
     .btn {
         width: 30%;
         height: 10%;
         position: absolute;
-
-        &.btn-pre{
-        	top: 0;
-        	left: 0
-
+        &.btn-pre {
+            top: 0;
+            left: 0
         }
-        &.btn-next{
-        	bottom: 3%;
-        	right: 0;
+        &.btn-next {
+            bottom: 3%;
+            right: 0;
         }
     }
 }

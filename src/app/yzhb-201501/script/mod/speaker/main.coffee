@@ -15,13 +15,12 @@ class Mod extends Skateboard.BaseMod
 	_bodyTpl: require './body.tpl.html'
 
 	_afterFadeIn: =>
-		# 还原page的值
 		@page = 1
 		@updateScene()
 
 	render: ->
 		super
-
+		@page = 1
 		@updateScene()
 
 	pre: =>
@@ -42,11 +41,11 @@ class Mod extends Skateboard.BaseMod
 
 	updateScene: =>
 		if @page == 1
-			$('#container').html('')
+			$('.container-speaker').empty().append('')
 
 		if @page != 1
-			require ['../speaker/s-' + @page + '-main.tpl.html'], (html)->
-				$('#container').html html.render()
+			require ['../speaker/s-' + @page + '-main.tpl.html'], (tpl)=>
+				$('.container-speaker').empty().append tpl.render()
 		#preload next page
 		nextPage = @page + 1
 		if nextPage <= @totalPage
@@ -62,7 +61,7 @@ __END__
 <!-- include "body.scss" -->
 
 <div class="body-inner">
-	<div id="container"></div>
+	<div class="container container-speaker"></div>
 	<div class="btn img-btn btn-pre"></div>
 	<div class="btn img-btn btn-next"></div>
 </div>
