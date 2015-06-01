@@ -15,10 +15,10 @@ class Mod extends Skateboard.BaseMod
 
 	_afterFadeIn: ->
 		#reset
-		$('#option1').data('value',0);
-		$('#option2').data('value',0);
-		$('#option3').data('value',0);
-		$('#option4').data('value',0);
+		$('#option1').attr('data-value',"0");
+		$('#option2').attr('data-value',"0");
+		$('#option3').attr('data-value',"0");
+		$('#option4').attr('data-value',"0");
 
 		$('#option1').removeClass().addClass('option option1-0');
 		$('#option2').removeClass().addClass('option option2-0');
