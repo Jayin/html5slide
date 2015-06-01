@@ -14,7 +14,8 @@ var require = require || {
 		'mega-pix-image': 'lib/mega-pix-image/main',
 		'exif': 'lib/exif/main',
 		'hammer': 'lib/hammer/main',
-		'fabric': 'lib/fabric/main'
+		'fabric': 'lib/fabric/main',
+		'jstree': 'lib/jquery-jstree/main'
 	},
 	shim: {
 		'async': {

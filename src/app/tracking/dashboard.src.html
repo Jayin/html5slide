@@ -1,0 +1,58 @@
+<!-- extend "./layout.base.html" -->
+
+<!-- section "head" -->
+<meta name="keywords" content="Dashboard" />
+<meta name="description" content="Dashboard" />
+<title>Dashboard</title>
+<!-- /section -->
+
+<!-- section "body" -->
+<script type="text/javascript">
+document.write([
+	'<link rel="stylesheet" href="' + G.CDN_BASE + '/app/tracking/style/main.css" />',
+	'<link rel="stylesheet" href="' + G.CDN_BASE + '/style/lib/jstree/themes/default/main.css" />'
+].join(''));
+</script>
+
+<div class="page-wrapper">
+	
+</div>
+<script type="text/javascript">
+require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
+
+	$.extend(G.MD5_MAP, %{{md5map.tracking}}%);
+
+	Skateboard.core.init({
+		defaultModName: 'dashboard',
+		container: $('.page-wrapper'),
+		modBase: '../../../app/tracking/script/',
+		animate: {
+			type: 'fade',
+			timingFunction: 'linear',
+			duration: 300
+		},
+		transformAnimation: false,
+		isSupportHistoryState: false,
+		onBeforeViewChange: function() {
+			app.ajax.hideLoading();
+			app.alerts.alert.hide();
+			app.alerts.modal.hide();
+		},
+		constructContentDom: function(modName, args, opt) {
+			var contentDom = $([
+				'<div class="sb-mod sb-mod--' + modName.replace(/\//g, '-') + '" data-sb-mod="' + modName + '" data-sb-scene="0" onscroll="require(\'app\').mod.scroll(this.scrollTop);">',
+					'<div class="sb-mod__body">',
+						'<div class="body-inner" data-sb-mod-not-renderred>',
+						'</div>',
+					'</div>',
+				'</div>'
+			].join('')).prependTo($('.page-wrapper'));
+			return contentDom;
+		}
+	});
+	
+}, function() {
+
+});
+</script>
+<!-- /section -->
