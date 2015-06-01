@@ -50,7 +50,7 @@ minifyDefault = ->
 		minifyCSS: true
 
 gulp.task 'copy', ->
-	gulp.src('src/**/*.+(jpg|jpeg|gif|png|otf|eot|svg|ttf|woff|ico|mp3)')
+	gulp.src('src/**/*.+(jpg|jpeg|gif|png|otf|eot|svg|ttf|woff|woff2|ico|mp3)')
 		.pipe gulp.dest(destBase)
 	gulp.src('src/script/lib/react/react-0.13.1.js')
 		.pipe minifyDefault()
