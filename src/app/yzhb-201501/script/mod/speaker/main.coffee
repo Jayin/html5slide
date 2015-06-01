@@ -10,7 +10,7 @@ class Mod extends Skateboard.BaseMod
 
 	events:
 		'click .btn-pre': 'pre'
-		'click .btn-next': 'next'
+		'click .shadow-speaker': 'next'
 
 	_bodyTpl: require './body.tpl.html'
 
@@ -63,5 +63,5 @@ __END__
 <div class="body-inner">
 	<div class="container container-speaker"></div>
 	<div class="btn img-btn btn-pre"></div>
-	<div class="btn img-btn btn-next"></div>
+	<div class="shadow-speaker" style="height:100%;width:100%;position: absolute;top: 20%;bottom: 0;"></div>
 </div>

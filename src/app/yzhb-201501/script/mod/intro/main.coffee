@@ -10,8 +10,7 @@ class Mod extends Skateboard.BaseMod
 
 	events:
 		'click .btn-pre': 'pre'
-		'click .btn-next': 'next'
-		'click .shadow': 'nextPage'
+		'click .shadow-intro': 'next'
 
 	_bodyTpl: require './body.tpl.html'
 
@@ -36,24 +35,16 @@ class Mod extends Skateboard.BaseMod
 	next: (evt)=>
 		@page = @page + 1
 		if @page > @totalPage
-			@page = 7
-			@nextPage()
-		else
-		@updateScene()
-
-	nextPage: =>
-		if @page == 1
-			@page = 2
-			@updateScene()
-		else if @page == @totalPage
 			@page = 1
 			Skateboard.core.view '/view/home'
+		else
+			@updateScene()
 
 	updateScene: =>
 		if @page == 1
 			$('.container-intro').empty().append('')
 
-		if @page == 7
+		if @page == @totalPage
 			$('.intro-container-qrcode').show()
 		else
 			$('.intro-container-qrcode').hide()
@@ -76,10 +67,9 @@ __END__
 <!-- include "body.scss" -->
 
 <div class="body-inner">
-	<div class="shadow" style="height:100%;width:100%;position: absolute;top: 0;bottom: 0;"></div>
 	<div class="container container-intro"></div>
+	<div class="shadow-intro" style="height:100%;width:100%;position: absolute;top: 20%;bottom: 0;"></div>
 	<div class="intro-container-qrcode" style="height: 30%;width: 30%;position: absolute;bottom: 10%;left: 35%;">
 		<img src="./image/intro/qrcode.png" style="height: 120px;width: 120px;"></div>
 	<div class="btn img-btn btn-pre"></div>
-	<div class="btn img-btn btn-next"></div>
 </div>
