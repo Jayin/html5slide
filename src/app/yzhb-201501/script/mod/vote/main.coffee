@@ -13,6 +13,19 @@ class Mod extends Skateboard.BaseMod
 
 	_bodyTpl: require './body.tpl.html'
 
+	_afterFadeIn: ->
+		#reset
+		$('#option1').data('value',0);
+		$('#option2').data('value',0);
+		$('#option3').data('value',0);
+		$('#option4').data('value',0);
+
+		$('#option1').removeClass().addClass('option option1-0');
+		$('#option2').removeClass().addClass('option option2-0');
+		$('#option3').removeClass().addClass('option option3-0');
+		$('#option4').removeClass().addClass('option option4-0');
+
+
 	render: ->
 		super
 
