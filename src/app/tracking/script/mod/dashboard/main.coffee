@@ -2,8 +2,9 @@ app = require 'app'
 Skateboard = require 'skateboard'
 $ = require 'jquery'
 require 'jstree'
-require 'echarts'
-echars_theme = require '../../theme/blue'
+React = require 'react'
+
+ChartsBar = require '../../components/ChartsBar/main'
 
 class Mod extends Skateboard.BaseMod
 	cachable: true
@@ -114,36 +115,11 @@ class Mod extends Skateboard.BaseMod
 					]
 				}
 			]
-		  # tooltip: show: true
-		  # legend: data: [ '数目' ]
-		  # xAxis: [ {
-		  #   type: 'category'
-		  #   data: [
-		  #     '衬衫'
-		  #     '羊毛衫'
-		  #     '雪纺衫'
-		  #     '裤子'
-		  #     '高跟鞋'
-		  #     '袜子'
-		  #   ]
-		  # } ]
-		  # yAxis: [ { type: 'value' } ]
-		  # series: [ {
-		  #   'name': '数目'
-		  #   'type': 'bar'
-		  #   'data': [
-		  #     5
-		  #     20
-		  #     40
-		  #     10
-		  #     10
-		  #     20
-		  #   ]
-		  # } ]
-		console.log echarts
-		myChart = echarts.init(document.getElementById('info'))
-		myChart.setOption(option)
-		myChart.setTheme(echars_theme)
+
+		React.render(
+			React.createElement(ChartsBar, {id: 'chart-wxshare', option: option, height: 400}),
+			document.getElementById('chart-container-wxshare')
+		)
 
 
 module.exports = Mod
