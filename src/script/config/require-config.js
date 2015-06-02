@@ -44,7 +44,10 @@ var require = require || {
 		},
 		'fabric': {
 			exports: 'fabric'
-		}
+		},
+        'echarts': {
+            exports: "echarts"
+    	}
 	},
 	resolveUrl: function(url) {
 		var baseUrl;
