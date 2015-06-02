@@ -15,7 +15,8 @@ var require = require || {
 		'exif': 'lib/exif/main',
 		'hammer': 'lib/hammer/main',
 		'fabric': 'lib/fabric/main',
-		'jstree': 'lib/jquery-jstree/main'
+		'jstree': 'lib/jquery-jstree/main',
+		'echarts': 'lib/echarts/main'
 	},
 	shim: {
 		'async': {
