@@ -1,0 +1,57 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: #169ADA;
+}
+
+.bar-top-search {
+    background-image: url(../image/bar_top_search.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.bar-bottom {
+    background-image: url(../image/bar_bottom.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #169ADA;
+}
+
+.page-wrapper {
+    background-color: white;
+    height: 100%;
+    margin-top: 40px;
+}
+
+.index-search-input {
+    margin: 5px;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 0px;
+    color: white;
+}
+
+.index-search-input:focus{
+	border-bottom: 1px solid white;
+}
+
+#index-btn-search{
+	  height: 40px;
+  width: 30%;
+  position: fixed;
+  right: 0;
+  top: 0;
+}

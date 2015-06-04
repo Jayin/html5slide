@@ -1,0 +1,93 @@
+<!-- extend "./layout.base.html" -->
+
+<!-- section "head" -->
+<meta name="keywords" content="EP" />
+<meta name="description" content="EP" />
+<title>EP</title>
+<!-- /section -->
+
+<!-- section "body" -->
+<script type="text/javascript">
+document.write([
+	'<link rel="stylesheet" href="' + G.CDN_BASE + '/app/ep/style/main.css" />'
+].join(''));
+</script>
+
+<div class="bar-top-search">
+	<input class="index-search-input" placeholder="搜索公司"/>
+	<div id="index-btn-search"></div>
+</div>
+<div class="page-wrapper">
+	
+</div>
+<div class="bar-bottom">
+	<div style="width:100%;height:100%;">
+		<div id="index-btn-common" style="width: 20%;height:100%;display: inline-block;"></div>
+		<div id="index-btn-highPressure" style="width: 20%;height:100%;display: inline-block;"></div>
+		<div id="index-btn-lowPressure" style="width: 18%;height:100%;display: inline-block;"></div>
+		<div id="index-btn-accessory"style="width: 18%;height:100%;display: inline-block;"></div>
+		<div id="index-btn-case" style="width: 17.5%;height:100%;display: inline-block;"></div>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
+
+	$.extend(G.MD5_MAP, %{{md5map.ep}}%);
+
+	Skateboard.core.init({
+		container: $('.page-wrapper'),
+		modBase: '../../../app/ep/script/',
+		animate: {
+			type: 'fade',
+			timingFunction: 'linear',
+			duration: 300
+		},
+		transformAnimation: false,
+		isSupportHistoryState: false,
+		onBeforeViewChange: function() {
+			app.ajax.hideLoading();
+			app.alerts.alert.hide();
+			app.alerts.modal.hide();
+		},
+		constructContentDom: function(modName, args, opt) {
+			var contentDom = $([
+				'<div class="sb-mod sb-mod--' + modName.replace(/\//g, '-') + '" data-sb-mod="' + modName + '" data-sb-scene="0" onscroll="require(\'app\').mod.scroll(this.scrollTop);">',
+					'<div class="sb-mod__body">',
+						'<div class="body-inner" data-sb-mod-not-renderred>',
+						'</div>',
+					'</div>',
+				'</div>'
+			].join('')).prependTo($('.page-wrapper'));
+			return contentDom;
+		}
+	});
+
+
+	$('#index-btn-common').on('click',function(){
+			alert('common')
+	});
+
+	$('#index-btn-highPressure').on('click',function(){
+		alert('highPressure')
+	});
+
+	$('#index-btn-lowPressure').on('click',function(){
+		alert('lowPressure')
+	});
+
+	$('#index-btn-accessory').on('click',function(){
+		alert('accessory')
+	});
+	$('#index-btn-case').on('click',function(){
+		alert('case')
+	});
+	$('#index-btn-search').on('click',function(){
+		alert('Go Search!')
+	});
+	
+}, function() {
+
+});
+</script>
+<!-- /section -->
