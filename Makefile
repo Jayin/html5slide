@@ -4,7 +4,7 @@ UAT_SERVER_HOST = root@120.55.101.128
 TAOBAO_SERVER_HOST = root@taobao.createcdigital.com
 
 main:
-	gulp --minify
+	gulp
 
 prototype:
 	BUILD_TARGET=prototype gulp
