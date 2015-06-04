@@ -79,6 +79,8 @@ class Mod extends Skateboard.BaseMod
 			if data.node.type is @TYPE_CAMPAIGN
 				# 处理这个campign
 				alert('你点击了campaign-->'+data.node.id)
+			else if data.node.type is @TYPE_TENANT
+				$('#container').jstree(true).open_node(data.node.id)
 
 		option =
 			title:
