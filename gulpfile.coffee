@@ -56,7 +56,7 @@ gulp.task 'copy', ->
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase + '/script/lib/react')
 	if BUILD_TARGET is 'prototype'
-		gulp.src('src/mockup-data/**/*.json')
+		gulp.src('src/mockup-data/**/*')
 			.pipe gulp.dest(destBase + '/mockup-data')
 
 gulp.task 'sprite', ->
