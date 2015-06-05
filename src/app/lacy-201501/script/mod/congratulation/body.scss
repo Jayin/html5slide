@@ -1,0 +1,61 @@
+.sb-mod.sb-mod--congratulation {
+    background-image: url(../../../image/congratulate.jpg);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .congratulation-image {
+        display: block;
+        height: auto;
+        width: 200px;
+        border-radius: 7rem;
+        position: absolute;
+        top: 14%;
+        left: 25%;
+    }
+    .n {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .n0 {
+        background-image: url(../../../image/no0.png);
+    }
+    .n1 {
+        background-image: url(../../../image/no1.png);
+    }
+    .n2 {
+        background-image: url(../../../image/no2.png);
+    }
+    .n3 {
+        background-image: url(../../../image/no3.png);
+    }
+    .n4 {
+        background-image: url(../../../image/no4.png);
+    }
+    .n5 {
+        background-image: url(../../../image/no5.png);
+    }
+    .n6 {
+        background-image: url(../../../image/no6.png);
+    }
+    .n7 {
+        background-image: url(../../../image/no7.png);
+    }
+    .n8 {
+        background-image: url(../../../image/no8.png);
+    }
+    .n9 {
+        background-image: url(../../../image/no9.png);
+    }
+    .congratulation-numbers {
+        position: absolute;
+        top: 72%;
+        left: 38%;
+        width: 62%;
+        height: 60%;
+    }
+    .congratulation-number {
+        display: inline-block;
+        width: 10%;
+        height: 10%;
+    }
+}
