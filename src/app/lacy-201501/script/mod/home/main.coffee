@@ -58,6 +58,8 @@ class Mod extends Skateboard.BaseMod
 		super
 		G.state.set({'first':true})
 		@update()
+		# preload next
+		require ['../comfirm/main']
 
 
 module.exports = Mod

@@ -20,6 +20,9 @@ class Mod extends Skateboard.BaseMod
 		hm.on 'press', @pressStart
 		hm.on 'pressup', @pressEnd
 
+		# preload next page
+		require ['../congratulation/main']
+
 
 	comfirm: =>
 		Skateboard.core.view '/view/congratulation'
