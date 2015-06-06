@@ -7,14 +7,25 @@ body {
     background-color: #169ADA;
 }
 
+.placeholer-bar-top-search {
+    height: 40px;
+    width: 100%;
+}
+
 .bar-top-search {
     background-image: url(../image/bar_top_search.png);
     background-position: left top;
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 60px;
+    background-size: cover;
+    height: 40px;
     position: fixed;
     top: 0;
+    width: 100%;
+    z-index: 1500;
+}
+
+.placeholer-bar-bottom {
+    height: 60px;
     width: 100%;
 }
 
@@ -32,26 +43,26 @@ body {
 
 .page-wrapper {
     background-color: white;
-    height: 100%;
-    margin-top: 40px;
+    height: auto;
+    min-height: 100%;
 }
 
 .index-search-input {
-    margin: 5px;
+    width: 60%;
+    margin: 7px;
     background-color: transparent;
     border: 0px;
-    border-bottom: 0px;
     color: white;
 }
 
-.index-search-input:focus{
-	border-bottom: 1px solid white;
+.index-search-input:focus {
+    border-bottom: 1px solid white;
 }
 
-#index-btn-search{
-	  height: 40px;
-  width: 30%;
-  position: fixed;
-  right: 0;
-  top: 0;
+#index-btn-search {
+    height: 40px;
+    width: 30%;
+    position: fixed;
+    right: 0;
+    top: 0;
 }
