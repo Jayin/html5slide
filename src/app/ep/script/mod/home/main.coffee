@@ -22,18 +22,11 @@ class Mod extends Skateboard.BaseMod
 
 		return @companys
 
-	_afterFadeIn: =>
-		# console.log('_afterFadeIn')
-		# if G.state.get('search')
-		# 	alert(1)
-
-	render: =>
-		super
-
+	# 获得公司列表
+	getComanyList: =>
 		app.ajax.get
 			url: 'Data/Company'
 			success: (res)=>
-				console.log(res)
 				@transformCompanyList(res)
 				React.render(
 					React.createElement(CompanyList, {companys: @companys}),
@@ -42,7 +35,35 @@ class Mod extends Skateboard.BaseMod
 			error: ()->
 				app.alerts.alert '系统繁忙，请稍后再试'
 
+	transformSearchList: (result)=>
+		@companys = result.Companies;
 
+	# 搜索
+	searchCompany: (name)=>
+		app.ajax.get
+			url: 'Data/Search/' + name
+			success: (res)=>
+				@transformSearchList(res)
+				React.render(
+					React.createElement(CompanyList, {companys: @companys}),
+					document.getElementById('home-company-list')
+				)
+			error: ()->
+				app.alerts.alert '系统繁忙，请稍后再试'
+
+	stateChange: =>
+		if G.state.get('search')
+			@searchCompany(G.state.get('search'))
+
+	render: =>
+		super
+		@getComanyList()
+
+		G.state.on 'change', @stateChange
+
+
+	destroy: =>
+		G.state.off 'change', @stateChange
 
 
 module.exports = Mod

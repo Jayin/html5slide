@@ -93,7 +93,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			app.alerts.alert('内容不能为空');
 		}else{
 			G.state.set({search: words})
-			Skateboard.core.view('/view/home')
+			Skateboard.core.view('/view/home', {replaceState: true})
 		}
 	});
 
