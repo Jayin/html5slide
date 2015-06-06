@@ -17,17 +17,19 @@ class Mod extends Skateboard.BaseMod
 
 	render: ->
 		super
+		if G.IS_PROTOTYPE
+			window.wxOpenId = 'oRhbms-bUW30G_evItTkAlutq_S8'
 		app.ajax.get
 			url: 'web/strait/participant/' + window.wxOpenId + '.json'
-			success: (res) ->
+			success: (res) =>
 				if res.code is 0
 					#显示头像
 					$('#congratulation-image-avatar')[0].src = res.data.headimgurl
-					@updateNumber(res.data.number)
+					@updateNumber(res.data.number || 1)
 				else
 					app.alerts.alert(res.code + ':' + res.msg)
 
-			error: (err)->
+			error: (err)=>
 				console.log(err)
 				app.alerts.alert '网络繁忙,请稍后再试'
 
@@ -44,12 +46,10 @@ __END__
 <!-- include "body.scss" -->
 
 <div class="body-inner">
-<img id="congratulation-image-avatar" src="https://avatars0.githubusercontent.com/u/2763894?v=3&amp;u=16457d47df1b260c8b929133f2a2f002491b5777&amp;s=140"
-	class="congratulation-image">
- <div>
-  <div class="congratulation-numbers">
-  	<div class="congratulation-number n n0"> </div>
+	<img id="congratulation-image-avatar" src="" class="congratulation-image">
+	<div class="congratulation-numbers">
 		<div class="congratulation-number n n0"> </div>
 		<div class="congratulation-number n n0"> </div>
-</div>
+		<div class="congratulation-number n n0"> </div>
+	</div>
 </div>

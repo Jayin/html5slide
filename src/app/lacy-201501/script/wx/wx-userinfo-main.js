@@ -1,4 +1,10 @@
 require(['app'], function(app) {
+	var __WX_DEBUG__ = function(msg){
+		var debug = false;
+		if(debug){
+			alert(msg);
+		}
+	}
 	if(G.IS_PROTOTYPE){
 	    window.wxOpenId = '123456789';
 	    return;
@@ -73,10 +79,10 @@ require(['app'], function(app) {
     var url_obj = parser(window.location.href);
 
     var wxOpenId;
-    var openIdCookieKey = 'userinfo_wxOpenId';
+    var openIdCookieKey = 'userinfo_wxOpenId213';
     //尝试从cookie中获取
     var openIdInCookie = getCookie(openIdCookieKey);
-    if (openIdInCookie == null) {
+    if (!openIdInCookie) {
         //如果是回调页面
         var code = url_obj.search.code
         if (code == null || code == undefined) {
@@ -90,6 +96,7 @@ require(['app'], function(app) {
             window.location = redir;
         } else {
             //有code，就请求后台获取userinfo
+            __WX_DEBUG__("code:"+code)
             app.ajax.post({
             	url: 'web/strait/oauth/mao1b82a58f24d7d16c11e16/'+code,
             	success: function(res){
@@ -107,10 +114,12 @@ require(['app'], function(app) {
             });
             setCookie(openIdCookieKey, urlParamOpenId, 7);
             wxOpenId = urlParamOpenId;
+            __WX_DEBUG__('save cookie & wxopenid->'+window.wxOpenId)
         }
 
     } else {
         wxOpenId = openIdInCookie;
+        __WX_DEBUG__('wxopenid from cookie->'+wxOpenId)
     }
 
     window.wxOpenId = wxOpenId;
