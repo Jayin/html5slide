@@ -19,6 +19,7 @@ class Mod extends Skateboard.BaseMod
 		super
 		if G.IS_PROTOTYPE
 			window.wxOpenId = 'oRhbms-bUW30G_evItTkAlutq_S8'
+
 		app.ajax.get
 			url: 'web/strait/participant/' + window.wxOpenId + '.json'
 			success: (res) =>

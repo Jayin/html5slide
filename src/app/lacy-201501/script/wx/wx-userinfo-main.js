@@ -79,7 +79,7 @@ require(['app'], function(app) {
     var url_obj = parser(window.location.href);
 
     var wxOpenId;
-    var openIdCookieKey = 'userinfo_wxOpenId213';
+    var openIdCookieKey = 'userinfo_wxOpenId2133';
     //尝试从cookie中获取
     var openIdInCookie = getCookie(openIdCookieKey);
     if (!openIdInCookie) {
@@ -104,6 +104,7 @@ require(['app'], function(app) {
             			//获取到用户完整的信息
             			setCookie(openIdCookieKey,res.data.openid,7)
             			wxOpenId = res.data.openid;
+            			__WX_DEBUG__('save cookie & wxopenid->'+window.wxOpenId)
             		}else{
             			alert(res.code + ":" + res.msg);
             		}
@@ -112,9 +113,6 @@ require(['app'], function(app) {
             		alert('网路繁忙')
             	}
             });
-            setCookie(openIdCookieKey, urlParamOpenId, 7);
-            wxOpenId = urlParamOpenId;
-            __WX_DEBUG__('save cookie & wxopenid->'+window.wxOpenId)
         }
 
     } else {

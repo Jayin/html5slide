@@ -1,9 +1,9 @@
 body {
-    background-color: #FFF;
+    background-color: rgb(3, 37, 85);
     background-position: left top;
     background-repeat: no-repeat;
     background-size: cover;
-    height: auto;
+    height: 100%;
 }
 
 .btn {
@@ -32,12 +32,13 @@ body {
 }
 
 .sb-mod {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
+
 .sb-mod__body {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
