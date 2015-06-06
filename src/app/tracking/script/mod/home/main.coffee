@@ -25,12 +25,15 @@ class Mod extends Skateboard.BaseMod
 			app.alerts.alert 'Please input username and password'
 			return
 		data = {}
+		# data.username = @$username.value
+		# data.password = @$password.value
 		data.username = @$username.value
 		data.password = @$password.value
 
 		app.ajax.post
-			url: 'web/tracking/login.json'
+			url: 'tracking/j_spring_security_check.json'
 			data: data
+			notJsonParamData: true
 			success: (res)=>
 				app.alerts.alert '登陆成功'
 				# TODO switch to dashboard
