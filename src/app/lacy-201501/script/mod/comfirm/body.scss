@@ -10,4 +10,17 @@
         top: 55%;
         left: 25%;
     }
+    img.scan-line {
+        display: block;
+        position: absolute;
+        top: 63%;
+        left: 25%;
+        width: 49%;
+    }
+    .action {
+        animation-duration: 0.7s;
+        animation-name: scan-animatie;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
 }

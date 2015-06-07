@@ -6,7 +6,7 @@ class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	confirm_time: 0
-	Interval: 200
+	Interval: 300
 	isCounting: false
 
 	events:
@@ -30,6 +30,7 @@ class Mod extends Skateboard.BaseMod
 	pressStart: =>
 		@confirm_time = (new Date).getTime()
 		@isCounting = true
+		# $('#comfrim-line').addClass('action')
 		setTimeout ()=>
 			cur_time = (new Date).getTime()
 			if cur_time - @confirm_time > @Interval - 50 and @isCounting
@@ -38,6 +39,7 @@ class Mod extends Skateboard.BaseMod
 
 	pressEnd: =>
 		@isCounting = false
+		# $('#comfrim-line').removeClass('action')
 
 
 
@@ -48,8 +50,11 @@ __END__
 
 @@ body.tpl.html
 
+<!-- include "animate.css" -->
 <!-- include "body.scss" -->
 
 <div class="body-inner">
+
+	<img id="comfrim-line" class="scan-line action" src="../../../image/line.png" height="37" width="318" alt="">
 	<div id="comfirm-btn-press"></div>
 </div>

@@ -1,0 +1,9 @@
+ @keyframes scan-animatie {
+        from {
+            top: 50%;
+        }
+
+        to {
+            top: 78%;
+        }
+    }
