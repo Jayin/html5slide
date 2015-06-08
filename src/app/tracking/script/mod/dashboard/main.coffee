@@ -16,11 +16,15 @@ class Mod extends Skateboard.BaseMod
 	TYPE_TENANT: 'tenant'
 	TYPE_CAMPAIGN: 'campaign'
 
+	cur_tenantId: 0
+	cur_campaignId: 0
+
+	jstreeInstance: null
+
 	_bodyTpl: require './body.tpl.html'
 
-	render: =>
-		super
-
+	# Tenants / Campaigns
+	initTree: =>
 		handleTenants = (tenants)=>
 			result = []
 			tenants.forEach (element)=>
@@ -42,7 +46,7 @@ class Mod extends Skateboard.BaseMod
 			core:
 				themes:
 					dots: false
-				data: (node, callback)=>
+				data: (node, callback)=> # 需要加载node的回调
 					console.log '>>> invoke handler'
 					console.log node
 					console.log callback
@@ -77,11 +81,17 @@ class Mod extends Skateboard.BaseMod
 		$('#container').jstree jstree_config
 		$('#container').on 'select_node.jstree', (event, data)=>
 			if data.node.type is @TYPE_CAMPAIGN
-				# 处理这个campign
-				alert('你点击了campaign-->'+data.node.id)
+				# 处理这个campign——获取campign数据
+				@updateWechatData(data.node.parent, data.node.id)
+
 			else if data.node.type is @TYPE_TENANT
+				# 点击tenant则展开
 				$('#container').jstree(true).open_node(data.node.id)
 
+		@jstreeInstance = $('#container').jstree(true)
+
+	updateWechatData: (tenantId, campaignId)=>
+		# option init..(template option)
 		option =
 			title:
 				show: true
@@ -113,15 +123,28 @@ class Mod extends Skateboard.BaseMod
 					name: '数目'
 					type: 'bar'
 					data: [
-						2300,452
+						2300,452  #shareToTimeline, sahreToFriend
 					]
 				}
 			]
 
-		React.render(
-			React.createElement(ChartsBar, {id: 'chart-wxshare', option: option, height: 400}),
-			document.getElementById('chart-container-wxshare')
-		)
+		app.ajax.get
+			url: 'web/tracking/tenant/{tenantId}/campaign/{campaignId}'.replace('{tenantId}', tenantId).replace('{campaignId}', campaignId)
+			success: (res)=>
+				if res.code is 0
+					# 转换数据
+					newOption = $.extend({}, option)
+					newOption.series.push(res.data.shareToTimeline)
+					newOption.series.push(res.data.sahreToFriend)
+
+					React.render(
+						React.createElement(ChartsBar, {id: 'chart-wxshare', option: newOption, height: 400}),
+						document.getElementById('chart-container-wxshare')
+					)
+
+	render: =>
+		super
+		@initTree()
 
 
 module.exports = Mod
