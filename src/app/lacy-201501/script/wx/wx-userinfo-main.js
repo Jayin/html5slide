@@ -78,8 +78,8 @@ require(['app'], function(app) {
 
     var url_obj = parser(window.location.href);
 
-    var wxOpenId;
-    var openIdCookieKey = 'userinfo_wxOpenId2133';
+    // var wxOpenId;
+    var openIdCookieKey = 'userinfo_wxOpenId2133111';
     //尝试从cookie中获取
     var openIdInCookie = getCookie(openIdCookieKey);
     if (!openIdInCookie) {
@@ -93,7 +93,7 @@ require(['app'], function(app) {
             var redir = requestOpenIdUrl.replace('APPID', 'wx290789e88ffcb79f')
                 .replace('REDIRECT_URI', redirect_uri)
                 .replace('SCOPE', 'snsapi_userinfo');
-            window.location = redir;
+            window.location.href = redir;
         } else {
             //有code，就请求后台获取userinfo
             __WX_DEBUG__("code:"+code)
@@ -103,23 +103,21 @@ require(['app'], function(app) {
             		if(res.code == 0){
             			//获取到用户完整的信息
             			setCookie(openIdCookieKey,res.data.openid,7)
-            			wxOpenId = res.data.openid;
+            			window.wxOpenId = res.data.openid;
+            			// alert('ajax get openid->'+ window.wxOpenId)
             			__WX_DEBUG__('save cookie & wxopenid->'+window.wxOpenId)
             		}else{
-            			alert(res.code + ":" + res.msg);
+            			alert('Error Code=' + res.code + " " + res.msg);
             		}
             	},
             	error: function(){
-            		alert('网路繁忙')
+            		alert('网络繁忙，请重新再试')
             	}
             });
         }
 
     } else {
-        wxOpenId = openIdInCookie;
-        __WX_DEBUG__('wxopenid from cookie->'+wxOpenId)
+        window.wxOpenId = openIdInCookie;
+        __WX_DEBUG__('wxopenid from cookie->'+window.wxOpenId)
     }
-
-    window.wxOpenId = wxOpenId;
-
 });
