@@ -54,7 +54,7 @@ __END__
 <!-- include "body.scss" -->
 
 <div class="body-inner">
-
+	<img class="comfirm-circle" src="../../../image/circle.png" height="37" width="318" alt="">
 	<img id="comfrim-line" class="scan-line action" src="../../../image/line.png" height="37" width="318" alt="">
 	<div id="comfirm-btn-press"></div>
 </div>

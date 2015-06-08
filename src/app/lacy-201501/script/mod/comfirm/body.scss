@@ -1,5 +1,5 @@
 .sb-mod.sb-mod--comfirm {
-    background-image: url(../../../image/longpress.jpg);
+    background-image: url(../../../image/longpress.png);
     background-position: left top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,12 +10,21 @@
         top: 55%;
         left: 25%;
     }
+    .comfirm-circle {
+        position: absolute;
+        width: 50%;
+        height: 32%;
+        top: 55%;
+        left: 25%;
+        z-index: -2;
+    }
     img.scan-line {
         display: block;
         position: absolute;
         top: 63%;
         left: 25%;
         width: 49%;
+        z-index: -1;
     }
     .action {
         animation-duration: 0.7s;
