@@ -49,7 +49,12 @@ class Mod extends Skateboard.BaseMod
 				$('#home-text-number').text(percent)
 
 	handleFinish:=>
-		Skateboard.core.view '/view/comfirm'
+		if window.wxOpenId
+			Skateboard.core.view '/view/comfirm'
+		else
+			setTimeout ()=>
+				@handleFinish()
+			, 1000
 
 	update: =>
 		@init()
