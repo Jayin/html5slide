@@ -39,10 +39,7 @@ class Mod extends Skateboard.BaseMod
 			i += step
 		frag.appendTo $('.box')
 		# number
-
 		percent = Math.round(@cur / 360 * 100)
-		console.log 'cur: ' + @cur
-		console.log 'percen: ' + percent
 		if percent >= 100
 			$('#home-text-number').text(99)
 		else

@@ -6,11 +6,11 @@ class Mod extends Skateboard.BaseMod
 	cachable: true
 
 	confirm_time: 0
-	Interval: 300
+	Interval: 100
 	isCounting: false
 
 	events:
-		'click .btn-next': 'jump'
+		'click #comfirm-btn-press': 'comfirm'
 
 	_bodyTpl: require './body.tpl.html'
 
@@ -28,17 +28,18 @@ class Mod extends Skateboard.BaseMod
 		Skateboard.core.view '/view/congratulation'
 
 	pressStart: =>
-		@confirm_time = (new Date).getTime()
-		@isCounting = true
-		# $('#comfrim-line').addClass('action')
-		setTimeout ()=>
-			cur_time = (new Date).getTime()
-			if cur_time - @confirm_time > @Interval - 50 and @isCounting
-				@comfirm()
-		,@Interval
+		# @confirm_time = (new Date).getTime()
+		# @isCounting = true
+		# # $('#comfrim-line').addClass('action')
+		# setTimeout ()=>
+		# 	cur_time = (new Date).getTime()
+		# 	if cur_time - @confirm_time > @Interval - 50 and @isCounting
+		# 		@comfirm()
+		# ,@Interval
+		@comfirm()
 
 	pressEnd: =>
-		@isCounting = false
+		# @isCounting = false
 		# $('#comfrim-line').removeClass('action')
 
 
