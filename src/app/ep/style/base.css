@@ -14,9 +14,10 @@ body {
 
 .bar-top-search {
     background-image: url(../image/bar_top_search.png);
+    background-color: #169ADA;
     background-position: left top;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     height: 40px;
     position: fixed;
     top: 0;
