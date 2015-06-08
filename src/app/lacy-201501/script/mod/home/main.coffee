@@ -38,6 +38,18 @@ class Mod extends Skateboard.BaseMod
 			point.appendTo frag
 			i += step
 		frag.appendTo $('.box')
+		# number
+
+		percent = Math.round(@cur / 360 * 100)
+		console.log 'cur: ' + @cur
+		console.log 'percen: ' + percent
+		if percent >= 100
+			$('#home-text-number').text(99)
+		else
+			if percent < 10
+				$('#home-text-number').text('0' + percent)
+			else
+				$('#home-text-number').text(percent)
 
 	handleFinish:=>
 		Skateboard.core.view '/view/comfirm'
@@ -54,7 +66,7 @@ class Mod extends Skateboard.BaseMod
 			setTimeout @update, 100
 
 
-	render: ->
+	render: =>
 		super
 		G.state.set({'first':true})
 		@update()
@@ -71,5 +83,9 @@ __END__
 <!-- include "body.scss" -->
 
 <div class="body-inner">
-	<div class="box"></div>
+	<div class="box">
+	<div style="font-size: 4rem;color: white;position: relative;top: 15%;left: 20%;">
+		<span id="home-text-number">00</span>
+	</div>
+	</div>
 </div>
