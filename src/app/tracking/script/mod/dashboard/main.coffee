@@ -97,7 +97,7 @@ class Mod extends Skateboard.BaseMod
 				show: true
 				text: '微信端统计数据'
 			legend:
-				data: [ '数目' ]
+				data: [ '分享到朋友圈', '分享給朋友' ]
 			tooltip:
 				show: true
 			toolbox:
@@ -109,7 +109,7 @@ class Mod extends Skateboard.BaseMod
 				{
 					type: 'category'
 					data: [
-						'分享到朋友圈','分享给朋友'
+						''
 					]
 				}
 			]
@@ -133,14 +133,20 @@ class Mod extends Skateboard.BaseMod
 			success: (res)=>
 				if res.code is 0
 					# 转换数据
-					newOption = $.extend({}, option)
-					newOption.series.push(res.data.shareToTimeline)
-					newOption.series.push(res.data.sahreToFriend)
+					newOption = app.util.cloneObject(option)
+					newOption.series = []
+					newOption.series.push({name: '分享到朋友圈', type: 'bar', data:[res.data.shareToTimeline]})
+					newOption.series.push({name: '分享給朋友', type: 'bar', data:[res.data.shareToFriend]})
 
 					React.render(
 						React.createElement(ChartsBar, {id: 'chart-wxshare', option: newOption, height: 400}),
 						document.getElementById('chart-container-wxshare')
 					)
+				else
+					app.alerts.alert 'Error Code:' + res.code
+
+			error: (err)=>
+				app.alerts.alert '网络繁忙,请稍后重试'
 
 	render: =>
 		super
