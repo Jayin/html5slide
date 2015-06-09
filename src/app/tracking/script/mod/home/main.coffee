@@ -35,8 +35,14 @@ class Mod extends Skateboard.BaseMod
 			data: data
 			notJsonParamData: true
 			success: (res)=>
-				app.alerts.alert '登陆成功'
 				# TODO switch to dashboard
+				if res.code is 0
+					app.alerts.alert '登陆成功'
+					setTimeout ()->
+						Skateboard.core.view '/view/dashboard'
+					,1000
+				else
+					app.alerts.alert 'Error code:' + res.code
 			error: (res)=>
 				app.alerts.alert '系统繁忙，请您稍后重试'
 
