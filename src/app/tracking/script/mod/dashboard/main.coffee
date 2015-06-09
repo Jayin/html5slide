@@ -47,9 +47,6 @@ class Mod extends Skateboard.BaseMod
 				themes:
 					dots: false
 				data: (node, callback)=> # 需要加载node的回调
-					console.log '>>> invoke handler'
-					console.log node
-					console.log callback
 					# 获取tenants
 					if node.id is '#'
 						app.ajax.get
@@ -127,13 +124,11 @@ class Mod extends Skateboard.BaseMod
 					]
 				}
 			]
-		console.log('before ajax call')
 		app.ajax.get
 			url: 'tracking/saas/campaign/{campaignId}'.replace('{campaignId}', campaignId)
 			success: (res)=>
 				if res.code is 0
 					# 转换数据
-					console.log('in ajax get')
 					newOption = app.util.cloneObject(option)
 					newOption.series = []
 					newOption.series.push({name: '分享到朋友圈', type: 'bar', data:[res.data.momentsCount]})

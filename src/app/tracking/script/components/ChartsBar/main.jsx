@@ -15,6 +15,12 @@ var default_theme = require('./theme-blue')
 var ChartsBar = React.createClass({
 	default_id: 'echarts-bar-container',
 	myChart: null,
+	updateChart: function(){
+		this.myChart = echarts.init(document.getElementById(this.props.id || this.default_id));
+		this.myChart.clear()
+		this.myChart.setOption(this.props.option);
+		this.myChart.setTheme(this.props.theme || default_theme)
+	},
 	render: function() {
 		return (
 			<div id={this.props.id || this.default_id} style={{height: (this.props.height || 400) + 'px'}}>
@@ -22,10 +28,11 @@ var ChartsBar = React.createClass({
 			</div>
 		);
 	},
+	componentDidUpdate: function(){
+		this.updateChart();
+	},
 	componentDidMount: function(){
-		this.myChart = echarts.init(document.getElementById(this.props.id || this.default_id));
-		this.myChart.setOption(this.props.option);
-		this.myChart.setTheme(this.props.theme || default_theme)
+		this.updateChart();
 	}
 });
 

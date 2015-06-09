@@ -1,0 +1,18 @@
+{
+    "code": 0,
+    "data": [{
+            "id": "11",
+            "adCode": "11",
+            "name": "bxn1"
+        }, {
+            "id": "22",
+            "adCode": "2",
+            "name": "bxn2"
+        }, {
+            "id": "33",
+            "adCode": "3",
+            "name": "bxn3"
+        }
+
+    ]
+}
