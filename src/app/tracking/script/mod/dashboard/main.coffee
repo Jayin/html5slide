@@ -37,7 +37,7 @@ class Mod extends Skateboard.BaseMod
 		handleCampaigns= (campaigns)=>
 			result = []
 			campaigns.forEach (element)=>
-				element.text = element.adDescription
+				element.text = element.name
 				element.type = @TYPE_CAMPAIGN
 				result.push(element)
 			return result
@@ -53,18 +53,18 @@ class Mod extends Skateboard.BaseMod
 					# 获取tenants
 					if node.id is '#'
 						app.ajax.get
-							url: 'web/tracking/tenants.json'
+							url: 'tracking/saas/tenants.json'
 							success: (res)=>
 								console.log(res)
-								console.log handleTenants(res.data.tenants)
-								callback(handleTenants(res.data.tenants))
+								console.log handleTenants(res.data)
+								callback(handleTenants(res.data))
 					else #获取campaigns
 						app.ajax.get
-							url: 'web/tracking/tenant/' + node.id +  '/campaigns.json'
+							url: 'tracking/saas/' + node.id +  '/campaigns.json'
 							success: (res)=>
 								console.log(res)
-								console.log handleCampaigns(res.data.campaigns)
-								callback(handleCampaigns(res.data.campaigns))
+								console.log handleCampaigns(res.data)
+								callback(handleCampaigns(res.data))
 							error: ()=>
 								callback([])
 			types:
@@ -127,16 +127,17 @@ class Mod extends Skateboard.BaseMod
 					]
 				}
 			]
-
+		console.log('before ajax call')
 		app.ajax.get
-			url: 'web/tracking/tenant/{tenantId}/campaign/{campaignId}'.replace('{tenantId}', tenantId).replace('{campaignId}', campaignId)
+			url: 'tracking/saas/campaign/{campaignId}'.replace('{campaignId}', campaignId)
 			success: (res)=>
 				if res.code is 0
 					# 转换数据
+					console.log('in ajax get')
 					newOption = app.util.cloneObject(option)
 					newOption.series = []
-					newOption.series.push({name: '分享到朋友圈', type: 'bar', data:[res.data.shareToTimeline]})
-					newOption.series.push({name: '分享給朋友', type: 'bar', data:[res.data.shareToFriend]})
+					newOption.series.push({name: '分享到朋友圈', type: 'bar', data:[res.data.momentsCount]})
+					newOption.series.push({name: '分享給朋友', type: 'bar', data:[res.data.friendsCount]})
 
 					React.render(
 						React.createElement(ChartsBar, {id: 'chart-wxshare', option: newOption, height: 400}),
