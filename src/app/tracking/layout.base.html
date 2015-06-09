@@ -152,8 +152,11 @@ require(['jquery', 'app'], function($, app) {
 
 	app.ajax.dealCommonCode = function(code){
 		//未登录
-		if (code === 20 ){
-			window.location.href = 'index.html'
+		if (code === 10 ){
+			window.location.href = 'index.html';
+			return true;
+		}else if (code === 20){
+			app.alerts.alert('你没有权限访问');
 			return true;
 		}
 		return false;
