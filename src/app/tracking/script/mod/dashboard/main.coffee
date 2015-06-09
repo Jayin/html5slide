@@ -9,9 +9,9 @@ ChartsBar = require '../../components/ChartsBar/main'
 class Mod extends Skateboard.BaseMod
 	cachable: true
 
-	# events:
-	# 	'click #btn-submit': 'submit'
-	# 	'click #btn-register': 'register'
+	events:
+		'click #dashboard-btn-logout': 'logout'
+
 	# 	tenant
 	TYPE_TENANT: 'tenant'
 	TYPE_CAMPAIGN: 'campaign'
@@ -148,6 +148,16 @@ class Mod extends Skateboard.BaseMod
 		super
 		@initTree()
 
+	logout: =>
+		app.ajax.get
+			url: 'tracking/j_spring_security_logout.json'
+			success: (res)=>
+				if res.code is 0
+					window.location.href = 'index.html'
+				else
+					app.alerts.alert 'Error code:' + res.code
+			error: (err)=>
+				app.alerts.alert '网络繁忙,请稍后重试'
 
 module.exports = Mod
 
