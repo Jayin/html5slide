@@ -39,7 +39,11 @@ class Mod extends Skateboard.BaseMod
 				if res.code is 0
 					app.alerts.alert '登陆成功'
 					setTimeout ()->
-						window.location.href = 'dashboard.html'
+						# redirect to where you visited
+						if G.urlObj.search.redirectURL
+							window.location.href =  decodeURIComponent(G.urlObj.search.redirectURL)
+						else
+							window.location.href =  'dashboard.html'
 					,1000
 				else
 					app.alerts.alert 'Error code:' + res.code

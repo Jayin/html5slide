@@ -153,7 +153,7 @@ class Mod extends Skateboard.BaseMod
 			url: 'tracking/j_spring_security_logout.json'
 			success: (res)=>
 				if res.code is 0
-					window.location.href = 'index.html'
+					window.location.href = 'index.html?redirectURL=' + encodeURIComponent(window.location.href)
 				else
 					app.alerts.alert 'Error code:' + res.code
 			error: (err)=>
