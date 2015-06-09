@@ -1,0 +1,22 @@
+<!-- extend "../../html/layout/layout.base.html" -->
+
+<!-- section "head" -->
+<meta name="keywords" content="两岸创业" />
+<meta name="description" content="两岸创业" />
+<title>两岸创业</title>
+<!-- /section -->
+
+<!-- section "body" -->
+<div class="page-wrapper">
+</div>
+
+<script type="text/javascript">
+	var redirect_uri = encodeURIComponent('http://www.createcdigital.com/static/app/lacy-201501/index.html');
+	requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect'
+
+	var redir = requestOpenIdUrl.replace('APPID', 'wx290789e88ffcb79f')
+	    .replace('REDIRECT_URI', redirect_uri)
+	    .replace('SCOPE', 'snsapi_userinfo');
+	window.location.href = redir;
+</script>
+<!-- /section -->

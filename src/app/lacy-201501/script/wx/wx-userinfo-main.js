@@ -82,19 +82,19 @@ require(['app'], function(app) {
     var openIdCookieKey = 'userinfo_wxOpenId2133111';
     //尝试从cookie中获取
     var openIdInCookie = getCookie(openIdCookieKey);
-    if (!openIdInCookie) {
+    // if (!openIdInCookie) {
         //如果是回调页面
         var code = url_obj.search.code
-        if (code == null || code == undefined) {
-            //没有code,跳转去拿code
-            var redirect_uri = encodeURIComponent(window.location.href);
-            requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect'
+        // if (code == null || code == undefined) {
+        //     //没有code,跳转去拿code
+        //     var redirect_uri = encodeURIComponent(window.location.href);
+        //     requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect'
 
-            var redir = requestOpenIdUrl.replace('APPID', 'wx290789e88ffcb79f')
-                .replace('REDIRECT_URI', redirect_uri)
-                .replace('SCOPE', 'snsapi_userinfo');
-            window.location.href = redir;
-        } else {
+        //     var redir = requestOpenIdUrl.replace('APPID', 'wx290789e88ffcb79f')
+        //         .replace('REDIRECT_URI', redirect_uri)
+        //         .replace('SCOPE', 'snsapi_userinfo');
+        //     window.location.href = redir;
+        // } else {
             //有code，就请求后台获取userinfo
             __WX_DEBUG__("code:"+code)
             app.ajax.post({
@@ -114,10 +114,10 @@ require(['app'], function(app) {
             		alert('网络繁忙，请重新再试')
             	}
             });
-        }
+        // }
 
-    } else {
-        window.wxOpenId = openIdInCookie;
-        __WX_DEBUG__('wxopenid from cookie->'+window.wxOpenId)
-    }
+    // } else {
+    //     window.wxOpenId = openIdInCookie;
+    //     __WX_DEBUG__('wxopenid from cookie->'+window.wxOpenId)
+    // }
 });
