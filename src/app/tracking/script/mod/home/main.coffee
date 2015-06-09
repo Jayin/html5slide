@@ -39,7 +39,7 @@ class Mod extends Skateboard.BaseMod
 				if res.code is 0
 					app.alerts.alert '登陆成功'
 					setTimeout ()->
-						Skateboard.core.view '/view/dashboard'
+						window.location.href = 'dashboard.html'
 					,1000
 				else
 					app.alerts.alert 'Error code:' + res.code
