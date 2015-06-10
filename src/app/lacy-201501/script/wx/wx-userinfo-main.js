@@ -79,18 +79,18 @@ require(['app'], function(app) {
 	var url_obj = parser(window.location.href);
 
 	// var wxOpenId;
-	var openIdCookieKey = 'userinfo_wxOpenId2133111';
+	var openIdCookieKey = 'userinfo_wxOpenId0610918';
 	//尝试从cookie中获取
 	var openIdInCookie = getCookie(openIdCookieKey);
 	if (!openIdInCookie) {
 		//如果是回调页面
-		var code = url_obj.search.code
+		var code = url_obj.search.code;
 		if (code == null || code == undefined) {
 			//没有code,跳转去拿code
 			var redirect_uri = encodeURIComponent(window.location.href);
-			requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect'
+			var requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect'
 
-			var redir = requestOpenIdUrl.replace('APPID', 'wx290789e88ffcb79f')
+			var redir = requestOpenIdUrl.replace('APPID', 'wx3dd4674f2fb695c5')
 				.replace('REDIRECT_URI', redirect_uri)
 				.replace('SCOPE', 'snsapi_userinfo');
 			window.location.href = redir;
@@ -98,26 +98,26 @@ require(['app'], function(app) {
 			//有code，就请求后台获取userinfo
 			__WX_DEBUG__("code:"+code)
 			app.ajax.post({
-				url: 'web/strait/oauth/mao1b82a58f24d7d16c11e16/'+code,
+				url: 'web/strait/oauth/55783312d4c62fc2baa29f54/'+code,
 				success: function(res){
 					if(res.code == 0){
 						//获取到用户完整的信息
-						setCookie(openIdCookieKey,res.data.openid,7)
+						setCookie(openIdCookieKey,res.data.openid,7);
 						window.wxOpenId = res.data.openid;
 						// alert('ajax get openid->'+ window.wxOpenId)
-						__WX_DEBUG__('save cookie & wxopenid->'+window.wxOpenId)
+						__WX_DEBUG__('save cookie & wxopenid->'+window.wxOpenId);
 					}else{
 						alert('Error Code=' + res.code + " " + res.msg);
 					}
 				},
 				error: function(){
-					alert('网络繁忙，请重新再试')
+					alert('网络繁忙，请重新再试');
 				}
 			});
 		}
 
 	} else {
 		window.wxOpenId = openIdInCookie;
-		__WX_DEBUG__('wxopenid from cookie->'+window.wxOpenId)
+		__WX_DEBUG__('wxopenid from cookie->'+window.wxOpenId);
 	}
 });
