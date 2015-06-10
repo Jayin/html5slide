@@ -1,5 +1,6 @@
 var React = require('react');
 var app = require('app');
+var Skateboard = require('skateboard');
 
 var CompanyList = React.createClass({
 	getInitialState: function(){
@@ -10,6 +11,8 @@ var CompanyList = React.createClass({
 	handleItemClick:  function(data,evt){
 		 evt.preventDefault();
 		 console.log(data)
+		 G.state.set({companyCode: data.Code})
+		 Skateboard.core.view('/view/category')
 	},
 	render: function(){
 		var createItem = function(companyObj){

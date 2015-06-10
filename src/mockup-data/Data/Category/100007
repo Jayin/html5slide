@@ -1,0 +1,903 @@
+[
+    {
+        "ID": 2839,
+        "Name": "接触器",
+        "Text": "接触器",
+        "Alias": "",
+        "Hierarchy": 1,
+        "CompanyCode": "100007",
+        "CompanyName": null,
+        "Children": [
+            {
+                "ID": 2840,
+                "Name": "交流接触器",
+                "Text": "交流接触器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2841,
+                        "Name": "CK3",
+                        "Text": "CK3交流接触器",
+                        "Alias": "CK3交流接触器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2842,
+                        "Name": "CK3K",
+                        "Text": "CK3电容用交流接触器",
+                        "Alias": "CK3电容用交流接触器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2843,
+                        "Name": "CK3VS",
+                        "Text": "CK3机械锁扣交流接触器",
+                        "Alias": "CK3机械锁扣交流接触器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2844,
+                        "Name": "SC",
+                        "Text": "SC交流接触器",
+                        "Alias": "SC交流接触器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2845,
+                        "Name": "SCK",
+                        "Text": "SC电容用交流接触器",
+                        "Alias": "SC电容用交流接触器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2846,
+                        "Name": "SCVS",
+                        "Text": "SC机械锁扣交流接触器",
+                        "Alias": "SC机械锁扣交流接触器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            }
+        ],
+        "Groups": null
+    },
+    {
+        "ID": 2847,
+        "Name": "断路器",
+        "Text": "断路器",
+        "Alias": "",
+        "Hierarchy": 1,
+        "CompanyCode": "100007",
+        "CompanyName": null,
+        "Children": [
+            {
+                "ID": 2884,
+                "Name": "控制保护开关",
+                "Text": "控制保护开关",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2885,
+                        "Name": "CB1",
+                        "Text": "CB1控制保护开关123",
+                        "Alias": "CB1控制保护开关",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            },
+            {
+                "ID": 2875,
+                "Name": "小型断路器",
+                "Text": "小型断路器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2876,
+                        "Name": "CH1",
+                        "Text": "CH1-63小型断路器",
+                        "Alias": "CH1-63小型断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2877,
+                        "Name": "CH132",
+                        "Text": "CH1-32小型断路器",
+                        "Alias": "CH1-32小型断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2878,
+                        "Name": "CH1G",
+                        "Text": "CH1G-100小型隔离开关",
+                        "Alias": "CH1G-100小型隔离开关",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2879,
+                        "Name": "CH1L32",
+                        "Text": "CH1L-32小型漏电断路器",
+                        "Alias": "CH1L-32小型漏电断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2880,
+                        "Name": "CH1L50",
+                        "Text": "CH1L-50小型漏电断路器",
+                        "Alias": "CH1L-50小型漏电断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2881,
+                        "Name": "CH2",
+                        "Text": "CH2-63小型断路器",
+                        "Alias": "CH2-63小型断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2882,
+                        "Name": "CH2L",
+                        "Text": "CH2L-63小型漏电断路器",
+                        "Alias": "CH2L-63小型漏电断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2883,
+                        "Name": "CH2Z",
+                        "Text": "CH2Z-63小型直流断路器",
+                        "Alias": "CH2Z-63小型直流断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            },
+            {
+                "ID": 2857,
+                "Name": "双电源开关",
+                "Text": "双电源开关",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2858,
+                        "Name": "CA1",
+                        "Text": "CA1双电源",
+                        "Alias": "CA1双电源",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2859,
+                        "Name": "CA1B",
+                        "Text": "CA1B双电源",
+                        "Alias": "CA1B双电源",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2860,
+                        "Name": "CAP1",
+                        "Text": "CAP1双电源",
+                        "Alias": "CAP1双电源",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2861,
+                        "Name": "CAP2",
+                        "Text": "CAP2双电源",
+                        "Alias": "CAP2双电源",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            },
+            {
+                "ID": 2862,
+                "Name": "塑壳断路器",
+                "Text": "塑壳断路器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2863,
+                        "Name": "CM1",
+                        "Text": "CM1塑壳断路器",
+                        "Alias": "CM1塑壳断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2864,
+                        "Name": "CM1E",
+                        "Text": "CM1E电子式塑壳断路器",
+                        "Alias": "CM1E电子式塑壳断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2865,
+                        "Name": "CM1EL",
+                        "Text": "CM1EL电子式塑壳漏电断路器",
+                        "Alias": "CM1EL电子式塑壳漏电断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2866,
+                        "Name": "CM1L",
+                        "Text": "CM1L塑壳漏电断路器",
+                        "Alias": "CM1L塑壳漏电断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2867,
+                        "Name": "CM1Z",
+                        "Text": "CM1Z智能型塑壳断路器",
+                        "Alias": "CM1Z智能型塑壳断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2868,
+                        "Name": "CM2",
+                        "Text": "CM2塑壳断路器",
+                        "Alias": "CM2塑壳断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2869,
+                        "Name": "CM2L",
+                        "Text": "CM2L塑壳漏电断路器",
+                        "Alias": "CM2L塑壳漏电断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2870,
+                        "Name": "CM2Z",
+                        "Text": "CM2Z智能型塑壳断路器",
+                        "Alias": "CM2Z智能型塑壳断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2871,
+                        "Name": "CM3",
+                        "Text": "CM3塑壳断路器",
+                        "Alias": "CM3塑壳断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2872,
+                        "Name": "CM3DC",
+                        "Text": "CM3DC塑壳直流断路器",
+                        "Alias": "CM3DC塑壳直流断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2873,
+                        "Name": "CM3E",
+                        "Text": "CM3E电子式塑壳断路器",
+                        "Alias": "CM3E电子式塑壳断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2874,
+                        "Name": "CM3L",
+                        "Text": "CM3L塑壳漏电断路器",
+                        "Alias": "CM3L塑壳漏电断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            },
+            {
+                "ID": 2848,
+                "Name": "万能断路器",
+                "Text": "万能断路器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2849,
+                        "Name": "CW1",
+                        "Text": "CW1智能型万能断路器",
+                        "Alias": "CW1智能型万能断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2850,
+                        "Name": "CW1G",
+                        "Text": "CW1G智能型隔离开关",
+                        "Alias": "CW1G智能型隔离开关",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2851,
+                        "Name": "CW2",
+                        "Text": "CW2智能型万能断路器",
+                        "Alias": "CW2智能型万能断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2852,
+                        "Name": "CW3",
+                        "Text": "CW3智能型万能断路器",
+                        "Alias": "CW3智能型万能断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2853,
+                        "Name": "CW3DC",
+                        "Text": "CW3DC直流万能断路器",
+                        "Alias": "CW3DC直流万能断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2854,
+                        "Name": "CW3G",
+                        "Text": "CW3G智能型隔离开关",
+                        "Alias": "CW3G智能型隔离开关",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2855,
+                        "Name": "CW3V",
+                        "Text": "CW3V真空型万能断路器",
+                        "Alias": "CW3V真空型万能断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2856,
+                        "Name": "CW3X",
+                        "Text": "CW3X限流型万能断路器",
+                        "Alias": "CW3X限流型万能断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            }
+        ],
+        "Groups": null
+    },
+    {
+        "ID": 2834,
+        "Name": "仪表",
+        "Text": "仪表",
+        "Alias": "",
+        "Hierarchy": 1,
+        "CompanyCode": "100007",
+        "CompanyName": null,
+        "Children": [
+            {
+                "ID": 2835,
+                "Name": "数显仪表",
+                "Text": "数显仪表",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2836,
+                        "Name": "CE1",
+                        "Text": "CE1智能型电力仪表",
+                        "Alias": "CE1智能型电力仪表",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            },
+            {
+                "ID": 2837,
+                "Name": "智能配电监控器",
+                "Text": "智能配电监控器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2838,
+                        "Name": "FCX3",
+                        "Text": "FCX3智能配电监控器",
+                        "Alias": "FCX3智能配电监控器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            }
+        ],
+        "Groups": null
+    },
+    {
+        "ID": 2886,
+        "Name": "电动机启动器",
+        "Text": "电动机启动器",
+        "Alias": "",
+        "Hierarchy": 1,
+        "CompanyCode": "100007",
+        "CompanyName": null,
+        "Children": [
+            {
+                "ID": 2892,
+                "Name": "软启动",
+                "Text": "软启动",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2893,
+                        "Name": "CR1",
+                        "Text": "CR1软启动",
+                        "Alias": "CR1软启动",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2894,
+                        "Name": "CR2",
+                        "Text": "CR2软启动",
+                        "Alias": "CR2软启动",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            },
+            {
+                "ID": 2887,
+                "Name": "变频器",
+                "Text": "变频器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2888,
+                        "Name": "CF1",
+                        "Text": "CF1变频器",
+                        "Alias": "CF1变频器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2889,
+                        "Name": "CFJ1",
+                        "Text": "CFJ1变频器",
+                        "Alias": "CFJ1变频器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            },
+            {
+                "ID": 2890,
+                "Name": "电动机保护器",
+                "Text": "电动机保护器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2891,
+                        "Name": "CD4",
+                        "Text": "CD4电动机保护器",
+                        "Alias": "CD4电动机保护器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            }
+        ],
+        "Groups": null
+    },
+    {
+        "ID": 2895,
+        "Name": "继电器",
+        "Text": "继电器",
+        "Alias": "",
+        "Hierarchy": 1,
+        "CompanyCode": "100007",
+        "CompanyName": null,
+        "Children": [
+            {
+                "ID": 2896,
+                "Name": "剩余电流动作继电器",
+                "Text": "剩余电流动作继电器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2897,
+                        "Name": "CLJ3",
+                        "Text": "CLJ3剩余电流动作继电器",
+                        "Alias": "CLJ3剩余电流动作继电器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            },
+            {
+                "ID": 2901,
+                "Name": "热继电器",
+                "Text": "热继电器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2902,
+                        "Name": "CJD3",
+                        "Text": "CJD3热继电器",
+                        "Alias": "CJD3热继电器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2903,
+                        "Name": "CJR3",
+                        "Text": "CJR3热继电器",
+                        "Alias": "CJR3热继电器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2904,
+                        "Name": "TK",
+                        "Text": "TK热继电器",
+                        "Alias": "TK热继电器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            },
+            {
+                "ID": 2898,
+                "Name": "中间继电器",
+                "Text": "中间继电器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2899,
+                        "Name": "FSH",
+                        "Text": "FSH接触器式继电器",
+                        "Alias": "FSH接触器式继电器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2900,
+                        "Name": "SH",
+                        "Text": "SH接触器式继电器",
+                        "Alias": "SH接触器式继电器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            }
+        ],
+        "Groups": null
+    },
+    {
+        "ID": 2905,
+        "Name": "高压产品",
+        "Text": "高压产品",
+        "Alias": "",
+        "Hierarchy": 1,
+        "CompanyCode": "100007",
+        "CompanyName": null,
+        "Children": [
+            {
+                "ID": 2906,
+                "Name": "真空断路器",
+                "Text": "真空断路器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [
+                    {
+                        "ID": 2907,
+                        "Name": "CV1",
+                        "Text": "CV1-12高压真空断路器",
+                        "Alias": "CV1-12高压真空断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2908,
+                        "Name": "CV124",
+                        "Text": "CV1-24高压真空断路器",
+                        "Alias": "CV1-24高压真空断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2909,
+                        "Name": "CV140",
+                        "Text": "CV1-40.5高压真空断路器",
+                        "Alias": "CV1-40.5高压真空断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2910,
+                        "Name": "CV1G",
+                        "Text": "CV1系列高压隔离开关",
+                        "Alias": "CV1系列高压隔离开关",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2911,
+                        "Name": "CV2",
+                        "Text": "CV2-12高压真空断路器",
+                        "Alias": "CV2-12高压真空断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2912,
+                        "Name": "CV224",
+                        "Text": "CV2-24高压真空断路器",
+                        "Alias": "CV2-24高压真空断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    },
+                    {
+                        "ID": 2913,
+                        "Name": "CVR1",
+                        "Text": "CVR1-12侧装高压真空断路器",
+                        "Alias": "CVR1-12侧装高压真空断路器",
+                        "Hierarchy": 3,
+                        "CompanyCode": "100007",
+                        "CompanyName": null,
+                        "Children": null,
+                        "Groups": null
+                    }
+                ],
+                "Groups": null
+            }
+        ],
+        "Groups": null
+    }
+]
