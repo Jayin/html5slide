@@ -1,8 +1,12 @@
 .sb-mod.sb-mod--comfirm {
-    background-image: url(../../../image/longpress.png);
-    background-position: left top;
-    background-repeat: no-repeat;
-    background-size: cover;
+    .body-inner {
+        background-image: url(../../../image/longpress.png);
+        background-position: left top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
     #comfirm-btn-press {
         width: 50%;
         height: 30%;
