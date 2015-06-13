@@ -79,7 +79,7 @@ require(['app'], function(app) {
 	var url_obj = parser(window.location.href);
 
 	// var wxOpenId;
-	var openIdCookieKey = 'userinfo_wxOpenId0610918';
+	var openIdCookieKey = 'userinfo_wxOpenId0610923';
 	//尝试从cookie中获取
 	var openIdInCookie = getCookie(openIdCookieKey);
 	if (!openIdInCookie) {
@@ -87,13 +87,13 @@ require(['app'], function(app) {
 		var code = url_obj.search.code;
 		if (code == null || code == undefined) {
 			//没有code,跳转去拿code
-			var redirect_uri = encodeURIComponent(window.location.href);
-			var requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect'
+			//var redirect_uri = encodeURIComponent(window.location.href);
+			//var requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect'
 
-			var redir = requestOpenIdUrl.replace('APPID', 'wx3dd4674f2fb695c5')
-				.replace('REDIRECT_URI', redirect_uri)
-				.replace('SCOPE', 'snsapi_userinfo');
-			window.location.href = redir;
+			//var redir = requestOpenIdUrl.replace('APPID', 'wx3dd4674f2fb695c5')
+			//	.replace('REDIRECT_URI', redirect_uri)
+			//	.replace('SCOPE', 'snsapi_userinfo');
+			window.location.href = 'redirect.html';
 		} else {
 			//有code，就请求后台获取userinfo
 			__WX_DEBUG__("code:"+code)
