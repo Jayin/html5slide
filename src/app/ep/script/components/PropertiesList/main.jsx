@@ -16,27 +16,17 @@ var CompanyList = React.createClass({
 	},
 	handleItemClick:  function(data,evt){
 		 evt.preventDefault();
-		 console.log(data)
 		 G.state.set({companyCode: data.Code})
 		 Skateboard.core.view('/view/category')
 	},
 	render: function(){
 		var createItem = function(element, index){
-
-			// var Style_CompanyName = {
-			// 	  padding: '8px'
-			// };
-			console.log ('createItem-->')
-			console.log (this.props)
-			console.log (this.state)
 			//返回属性列表
 			return (
 				<div >
 					<div>{element.Name}</div>
 					<ul>
 					  {element.Options.map(function(item, i){
-					  	console.log('element.Options.map')
-					  	console.log('item: '+item+ ' Text: '+this.props.Product.Items[index].Text)
 					  	if (item == this.props.Product.Items[index].Text){
 						  	return (
 						  		<li className="list-item-active">{item}</li>
