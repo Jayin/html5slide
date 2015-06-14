@@ -2,8 +2,11 @@ app = require 'app'
 Skateboard = require 'skateboard'
 $ = require 'jquery'
 
-React = require('react')
-PropertiesList = require('../../components/PropertiesList/main')
+React = require 'react'
+AccessoryList = require '../../components/AccessoryList/main'
+PropertiesList = require '../../components/PropertiesList/main'
+Distributor = require '../../components/Distributor/main'
+Detail = require '../../components/Detail/main'
 
 class Mod extends Skateboard.BaseMod
 	cachable: true
@@ -32,14 +35,18 @@ class Mod extends Skateboard.BaseMod
 
 
 	chooseOption: (evt)=>
-		index = evt.currentTarget.dataset.index
-		if index == "1"
+		index = parseInt(evt.currentTarget.dataset.index)
+		console.log 'index-->' + index
+		$('.option').removeClass('option-active')
+		$($('.option')[index]).addClass('option-active')
+
+		if index == 0
 			@getProperties()
-		else if index == "2"
+		else if index == 1
 			@getAccessory()
-		else if index == "3"
+		else if index == 2
 			@detail()
-		else if index == "4"
+		else if index == 3
 			@getDistributor()
 		else
 			app.alerts.alert '你点击啥?'
@@ -63,6 +70,10 @@ class Mod extends Skateboard.BaseMod
 			url: 'Data/Distributor/{companyCode}'.replace('{companyCode}', @category.companyCode)
 			success: (res)=>
 				console.log res
+				React.render(
+					React.createElement(Distributor, {}),
+					document.getElementById('info-cotent-container')
+				)
 			error: (err)=>
 				app.alerts.alert '系统繁忙，请稍后再试'
 
@@ -72,8 +83,12 @@ class Mod extends Skateboard.BaseMod
 		if !@_CheckCategory()
 			return
 		console.log 'detail page'
+		React.render(
+			React.createElement(Detail, {}),
+			document.getElementById('info-cotent-container')
+		)
 
-	# 更新附体数据
+	# 附体
 	getAccessory: ()=>
 		console.log 'getAccessory page'
 		if !@_CheckCategory()
@@ -83,6 +98,10 @@ class Mod extends Skateboard.BaseMod
 			url: url.replace('{productID}', @category.id).replace('{companyCode}', @category.companyCode)
 			success: (res)=>
 				console.log res
+				React.render(
+					React.createElement(AccessoryList, {}),
+					document.getElementById('info-cotent-container')
+				)
 			error: (err)=>
 				app.alerts.alert '系统繁忙，请稍后再试'
 

@@ -1,0 +1,239 @@
+[
+	{
+		"Name": "附件",
+		"SelectOption": 0,
+		"Items": [
+			{
+				"ID": 18851,
+				"Code": "FJCM10001",
+				"Name": "无辅助",
+				"Text": "00",
+				"Price": 0,
+				"Location": "!",
+				"IsDefault": true
+			},
+			{
+				"ID": 18924,
+				"Code": "FJCM10074",
+				"Name": "报警触头",
+				"Text": "08",
+				"Price": 30,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 18997,
+				"Code": "FJCM10147",
+				"Name": "分励脱扣",
+				"Text": "10",
+				"Price": 70,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19070,
+				"Code": "FJCM10220",
+				"Name": "辅助触头",
+				"Text": "20",
+				"Price": 32,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19143,
+				"Code": "FJCM10293",
+				"Name": "欠压",
+				"Text": "30",
+				"Price": 100,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19216,
+				"Code": "FJCM10366",
+				"Name": "分励+辅助",
+				"Text": "40",
+				"Price": 102,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19289,
+				"Code": "FJCM10439",
+				"Name": "分励+欠压",
+				"Text": "50",
+				"Price": 170,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19362,
+				"Code": "FJCM10512",
+				"Name": "双辅助触头",
+				"Text": "60",
+				"Price": 64,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19435,
+				"Code": "FJCM10585",
+				"Name": "辅助+欠压",
+				"Text": "70",
+				"Price": 132,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19508,
+				"Code": "FJCM10658",
+				"Name": "分励+报警",
+				"Text": "18",
+				"Price": 100,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19581,
+				"Code": "FJCM10731",
+				"Name": "辅助+报警",
+				"Text": "28",
+				"Price": 62,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19654,
+				"Code": "FJCM10804",
+				"Name": "欠压+报警",
+				"Text": "38",
+				"Price": 130,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19727,
+				"Code": "FJCM10877",
+				"Name": "分励+辅助+报警",
+				"Text": "48",
+				"Price": 132,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19800,
+				"Code": "FJCM10950",
+				"Name": "双辅助+报警",
+				"Text": "68",
+				"Price": 94,
+				"Location": "!",
+				"IsDefault": false
+			},
+			{
+				"ID": 19873,
+				"Code": "FJCM11023",
+				"Name": "辅助+欠压+报警",
+				"Text": "78",
+				"Price": 162,
+				"Location": "!",
+				"IsDefault": false
+			}
+		]
+	},
+	{
+		"Name": "保护用途",
+		"SelectOption": 0,
+		"Items": [
+			{
+				"ID": 19946,
+				"Code": "FJCM11096",
+				"Name": "配电保护",
+				"Text": "",
+				"Price": 0,
+				"Location": "#",
+				"IsDefault": true
+			},
+			{
+				"ID": 20011,
+				"Code": "FJCM11161",
+				"Name": "电动机保护",
+				"Text": "2",
+				"Price": 30,
+				"Location": "#",
+				"IsDefault": false
+			}
+		]
+	},
+	{
+		"Name": "安装方式",
+		"SelectOption": 0,
+		"Items": [
+			{
+				"ID": 20067,
+				"Code": "FJCM11226",
+				"Name": "板后接线",
+				"Text": " 板后接线",
+				"Price": 55,
+				"Location": "0",
+				"IsDefault": false
+			},
+			{
+				"ID": 20133,
+				"Code": "FJCM11293",
+				"Name": "插入式板后接线",
+				"Text": " 插入式板后接线",
+				"Price": 100,
+				"Location": "0",
+				"IsDefault": false
+			}
+		]
+	},
+	{
+		"Name": "操作方式",
+		"SelectOption": 0,
+		"Items": [
+			{
+				"ID": 20241,
+				"Code": "FJCM11494",
+				"Name": "手操作机构",
+				"Text": "Z",
+				"Price": 80,
+				"Location": "$",
+				"IsDefault": false
+			},
+			{
+				"ID": 20301,
+				"Code": "FJCM11559",
+				"Name": "电动操作",
+				"Text": "P",
+				"Price": 480,
+				"Location": "$",
+				"IsDefault": false
+			},
+			{
+				"ID": 20361,
+				"Code": "FJCM11624",
+				"Name": "无操作机构",
+				"Text": "",
+				"Price": 0,
+				"Location": "$",
+				"IsDefault": true
+			}
+		]
+	},
+	{
+		"Name": "机械连锁",
+		"SelectOption": 0,
+		"Items": [
+			{
+				"ID": 20425,
+				"Code": "FJCM11689",
+				"Name": "两台断路器机械联锁",
+				"Text": " 两台断路器机械联锁",
+				"Price": 80,
+				"Location": "0",
+				"IsDefault": false
+			}
+		]
+	}
+]
