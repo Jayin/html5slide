@@ -1,0 +1,16 @@
+.component-PropertiesList {
+    ul {
+        padding: 0;
+        margin: 0;
+        margin-left: 8px;
+    }
+    li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 8px;
+    }
+    .list-item-active {
+        font-weight: bold;
+        color: green;
+    }
+}

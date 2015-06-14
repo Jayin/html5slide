@@ -1,0 +1,57 @@
+.sb-mod.sb-mod--info {
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    .percent-container {
+        height: 40px;
+        width: 100%;
+        background-color: gray;
+        text-align: center;
+        padding-top: 4px;
+    }
+    .percent-container div {
+        display: inline-block;
+    }
+    .product-name {
+        color: rgb(3, 127, 246);
+        margin: 4px;
+        font-size: 1.1rem;
+    }
+    .product-price {
+        font-size: 1.2rem;
+        width: 60%;
+        float: left;
+        margin-left: 8px;
+    }
+	.product-price-number{
+		font-style: oblique;
+	}
+    .btn-copy {
+        font-size: 1rem;
+        float: right;
+        background-color: gainsboro;
+        border-radius: 5px;
+        width: 47px;
+        text-align: center;
+        margin-right: 8px;
+    }
+    .options {
+        clear: both;
+        width: 100%;
+        background-color: gainsboro;
+        height: 48px;
+        margin-top: 40px;
+        text-align: center;
+    }
+    .option {
+        width: 24%;
+        height: 85%;
+        display: inline-block;
+        padding-top: 3px;
+        margin-top: 7px;
+    }
+    .option-active {
+        background-color: white;
+    }
+}

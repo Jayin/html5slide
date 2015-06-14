@@ -1,0 +1,50 @@
+[
+    {
+        "Name": "辅助开关",
+        "SelectOption": 0,
+        "Items": [
+            {
+                "ID": 9821,
+                "Code": "FJB0001",
+                "Name": "CA7-01（一常闭）",
+                "Text": " CA7-01（一常闭）",
+                "Price": 9,
+                "Location": "0",
+                "IsDefault": false
+            },
+            {
+                "ID": 9826,
+                "Code": "FJB0014",
+                "Name": "CA7-10（一常开）",
+                "Text": " CA7-10（一常开）",
+                "Price": 9,
+                "Location": "0",
+                "IsDefault": false
+            },
+            {
+                "ID": 9831,
+                "Code": "FJB0027",
+                "Name": "CA7-22（二开二闭）",
+                "Text": " CA7-22（二开二闭）",
+                "Price": 40,
+                "Location": "0",
+                "IsDefault": false
+            }
+        ]
+    },
+    {
+        "Name": "机械联锁装置",
+        "SelectOption": 0,
+        "Items": [
+            {
+                "ID": 9852,
+                "Code": "FJB0092",
+                "Name": "VB30",
+                "Text": " VB30",
+                "Price": 20,
+                "Location": "0",
+                "IsDefault": false
+            }
+        ]
+    }
+]

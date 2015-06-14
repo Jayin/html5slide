@@ -21,6 +21,8 @@ class Mod extends Skateboard.BaseMod
 		res.alias = obj.Alias
 		res.hierarchy = obj.Hierarchy
 		res.companyName = obj.CompanyName
+		res.companyCode = obj.CompanyCode
+		res.groups = obj.Groups
 		# 默认二级目录
 		if res.hierarchy is 1
 			res.state = {opened: true}
@@ -55,6 +57,14 @@ class Mod extends Skateboard.BaseMod
 
 			plugins : ["types"]
 		}
+
+		$('#category-container').on 'select_node.jstree', (event, data)=>
+			console.log event
+			console.log data
+			if data.node.original.hierarchy is 3
+				# 设置该原件的的所有给出的属性
+				G.state.set category: data.node.original
+				Skateboard.core.view '/view/info'
 
 		app.ajax.get
 			url: 'Data/Category/' + G.state.get('companyCode')
