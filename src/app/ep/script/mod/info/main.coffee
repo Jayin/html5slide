@@ -22,6 +22,8 @@ class Mod extends Skateboard.BaseMod
 
 
 	_afterFadeIn: =>
+		# 每次进入该页面是清空数据
+		G.state.set({accessory: null})
 
 	_afterFadeOut: =>
 
@@ -104,14 +106,22 @@ class Mod extends Skateboard.BaseMod
 		console.log 'getAccessory page'
 		if !@_CheckCategory()
 			return
+		# 如果有数据，说明是当页tab的切换，不需要重新请求新数据，而是直接渲染
+		if G.state.get('accessory')
+			React.render(
+					React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
+					document.getElementById('info-cotent-container')
+				)
+			return
 		url = 'Data/Accessory/{productID}?companyCode={companyCode}'
 		app.ajax.get
 			url: url.replace('{productID}', @category.id).replace('{companyCode}', @category.companyCode)
 			success: (res)=>
 				console.log res
+				# 处理& 保存
 				@_saveAccessory(res)
 				React.render(
-					React.createElement(AccessoryList, {Accessorys: res}),
+					React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
 					document.getElementById('info-cotent-container')
 				)
 			error: (err)=>
