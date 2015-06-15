@@ -99,7 +99,7 @@ class Mod extends Skateboard.BaseMod
 			success: (res)=>
 				console.log res
 				React.render(
-					React.createElement(AccessoryList, {}),
+					React.createElement(AccessoryList, {Accessorys: res}),
 					document.getElementById('info-cotent-container')
 				)
 			error: (err)=>
