@@ -1,0 +1,66 @@
+[
+	{
+		"ID": 3416,
+		"Name": "外壳",
+		"Text": "外壳",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "200001",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 3417,
+				"Name": "低压柜体",
+				"Text": "低压柜体",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "200001",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "温州北广柜架有限公司",
+						"CompanyCode": "200001",
+						"CompanyPinYin": "WZBGGJYXGS",
+						"Categories": [
+							{
+								"ID": 3418,
+								"Name": "GCK",
+								"Text": "GCK抽屉柜(9层抽屉)",
+								"Alias": "GCK抽屉柜(9层抽屉)",
+								"Hierarchy": 3,
+								"CompanyCode": "200001",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3419,
+								"Name": "GCS",
+								"Text": "GCS抽屉柜(11层抽屉)",
+								"Alias": "GCS抽屉柜(11层抽屉)",
+								"Hierarchy": 3,
+								"CompanyCode": "200001",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3420,
+								"Name": "CC",
+								"Text": "测试",
+								"Alias": "测试",
+								"Hierarchy": 3,
+								"CompanyCode": "200001",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			}
+		],
+		"Groups": null
+	}
+]

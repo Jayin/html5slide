@@ -1,0 +1,1174 @@
+[
+	{
+		"ID": 289,
+		"Name": "仪器仪表",
+		"Text": "仪器仪表",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 290,
+				"Name": "数显仪表",
+				"Text": "数显仪表",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "上海人民电器厂",
+						"CompanyCode": "100009",
+						"CompanyPinYin": "SHRMDQC",
+						"Categories": [
+							{
+								"ID": 293,
+								"Name": "P17009",
+								"Text": "P17009可编程数显仪表",
+								"Alias": "P17009",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 294,
+								"Name": "PD17009",
+								"Text": "PD17009多功能网络仪表",
+								"Alias": "PD17009",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			}
+		],
+		"Groups": null
+	},
+	{
+		"ID": 292,
+		"Name": "仪表",
+		"Text": "仪表",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 3612,
+				"Name": "智能配电监控器",
+				"Text": "智能配电监控器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100007",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3613,
+								"Name": "FCX3",
+								"Text": "FCX3智能配电监控器",
+								"Alias": "FCX3智能配电监控器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			}
+		],
+		"Groups": null
+	},
+	{
+		"ID": 295,
+		"Name": "接触器",
+		"Text": "接触器",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 296,
+				"Name": "交流接触器",
+				"Text": "交流接触器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3616,
+								"Name": "CK3",
+								"Text": "CK3交流接触器",
+								"Alias": "CK3交流接触器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3617,
+								"Name": "CK3K",
+								"Text": "CK3电容用交流接触器",
+								"Alias": "CK3电容用交流接触器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3618,
+								"Name": "CK3VS",
+								"Text": "CK3机械锁扣交流接触器",
+								"Alias": "CK3机械锁扣交流接触器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3619,
+								"Name": "SC",
+								"Text": "SC交流接触器",
+								"Alias": "SC交流接触器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3620,
+								"Name": "SCK",
+								"Text": "SC电容用交流接触器",
+								"Alias": "SC电容用交流接触器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3621,
+								"Name": "SCVS",
+								"Text": "SC机械锁扣交流接触器",
+								"Alias": "SC机械锁扣交流接触器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					},
+					{
+						"CompanyName": "上海人民电器厂",
+						"CompanyCode": "100009",
+						"CompanyPinYin": "SHRMDQC",
+						"Categories": [
+							{
+								"ID": 297,
+								"Name": "B",
+								"Text": "B交流接触器",
+								"Alias": "B",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 298,
+								"Name": "BC",
+								"Text": "B25C-B75C系列电容用接触器",
+								"Alias": "BC",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 299,
+								"Name": "CJ20",
+								"Text": "CJ20交流接触器",
+								"Alias": "CJ20",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 300,
+								"Name": "CJ40",
+								"Text": "CJ40交流接触器",
+								"Alias": "CJ40",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 301,
+								"Name": "RMK",
+								"Text": "RMK交流接触器",
+								"Alias": "RMK",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 302,
+								"Name": "RMKC",
+								"Text": "RMKC系列电容用接触器",
+								"Alias": "RMKC",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			}
+		],
+		"Groups": null
+	},
+	{
+		"ID": 303,
+		"Name": "断路器",
+		"Text": "断路器",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 304,
+				"Name": "万能断路器",
+				"Text": "万能断路器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3624,
+								"Name": "CW1",
+								"Text": "CW1智能型万能断路器",
+								"Alias": "CW1智能型万能断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3625,
+								"Name": "CW1G",
+								"Text": "CW1G智能型隔离开关",
+								"Alias": "CW1G智能型隔离开关",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3626,
+								"Name": "CW2",
+								"Text": "CW2智能型万能断路器",
+								"Alias": "CW2智能型万能断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3627,
+								"Name": "CW3",
+								"Text": "CW3智能型万能断路器",
+								"Alias": "CW3智能型万能断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3628,
+								"Name": "CW3DC",
+								"Text": "CW3DC直流万能断路器",
+								"Alias": "CW3DC直流万能断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3629,
+								"Name": "CW3G",
+								"Text": "CW3G智能型隔离开关",
+								"Alias": "CW3G智能型隔离开关",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3630,
+								"Name": "CW3V",
+								"Text": "CW3V真空型万能断路器",
+								"Alias": "CW3V真空型万能断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3631,
+								"Name": "CW3X",
+								"Text": "CW3X限流型万能断路器",
+								"Alias": "CW3X限流型万能断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					},
+					{
+						"CompanyName": "上海人民电器厂",
+						"CompanyCode": "100009",
+						"CompanyPinYin": "SHRMDQC",
+						"Categories": [
+							{
+								"ID": 305,
+								"Name": "ME",
+								"Text": "ME系列万能断路器",
+								"Alias": "DW17",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 306,
+								"Name": "MEG",
+								"Text": "ME系列隔离开关",
+								"Alias": "DW17G",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 307,
+								"Name": "RMW1",
+								"Text": "RMW1智能型万能断路器",
+								"Alias": "RMW1",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 308,
+								"Name": "RMW1G",
+								"Text": "RMW1G系列隔离开关",
+								"Alias": "RMW1G",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 309,
+								"Name": "RMW2",
+								"Text": "RMW2智能型万能断路器",
+								"Alias": "RMW2",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			},
+			{
+				"ID": 310,
+				"Name": "双电源开关",
+				"Text": "双电源开关",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3633,
+								"Name": "CA1",
+								"Text": "CA1双电源",
+								"Alias": "CA1双电源",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3634,
+								"Name": "CA1B",
+								"Text": "CA1B双电源",
+								"Alias": "CA1B双电源",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3635,
+								"Name": "CAP1",
+								"Text": "CAP1双电源",
+								"Alias": "CAP1双电源",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3636,
+								"Name": "CAP2",
+								"Text": "CAP2双电源",
+								"Alias": "CAP2双电源",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					},
+					{
+						"CompanyName": "上海人民电器厂",
+						"CompanyCode": "100009",
+						"CompanyPinYin": "SHRMDQC",
+						"Categories": [
+							{
+								"ID": 311,
+								"Name": "RMQ1",
+								"Text": "RMQ1双电源开关",
+								"Alias": "RMQ1",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 312,
+								"Name": "RMQ3",
+								"Text": "RMQ3双电源开关",
+								"Alias": "RMQ3",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 313,
+								"Name": "RMQ5",
+								"Text": "RMQ5双电源开关",
+								"Alias": "RMQ5",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 314,
+								"Name": "RMQ6",
+								"Text": "RMQ6双电源开关",
+								"Alias": "RMQ6",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			},
+			{
+				"ID": 3637,
+				"Name": "塑壳断路器",
+				"Text": "塑壳断路器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100007",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3638,
+								"Name": "CM1",
+								"Text": "CM1塑壳断路器",
+								"Alias": "CM1塑壳断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3639,
+								"Name": "CM1E",
+								"Text": "CM1E电子式塑壳断路器",
+								"Alias": "CM1E电子式塑壳断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3640,
+								"Name": "CM1EL",
+								"Text": "CM1EL电子式塑壳漏电断路器",
+								"Alias": "CM1EL电子式塑壳漏电断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3641,
+								"Name": "CM1L",
+								"Text": "CM1L塑壳漏电断路器",
+								"Alias": "CM1L塑壳漏电断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3642,
+								"Name": "CM1Z",
+								"Text": "CM1Z智能型塑壳断路器",
+								"Alias": "CM1Z智能型塑壳断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3643,
+								"Name": "CM2",
+								"Text": "CM2塑壳断路器",
+								"Alias": "CM2塑壳断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3644,
+								"Name": "CM2L",
+								"Text": "CM2L塑壳漏电断路器",
+								"Alias": "CM2L塑壳漏电断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3645,
+								"Name": "CM2Z",
+								"Text": "CM2Z智能型塑壳断路器",
+								"Alias": "CM2Z智能型塑壳断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3646,
+								"Name": "CM3",
+								"Text": "CM3塑壳断路器",
+								"Alias": "CM3塑壳断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3647,
+								"Name": "CM3DC",
+								"Text": "CM3DC塑壳直流断路器",
+								"Alias": "CM3DC塑壳直流断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3648,
+								"Name": "CM3E",
+								"Text": "CM3E电子式塑壳断路器",
+								"Alias": "CM3E电子式塑壳断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3649,
+								"Name": "CM3L",
+								"Text": "CM3L塑壳漏电断路器",
+								"Alias": "CM3L塑壳漏电断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			},
+			{
+				"ID": 3650,
+				"Name": "小型断路器",
+				"Text": "小型断路器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100007",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3651,
+								"Name": "CH1",
+								"Text": "CH1-63小型断路器",
+								"Alias": "CH1-63小型断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3652,
+								"Name": "CH132",
+								"Text": "CH1-32小型断路器",
+								"Alias": "CH1-32小型断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3653,
+								"Name": "CH1G",
+								"Text": "CH1G-100小型隔离开关",
+								"Alias": "CH1G-100小型隔离开关",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3654,
+								"Name": "CH1L32",
+								"Text": "CH1L-32小型漏电断路器",
+								"Alias": "CH1L-32小型漏电断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3655,
+								"Name": "CH1L50",
+								"Text": "CH1L-50小型漏电断路器",
+								"Alias": "CH1L-50小型漏电断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3656,
+								"Name": "CH2",
+								"Text": "CH2-63小型断路器",
+								"Alias": "CH2-63小型断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3657,
+								"Name": "CH2L",
+								"Text": "CH2L-63小型漏电断路器",
+								"Alias": "CH2L-63小型漏电断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3658,
+								"Name": "CH2Z",
+								"Text": "CH2Z-63小型直流断路器",
+								"Alias": "CH2Z-63小型直流断路器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			},
+			{
+				"ID": 3659,
+				"Name": "控制保护开关",
+				"Text": "控制保护开关",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100007",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3660,
+								"Name": "CB1",
+								"Text": "CB1控制保护开关123",
+								"Alias": "CB1控制保护开关",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			}
+		],
+		"Groups": null
+	},
+	{
+		"ID": 315,
+		"Name": "电动机启动器",
+		"Text": "电动机启动器",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 316,
+				"Name": "电动机保护器",
+				"Text": "电动机保护器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3666,
+								"Name": "CD4",
+								"Text": "CD4电动机保护器",
+								"Alias": "CD4电动机保护器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					},
+					{
+						"CompanyName": "上海人民电器厂",
+						"CompanyCode": "100009",
+						"CompanyPinYin": "SHRMDQC",
+						"Categories": [
+							{
+								"ID": 317,
+								"Name": "RMD2",
+								"Text": "RMD2电动机保护器",
+								"Alias": "RMD2",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			},
+			{
+				"ID": 318,
+				"Name": "软启动",
+				"Text": "软启动",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3668,
+								"Name": "CR1",
+								"Text": "CR1软启动",
+								"Alias": "CR1软启动",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3669,
+								"Name": "CR2",
+								"Text": "CR2软启动",
+								"Alias": "CR2软启动",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					},
+					{
+						"CompanyName": "上海人民电器厂",
+						"CompanyCode": "100009",
+						"CompanyPinYin": "SHRMDQC",
+						"Categories": [
+							{
+								"ID": 319,
+								"Name": "RMS1",
+								"Text": "RMS1软启动器",
+								"Alias": "RMS1",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			},
+			{
+				"ID": 3662,
+				"Name": "变频器",
+				"Text": "变频器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100007",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3663,
+								"Name": "CF1",
+								"Text": "CF1变频器",
+								"Alias": "CF1变频器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3664,
+								"Name": "CFJ1",
+								"Text": "CFJ1变频器",
+								"Alias": "CFJ1变频器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			}
+		],
+		"Groups": null
+	},
+	{
+		"ID": 320,
+		"Name": "继电器",
+		"Text": "继电器",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 321,
+				"Name": "热继电器",
+				"Text": "热继电器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3677,
+								"Name": "CJD3",
+								"Text": "CJD3热继电器",
+								"Alias": "CJD3热继电器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3678,
+								"Name": "CJR3",
+								"Text": "CJR3热继电器",
+								"Alias": "CJR3热继电器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3679,
+								"Name": "TK",
+								"Text": "TK热继电器",
+								"Alias": "TK热继电器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					},
+					{
+						"CompanyName": "上海人民电器厂",
+						"CompanyCode": "100009",
+						"CompanyPinYin": "SHRMDQC",
+						"Categories": [
+							{
+								"ID": 322,
+								"Name": "TB",
+								"Text": "T系列热继电器(B系交流配套)",
+								"Alias": "TB",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 323,
+								"Name": "TRMK",
+								"Text": "T系列热继电器(RMK系交流配套)",
+								"Alias": "TRMK",
+								"Hierarchy": 3,
+								"CompanyCode": "100009",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			},
+			{
+				"ID": 3671,
+				"Name": "剩余电流动作继电器",
+				"Text": "剩余电流动作继电器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100007",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3672,
+								"Name": "CLJ3",
+								"Text": "CLJ3剩余电流动作继电器",
+								"Alias": "CLJ3剩余电流动作继电器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			},
+			{
+				"ID": 3673,
+				"Name": "中间继电器",
+				"Text": "中间继电器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100007",
+				"CompanyName": null,
+				"Children": [],
+				"Groups": [
+					{
+						"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+						"CompanyCode": "100007",
+						"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+						"Categories": [
+							{
+								"ID": 3674,
+								"Name": "FSH",
+								"Text": "FSH接触器式继电器",
+								"Alias": "FSH接触器式继电器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							},
+							{
+								"ID": 3675,
+								"Name": "SH",
+								"Text": "SH接触器式继电器",
+								"Alias": "SH接触器式继电器",
+								"Hierarchy": 3,
+								"CompanyCode": "100007",
+								"CompanyName": null,
+								"Children": null,
+								"Groups": null
+							}
+						]
+					}
+				]
+			}
+		],
+		"Groups": null
+	}
+]

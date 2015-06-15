@@ -1,0 +1,152 @@
+[
+    {
+        "ID": 303,
+        "Name": "断路器",
+        "Text": "断路器",
+        "Alias": "",
+        "Hierarchy": 1,
+        "CompanyCode": "100009",
+        "CompanyName": null,
+        "Children": [
+            {
+                "ID": 324,
+                "Name": "高压断路器",
+                "Text": "高压断路器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100009",
+                "CompanyName": null,
+                "Children": [],
+                "Groups": [
+                    {
+                        "CompanyName": "上海人民电器厂",
+                        "CompanyCode": "100009",
+                        "CompanyPinYin": "SHRMDQC",
+                        "Categories": [
+                            {
+                                "ID": 325,
+                                "Name": "RMVS1",
+                                "Text": "RMVS1",
+                                "Alias": "RMVS1",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100009",
+                                "CompanyName": null,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "Groups": null
+    },
+    {
+        "ID": 3680,
+        "Name": "高压产品",
+        "Text": "高压产品",
+        "Alias": "",
+        "Hierarchy": 1,
+        "CompanyCode": "100007",
+        "CompanyName": null,
+        "Children": [
+            {
+                "ID": 3681,
+                "Name": "真空断路器",
+                "Text": "真空断路器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100007",
+                "CompanyName": null,
+                "Children": [],
+                "Groups": [
+                    {
+                        "CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+                        "CompanyCode": "100007",
+                        "CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+                        "Categories": [
+                            {
+                                "ID": 3682,
+                                "Name": "CV1",
+                                "Text": "CV1-12高压真空断路器",
+                                "Alias": "CV1-12高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100007",
+                                "CompanyName": null,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 3683,
+                                "Name": "CV124",
+                                "Text": "CV1-24高压真空断路器",
+                                "Alias": "CV1-24高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100007",
+                                "CompanyName": null,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 3684,
+                                "Name": "CV140",
+                                "Text": "CV1-40.5高压真空断路器",
+                                "Alias": "CV1-40.5高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100007",
+                                "CompanyName": null,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 3685,
+                                "Name": "CV1G",
+                                "Text": "CV1系列高压隔离开关",
+                                "Alias": "CV1系列高压隔离开关",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100007",
+                                "CompanyName": null,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 3686,
+                                "Name": "CV2",
+                                "Text": "CV2-12高压真空断路器",
+                                "Alias": "CV2-12高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100007",
+                                "CompanyName": null,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 3687,
+                                "Name": "CV224",
+                                "Text": "CV2-24高压真空断路器",
+                                "Alias": "CV2-24高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100007",
+                                "CompanyName": null,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 3688,
+                                "Name": "CVR1",
+                                "Text": "CVR1-12侧装高压真空断路器",
+                                "Alias": "CVR1-12侧装高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100007",
+                                "CompanyName": null,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "Groups": null
+    }
+]
