@@ -3,7 +3,7 @@
  */
 var React = require('react');
 
-var Distributor = React.createClass({
+module.exports = React.createClass({
 	getInitialState: function(){
 		return {
 			Distributors: this.props.Distributors || []
@@ -37,5 +37,3 @@ var Distributor = React.createClass({
 		);
 	}
 });
-
-module.exports = Distributor;

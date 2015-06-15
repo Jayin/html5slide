@@ -5,7 +5,7 @@ var React = require('react');
 var app = require('app');
 var Skateboard = require('skateboard');
 
-var CompanyList = React.createClass({
+module.exports = React.createClass({
 	getInitialState: function(){
 		return {
 			companys: this.props.companys || []
@@ -42,5 +42,3 @@ var CompanyList = React.createClass({
 		);
 	}
 });
-
-module.exports = CompanyList;
