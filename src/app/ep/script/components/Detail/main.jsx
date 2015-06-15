@@ -1,18 +1,52 @@
 /**
- * 附体(产品)属性
+ * 产品明细
  */
 var React = require('react');
-var app = require('app');
-var Skateboard = require('skateboard');
 
 module.exports = React.createClass({
 	getInitialState: function(){
 		return {
+			Accessorys: this.props.Accessorys || []
 		}
 	},
 	render: function(){
+		var createItem = function(ele){
+			var selectItem = null;
+			for (index in ele.Items){
+				console.log ('deal with->')
+				console.log (ele.Items[index])
+				if (ele.Items[index].IsSelected){
+					selectItem = ele.Items[index];
+					break;
+				}
+
+			}
+
+			if (selectItem)
+				return (
+					<div className="text-center">
+						<div className="inline-block text-accessory-name">
+							{selectItem.Name}
+						</div>
+						<div className="float-right inline-block">
+							{selectItem.Price}
+						</div>
+					</div>
+				);
+			else
+				return ;
+		};
 		return (
 			<div className="component-Detail">
+				<div className="table-header">
+					<div className="inline-block">
+					  附件名称
+					</div>
+					<div className="table-header-price float-right">
+						￥售价
+					</div>
+				</div>
+				{this.state.Accessorys.map(createItem.bind(this))}
 			</div>
 		);
 	}

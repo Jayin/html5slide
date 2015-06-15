@@ -84,9 +84,20 @@ class Mod extends Skateboard.BaseMod
 			return
 		console.log 'detail page'
 		React.render(
-			React.createElement(Detail, {}),
+			React.createElement(Detail, {Accessorys: G.state.get('accessory')}),
 			document.getElementById('info-cotent-container')
 		)
+	# TODO: 每次来到info页面的时候都有清空附件列表
+	_saveAccessory: (accessory)=>
+		newAccessory = accessory.map (element)=>
+			element.Items.map (item)=>
+				# 按照默认勾选
+				item.IsSelected = item.IsDefault
+				return item
+			return element
+		G.state.set({accessory: newAccessory})
+		console.log 'info Page: _saveAccessory-->'
+		console.log G.state.get('accessory')
 
 	# 附体
 	getAccessory: ()=>
@@ -98,6 +109,7 @@ class Mod extends Skateboard.BaseMod
 			url: url.replace('{productID}', @category.id).replace('{companyCode}', @category.companyCode)
 			success: (res)=>
 				console.log res
+				@_saveAccessory(res)
 				React.render(
 					React.createElement(AccessoryList, {Accessorys: res}),
 					document.getElementById('info-cotent-container')

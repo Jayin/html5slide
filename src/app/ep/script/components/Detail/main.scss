@@ -1,0 +1,23 @@
+.component-Detail {
+    .table-header {
+        text-align: center;
+        background-color: gainsboro;
+        border-top: 2px solid white;
+    }
+    .inline-block {
+        display: inline-block;
+    }
+    .table-header-price {
+        width: 20%;
+
+    }
+    .float-right{
+    	float: right;
+    }
+    .text-center {
+        text-align: center;
+    }
+    .text-accessory-name {
+        font-size: 0.9rem;
+    }
+}
