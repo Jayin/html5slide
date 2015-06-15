@@ -35,11 +35,25 @@ var CompanyList = React.createClass({
 							console.log ('createItem--> Items map-->')
 							console.log (item)
 							console.log (ele)
+							var Input;
+							if (ele.IsDefault){
+								Input = <input onClick={this.handleItemClick.bind(this, {item: item, ele: ele})}
+											type="checkbox"
+											name={item.Name}
+											data-price={ele.Price}
+											data-optionid={ele.ID}
+											checked="checked"/>
+							}else{
+								Input = <input onClick={this.handleItemClick.bind(this, {item: item, ele: ele})}
+											type="checkbox"
+											name={item.Name}
+											data-price={ele.Price}
+											data-optionid={ele.ID}/>
+							}
 
 							return (
 								<li>
-									<input onClick={this.handleItemClick.bind(this, {item: item, ele: ele})} type="checkbox" name={item.Name}
-									data-price={ele.Price} data-optionid={ele.ID}/>
+									{Input}
 									<label>{ele.Name}</label>
 								</li>
 							)
