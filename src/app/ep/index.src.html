@@ -26,7 +26,7 @@ document.write([
 <!-- 占据底部 -->
 <div class="placeholer-bar-bottom"></div> 
 
-<div class="bar-bottom">
+<div class="bar-bottom bar_bottom_1">
 	<div style="width:100%;height:100%;">
 		<div id="index-btn-common" style="width: 20%;height:100%;display: inline-block;"></div>
 		<div id="index-btn-highPressure" style="width: 20%;height:100%;display: inline-block;"></div>
@@ -77,22 +77,27 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 
 	$('#index-btn-common').on('click',function(){
 		Skateboard.core.view('/view/home')
+		$('div.bar-bottom').removeClass().addClass('bar-bottom bar_bottom_1')
 	});
 
 	$('#index-btn-highPressure').on('click',function(){
 		Skateboard.core.view('/view/highPressure')
+		$('div.bar-bottom').removeClass().addClass('bar-bottom bar_bottom_2')
 	});
 
 	$('#index-btn-lowPressure').on('click',function(){
 		Skateboard.core.view('/view/lowPressure')
+		$('div.bar-bottom').removeClass().addClass('bar-bottom bar_bottom_3')
 	});
 
 	$('#index-btn-accessory').on('click',function(){
 		Skateboard.core.view('/view/accessory')
+		$('div.bar-bottom').removeClass().addClass('bar-bottom bar_bottom_4')
 
 	});
 	$('#index-btn-case').on('click',function(){
 		Skateboard.core.view('/view/case')
+		$('div.bar-bottom').removeClass().addClass('bar-bottom bar_bottom_5')
 	});
 	$('#index-btn-search').on('click',function(){
 		var words = $('.index-search-input')[0].value
