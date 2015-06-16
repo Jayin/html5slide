@@ -55,7 +55,8 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			app.ajax.hideLoading();
 			app.alerts.alert.hide();
 			app.alerts.modal.hide();
-			if(modName != 'home' && !G.state.get()) {
+			var defaultMods = ['home', 'highPressure', 'lowPressure', 'accessory', 'case']
+			if(defaultMods.indexOf(modName) == -1 && !G.state.get()) {
 				Skateboard.core.view('/view/home', {replaceState: true});
 				return false;
 			}
@@ -75,22 +76,23 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 
 
 	$('#index-btn-common').on('click',function(){
-			alert('common')
+		Skateboard.core.view('/view/home')
 	});
 
 	$('#index-btn-highPressure').on('click',function(){
-		alert('highPressure')
+		Skateboard.core.view('/view/highPressure')
 	});
 
 	$('#index-btn-lowPressure').on('click',function(){
-		alert('lowPressure')
+		Skateboard.core.view('/view/lowPressure')
 	});
 
 	$('#index-btn-accessory').on('click',function(){
-		alert('accessory')
+		Skateboard.core.view('/view/accessory')
+
 	});
 	$('#index-btn-case').on('click',function(){
-		alert('case')
+		Skateboard.core.view('/view/case')
 	});
 	$('#index-btn-search').on('click',function(){
 		var words = $('.index-search-input')[0].value
