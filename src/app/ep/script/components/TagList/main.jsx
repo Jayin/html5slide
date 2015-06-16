@@ -90,6 +90,16 @@ module.exports = React.createClass({
 		//转换
 		jstree_config.core.data = this.transform(this.props.result)
 
+		$('#' + this.props.jstreeContainerId).on('select_node.jstree', function(event, data){
+			console.log (event)
+			console.log (data)
+			if (data.node.original.hierarchy == 3){
+				// 设置该原件的的所有给出的属性
+				G.state.set({category: data.node.original})
+				Skateboard.core.view('/view/info')
+			}
+		});
+
 		$('#' + this.props.jstreeContainerId).jstree(jstree_config)
 		console.log ('_updateJsTree!!!')
 	},
