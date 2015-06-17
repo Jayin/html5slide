@@ -24,7 +24,7 @@ module.exports = React.createClass({
 			//返回属性列表
 			return (
 				<div >
-					<div>{element.Name}</div>
+					<div><div className="inline-block name-img"></div>{element.Name}</div>
 					<ul>
 					  {element.Options.map(function(item, i){
 					  	if (item == this.props.Product.Items[index].Text){
@@ -42,7 +42,7 @@ module.exports = React.createClass({
 			);
 		};
 		return (
-			<div className="component-PropertiesList">
+			<div className="component-PropertiesList" style={{padding: '2px'}}>
 				{this.state.Properties.map(createItem.bind(this))}
 			</div>
 		);

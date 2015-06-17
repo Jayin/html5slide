@@ -69,7 +69,7 @@ var CompanyList = React.createClass({
 		var createItem = function(item){
 			return (
 				<div>
-					<div>{item.Name}</div>
+					<div><div className="inline-block name-img"></div>{item.Name}</div>
 					<ul>
 						{item.Items.map(function(ele){
 							// console.log ('createItem--> Items map-->')
@@ -103,7 +103,7 @@ var CompanyList = React.createClass({
 			);
 		};
 		return (
-			<div className="component-AccessoryList">
+			<div className="component-AccessoryList" style={{padding: '2px'}}>
 				{this.state.Accessorys.map(createItem.bind(this))}
 			</div>
 		);

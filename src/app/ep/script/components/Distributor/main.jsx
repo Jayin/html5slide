@@ -31,7 +31,7 @@ module.exports = React.createClass({
 			);
 		};
 		return (
-			<div className="component-Distributor">
+			<div className="component-Distributor" style={{padding: '2px'}}>
 				{this.state.Distributors.map(createItem.bind(this))}
 			</div>
 		);

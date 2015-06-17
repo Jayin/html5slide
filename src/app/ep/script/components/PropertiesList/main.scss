@@ -11,6 +11,14 @@
     }
     .list-item-active {
         font-weight: bold;
-        color: green;
+        color: rgb(52, 204, 59);
+    }
+    .name-img {
+        background-image: url(../../../image/icon_ok.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 13px;
+        height: 13px;
+        margin-right: 2px;
     }
 }
