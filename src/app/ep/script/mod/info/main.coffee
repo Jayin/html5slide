@@ -19,6 +19,7 @@ class Mod extends Skateboard.BaseMod
 	_bodyTpl: require './body.tpl.html'
 
 	category: null
+	productPrice: 0
 
 
 	_afterFadeIn: =>
@@ -28,17 +29,32 @@ class Mod extends Skateboard.BaseMod
 	_afterFadeOut: =>
 
 	onBodyChange: (evt)=>
-		console.log 'onBodyChange-->'
-		console.log evt
+		val = $('#info-input-body')[0].value
+		if parseInt(val)
+			# handle the change
+			percent = G.state.get('percent')
+			percent.body = val
+			G.state.set({percent: percent})
+			# 四舍五入
+			$('.product-price-number').text(Math.round(@productPrice * (G.state.get('percent').body / 100) * 100)/100)
+		else
+			$('#info-input-body')[0].value = 100
 
 	onAccessoryChange: (evt)=>
-		console.log 'onAccessoryChange--->'
-		console.log evt
+		val = $('#info-input-accessory')[0].value
+		if parseInt(val)
+			# handle the change
+			percent = G.state.get('percent')
+			percent.accessory = val
+			G.state.set({percent: percent})
+			if $('.option.option-active').data('index') is 2 #当前Tab是明细页，则更新
+				@detail()
+		else
+			$('#info-input-accessory')[0].value = 100
 
 
 	chooseOption: (evt)=>
 		index = parseInt(evt.currentTarget.dataset.index)
-		console.log 'index-->' + index
 		$('.option').removeClass('option-active')
 		$($('.option')[index]).addClass('option-active')
 
@@ -55,8 +71,6 @@ class Mod extends Skateboard.BaseMod
 
 	_CheckCategory: ()=>
 		category = G.state.get('category')
-		console.log '_CheckCategory'
-		console.log category
 		if !category
 			Skateboard.core.view '/view/home'
 			return false
@@ -67,11 +81,9 @@ class Mod extends Skateboard.BaseMod
 	getDistributor: ()=>
 		if !@_CheckCategory()
 			return
-		console.log 'getDistributor page'
 		app.ajax.get
 			url: 'Data/Distributor/{companyCode}'.replace('{companyCode}', @category.companyCode)
 			success: (res)=>
-				console.log res
 				React.render(
 					React.createElement(Distributor, {Distributors: res}),
 					document.getElementById('info-cotent-container')
@@ -84,11 +96,11 @@ class Mod extends Skateboard.BaseMod
 	detail: ()=>
 		if !@_CheckCategory()
 			return
-		console.log 'detail page'
 		React.render(
 			React.createElement(Detail, {Accessorys: G.state.get('accessory')}),
 			document.getElementById('info-cotent-container')
 		)
+
 	# TODO: 每次来到info页面的时候都有清空附件列表
 	_saveAccessory: (accessory)=>
 		newAccessory = accessory.map (element)=>
@@ -98,12 +110,9 @@ class Mod extends Skateboard.BaseMod
 				return item
 			return element
 		G.state.set({accessory: newAccessory})
-		console.log 'info Page: _saveAccessory-->'
-		console.log G.state.get('accessory')
 
 	# 附体
 	getAccessory: ()=>
-		console.log 'getAccessory page'
 		if !@_CheckCategory()
 			return
 		# 如果有数据，说明是当页tab的切换，不需要重新请求新数据，而是直接渲染
@@ -117,7 +126,6 @@ class Mod extends Skateboard.BaseMod
 		app.ajax.get
 			url: url.replace('{productID}', @category.id).replace('{companyCode}', @category.companyCode)
 			success: (res)=>
-				console.log res
 				# 处理& 保存
 				@_saveAccessory(res)
 				React.render(
@@ -135,10 +143,10 @@ class Mod extends Skateboard.BaseMod
 		app.ajax.get
 			url: url.replace('{category3Name}', @category.name).replace('{companyCode}', @category.companyCode)
 			success: (res)=>
-				console.log 'ret-->'
-				console.log res
+
+				@productPrice = res.Product.Price
 				$('.product-name').text(res.Product.Name)
-				$('.product-price-number').text(res.Product.Price)
+				$('.product-price-number').text(Math.round(@productPrice * (G.state.get('percent').body / 100) * 100) / 100)
 				React.render(
 					React.createElement(PropertiesList, {Properties: res.Properties ,Product: res.Product }),
 					document.getElementById('info-cotent-container')
@@ -146,11 +154,26 @@ class Mod extends Skateboard.BaseMod
 			error: (err)=>
 				app.alerts.alert '系统繁忙，请稍后再试'
 
+	# 初始化百分比
+	initPercent: ()=>
+		G.state.set {percent: {body: 100, accessory: 100}}
+
+
+	updatePercent: (body , accessory )=>
+		#option option-active
+		percent = G.state.get('percent')
+		G.state.set {'percent': {body: body || percent.body, accessory: accessory || percent.accessory}}
+		if $('.option.option-active').data('index') is 2 #当前Tab是明细页，则更新
+			React.render(
+				React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
+				document.getElementById('info-cotent-container')
+			)
+
+
 	render: =>
 		super
 		# @udpateCotegory()
-		console.log 'info--->'
-		console.log G.state.get('category')
+		@initPercent()
 		@getProperties()
 
 

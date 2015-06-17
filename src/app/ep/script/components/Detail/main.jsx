@@ -22,17 +22,20 @@ module.exports = React.createClass({
 
 			}
 
-			if (selectItem)
+			if (selectItem){
+				//根据附体的百分比
+				accessoryPercent =  G.state.get('percent').accessory / 100
 				return (
 					<div className="text-center">
 						<div className="inline-block text-accessory-name">
 							{selectItem.Name}
 						</div>
 						<div className="float-right inline-block">
-							{selectItem.Price}
+							{Math.round(selectItem.Price * accessoryPercent * 100) / 100}
 						</div>
 					</div>
 				);
+			}
 			else
 				return ;
 		};
