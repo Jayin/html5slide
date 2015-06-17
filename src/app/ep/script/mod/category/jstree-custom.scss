@@ -4,4 +4,11 @@
         height: 0px;
         width: 0px;
     }
+	[aria-level="1"]{
+		background-color: rgba(129, 129, 129, 0.35);
+	}
+	[aria-level="1"] ul{
+		background-color: white;
+	}
 }
+
