@@ -13,9 +13,6 @@ var CompanyList = React.createClass({
 		}
 	},
 	handleItemClick: function(data, evt){
-		console.log ('handleItemClick-->')
-		console.log (data)
-		console.log (evt)
 		//处理UI & 更新附件列表
 
 		//当前选中的是否已经选择了，若是则说明取消该选项
@@ -34,29 +31,22 @@ var CompanyList = React.createClass({
 			$('input[data-optionid={id}]'.replace('{id}', data.ele.ID))[0].checked = true;
 		}
 
-		console.log('currentItemIsChecked->'+ currentItemIsChecked)
 		//更新当前选择状态
 		var Accessorys = this.state.Accessorys;
 		var index_item = 0; //附件序列序号
 		var index_ele = 0; //选项序列序号
-		console.log ('find index-item')
 		for (var index in Accessorys){
-			console.log(data.item.Name + ' vs ' + Accessorys[index].Name)
 			if (data.item.Name == Accessorys[index].Name){
 				index_item = index;
 				break
 			}
 		}
-		console.log ('find index_ele')
 		for (var index in Accessorys[index_item].Items){
-			console.log(data.ele.ID + ' vs ' + Accessorys[index_item].Items[index].ID)
 			if (data.ele.ID == Accessorys[index_item].Items[index].ID){
 				index_ele = index;
 				break;
 			}
 		}
-		console.log ('index_item->' + index_item)
-		console.log ('index_ele->' + index_ele)
 
 		newItems = Accessorys[index_item].Items.map(function(e){
 			e.IsSelected = false;

@@ -13,8 +13,6 @@ module.exports = React.createClass({
 		var createItem = function(ele){
 			var selectItem = null;
 			for (index in ele.Items){
-				console.log ('deal with->')
-				console.log (ele.Items[index])
 				if (ele.Items[index].IsSelected){
 					selectItem = ele.Items[index];
 					break;

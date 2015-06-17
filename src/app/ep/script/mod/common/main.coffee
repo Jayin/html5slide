@@ -72,8 +72,6 @@ class Mod extends Skateboard.BaseMod
 		}
 
 		$('#common-container').on 'select_node.jstree', (event, data)=>
-			console.log event
-			console.log data
 			if data.node.original.hierarchy is 3
 				# 设置该原件的的所有给出的属性
 				G.state.set category: data.node.original
@@ -84,8 +82,6 @@ class Mod extends Skateboard.BaseMod
 			success: (res)=>
 				jstree_config.core.data = @transformCategory(res)
 
-				console.log 'commong transformCategory---->'
-				console.log jstree_config.core.data
 
 				$('#common-container').jstree(jstree_config)
 
@@ -93,15 +89,12 @@ class Mod extends Skateboard.BaseMod
 				app.alerts.alert '系统繁忙，请稍后再试'
 
 	_afterFadeIn: =>
-		console.log 'common after fade in--->'
 		@udpateCotegory()
 
 	_afterFadeOut: =>
-		console.log 'common after fade out--->'
 
 	render: =>
 		super
-		console.log 'common render--->'
 		@udpateCotegory()
 
 
