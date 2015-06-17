@@ -67,18 +67,26 @@ body {
     top: 0;
 }
 
-.bar_bottom_1{
-	background-image: url(../image/bar_bottom_1.png)
+.bar_bottom_1 {
+    background-image: url(../image/bar_bottom_1.png)
 }
-.bar_bottom_2{
-	background-image: url(../image/bar_bottom_2.png)
+
+.bar_bottom_2 {
+    background-image: url(../image/bar_bottom_2.png)
 }
-.bar_bottom_3{
-	background-image: url(../image/bar_bottom_3.png)
+
+.bar_bottom_3 {
+    background-image: url(../image/bar_bottom_3.png)
 }
-.bar_bottom_4{
-	background-image: url(../image/bar_bottom_4.png)
+
+.bar_bottom_4 {
+    background-image: url(../image/bar_bottom_4.png)
 }
-.bar_bottom_5{
-	background-image: url(../image/bar_bottom_5.png)
+
+.bar_bottom_5 {
+    background-image: url(../image/bar_bottom_5.png)
+}
+
+.inline-block {
+    display: inline-block;
 }
