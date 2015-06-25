@@ -20,7 +20,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	$.extend(G.MD5_MAP, %{{md5map.zegna-201501}}%);
 	Skateboard.core.init({
 		container: $('.page-wrapper'),
-		defaultModName: 'shirt-w1',
+		defaultModName: 'w1-1',
 		modBase: '../../../app/zegna-201501/script/',
 		animate: {
 			type: 'slide',
@@ -65,7 +65,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 		},
 		constructContentDom: function(modName, args, opt) {
 			var contentDom = $([
-				'<div class="sb-mod sb-mod--' + modName.replace(/\//g, '-') + '" data-sb-mod="' + modName + '" data-sb-scene="0">',
+				'<div class="sb-mod sb-mod--' + modName.replace(/\//g, '-') + '" data-sb-mod="' + modName + '" data-sb-scene="0" style="display: none;">',
 					'<div class="sb-mod__body">',
 						'<div class="body-inner" data-sb-mod-not-renderred>',
 						'</div>',
