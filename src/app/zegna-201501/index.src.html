@@ -75,6 +75,20 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			return contentDom;
 		}
 	});
+	$(document).on('click', '.share-btn', function() {
+		require(['../app/zegna-201501/script/lib/share-hint/main'], function(shareHint) {
+			shareHint.show();
+		});
+	}).on('click', '.header-wechat-btn', function() {
+		require(['../app/zegna-201501/script/lib/follow-hint/main'], function(followHint) {
+			followHint.show();
+		});
+	}).on('click', '.header-download-btn', function(evt) {
+		require(['../app/zegna-201501/script/lib/download-hint/main'], function(downloadHint) {
+			id = $(evt.target).data('id');
+			downloadHint.show(id);
+		});
+	});
 }, function() {
 
 });

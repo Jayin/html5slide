@@ -1,0 +1,45 @@
+.dialog {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, .8);
+	z-index: 99;
+	overflow-y: auto;
+	transform: translate3d(0, 0, 0);
+}
+
+.dialog-content {
+	width: 56%;
+	background-color: #fff;
+	margin: 30px auto;
+	padding: 21px;
+	text-align: center;
+	position: relative;
+}
+
+.dialog-close-btn {
+	border: none;
+	width: 21px;
+	height: 21px;
+	background-color: #444;
+	position: absolute;
+	right: 0;
+	top: 0;
+	text-indent: -9999px;
+}
+.dialog-close-btn:before, .dialog-close-btn:after {
+	content: " ";
+	display: block;
+	width: 13px;
+	height: 1px;
+	background-color: #c99b6d;
+	position: absolute;
+	top: 10px;
+	left: 4px;
+	transform: rotate(45deg);
+}
+.dialog-close-btn:after {
+	transform: rotate(-45deg);
+}

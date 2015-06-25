@@ -3,35 +3,35 @@
 	left: 3%;
 	top: 1%;
 	width: 10%;
-	height: 4%;
+	height: 35px;
 }
 
 .header-download-btn {
 	left: 47.6%;
 	top: 1%;
 	width: 10%;
-	height: 4%;
+	height: 35px;
 }
 
 .header-wechat-btn {
 	left: 60%;
 	top: 1%;
 	width: 10%;
-	height: 4%;
+	height: 35px;
 }
 
 .header-share-btn {
 	left: 72.4%;
 	top: 1%;
 	width: 10%;
-	height: 4%;
+	height: 35px;
 }
 
 .header-shop-btn {
 	left: 84%;
 	top: 1%;
 	width: 10%;
-	height: 4%;
+	height: 35px;
 }
 
 .footer-l-btn {
@@ -53,4 +53,12 @@
 	width: 42%;
 	height: 38px;
 	bottom: 18px;
+}
+
+.like-btn {
+	background-image: url(../image/like/sprite-like-off-2x.png);
+	right: 7%;
+}
+.like-btn.on {
+	background-image: url(../image/like/sprite-like-on-2x.png);
 }

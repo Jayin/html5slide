@@ -65,7 +65,7 @@ gulp.task 'sprite', ->
 			padding: 2
 		.pipe gulp.dest(destBase)
 
-gulp.task 'less', ['sprite'], ->
+gulp.task 'less', ['copy', 'sprite'], ->
 	gulp.src(['src/**/main.less', 'src/**/*-main.less'])
 		.pipe less()
 		.pipe imgCssSprite.cssStream()
@@ -76,7 +76,7 @@ gulp.task 'less', ['sprite'], ->
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
 
-gulp.task 'sass', ['sprite'], ->
+gulp.task 'sass', ['copy', 'sprite'], ->
 	gulp.src(['src/**/main.scss', 'src/**/*-main.scss'])
 		.pipe sass()
 		.pipe imgCssSprite.cssStream()
@@ -87,7 +87,7 @@ gulp.task 'sass', ['sprite'], ->
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
 
-gulp.task 'postcss', ['sprite'], ->
+gulp.task 'postcss', ['copy', 'sprite'], ->
 	gulp.src(['src/**/main.css', 'src/**/*-main.css'])
 		.pipe gulpPostcss [
 			postcssImport()
@@ -141,7 +141,7 @@ gulp.task 'concat', ->
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase + '/script/lib/zepto-1.1.4')
 
-gulp.task 'amd-bundle', ->
+gulp.task 'amd-bundle', ['copy'], ->
 	getFilePath = (fileName, baseFilePath) ->
 		if fileName.indexOf('G.CDN_') > 0
 			fileName = fileName.replace /'[^']+'/g, ''
