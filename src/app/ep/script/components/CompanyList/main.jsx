@@ -13,7 +13,7 @@ module.exports = React.createClass({
 	},
 	handleItemClick:  function(data,evt){
 		 evt.preventDefault();
-		 G.state.set({companyCode: data.Code})
+		 G.state.set({companyCode: data.Code, companyName: data.Name})
 		 Skateboard.core.view('/view/category')
 	},
 	render: function(){

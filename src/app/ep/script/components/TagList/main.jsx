@@ -27,11 +27,11 @@ module.exports = React.createClass({
 		res.Categories = obj.Categories
 		res.Children = obj.Children
 
-		// # 默认二级目录
-		// # if res.hierarchy is 1
-		// # 	res.state = {opened: true}
-		// # else
-		// # 	res.state = {opened: false}
+		//默认二级目录
+		if (res.hierarchy == 1)
+			res.state = {opened: true}
+		else
+			res.state = {opened: false}
 
 
 		if (obj.Children){
