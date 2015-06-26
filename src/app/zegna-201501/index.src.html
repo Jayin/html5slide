@@ -1,9 +1,9 @@
 <!-- extend "../../html/layout/layout.base.html" -->
 
 <!-- section "head" -->
-<meta name="keywords" content="Ermenegildo Zegna" />
-<meta name="description" content="Ermenegildo Zegna" />
-<title>Ermenegildo Zegna</title>
+<meta name="keywords" content="杰尼亚 Ermenegildo Zegna" />
+<meta name="description" content="杰尼亚 Ermenegildo Zegna" />
+<title>杰尼亚Zegna</title>
 <!-- /section -->
 
 <!-- section "body" -->
@@ -23,7 +23,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 		defaultModName: 'w1-1',
 		modBase: '../../../app/zegna-201501/script/',
 		animate: {
-			type: 'slide',
+			type: 'fade',
 			timingFunction: 'linear',
 			duration: 300
 		},
@@ -88,6 +88,8 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			id = $(evt.target).data('id');
 			downloadHint.show(id);
 		});
+	}).on('click', '.like-btn', function(evt) {
+		$(evt.target).toggleClass('on');
 	});
 }, function() {
 

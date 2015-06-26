@@ -31,22 +31,22 @@ var app = require('app');
 
 <div class="body-inner">
 	<div class="img-bg-wrapper">
-		<img class="img-bg-img" src="<%=G.CDN_BASE%>/app/zegna-201501/image/w1-1-bg.jpg" />
+		<img class="img-bg-img" src="<%=G.CDN_BASE%>/app/zegna-201501/image/w1-2-bg.jpg" />
 		<div class="img-bg-cover"></div>
 
 		<a class="img-btn header-wechat-btn" href="javascript:void(0);">wechat</a>
 		<a class="img-btn header-share-btn share-btn" href="javascript:void(0);">share</a>
 		<a class="img-btn header-shop-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=211369012&idx=1&sn=42969187a2a93a423326e15b600ffae8#rd">shop</a>
 
-		<a class="img-btn" href="/view/w1-1/b1" style="left: 40%; top: 10%; width: 20%; height: 4.2%;">shirt</a>
-		<a class="img-btn" href="/view/w1-1/b1" style="left: 3%; top: 17.4%; width: 42%; height: 1.55%;">shirt</a>
-		<a class="img-btn" href="/view/w1-1/b1" style="left: 3%; top: 23.9%; width: 16%; height: 1.4%;">shirt</a>
-		<button class="img-btn like-btn hidden" data-like-id="w1-1-b1" style="top: 15.6%;">like</button>
-
 		<a class="img-btn" href="/view/w1-1/b2" style="left: 40%; top: 28.8%; width: 20%; height: 4.2%;">jersey</a>
-		<a class="img-btn" href="/view/w1-1/b2" style="left: 3%; top: 36.2%; width: 51%; height: 1.55%;">jersey</a>
+		<a class="img-btn" href="/view/w1-1/b2" style="left: 3%; top: 36.2%; width: 42%; height: 1.55%;">jersey</a>
 		<a class="img-btn" href="/view/w1-1/b2" style="left: 3%; top: 42.6%; width: 16%; height: 1.4%;">jersey</a>
 		<button class="img-btn like-btn hidden" data-like-id="w1-1-b2" style="top: 34.5%;">like</button>
+
+		<a class="img-btn" href="/view/w1-1/b1" style="left: 40%; top: 10%; width: 20%; height: 4.2%;">shirt</a>
+		<a class="img-btn" href="/view/w1-1/b1" style="left: 3%; top: 17.4%; width: 51%; height: 1.55%;">shirt</a>
+		<a class="img-btn" href="/view/w1-1/b1" style="left: 3%; top: 23.9%; width: 16%; height: 1.4%;">shirt</a>
+		<button class="img-btn like-btn hidden" data-like-id="w1-1-b1" style="top: 15.6%;">like</button>
 
 		<a class="img-btn" href="/view/w1-1/b3" style="left: 40%; top: 47.8%; width: 20%; height: 4.2%;">shoes</a>
 		<a class="img-btn" href="/view/w1-1/b3" style="left: 3%; top: 55.15%; width: 44%; height: 1.55%;">shoes</a>
