@@ -142,6 +142,12 @@ gulp.task 'concat', ->
 		.pipe gulp.dest(destBase + '/script/lib/zepto-1.1.4')
 
 gulp.task 'amd-bundle', ->
+	getFilePath = (fileName, baseFilePath) ->
+		if fileName.indexOf('G.CDN_') > 0
+			fileName = fileName.replace /'[^']+'/g, ''
+			path.join process.cwd(), destBase, fileName
+		else
+			path.resolve path.dirname(baseFilePath), fileName
 	gulp.src([
 			'src/**/main.js'
 			'src/**/*-main.js'
@@ -166,6 +172,10 @@ gulp.task 'amd-bundle', ->
 				res.css
 		.pipe propertyMerge
 			properties: properties
+		.pipe digestVersioning
+			digestLength: 8
+			basePath: destBase
+			getFilePath: getFilePath
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
 	gulp.src([
@@ -194,8 +204,11 @@ gulp.task 'gen-md5map', ['copy', 'less', 'sass', 'postcss', 'concat', 'amd-bundl
 
 gulp.task 'html-optimize', ['gen-md5map'], ->
 	getFilePath = (fileName, baseFilePath) ->
-		fileName = fileName.replace /'[^']+'/g, ''
-		destBase + '/' + fileName.replace(new RegExp('^\\/' + BUILD_CONTEXT + '\\/'), '')
+		if fileName.indexOf('G.CDN_') > 0
+			fileName = fileName.replace /'[^']+'/g, ''
+			path.join process.cwd(), destBase, fileName
+		else
+			path.resolve path.dirname(baseFilePath), fileName
 	properties.md5map = md5map
 	gulp.src(['src/**/*.src.html'])
 		.pipe htmlOptimizer

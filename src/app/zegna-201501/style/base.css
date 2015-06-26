@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+.page-wrapper {
+    position: relative;
+}
+
+.sb-mod {
+	position: absolute;
+	width: 100%;
+}
+.sb-mod__body {
+	width: 100%;
+}
+
+.share-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: none;
+}
+
+.share-layer .cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: .8;
+}
+
+.img-bg-wrapper {
+	position: relative;
+}
+.img-bg-img {
+	display: block;
+	width: 100%;
+}
+.img-bg-cover {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+

@@ -1,0 +1,82 @@
+<!-- extend "../../html/layout/layout.base.html" -->
+
+<!-- section "head" -->
+<meta name="keywords" content="Ermenegildo Zegna" />
+<meta name="description" content="Ermenegildo Zegna" />
+<title>Ermenegildo Zegna</title>
+<!-- /section -->
+
+<!-- section "body" -->
+<script type="text/javascript">
+document.write([
+	'<link rel="stylesheet" href="' + G.CDN_BASE + '/app/zegna-201501/style/main.css" />'
+].join(''));
+</script>
+
+<div class="page-wrapper"></div>
+
+<script type="text/javascript">
+require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
+	$.extend(G.MD5_MAP, %{{md5map.zegna-201501}}%);
+	Skateboard.core.init({
+		container: $('.page-wrapper'),
+		defaultModName: 'w1-1',
+		modBase: '../../../app/zegna-201501/script/',
+		animate: {
+			type: 'slide',
+			timingFunction: 'linear',
+			duration: 300
+		},
+		modCacheable: true,
+		alwaysUseCache: true,
+		isSupportHistoryState: false,
+		onBeforeViewChange: function(modName, modInst) {
+			app.ajax.hideLoading();
+			app.alerts.alert.hide();
+			app.alerts.modal.hide();
+		},
+		onBeforeFadeOut: function(modInst) {
+			var viewChangeInfo = Skateboard.core.getViewChangeInfo();
+			if(modInst) {
+				if(viewChangeInfo.from != 'history' && viewChangeInfo.fromModName != viewChangeInfo.toModName) {
+					var scrollTop = viewChangeInfo.scrollTop || $(window).scrollTop();
+					modInst._prevWinScrollTop = scrollTop;
+				} else {
+					modInst._prevWinScrollTop = 0;
+				}
+			}
+		},
+		onAfterViewChange: function(modName, modInst) {
+			var modClassName = 'body-sb-mod--' + modInst._modName.replace(/\//g, '-');
+			var bodyClassName = document.body.className.replace((/\bbody-sb-mod--\S+/), modClassName);
+			if((/\bsb-show-nav\b/).test(bodyClassName)) {
+				if(!modInst.showNavTab) {
+					bodyClassName = bodyClassName.replace((/\s*\bsb-show-nav\b/), '');
+				}
+			} else if(modInst.showNavTab) {
+				bodyClassName = bodyClassName + ' sb-show-nav';
+			}
+			document.body.className = bodyClassName;
+			if(Skateboard.core.getViewChangeInfo().from == 'history' && modInst._prevWinScrollTop) {
+				$(window).scrollTop(modInst._prevWinScrollTop);
+			} else {
+				$(window).scrollTop(0);
+			}
+		},
+		constructContentDom: function(modName, args, opt) {
+			var contentDom = $([
+				'<div class="sb-mod sb-mod--' + modName.replace(/\//g, '-') + '" data-sb-mod="' + modName + '" data-sb-scene="0" style="display: none;">',
+					'<div class="sb-mod__body">',
+						'<div class="body-inner" data-sb-mod-not-renderred>',
+						'</div>',
+					'</div>',
+				'</div>'
+			].join('')).prependTo($('.page-wrapper'));
+			return contentDom;
+		}
+	});
+}, function() {
+
+});
+</script>
+<!-- /section -->

@@ -1,0 +1,56 @@
+
+.header-back-btn {
+	left: 3%;
+	top: 1%;
+	width: 10%;
+	height: 4%;
+}
+
+.header-download-btn {
+	left: 47.6%;
+	top: 1%;
+	width: 10%;
+	height: 4%;
+}
+
+.header-wechat-btn {
+	left: 60%;
+	top: 1%;
+	width: 10%;
+	height: 4%;
+}
+
+.header-share-btn {
+	left: 72.4%;
+	top: 1%;
+	width: 10%;
+	height: 4%;
+}
+
+.header-shop-btn {
+	left: 84%;
+	top: 1%;
+	width: 10%;
+	height: 4%;
+}
+
+.footer-l-btn {
+	left: 7%;
+	width: 42%;
+	height: 36px;
+	bottom: 18px;
+}
+
+.footer-c-btn {
+	left: 29.5%;
+	width: 42%;
+	height: 38px;
+	bottom: 18px;
+}
+
+.footer-r-btn {
+	left: 51.5%;
+	width: 42%;
+	height: 38px;
+	bottom: 18px;
+}
