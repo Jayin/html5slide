@@ -15,8 +15,7 @@ var require = require || {
 		'exif': 'lib/exif/main',
 		'hammer': 'lib/hammer/main',
 		'fabric': 'lib/fabric/main',
-		'jstree': 'lib/jquery-jstree/main',
-		'echarts': 'lib/echarts/main'
+		'jstree': 'lib/jquery-jstree/main'
 	},
 	shim: {
 		'async': {
@@ -44,10 +43,7 @@ var require = require || {
 		},
 		'fabric': {
 			exports: 'fabric'
-		},
-        'echarts': {
-            exports: "echarts"
-    	}
+		}
 	},
 	resolveUrl: function(url) {
 		var baseUrl;
