@@ -3,6 +3,7 @@
 <!-- section "head" -->
 <meta name="keywords" content="杰尼亚 Ermenegildo Zegna" />
 <meta name="description" content="杰尼亚 Ermenegildo Zegna" />
+<meta name="sharecontent" data-msg-img="http://h5.createcdigital.com/static/app/zegna-201501/image/share-icon.png" data-msg-title="" data-msg-content="杰尼亚 Ermenegildo Zegna" data-msg-callBack="" data-line-img="http://h5.createcdigital.com/static/app/zegna-201501/image/share-icon.png" data-line-title="杰尼亚 Ermenegildo Zegna" data-line-callBack="" />
 <title>杰尼亚Zegna</title>
 <!-- /section -->
 
@@ -16,6 +17,13 @@ document.write([
 <div class="page-wrapper"></div>
 
 <script type="text/javascript">
+G.getStatCid = function() {
+	return '';
+};
+G.getStatMid = function() {
+	return '';
+};
+
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	$.extend(G.MD5_MAP, %{{md5map.zegna-201501}}%);
 	Skateboard.core.init({
@@ -62,6 +70,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			} else {
 				$(window).scrollTop(0);
 			}
+			app.stat.pv(modName, G.getStatCid(), G.getStatMid());
 		},
 		constructContentDom: function(modName, args, opt) {
 			var contentDom = $([
@@ -86,7 +95,8 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	}).on('click', '.header-download-btn', function(evt) {
 		require(['../app/zegna-201501/script/lib/download-hint/main'], function(downloadHint) {
 			id = $(evt.target).data('id');
-			downloadHint.show(id);
+			tag = $(evt.target).data('click-tag').split('.')[0].split('_').slice(0, 2).join('_');
+			downloadHint.show(id, tag);
 		});
 	}).on('click', '.like-btn', function(evt) {
 		$(evt.target).toggleClass('on');
