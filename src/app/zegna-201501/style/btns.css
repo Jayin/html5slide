@@ -59,6 +59,40 @@
 	background-image: url(../image/like/sprite-like-off-2x.png);
 	right: 7%;
 }
+.like-btn.alt {
+	background-image: url(../image/like/sprite-like-off-alt-2x.png);
+	right: 7%;
+}
 .like-btn.on {
 	background-image: url(../image/like/sprite-like-on-2x.png);
+}
+
+.img-plus-btn {
+	animation: img-plus-btn 1s infinite;
+	animation-timing-function: linear;
+	animation-direction: alternate;
+}
+.img-plus-btn:before, .img-plus-btn:after {
+	content: " ";
+	display: block;
+	width: 50%;
+	height: 1px;
+	background-color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 25%;
+}
+.img-plus-btn.alt:before, .img-plus-btn.alt:after {
+	background-color: #555;
+}
+.img-plus-btn:after {
+	transform: rotate(90deg);
+}
+@keyframes img-plus-btn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

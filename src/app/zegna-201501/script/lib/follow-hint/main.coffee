@@ -7,12 +7,8 @@ shareHint =
 		if not el.length
 			el = $(hintTpl.render()).appendTo(document.body)
 			$('.dialog-close-btn', el).on 'click', ->
-				$(document.body).css
-					overflow: 'auto'
 				el.hide()
 		el.show()
-		$(document.body).css
-			overflow: 'hidden'
 
 module.exports = shareHint
 

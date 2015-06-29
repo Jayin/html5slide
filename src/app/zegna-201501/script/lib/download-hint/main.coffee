@@ -12,8 +12,6 @@ shareHint =
 		if not el.length
 			el = $(hintTpl.render()).appendTo(document.body)
 			$('.dialog-close-btn', el).on 'click', ->
-				$(document.body).css
-					overflow: 'auto'
 				el.hide()
 			$('#download-hint-img').on 'touchstart', ->
 				_toRef = setTimeout ->
@@ -25,8 +23,6 @@ shareHint =
 		$('#download-hint-img')[0].src = "#{G.CDN_BASE}/app/zegna-201501/image/#{id}-download.jpg"
 		$('.dialog-close-btn', el).attr 'data-click-tag', tag + '_save_close'
 		el.show()
-		$(document.body).css
-			overflow: 'hidden'
 
 module.exports = shareHint
 
