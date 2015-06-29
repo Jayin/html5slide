@@ -17,14 +17,20 @@ document.write([
 <div class="page-wrapper"></div>
 
 <script type="text/javascript">
-G.getStatCid = function() {
-	return '';
-};
-G.getStatMid = function() {
-	return '';
-};
-
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
+	var cid, mid;
+	G.getStatCid = function() {
+		if (!cid) {
+			cid = app.util.getUrlParam('cid');
+		}
+		return cid;
+	};
+	G.getStatMid = function() {
+		if (!mid) {
+			mid = app.util.getUrlParam('mid');
+		}
+		return mid;
+	};
 	$.extend(G.MD5_MAP, %{{md5map.zegna-201501}}%);
 	Skateboard.core.init({
 		container: $('.page-wrapper'),
