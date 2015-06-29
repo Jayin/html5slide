@@ -1,11 +1,11 @@
 {
 	"isPrototype": "false",
-	
+
 	"domain": "document.domain",
 	"origin": "location.protocol + '//' + location.host",
 	"cgiOrigin": "location.protocol + '//' + location.host",
-	"cdnOrigin2": "location.protocol + '//' + location.host",
-	"cdnOrigin": "'http://7xijzi.com2.z0.glb.qiniucdn.com'",
+	"cdnOrigin": "location.protocol + '//' + location.host",
+	"cdnOrigin2": "'http://7xijzi.com2.z0.glb.qiniucdn.com'",
 
 	"pageAside": "3",
 	"itemsPerPage": "15",
