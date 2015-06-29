@@ -66,6 +66,10 @@ gulp.task 'sprite', ->
 		.pipe gulp.dest(destBase)
 
 gulp.task 'less', ['copy', 'sprite'], ->
+	getFilePath = (fileName, baseFilePath) ->
+		srcPath = path.join process.cwd(), 'src'
+		filePath = path.resolve path.dirname(baseFilePath), fileName
+		path.join process.cwd(), destBase, path.relative(srcPath, filePath)
 	gulp.src(['src/**/main.less', 'src/**/*-main.less'])
 		.pipe less()
 		.pipe imgCssSprite.cssStream()
@@ -73,10 +77,15 @@ gulp.task 'less', ['copy', 'sprite'], ->
 		.pipe digestVersioning
 			digestLength: 8
 			basePath: destBase
+			getFilePath: getFilePath
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
 
 gulp.task 'sass', ['copy', 'sprite'], ->
+	getFilePath = (fileName, baseFilePath) ->
+		srcPath = path.join process.cwd(), 'src'
+		filePath = path.resolve path.dirname(baseFilePath), fileName
+		path.join process.cwd(), destBase, path.relative(srcPath, filePath)
 	gulp.src(['src/**/main.scss', 'src/**/*-main.scss'])
 		.pipe sass()
 		.pipe imgCssSprite.cssStream()
@@ -84,10 +93,15 @@ gulp.task 'sass', ['copy', 'sprite'], ->
 		.pipe digestVersioning
 			digestLength: 8
 			basePath: destBase
+			getFilePath: getFilePath
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
 
 gulp.task 'postcss', ['copy', 'sprite'], ->
+	getFilePath = (fileName, baseFilePath) ->
+		srcPath = path.join process.cwd(), 'src'
+		filePath = path.resolve path.dirname(baseFilePath), fileName
+		path.join process.cwd(), destBase, path.relative(srcPath, filePath)
 	gulp.src(['src/**/main.css', 'src/**/*-main.css'])
 		.pipe gulpPostcss [
 			postcssImport()
@@ -98,6 +112,7 @@ gulp.task 'postcss', ['copy', 'sprite'], ->
 		.pipe digestVersioning
 			digestLength: 8
 			basePath: destBase
+			getFilePath: getFilePath
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase)
 
