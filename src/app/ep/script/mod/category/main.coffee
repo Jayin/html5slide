@@ -59,12 +59,23 @@ class Mod extends Skateboard.BaseMod
 		}
 
 		$('#category-container').on 'select_node.jstree', (event, data)=>
-			console.log event
-			console.log data
+			event.preventDefault();
+			# console.log event
+			# console.log data
+			# console.log('select_node.jstree!!!!!!')
 			if data.node.original.hierarchy is 3
 				# 设置该原件的的所有给出的属性
 				G.state.set category: data.node.original
 				Skateboard.core.view '/view/info'
+			else
+				$container = $('#category-container')
+				$container.jstree(true).open_node(data.node.id)
+				# console.log($container)
+				# console.log $container.jstree(true).is_open(data.node.id)
+				# if $container.jstree(true).is_open(data.node.id)
+				# 	$container.jstree(true).close_node(data.node.id)
+				# else
+				# 	$container.jstree(true).open_node(data.node.id)
 
 		app.ajax.get
 			url: 'Data/Category/' + G.state.get('companyCode')

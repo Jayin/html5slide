@@ -95,6 +95,8 @@ module.exports = React.createClass({
 				// 设置该原件的的所有给出的属性
 				G.state.set({category: data.node.original})
 				Skateboard.core.view('/view/info')
+			}else{
+				$(this).jstree(true).open_node(data.node.id)
 			}
 		});
 
