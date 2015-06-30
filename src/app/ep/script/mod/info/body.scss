@@ -40,7 +40,7 @@
         clear: both;
         width: 100%;
         background-color: gainsboro;
-        height: 48px;
+        height: 30px;
         margin-top: 40px;
         text-align: center;
     }
@@ -48,10 +48,18 @@
         width: 24%;
         height: 85%;
         display: inline-block;
-        padding-top: 3px;
-        margin-top: 7px;
+  		margin-top: 4px;
     }
     .option-active {
         background-color: white;
     }
+
+    .component-PropertiesList,
+    .component-AccessoryList,
+    .component-Detail,
+    .component-Distributor{
+    	animation-duration: 3s;
+  		animation-name: fadein;
+    }
+
 }
