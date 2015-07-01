@@ -8,7 +8,7 @@ var Skateboard = require('skateboard');
 module.exports = React.createClass({
 	getInitialState: function(){
 		return {
-			companys: this.props.companys || []
+			result: this.props.result || []
 		}
 	},
 	handleItemClick:  function(data,evt){
@@ -17,26 +17,36 @@ module.exports = React.createClass({
 		 Skateboard.core.view('/view/category')
 	},
 	render: function(){
-		var createItem = function(companyObj){
+		var createList = function(companyListObject){
 
-			var Style_CompanyName = {
-				  padding: '8px'
-			};
+			//onClick={this.handleItemClick.bind(this, companyObj)}
 			return (
-				<div onClick={this.handleItemClick.bind(this, companyObj)}>
-					<div style={Style_CompanyName}>
-						<span>{companyObj.Name}</span>
+				<div >
+					<div className={companyListObject.Name == '' ? "invisitable" : "company-name words"}>
+						<span>{companyListObject.Name}</span>
 					</div>
-					<div style={{backgroundColor: 'rgba(128, 128, 128, 0.22)'
-								,width: '100%'
-								,height: '1px'}}>
+					<div className="divider-line">
 					</div>
+
+					{companyListObject.Children.map(function(companyObj){
+
+						return (
+							<div onClick={this.handleItemClick.bind(this, companyObj)}>
+								<div className="company-name">
+									<span>{companyObj.Name}</span>
+								</div>
+								<div className="divider-line">
+								</div>
+							</div>
+						)
+
+					}.bind(this))}
 				</div>
 			);
 		};
 		return (
-			<div >
-				{this.state.companys.map(createItem.bind(this))}
+			<div className="component-CompanyList">
+				{this.props.result.map(createList.bind(this))}
 			</div>
 		);
 	}

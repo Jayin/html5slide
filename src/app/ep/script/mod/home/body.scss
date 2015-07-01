@@ -1,7 +1,16 @@
 .sb-mod.sb-mod--home {
-
-	background-position: left top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height:100%;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    .side-words {
+        background-image: url(../../../image/side-words.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: fixed;
+        right: 4%;
+        top: 2%;
+        height: 43%;
+        width: 3.3%;
+    }
 }

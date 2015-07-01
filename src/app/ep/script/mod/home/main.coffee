@@ -15,21 +15,15 @@ class Mod extends Skateboard.BaseMod
 
 	_bodyTpl: require './body.tpl.html'
 
-	#转换首页全部公司的数据
-	transformCompanyList: (companys)=>
-		companys.forEach (node)=>
-			@companys = @companys.concat(node.Children)
-
-		return @companys
 
 	# 获得公司列表
 	getComanyList: =>
 		app.ajax.get
 			url: 'Data/Company'
 			success: (res)=>
-				@transformCompanyList(res)
+				console.log res
 				React.render(
-					React.createElement(CompanyList, {companys: @companys}),
+					React.createElement(CompanyList, {result: res}),
 					document.getElementById('home-company-list')
 				)
 			error: ()->
