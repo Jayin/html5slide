@@ -1,8 +1,9 @@
 <!-- extend "../../html/layout/layout.base.html" -->
 
 <!-- section "head" -->
-<meta name="keywords" content="Ermenegildo Zegna" />
-<meta name="description" content="Ermenegildo Zegna" />
+<meta name="keywords" content="杰尼亚 Ermenegildo Zegna" />
+<meta name="description" content="杰尼亚 Ermenegildo Zegna" />
+<meta name="sharecontent" data-msg-img="http://h5.createcdigital.com/static/app/zegna-201501/image/share-icon.png" data-msg-title="" data-msg-content="杰尼亚 Ermenegildo Zegna" data-msg-callBack="" data-line-img="http://h5.createcdigital.com/static/app/zegna-201501/image/share-icon.png" data-line-title="杰尼亚 Ermenegildo Zegna" data-line-callBack="" />
 <title>Ermenegildo Zegna</title>
 <!-- /section -->
 
@@ -17,13 +18,26 @@ document.write([
 
 <script type="text/javascript">
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
+	var cid, mid;
+	G.getStatCid = function() {
+		if (!cid) {
+			cid = app.util.getUrlParam('cid');
+		}
+		return cid;
+	};
+	G.getStatMid = function() {
+		if (!mid) {
+			mid = app.util.getUrlParam('mid');
+		}
+		return mid;
+	};
 	$.extend(G.MD5_MAP, %{{md5map.zegna-201501}}%);
 	Skateboard.core.init({
 		container: $('.page-wrapper'),
 		defaultModName: 'w1-1',
 		modBase: '../../../app/zegna-201501/script/',
 		animate: {
-			type: 'slide',
+			type: 'fade',
 			timingFunction: 'linear',
 			duration: 300
 		},
@@ -62,6 +76,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			} else {
 				$(window).scrollTop(0);
 			}
+			app.stat.pv(modName, G.getStatCid(), G.getStatMid());
 		},
 		constructContentDom: function(modName, args, opt) {
 			var contentDom = $([
@@ -74,6 +89,23 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			].join('')).prependTo($('.page-wrapper'));
 			return contentDom;
 		}
+	});
+	$(document).on('click', '.share-btn', function() {
+		require(['../app/zegna-201501/script/lib/share-hint/main'], function(shareHint) {
+			shareHint.show();
+		});
+	}).on('click', '.header-wechat-btn', function() {
+		require(['../app/zegna-201501/script/lib/follow-hint/main'], function(followHint) {
+			followHint.show();
+		});
+	}).on('click', '.header-download-btn', function(evt) {
+		require(['../app/zegna-201501/script/lib/download-hint/main'], function(downloadHint) {
+			id = $(evt.target).data('id');
+			tag = $(evt.target).data('click-tag').split('.')[0].split('_').slice(0, 2).join('_');
+			downloadHint.show(id, tag);
+		});
+	}).on('click', '.like-btn', function(evt) {
+		$(evt.target).toggleClass('on');
 	});
 }, function() {
 

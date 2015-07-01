@@ -9,6 +9,7 @@ define(function(require) {
 		alerts: require('./alerts'),
 		scroll: require('./scroll'),
 		toggle: require('./toggle'),
+		stat: require('./stat'),
 		wx: require('./wx')
 	};
 });

@@ -49,3 +49,10 @@ body {
 	bottom: 0;
 }
 
+.qrcode-img {
+	width: 26.66%;
+	left: 36.67%;
+	bottom: 6%;
+	position: absolute;
+	display: block;
+}
