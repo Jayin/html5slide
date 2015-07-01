@@ -15,23 +15,23 @@ module.exports = React.createClass({
 				<div>
 					<div>
 					  <div className="inline-block">{item.Name}</div>
-					  <div className="inline-block text-red text-margin">
-					  	$<span className="text-red">2999.00</span>
+					  <div className="inline-block text-margin">
+					  	<span>{item.Phone}</span>
 					  </div>
 					</div>
 					<div>
-					  <div className="inline-block text-gray text-margin">
-					  	联系人: <span >{item.Contact}</span><span >{item.Phone}</span>
+					  <div className="inline-block text-margin">
+					  	<span >{item.Address}</span>
 					  </div>
 					</div>
 					<div>
-					  <div className="inline-block text-gray">本体100% 附体100%</div>
+					  <div className="inline-block" style={{fontSize: '0.85rem'}}>{item.Note}</div>
 					</div>
 				</div>
 			);
 		};
 		return (
-			<div className="component-Distributor" style={{padding: '2px'}}>
+			<div className="component-Distributor" style={{padding: '4px'}}>
 				{this.state.Distributors.map(createItem.bind(this))}
 			</div>
 		);
