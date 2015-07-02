@@ -7,6 +7,7 @@ AccessoryList = require '../../components/AccessoryList/main'
 PropertiesList = require '../../components/PropertiesList/main'
 Distributor = require '../../components/Distributor/main'
 Detail = require '../../components/Detail/main'
+MessageList = require '../../components/MessageList/main'
 
 class Mod extends Skateboard.BaseMod
 	cachable: true
@@ -66,6 +67,8 @@ class Mod extends Skateboard.BaseMod
 			@detail()
 		else if index == 3
 			@getDistributor()
+		else if index == 4
+			@getMessage()
 		else
 			app.alerts.alert '你点击啥?'
 
@@ -77,6 +80,14 @@ class Mod extends Skateboard.BaseMod
 
 		@category = category
 		return true
+
+	getMessage: (pageIndex=1, pageSize=20)=>
+		if !@_CheckCategory()
+			return
+		React.render(
+					React.createElement(MessageList, {result: [], category: @category}),
+					document.getElementById('info-cotent-container')
+		)
 
 	getDistributor: ()=>
 		if !@_CheckCategory()
