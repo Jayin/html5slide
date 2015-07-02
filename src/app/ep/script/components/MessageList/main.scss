@@ -1,0 +1,19 @@
+.component-MessageList {
+    padding: 4px;
+    .message-body {
+        border-bottom: 1px solid gainsboro;
+        padding: 3px;
+    }
+    .page {
+        width: 30px;
+        font-size: 1.1rem;
+    }
+    .groups {
+        text-align: center;
+        margin: 4px;
+        .btn {
+            padding: 3px;
+            background-color: gainsboro;
+        }
+    }
+}

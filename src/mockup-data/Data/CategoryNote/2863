@@ -1,0 +1,29 @@
+{
+    "Index": 1,
+    "Size": 20,
+    "Total": 3,
+    "Count": 0,
+    "Records": [
+		{
+			"ID" : 1,
+			"Message": "这是一条消息1",
+			"IPAddress": "192.168.0.1",
+			"CreatedOn" : "2014-01-21",
+			"ReplyTo": 2333
+		},
+		{
+			"ID" : 2,
+			"Message": "这是一条消息2",
+			"IPAddress": "192.168.0.2",
+			"CreatedOn" : "2014-01-22",
+			"ReplyTo": 0
+		},
+		{
+			"ID" : 3,
+			"Message": "这是一条消息3",
+			"IPAddress": "192.168.0.3",
+			"CreatedOn" : "2014-01-23",
+			"ReplyTo": 0
+		}
+    ]
+}
