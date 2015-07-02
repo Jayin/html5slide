@@ -1,0 +1,76 @@
+{
+	"Companies": [
+		{
+			"ID": 5,
+			"Name": "ABB集团",
+			"Code": "100005",
+			"PinYin": "ABBJT",
+			"Site": "http://new.abb.com/cn",
+			"ContactInfo": "8008209696 4008209696"
+		}
+	],
+	"Groups": [
+		{
+			"CompanyName": "常熟开关制造有限公司（原常熟开关厂）",
+			"CompanyCode": "100007",
+			"CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
+			"Categories": [
+				{
+					"ID": 6376,
+					"Name": "CM1",
+					"Text": "CM1塑壳断路器",
+					"Alias": "CM1塑壳断路器",
+					"Hierarchy": 3,
+					"CompanyCode": "100007",
+					"CompanyName": null,
+					"Children": null,
+					"Groups": null
+				},
+				{
+					"ID": 6377,
+					"Name": "CM1E",
+					"Text": "CM1E电子式塑壳断路器",
+					"Alias": "CM1E电子式塑壳断路器",
+					"Hierarchy": 3,
+					"CompanyCode": "100007",
+					"CompanyName": null,
+					"Children": null,
+					"Groups": null
+				},
+				{
+					"ID": 6378,
+					"Name": "CM1EL",
+					"Text": "CM1EL电子式塑壳漏电断路器",
+					"Alias": "CM1EL电子式塑壳漏电断路器",
+					"Hierarchy": 3,
+					"CompanyCode": "100007",
+					"CompanyName": null,
+					"Children": null,
+					"Groups": null
+				},
+				{
+					"ID": 6379,
+					"Name": "CM1L",
+					"Text": "CM1L塑壳漏电断路器",
+					"Alias": "CM1L塑壳漏电断路器",
+					"Hierarchy": 3,
+					"CompanyCode": "100007",
+					"CompanyName": null,
+					"Children": null,
+					"Groups": null
+				},
+				{
+					"ID": 6380,
+					"Name": "CM1Z",
+					"Text": "CM1Z智能型塑壳断路器",
+					"Alias": "CM1Z智能型塑壳断路器",
+					"Hierarchy": 3,
+					"CompanyCode": "100007",
+					"CompanyName": null,
+					"Children": null,
+					"Groups": null
+				}
+			]
+		}
+	]
+}

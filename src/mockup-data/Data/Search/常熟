@@ -1,0 +1,14 @@
+{
+    "Companies": [
+        {
+            "ID": 7,
+            "Name": "常熟开关制造有限公司（原常熟开关厂）",
+            "Code": "100007",
+            "PinYin": "CSKGZZYXGS（YCSKGC）",
+            "Site": "http://www.riyue.com.cn/",
+            "ContactInfo": "8008282528",
+            "IsRecommend": false
+        }
+    ],
+    "Groups": []
+}
