@@ -22,7 +22,8 @@ module.exports = React.createClass({
 			//onClick={this.handleItemClick.bind(this, companyObj)}
 			return (
 				<div >
-					<div className={companyListObject.Name == '' ? "invisitable" : "company-name words"}>
+					<div className={companyListObject.Name == '' ? "invisitable" : "company-name words"}
+						 id={companyListObject.Name}>
 						<span>{companyListObject.Name}</span>
 					</div>
 					<div className="divider-line">

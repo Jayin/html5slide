@@ -32,8 +32,16 @@ class Mod extends Skateboard.BaseMod
 	transformSearchList: (result)=>
 		@companys = result.Companies;
 
+	updateUI: =>
+		# fix: transform 破坏position: fixed结构
+		$('.sb-mod--home').css('-webkit-transform','none')
+
+	_afterFadeIn: =>
+		@updateUI()
+
 	render: =>
 		super
+		@updateUI()
 		@getComanyList()
 
 
