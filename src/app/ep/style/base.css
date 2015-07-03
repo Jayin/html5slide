@@ -26,15 +26,15 @@ body {
 }
 
 .placeholer-bar-bottom {
-    height: 60px;
+    height: 50px;
     width: 100%;
 }
 
 .bar-bottom {
-    background-position: left top;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 60px;
+    background-size: cover;
+    height: 50px;
     position: fixed;
     bottom: 0;
     width: 100%;
