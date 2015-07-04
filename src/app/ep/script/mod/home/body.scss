@@ -3,19 +3,5 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-    .side-words {
-        background-image: url(../../../image/side-words.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: fixed;
-        right: 4%;
-        top: 12%;
-        height: 72%;
-        width: 3%;
-        .item-word{
-        	display: block;
-        	height: 3.8%;
-			width: 100%;
-        }
-    }
+
 }

@@ -1,0 +1,21 @@
+/*主页的字母列表*/
+
+.side-words {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    right: 0%;
+    top: 9%;
+    height: 82%;
+    width: 18.5%;
+    text-align: center;
+}
+
+.side-words .item-word {
+    display: block;
+    height: 3.8%;
+    width: 100%;
+    text-decoration: none;
+    color: #169ADA;
+    font-size: 1rem;
+}
