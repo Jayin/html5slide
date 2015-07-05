@@ -87,6 +87,9 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 				return false;
 			}
 		},
+		onAfterViewChange: function(modName, modInst){
+			$(window).scrollTop(0);
+		},
 		constructContentDom: function(modName, args, opt) {
 			var contentDom = $([
 				'<div class="sb-mod sb-mod--' + modName.replace(/\//g, '-') + '" data-sb-mod="' + modName + '" data-sb-scene="0" onscroll="require(\'app\').mod.scroll(this.scrollTop);">',
