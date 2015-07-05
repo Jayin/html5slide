@@ -4,11 +4,10 @@
     background-size: cover;
     height: 100%;
     .percent-container {
+        display: inline-block;
         height: 40px;
-        width: 100%;
-        background-color: gainsboro;
+        width: 64%;
         text-align: center;
-        padding-top: 4px;
     }
     .percent-container div {
         display: inline-block;
@@ -20,13 +19,13 @@
     }
     .product-price {
         font-size: 1.2rem;
-        width: 60%;
+          width: 26%;
         float: left;
         margin-left: 8px;
     }
-	.product-price-number{
-		font-style: oblique;
-	}
+    .product-price-number {
+        font-style: oblique;
+    }
     .btn-copy {
         font-size: 1rem;
         float: right;
@@ -41,25 +40,22 @@
         width: 100%;
         background-color: gainsboro;
         height: 30px;
-        margin-top: 40px;
         text-align: center;
     }
     .option {
         width: 19%;
         height: 85%;
         display: inline-block;
-  		margin-top: 4px;
+        margin-top: 4px;
     }
     .option-active {
         background-color: white;
     }
-
     .component-PropertiesList,
     .component-AccessoryList,
     .component-Detail,
-    .component-Distributor{
-    	animation-duration: 3s;
-  		animation-name: fadein;
+    .component-Distributor {
+        animation-duration: 3s;
+        animation-name: fadein;
     }
-
 }
