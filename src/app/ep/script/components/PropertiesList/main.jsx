@@ -7,21 +7,31 @@ var app = require('app');
 var Skateboard = require('skateboard');
 
 module.exports = React.createClass({
+	componentWillReceiveProps: function(nextProps){
+		this.setState({
+			Properties: nextProps.Properties || [],
+			Product: nextProps.Product || {}
+		});
+	},
 	getInitialState: function(){
 		return {
 			Properties: this.props.Properties || [],
 			Product: this.props.Product || {}
-
 		}
 	},
 	handleItemClick:  function(data,evt){
 		evt.preventDefault();
 		var product = this.state.Product;
-		for(var index = 0; index < product.Items.length; index++){
+		var index = 0;
+		for(; index < product.Items.length; index++){
 			if(product.Items[index].Name == data.Name){
 				product.Items[index].Text = data.Text
 				break;
 			}
+		}
+		index++;
+		for(; index < product.Items.length; index++){
+			product.Items[index].Text = '';
 		}
 		this.setState({
 			Product : product

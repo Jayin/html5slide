@@ -155,7 +155,9 @@ class Mod extends Skateboard.BaseMod
 		if prd
 			url += "?"
 			prd.Items.map (item, index)=>
-				url += "p#{index}=#{item.Text}&"
+				if item.Text != ''
+					url += "p#{index}=#{item.Text}&"
+
 			url = url.slice(0, url.length - 1)
 			# remove the data
 			G.state.set({Product: null})
