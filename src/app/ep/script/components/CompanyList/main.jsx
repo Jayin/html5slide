@@ -29,19 +29,19 @@ module.exports = React.createClass({
 					<div className="divider-line">
 					</div>
 
-					{companyListObject.Children.map(function(companyObj){
+					{companyListObject.Children.map(function(companyListObject, companyObj){
 
 						return (
 							<div onClick={this.handleItemClick.bind(this, companyObj)}>
 								<div className="company-name">
-									<span>{companyObj.Name}</span>
+									<span className={companyListObject.Name == '' ? "popularize" : ""}>{companyObj.Name}</span>
 								</div>
 								<div className="divider-line">
 								</div>
 							</div>
 						)
 
-					}.bind(this))}
+					}.bind(this, companyListObject))}
 				</div>
 			);
 		};
