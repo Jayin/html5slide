@@ -151,6 +151,15 @@ class Mod extends Skateboard.BaseMod
 		if !@_CheckCategory()
 			return
 		url = 'Data/CategoryInfo/{category3Name}?companyCode={companyCode}'
+		prd = G.state.get('Product')
+		if prd
+			url += "?"
+			prd.Items.map (item, index)=>
+				url += "p#{index}=#{item.Text}&"
+			url = url.slice(0, url.length - 1)
+			# remove the data
+			G.state.set({Product: null})
+
 		app.ajax.get
 			url: url.replace('{category3Name}', @category.name).replace('{companyCode}', @category.companyCode)
 			success: (res)=>
@@ -168,7 +177,9 @@ class Mod extends Skateboard.BaseMod
 	# 初始化百分比
 	initPercent: ()=>
 		G.state.set {percent: {body: 100, accessory: 100}}
-
+		# update the UI
+		$('#info-input-body')[0].value = 100
+		$('#info-input-accessory')[0].value = 100
 
 	updatePercent: (body , accessory )=>
 		#option option-active
@@ -179,15 +190,23 @@ class Mod extends Skateboard.BaseMod
 				React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
 				document.getElementById('info-cotent-container')
 			)
-
+	# 选择了不同的属性，需要重新加载
+	onStateChange: =>
+		if G.state.get('Product')
+			@getProperties()
+			@initPercent()
+			# 清空附件数据
+			G.state.set({accessory: null})
 
 	render: =>
 		super
-		# @udpateCotegory()
 		@initPercent()
 		@getProperties()
 
+		G.state.on 'change', @onStateChange
 
+	destroy: =>
+		G.state.off 'change', @onStateChange
 
 
 module.exports = Mod

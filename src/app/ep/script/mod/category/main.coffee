@@ -91,7 +91,8 @@ class Mod extends Skateboard.BaseMod
 		@udpateCotegory()
 
 	_afterFadeOut: =>
-		console.log 'after fade out'
+		# console.log 'after fade out'
+
 	render: =>
 		super
 		@udpateCotegory()
