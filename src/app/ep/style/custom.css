@@ -4,11 +4,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     position: fixed;
-    right: -5%;
+    right: 0%;
     top: 9%;
     height: 82%;
-    width: 18.5%;
-    text-align: center;
+    width: 23.5%;
+    text-align: right;
+    padding-right: 9px;
 }
 
 .side-words .item-word {

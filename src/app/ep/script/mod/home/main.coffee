@@ -3,6 +3,7 @@ Skateboard = require 'skateboard'
 $ = require 'jquery'
 React = require('react')
 CompanyList = require('../../components/CompanyList/main')
+LetterList = require('../../components/LetterList/main')
 
 class Mod extends Skateboard.BaseMod
 	cachable: true
@@ -15,16 +16,31 @@ class Mod extends Skateboard.BaseMod
 
 	_bodyTpl: require './body.tpl.html'
 
+	letters: []
+
+
+	getLetters: (res)=>
+		tmp = []
+		res.forEach (ele)=>
+			if ele.Name != ''
+				tmp.push(ele.Name)
+		@letters = tmp
 
 	# 获得公司列表
 	getComanyList: =>
 		app.ajax.get
 			url: 'Data/Company'
 			success: (res)=>
-				console.log res
 				React.render(
 					React.createElement(CompanyList, {result: res}),
 					document.getElementById('home-company-list')
+				)
+				@letters = []
+				@getLetters(res)
+
+				React.render(
+					React.createElement(LetterList, {visitable: true, letters: @letters}),
+					document.getElementById('letters-container')
 				)
 			error: ()->
 				app.alerts.alert '系统繁忙，请稍后再试'
@@ -33,10 +49,16 @@ class Mod extends Skateboard.BaseMod
 		@companys = result.Companies;
 
 	_afterFadeIn: =>
-		$('.side-words').css('display','block')
+		React.render(
+			React.createElement(LetterList, {visitable: true, letters: @letters}),
+			document.getElementById('letters-container')
+		)
 
 	_afterFadeOut: =>
-		$('.side-words').css('display','none')
+		React.render(
+			React.createElement(LetterList, {visitable: false, letters: @letters}),
+			document.getElementById('letters-container')
+		)
 
 	render: =>
 		super
