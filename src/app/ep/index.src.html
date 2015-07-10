@@ -113,9 +113,14 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 		}
 	});
 
+	$('input.index-search-input').on('click', function(){
+		$(this).val('');
+	});
+
 	G.state.on('change', function(){
 		if (G.state.get('companyName')){
 			$('input.index-search-input').attr('value', G.state.get('companyName'));
+			$('input.index-search-input').val(G.state.get('companyName'))
 		}
 	});
 
