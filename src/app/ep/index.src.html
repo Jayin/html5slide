@@ -27,11 +27,12 @@ document.write([
 
 <div class="bar-bottom bar_bottom_1">
 	<div style="width:100%;height:100%;">
-		<div id="index-btn-common" class="inline-block" style="width: 20%;height:100%;"></div>
-		<div id="index-btn-highPressure" class="inline-block"style="width: 20%;height:100%;"></div>
-		<div id="index-btn-lowPressure" class="inline-block" style="width: 18%;height:100%;"></div>
-		<div id="index-btn-accessory" class="inline-block" style="width: 18%;height:100%;"></div>
-		<div id="index-btn-case" class="inline-block" style="width: 17.5%;height:100%;"></div>
+		<div id="index-btn-common" class="inline-block bar-item" ></div>
+		<div id="index-btn-highPressure" class="inline-block bar-item"></div>
+		<div id="index-btn-lowPressure" class="inline-block bar-item" ></div>
+		<div id="index-btn-accessory" class="inline-block bar-item"></div>
+		<div id="index-btn-case" class="inline-block bar-item"></div>
+		<div id="index-btn-comments" class="inline-block bar-item"></div>
 	</div>
 </div>
 <div id="letters-container">
@@ -56,7 +57,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			app.ajax.hideLoading();
 			app.alerts.alert.hide();
 			app.alerts.modal.hide();
-			var defaultMods = ['home', 'highPressure', 'lowPressure', 'accessory', 'case']
+			var defaultMods = ['home', 'highPressure', 'lowPressure', 'accessory', 'case', 'comments']
 			if(defaultMods.indexOf(modName) == -1 && !G.state.get()) {
 				Skateboard.core.view('/view/home', {replaceState: true});
 				return false;
@@ -102,6 +103,11 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	$('#index-btn-case').on('click',function(){
 		Skateboard.core.view('/view/case')
 		$('div.bar-bottom').removeClass().addClass('bar-bottom bar_bottom_5')
+	});
+
+	$('#index-btn-comments').on('click', function(){
+		Skateboard.core.view('/view/comments')
+		$('div.bar-bottom').removeClass().addClass('bar-bottom bar_bottom_6')
 	});
 	$('#index-btn-search').on('click',function(){
 		var words = $('.index-search-input')[0].value
