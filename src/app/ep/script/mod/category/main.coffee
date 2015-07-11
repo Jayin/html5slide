@@ -84,6 +84,9 @@ class Mod extends Skateboard.BaseMod
 
 				$('#category-container').jstree(jstree_config)
 
+				$('#category-container').jstree(true).settings.core.data = jstree_config.core.data;
+				$('#category-container').jstree(true).refresh(true);
+
 			error: ()->
 				app.alerts.alert '系统繁忙，请稍后再试'
 
