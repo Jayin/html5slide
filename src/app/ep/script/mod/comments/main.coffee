@@ -72,6 +72,7 @@ class Mod extends Skateboard.BaseMod
 				if res.result
 					app.alerts.alert '发送成功'
 					@preMessage = $input.val('')
+					@lastPostTime = Date.now
 					$input.val('')
 					# 发送后更新列表
 					@update(pageIndex)

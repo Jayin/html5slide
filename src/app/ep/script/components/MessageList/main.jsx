@@ -73,8 +73,9 @@ module.exports = React.createClass({
 			success: function(res){
 				if (res.result){
 					this.preMessage = $input.val();
+					this.lastPostTime = Date.now;
 					$input.val('');
-					app.alerts.alert('留言成功')
+					app.alerts.alert('留言成功');
 				}else{
 					app.alerts.alert(res.message)
 				}
