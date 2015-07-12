@@ -17,6 +17,7 @@ class Mod extends Skateboard.BaseMod
 
 	preMessage: '' #前一条留言
 	lastPostTime: 0 # 最后一次留言时间
+	pageIndex: 1 #当前页
 
 
 	unresize: ()=>
@@ -33,6 +34,7 @@ class Mod extends Skateboard.BaseMod
 		@resize()
 		if pageIndex <= 0
 			pageIndex = 1
+		@pageIndex = pageIndex
 		$('.sb-mod--comments .pages span').text(pageIndex)
 		app.ajax.get
 			url: "Data/CategoryNote/-1?pageIndex=#{pageIndex}&pageSize=#{pageSize}"
@@ -75,7 +77,7 @@ class Mod extends Skateboard.BaseMod
 					@lastPostTime = Date.now
 					$input.val('')
 					# 发送后更新列表
-					@update(pageIndex)
+					@update(@pageIndex)
 				else
 					app.alerts.alert res.message
 			error: =>
