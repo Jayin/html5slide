@@ -1,29 +1,72 @@
 {
     "Index": 1,
     "Size": 20,
-    "Total": 3,
-    "Count": 0,
+    "Total": 4,
+    "Count": 1,
     "Records": [
-		{
-			"ID" : 1,
-			"Message": "这是一条消息1",
-			"IPAddress": "192.168.0.1",
-			"CreatedOn" : "2014-01-21",
-			"ReplyTo": 2333
-		},
-		{
-			"ID" : 2,
-			"Message": "这是一条消息2",
-			"IPAddress": "192.168.0.2",
-			"CreatedOn" : "2014-01-22",
-			"ReplyTo": 0
-		},
-		{
-			"ID" : 3,
-			"Message": "这是一条消息3",
-			"IPAddress": "192.168.0.3",
-			"CreatedOn" : "2014-01-23",
-			"ReplyTo": 0
-		}
+        {
+            "ID": 337,
+            "Message": "测试~",
+            "IPAddress": "27.45.4.231",
+            "CreatedOn": "2015-07-12 20:15:29",
+            "ReplyToID": 0,
+            "ReplyTo": "",
+            "CompanyCode": "100009",
+            "CompanyName": "上海人民电器厂",
+            "Category1ID": 303,
+            "Category1Name": "断路器",
+            "Category2ID": 304,
+            "Category2Name": "万能断路器",
+            "Category3ID": 305,
+            "Category3Name": "ME"
+        },
+        {
+            "ID": 213,
+            "Message": "啊违法",
+            "IPAddress": "183.130.79.254",
+            "CreatedOn": "2015-05-29 22:18:13",
+            "ReplyToID": 0,
+            "ReplyTo": "",
+            "CompanyCode": "100009",
+            "CompanyName": "上海人民电器厂",
+            "Category1ID": 303,
+            "Category1Name": "断路器",
+            "Category2ID": 304,
+            "Category2Name": "万能断路器",
+            "Category3ID": 305,
+            "Category3Name": "ME"
+        },
+        {
+            "ID": 122,
+            "Message": "wgr",
+            "IPAddress": "183.130.106.99",
+            "CreatedOn": "2015-05-19 20:47:58",
+            "ReplyToID": 0,
+            "ReplyTo": "",
+            "CompanyCode": "100009",
+            "CompanyName": "上海人民电器厂",
+            "Category1ID": 303,
+            "Category1Name": "断路器",
+            "Category2ID": 304,
+            "Category2Name": "万能断路器",
+            "Category3ID": 305,
+            "Category3Name": "ME"
+        },
+        {
+            "ID": 120,
+            "Message": "qqwerfwerf",
+            "IPAddress": "183.130.106.99",
+            "CreatedOn": "2015-05-19 20:47:53",
+            "ReplyToID": 0,
+            "ReplyTo": "",
+            "CompanyCode": "100009",
+            "CompanyName": "上海人民电器厂",
+            "Category1ID": 303,
+            "Category1Name": "断路器",
+            "Category2ID": 304,
+            "Category2Name": "万能断路器",
+            "Category3ID": 305,
+            "Category3Name": "ME"
+        }
     ]
 }

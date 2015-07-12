@@ -7,6 +7,14 @@
 			"PinYin": "ABBJT",
 			"Site": "http://new.abb.com/cn",
 			"ContactInfo": "8008209696 4008209696"
+		},
+		{
+			"ID": 6,
+			"Name": "ABB集团2",
+			"Code": "100006",
+			"PinYin": "ABBJT",
+			"Site": "http://new.abb.com/cn",
+			"ContactInfo": "8008209696 4008209696"
 		}
 	],
 	"Groups": [

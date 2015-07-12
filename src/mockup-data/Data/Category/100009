@@ -1,0 +1,422 @@
+[
+	{
+		"ID": 295,
+		"Name": "接触器",
+		"Text": "接触器",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 296,
+				"Name": "交流接触器",
+				"Text": "交流接触器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [
+					{
+						"ID": 297,
+						"Name": "B",
+						"Text": "B交流接触器",
+						"Alias": "B",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 298,
+						"Name": "BC",
+						"Text": "B25C-B75C系列电容用接触器",
+						"Alias": "BC",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 299,
+						"Name": "CJ20",
+						"Text": "CJ20交流接触器",
+						"Alias": "CJ20",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 300,
+						"Name": "CJ40",
+						"Text": "CJ40交流接触器",
+						"Alias": "CJ40",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 301,
+						"Name": "RMK",
+						"Text": "RMK交流接触器",
+						"Alias": "RMK",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 302,
+						"Name": "RMKC",
+						"Text": "RMKC系列电容用接触器",
+						"Alias": "RMKC",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					}
+				],
+				"Groups": null
+			}
+		],
+		"Groups": null
+	},
+	{
+		"ID": 289,
+		"Name": "仪器仪表",
+		"Text": "仪器仪表",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 290,
+				"Name": "数显仪表",
+				"Text": "数显仪表",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [
+					{
+						"ID": 291,
+						"Name": "P17008",
+						"Text": "P17008经济型数显仪表",
+						"Alias": "P17008",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 293,
+						"Name": "P17009",
+						"Text": "P17009可编程数显仪表",
+						"Alias": "P17009",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 294,
+						"Name": "PD17009",
+						"Text": "PD17009多功能网络仪表",
+						"Alias": "PD17009",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					}
+				],
+				"Groups": null
+			}
+		],
+		"Groups": null
+	},
+	{
+		"ID": 292,
+		"Name": "仪表",
+		"Text": "仪表",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [],
+		"Groups": null
+	},
+	{
+		"ID": 303,
+		"Name": "断路器",
+		"Text": "断路器",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 324,
+				"Name": "高压断路器",
+				"Text": "高压断路器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [
+					{
+						"ID": 325,
+						"Name": "RMVS1",
+						"Text": "RMVS1",
+						"Alias": "RMVS1",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					}
+				],
+				"Groups": null
+			},
+			{
+				"ID": 310,
+				"Name": "双电源开关",
+				"Text": "双电源开关",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [
+					{
+						"ID": 311,
+						"Name": "RMQ1",
+						"Text": "RMQ1双电源开关",
+						"Alias": "RMQ1",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 312,
+						"Name": "RMQ3",
+						"Text": "RMQ3双电源开关",
+						"Alias": "RMQ3",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 313,
+						"Name": "RMQ5",
+						"Text": "RMQ5双电源开关",
+						"Alias": "RMQ5",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 314,
+						"Name": "RMQ6",
+						"Text": "RMQ6双电源开关",
+						"Alias": "RMQ6",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					}
+				],
+				"Groups": null
+			},
+			{
+				"ID": 304,
+				"Name": "万能断路器",
+				"Text": "万能断路器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [
+					{
+						"ID": 305,
+						"Name": "ME",
+						"Text": "ME系列万能断路器",
+						"Alias": "DW17",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 306,
+						"Name": "MEG",
+						"Text": "ME系列隔离开关",
+						"Alias": "DW17G",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 307,
+						"Name": "RMW1",
+						"Text": "RMW1智能型万能断路器",
+						"Alias": "RMW1",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 308,
+						"Name": "RMW1G",
+						"Text": "RMW1G系列隔离开关",
+						"Alias": "RMW1G",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 309,
+						"Name": "RMW2",
+						"Text": "RMW2智能型万能断路器",
+						"Alias": "RMW2",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					}
+				],
+				"Groups": null
+			}
+		],
+		"Groups": null
+	},
+	{
+		"ID": 315,
+		"Name": "电动机启动器",
+		"Text": "电动机启动器",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 316,
+				"Name": "电动机保护器",
+				"Text": "电动机保护器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [
+					{
+						"ID": 317,
+						"Name": "RMD2",
+						"Text": "RMD2电动机保护器",
+						"Alias": "RMD2",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					}
+				],
+				"Groups": null
+			},
+			{
+				"ID": 318,
+				"Name": "软启动",
+				"Text": "软启动",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [
+					{
+						"ID": 319,
+						"Name": "RMS1",
+						"Text": "RMS1软启动器",
+						"Alias": "RMS1",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					}
+				],
+				"Groups": null
+			}
+		],
+		"Groups": null
+	},
+	{
+		"ID": 320,
+		"Name": "继电器",
+		"Text": "继电器",
+		"Alias": "",
+		"Hierarchy": 1,
+		"CompanyCode": "100009",
+		"CompanyName": null,
+		"Children": [
+			{
+				"ID": 321,
+				"Name": "热继电器",
+				"Text": "热继电器",
+				"Alias": "",
+				"Hierarchy": 2,
+				"CompanyCode": "100009",
+				"CompanyName": null,
+				"Children": [
+					{
+						"ID": 322,
+						"Name": "TB",
+						"Text": "T系列热继电器(B系交流配套)",
+						"Alias": "TB",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					},
+					{
+						"ID": 323,
+						"Name": "TRMK",
+						"Text": "T系列热继电器(RMK系交流配套)",
+						"Alias": "TRMK",
+						"Hierarchy": 3,
+						"CompanyCode": "100009",
+						"CompanyName": null,
+						"Children": null,
+						"Groups": null
+					}
+				],
+				"Groups": null
+			}
+		],
+		"Groups": null
+	}
+]
