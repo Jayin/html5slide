@@ -1,7 +1,25 @@
 .sb-mod.sb-mod--comments {
-
-	background-position: left top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height:100%;
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    #comments-container-commentsList {
+        overflow: auto;
+    }
+    .comments-options {
+        background-color: #FFF;
+        width: 100%;
+        text-align: center;
+    }
+    .left-message {
+        input {
+            width: 70%;
+        }
+    }
+    .pages {
+        span {
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+    }
 }

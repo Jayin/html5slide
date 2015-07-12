@@ -1,7 +1,9 @@
 app = require 'app'
 Skateboard = require 'skateboard'
+React = require 'react'
+SystemMessageList = require '../../components/SystemMessageList/main'
 $ = require 'jquery'
-require('jstree')
+utils = require '../../utils'
 
 class Mod extends Skateboard.BaseMod
 	cachable: true
@@ -13,14 +15,92 @@ class Mod extends Skateboard.BaseMod
 
 	_bodyTpl: require './body.tpl.html'
 
+	preMessage: '' #前一条留言
+	lastPostTime: 0 # 最后一次留言时间
+
+
+	unresize: ()=>
+		$('.page-wrapper').css('height', '')
+		$('.page-wrapper').css('min-height', '100%');
+
+	resize: ()=>
+		wrapper_height = $(window).height() - $('.bar-bottom').height() - $('.bar-top-search').height()
+		$('.page-wrapper').height(wrapper_height)
+		$('.page-wrapper').css('min-height', '0%')
+		$('#comments-container-commentsList').height(wrapper_height - $('.comments-options').height())
+
+	update: (pageIndex = 1, pageSize = 20)=>
+		@resize()
+		if pageIndex <= 0
+			pageIndex = 1
+		$('.sb-mod--comments .pages span').text(pageIndex)
+		app.ajax.get
+			url: "Data/CategoryNote/-1?pageIndex=#{pageIndex}&pageSize=#{pageSize}"
+			success: (res)=>
+				React.render(
+					React.createElement(SystemMessageList, {result: res}),
+					document.getElementById('comments-container-commentsList')
+				)
+			error: =>
+				app.alerts.alert '系统繁忙，请稍后再试'
+
+	postMessage: ()=>
+		$input = $('.sb-mod--comments input')
+		# 发送间隔1秒限制
+		if Date.now - @lastPostTime <= 1000
+			app.alerts.alert '留言太快了，请休息一会儿再来'
+			return
+		if $input.val() == ''
+			app.alerts.alert '留言不能为空'
+			return
+		if $input.val() == @preMessage
+			app.alerts.alert '留言不能与上条相同'
+			return
+		if utils.isAllNumber($input.val()) or utils.isAllLetter($input.val())
+			app.alerts.alert '留言不能全为英文、数字'
+			return
+		app.ajax.post
+			url: '/Data/CategoryNote/-1'
+			data:
+				note: $input.val()
+			success: (res)=>
+				# {
+					# result: true
+					# message: ""
+				# }
+
+				if res.result
+					app.alerts.alert '发送成功'
+					@preMessage = $input.val('')
+					$input.val('')
+					# 发送后更新列表
+					@update(pageIndex)
+				else
+					app.alerts.alert res.message
+			error: =>
+				app.alerts.alert '系统繁忙，请稍后再试'
 
 
 	_afterFadeIn: =>
+		@update()
 
 	_afterFadeOut: =>
+		@unresize()
 
 	render: =>
 		super
+
+		$('.sb-mod--comments .btn-left-message').on 'click', ()=>
+			@postMessage()
+
+		$('.sb-mod--comments .btn-pre').on 'click', ()=>
+			page = parseInt($('.sb-mod--comments .pages span').text())
+			@update(page - 1)
+
+
+		$('.sb-mod--comments .btn-next').on 'click', ()=>
+			page = parseInt($('.sb-mod--comments .pages span').text())
+			@update(page + 1)
 
 
 module.exports = Mod
