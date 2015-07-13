@@ -45,6 +45,7 @@ class Mod extends Skateboard.BaseMod
 		if !G.state.get('companyCode')
 			Skateboard.core.view '/view/home'
 			return
+		$container = $('#category-container')
 
 		jstree_config =  {
 			core:
@@ -58,7 +59,7 @@ class Mod extends Skateboard.BaseMod
 			plugins : ["types"]
 		}
 
-		$('#category-container').on 'select_node.jstree', (event, data)=>
+		$container.on 'select_node.jstree', (event, data)=>
 			event.preventDefault();
 			# console.log event
 			# console.log data
@@ -68,8 +69,9 @@ class Mod extends Skateboard.BaseMod
 				G.state.set category: data.node.original
 				Skateboard.core.view '/view/info'
 			else
-				$container = $('#category-container')
 				$container.jstree(true).open_node(data.node.id)
+			#deselect node to prevent automaticly go to `/view/info` when come back in `/view/info`
+			$container.jstree(true).deselect_node(data.node.id)
 				# console.log($container)
 				# console.log $container.jstree(true).is_open(data.node.id)
 				# if $container.jstree(true).is_open(data.node.id)
@@ -82,10 +84,10 @@ class Mod extends Skateboard.BaseMod
 			success: (res)=>
 				jstree_config.core.data = @transformCategory(res)
 
-				$('#category-container').jstree(jstree_config)
+				$container.jstree(jstree_config)
 
-				$('#category-container').jstree(true).settings.core.data = jstree_config.core.data;
-				$('#category-container').jstree(true).refresh(true);
+				$container.jstree(true).settings.core.data = jstree_config.core.data;
+				$container.jstree(true).refresh(true);
 
 			error: ()->
 				app.alerts.alert '系统繁忙，请稍后再试'
