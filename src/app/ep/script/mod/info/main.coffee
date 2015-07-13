@@ -71,7 +71,7 @@ class Mod extends Skateboard.BaseMod
 			@getMessage()
 		else
 			app.alerts.alert '你点击啥?'
-
+	# 检测是否有三级分类
 	_CheckCategory: ()=>
 		category = G.state.get('category')
 		if !category
@@ -80,7 +80,7 @@ class Mod extends Skateboard.BaseMod
 
 		@category = category
 		return true
-
+	# 留言列表
 	getMessage: (pageIndex=1, pageSize=20)=>
 		if !@_CheckCategory()
 			return
@@ -88,7 +88,7 @@ class Mod extends Skateboard.BaseMod
 					React.createElement(MessageList, {result: [], category: @category}),
 					document.getElementById('info-cotent-container')
 		)
-
+	# 经销商列表
 	getDistributor: ()=>
 		if !@_CheckCategory()
 			return
@@ -103,7 +103,7 @@ class Mod extends Skateboard.BaseMod
 				app.alerts.alert '系统繁忙，请稍后再试'
 
 
-	# 明细
+	# 明细列表
 	detail: ()=>
 		if !@_CheckCategory()
 			return
@@ -122,7 +122,7 @@ class Mod extends Skateboard.BaseMod
 			return element
 		G.state.set({accessory: newAccessory})
 
-	# 附体
+	# 附体列表
 	getAccessory: ()=>
 		if !@_CheckCategory()
 			return
@@ -153,7 +153,7 @@ class Mod extends Skateboard.BaseMod
 		url = 'Data/CategoryInfo/{category3Name}?companyCode={companyCode}'
 		prd = G.state.get('Product')
 		if prd
-			url += "?"
+			url += "&"
 			prd.Items.map (item, index)=>
 				if item.Text != ''
 					url += "p#{index}=#{item.Text}&"
