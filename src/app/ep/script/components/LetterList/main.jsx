@@ -12,7 +12,10 @@ module.exports = React.createClass({
 		}
 	},
 	handleItemClick: function(item){
-		$(window).scrollTop($('#'+item).offset().top - 30)
+		if($('#'+item).length > 0){
+			// $(window).scrollTop($('#'+item).offset().top - 30)
+			$('body').animate({scrollTop: $('#'+item).offset().top - 30}, 400)
+		}
 	},
 	render: function(){
 		var createItem = function(item){
