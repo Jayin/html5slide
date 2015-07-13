@@ -24,7 +24,7 @@ class Mod extends Skateboard.BaseMod
 		res.forEach (ele)=>
 			if ele.Name != ''
 				tmp.push(ele.Name)
-		@letters = tmp
+		return tmp
 
 	# 获得公司列表
 	getComanyList: =>
@@ -36,7 +36,13 @@ class Mod extends Skateboard.BaseMod
 					document.getElementById('home-company-list')
 				)
 				@letters = []
-				@getLetters(res)
+				tmp = @getLetters(res)
+				i = 0
+				while i < (26 - tmp.length) / 2
+					@letters.push('')
+					i++
+
+				@letters = @letters.concat tmp
 
 				React.render(
 					React.createElement(LetterList, {visitable: true, letters: @letters}),
