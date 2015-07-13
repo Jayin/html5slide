@@ -17,6 +17,7 @@ class Mod extends Skateboard.BaseMod
 	_bodyTpl: require './body.tpl.html'
 
 	letters: []
+	IS_IN_HOME_PAGE: true #由于切换时会scroll 因此用个变量来控制是否
 
 
 	getLetters: (res)=>
@@ -45,7 +46,7 @@ class Mod extends Skateboard.BaseMod
 				@letters = @letters.concat tmp
 
 				React.render(
-					React.createElement(LetterList, {visitable: true, letters: @letters}),
+					React.createElement(LetterList, {visitable: @isLetterListVisablable(), letters: @letters}),
 					document.getElementById('letters-container')
 				)
 			error: ()->
@@ -54,21 +55,50 @@ class Mod extends Skateboard.BaseMod
 	transformSearchList: (result)=>
 		@companys = result.Companies;
 
+	isLetterListVisablable: ()=>
+		$supportList = $('.invisitable').parent()
+		# 无推荐
+		if $supportList.length <= 0
+			return true
+
+		#1推荐列表高度<可视屏幕 2. 滑动的高度> 推荐列表超出可视区域的高度
+
+		# 中间可视部分的高度
+		midHeight = window.screen.availHeight - $('.bar-top-search').height() - $('.bar-bottom').height()
+		# 推荐列表高度 > 可视高度 则不显示
+		# if $supportList.height() > midHeight
+		# 	return false
+		# 推荐列表超出可视区域的高度 > 如果滑动的高度 >  则不显示
+		if $supportList.height() - midHeight > $(window).scrollTop()
+			return false
+		return true
+
 	_afterFadeIn: =>
-		React.render(
-			React.createElement(LetterList, {visitable: true, letters: @letters}),
-			document.getElementById('letters-container')
-		)
+		@IS_IN_HOME_PAGE = true
+		@updateLetterList()
+		# React.render(
+		# 	React.createElement(LetterList, {visitable: @isLetterListVisablable(), letters: @letters}),
+		# 	document.getElementById('letters-container')
+		# )
 
 	_afterFadeOut: =>
+		@IS_IN_HOME_PAGE = false
 		React.render(
 			React.createElement(LetterList, {visitable: false, letters: @letters}),
 			document.getElementById('letters-container')
 		)
 
+	updateLetterList: =>
+		React.render(
+			React.createElement(LetterList, {visitable: @isLetterListVisablable(), letters: @letters}),
+			document.getElementById('letters-container')
+		)
 	render: =>
 		super
 		@getComanyList()
+		$(window).scroll ()=>
+			if @IS_IN_HOME_PAGE
+				@updateLetterList()
 
 
 
