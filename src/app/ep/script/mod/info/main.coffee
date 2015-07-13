@@ -31,6 +31,9 @@ class Mod extends Skateboard.BaseMod
 
 	_afterFadeOut: =>
 
+	calPrice: =>
+		return Math.round(@productPrice * (G.state.get('percent').body / 100) * 100)/100
+
 	onBodyChange: (evt)=>
 		val = $('#info-input-body')[0].value
 		if parseInt(val)
@@ -39,7 +42,9 @@ class Mod extends Skateboard.BaseMod
 			percent.body = val
 			G.state.set({percent: percent})
 			# 四舍五入
-			$('.product-price-number').text(Math.round(@productPrice * (G.state.get('percent').body / 100) * 100)/100)
+			$('.product-price-number').text(@calPrice())
+			if $('.option.option-active').data('index') is 2 #当前Tab是明细页，则更新
+				@detail()
 		else
 			$('#info-input-body')[0].value = 100
 
@@ -109,8 +114,11 @@ class Mod extends Skateboard.BaseMod
 	detail: ()=>
 		if !@_CheckCategory()
 			return
+		prd =
+			Name: @product.Name
+			price: @calPrice()
 		React.render(
-			React.createElement(Detail, {Accessorys: G.state.get('accessory')}),
+			React.createElement(Detail, {Accessorys: G.state.get('accessory'), Product: prd}),
 			document.getElementById('info-cotent-container')
 		)
 
