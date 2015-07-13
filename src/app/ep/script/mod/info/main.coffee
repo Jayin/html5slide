@@ -20,7 +20,8 @@ class Mod extends Skateboard.BaseMod
 	_bodyTpl: require './body.tpl.html'
 
 	category: null
-	productPrice: 0
+	productPrice: 0 # 产品价格
+	product: null # 产品信息
 
 
 	_afterFadeIn: =>
@@ -135,7 +136,7 @@ class Mod extends Skateboard.BaseMod
 			return
 		url = 'Data/Accessory/{productID}?companyCode={companyCode}'
 		app.ajax.get
-			url: url.replace('{productID}', @category.id).replace('{companyCode}', @category.companyCode)
+			url: url.replace('{productID}', @product.ID).replace('{companyCode}', @category.companyCode)
 			success: (res)=>
 				# 处理& 保存
 				@_saveAccessory(res)
@@ -165,7 +166,7 @@ class Mod extends Skateboard.BaseMod
 		app.ajax.get
 			url: url.replace('{category3Name}', @category.name).replace('{companyCode}', @category.companyCode)
 			success: (res)=>
-
+				@product = res.Product
 				@productPrice = res.Product.Price
 				$('.product-name').text(res.Product.Name)
 				$('.product-price-number').text(Math.round(@productPrice * (G.state.get('percent').body / 100) * 100) / 100)
