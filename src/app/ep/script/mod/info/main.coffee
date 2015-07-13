@@ -22,6 +22,7 @@ class Mod extends Skateboard.BaseMod
 	category: null
 	productPrice: 0 # 产品价格
 	product: null # 产品信息
+	properties: []# 产品属性
 
 
 	_afterFadeIn: =>
@@ -157,7 +158,7 @@ class Mod extends Skateboard.BaseMod
 			url += "&"
 			prd.Items.map (item, index)=>
 				if item.Text != ''
-					url += "p#{index}=#{item.Text}&"
+					url += "p#{@properties[index].Index}=#{item.Text}&"
 
 			url = url.slice(0, url.length - 1)
 			# remove the data
@@ -166,6 +167,7 @@ class Mod extends Skateboard.BaseMod
 		app.ajax.get
 			url: url.replace('{category3Name}', @category.name).replace('{companyCode}', @category.companyCode)
 			success: (res)=>
+				@properties = res.Properties
 				@product = res.Product
 				@productPrice = res.Product.Price
 				$('.product-name').text(res.Product.Name)
