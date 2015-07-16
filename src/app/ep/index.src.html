@@ -15,6 +15,7 @@ document.write([
 </script>
 
 <div class="bar-top-search">
+	<div id="index-btn-back"></div>
 	<input class="index-search-input" placeholder="搜索公司或者型号"/>
 	<div id="index-btn-search"></div>
 </div>
@@ -77,6 +78,10 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			].join('')).prependTo($('.page-wrapper'));
 			return contentDom;
 		}
+	});
+	
+	$('#index-btn-back').on('click', function(){
+		history.back();
 	});
 
 

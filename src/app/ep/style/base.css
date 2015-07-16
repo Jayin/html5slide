@@ -14,16 +14,13 @@ body {
 }
 
 .bar-top-search {
-    background-image: url(../image/bar_top_search.png);
     background-color: #169ADA;
-    background-position: left top;
-    background-repeat: no-repeat;
-    background-size: contain;
     height: 40px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1500;
+    padding-top: 8px;
 }
 
 .placeholer-bar-bottom {
@@ -49,23 +46,38 @@ body {
 }
 
 .index-search-input {
-    width: 80%;
-    margin: 7px;
+    width: 70%;
+    margin: 2px;
     background-color: transparent;
     border: 0px;
     color: white;
+    font-size: 1rem;
 }
 
 .index-search-input:focus {
     border-bottom: 1px solid white;
 }
 
+#index-btn-back {
+    background-image: url(../image/bar-top-back.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 25px;
+    margin-left: 8px;
+    float: left;
+}
+
 #index-btn-search {
-    height: 40px;
-    width: 30%;
-    position: fixed;
-    right: 0;
-    top: 0;
+    background-image: url(../image/bar-top-search.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 22px;
+    width: 25px;
+    float: right;
+    margin-right: 13px;
 }
 
 .bar_bottom_1 {
@@ -88,9 +100,10 @@ body {
     background-image: url(../image/bar_bottom_5.png)
 }
 
-.bar_bottom_6{
+.bar_bottom_6 {
     background-image: url(../image/bar_bottom_6.png)
 }
+
 .inline-block {
     display: inline-block;
 }
