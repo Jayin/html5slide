@@ -96,6 +96,10 @@ class Mod extends Skateboard.BaseMod
 		$('.sb-mod--comments .btn-left-message').on 'click', ()=>
 			@postMessage()
 
+		$('.sb-mod--comments .btn-refresh').on 'click', ()=>
+			page = parseInt($('.sb-mod--comments .pages span').text())
+			@update(page)
+
 		$('.sb-mod--comments .btn-pre').on 'click', ()=>
 			page = parseInt($('.sb-mod--comments .pages span').text())
 			@update(page - 1)
