@@ -37,7 +37,44 @@
                 "Site": "http://www.wgats.com/",
                 "ContactInfo": "4008101315",
                 "IsRecommend": true
+            },
+            	{
+                "ID": 117,
+                "Name": "常熟开关制造有限公司（原常熟开关厂）",
+                "Code": "100007",
+                "PinYin": "CSKGZZYXGS（YCSKGC）",
+                "Site": "http://www.riyue.com.cn/",
+                "ContactInfo": "8008282528",
+                "IsRecommend": true
+            },
+            {
+                "ID": 119,
+                "Name": "上海人民电器厂",
+                "Code": "100009",
+                "PinYin": "SHRMDQC",
+                "Site": "http://www.sreaw.com.cn/",
+                "ContactInfo": "021-62523029  021-62100013 021-56653680",
+                "IsRecommend": true
+            },
+            {
+                "ID": 1123,
+                "Name": "施耐德电气(中国)有限公司",
+                "Code": "100004",
+                "PinYin": "SNDDQ(ZG)YXGS",
+                "Site": "http://www.schneider-electric.com/site/home/index.cfm/cn/",
+                "ContactInfo": "4008101315",
+                "IsRecommend": true
+            },
+            {
+                "ID": 118,
+                "Name": "施耐德万高（天津）电气设备有限公司",
+                "Code": "100008",
+                "PinYin": "SNDWG（TJ）DQSBYXGS",
+                "Site": "http://www.wgats.com/",
+                "ContactInfo": "4008101315",
+                "IsRecommend": true
             }
+
 
         ]
     },
