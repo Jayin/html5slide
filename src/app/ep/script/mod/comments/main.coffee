@@ -44,22 +44,22 @@ class Mod extends Skateboard.BaseMod
 					document.getElementById('comments-container-commentsList')
 				)
 			error: =>
-				app.alerts.alert '系统繁忙，请稍后再试'
+				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
 
 	postMessage: ()=>
 		$input = $('.sb-mod--comments input')
 		# 发送间隔1秒限制
 		if Date.now - @lastPostTime <= 1000
-			app.alerts.alert '留言太快了，请休息一会儿再来'
+			app.alerts.alert '留言太快了，请休息一会儿再来', 'info', 1000
 			return
 		if $input.val() == ''
-			app.alerts.alert '留言不能为空'
+			app.alerts.alert '留言不能为空', 'info', 1000
 			return
 		if $input.val() == @preMessage
-			app.alerts.alert '留言不能与上条相同'
+			app.alerts.alert '留言不能与上条相同', 'info', 1000
 			return
 		if utils.isAllNumber($input.val()) or utils.isAllLetter($input.val())
-			app.alerts.alert '留言不能全为英文、数字'
+			app.alerts.alert '留言不能全为英文、数字', 'info', 1000
 			return
 		app.ajax.post
 			url: '/Data/CategoryNote/-1'
@@ -72,16 +72,16 @@ class Mod extends Skateboard.BaseMod
 				# }
 
 				if res.result
-					app.alerts.alert '发送成功'
+					app.alerts.alert '留言成功' , 'info', 1000
 					@preMessage = $input.val('')
 					@lastPostTime = Date.now
 					$input.val('')
 					# 发送后更新列表
 					@update(@pageIndex)
 				else
-					app.alerts.alert res.message
+					app.alerts.alert res.message, 'info', 1000
 			error: =>
-				app.alerts.alert '系统繁忙，请稍后再试'
+				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
 
 
 	_afterFadeIn: =>

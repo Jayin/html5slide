@@ -32,7 +32,7 @@ module.exports = React.createClass({
 					React.findDOMNode(this.refs.pageIndex).textContent = pageIndex;
 				}.bind(this),
 				error: function(){
-					app.alerts.alert('系统繁忙，请稍后再试')
+					app.alerts.alert('系统繁忙，请稍后再试', 'info', 1000)
 				}
 			}
 		);
@@ -48,19 +48,19 @@ module.exports = React.createClass({
 	handleClickLeftMessage: function(){
 		var $input = $('.component-MessageList input');
 		if (Date.now - this.lastPostTime <= 1000){
-			app.alerts.alert('留言太快了，请休息一会儿再来');
+			app.alerts.alert('留言太快了，请休息一会儿再来', 'info', 1000);
 			return;
 		}
 		if($input.val() == ''){
-			app.alerts.alert('留言不能为空');
+			app.alerts.alert('留言不能为空', 'info', 1000);
 			return;
 		}
 		if ($input.val() == this.preMessage){
-			app.alerts.alert('留言不能与上条相同')
+			app.alerts.alert('留言不能与上条相同', 'info', 1000)
 			return;
 		}
 		if (utils.isAllNumber($input.val()) || utils.isAllLetter($input.val())){
-			app.alerts.alert('留言不能全为英文、数字');
+			app.alerts.alert('留言不能全为英文、数字', 'info', 1000);
 			return;
 		}
 
@@ -75,14 +75,16 @@ module.exports = React.createClass({
 					this.preMessage = $input.val();
 					this.lastPostTime = Date.now;
 					$input.val('');
-					app.alerts.alert('留言成功');
+					app.alerts.alert('留言成功', 'info', 1000);
+					//刷新到第一页
+					this.getMessage(1)
 				}else{
-					app.alerts.alert(res.message)
+					app.alerts.alert(res.message, 'info', 1000)
 				}
 
 			}.bind(this),
 			error: function(){
-				app.alerts.alert('系统繁忙，请稍后再试')
+				app.alerts.alert('系统繁忙，请稍后再试', 'info', 1000)
 			}
 		});
 	},

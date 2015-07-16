@@ -77,7 +77,7 @@ class Mod extends Skateboard.BaseMod
 		else if index == 4
 			@getMessage()
 		else
-			app.alerts.alert '你点击啥?'
+			app.alerts.alert '你点击啥?', 'info', 1000
 	# 检测是否有三级分类
 	_CheckCategory: ()=>
 		category = G.state.get('category')
@@ -107,7 +107,7 @@ class Mod extends Skateboard.BaseMod
 					document.getElementById('info-cotent-container')
 				)
 			error: (err)=>
-				app.alerts.alert '系统繁忙，请稍后再试'
+				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
 
 
 	# 明细列表
@@ -154,7 +154,7 @@ class Mod extends Skateboard.BaseMod
 					document.getElementById('info-cotent-container')
 				)
 			error: (err)=>
-				app.alerts.alert '系统繁忙，请稍后再试'
+				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
 
 	# 本体
 	getProperties: ()=>
@@ -185,7 +185,7 @@ class Mod extends Skateboard.BaseMod
 					document.getElementById('info-cotent-container')
 				)
 			error: (err)=>
-				app.alerts.alert '系统繁忙，请稍后再试'
+				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
 
 	# 初始化百分比
 	initPercent: ()=>
