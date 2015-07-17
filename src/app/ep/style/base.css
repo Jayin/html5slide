@@ -24,7 +24,7 @@ body {
 }
 
 .placeholer-bar-bottom {
-    height: 50px;
+    height: 40px;
     width: 100%;
 }
 
@@ -32,7 +32,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 50px;
+    height: 40px;
     position: fixed;
     bottom: 0;
     width: 100%;
