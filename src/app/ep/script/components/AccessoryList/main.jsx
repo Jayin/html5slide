@@ -12,79 +12,88 @@ var CompanyList = React.createClass({
 			Accessorys: this.props.Accessorys || []
 		}
 	},
-	handleItemClick: function(data, evt){
-		//处理UI & 更新附件列表
-
-		//当前选中的是否已经选择了，若是则说明取消该选项
-		currentItemIsChecked = data.ele.IsSelected;
-		if (currentItemIsChecked){
-			$('input[data-optionid={id}]'.replace('{id}', data.ele.ID))[0].checked = false;
-		}else{
-			//全部不选
-			$('input[name={value}]'.replace("{value}", data.item.Name)).map(function(index,element){
-					if(element.checked){
-						index_pre_selected = index;
-					}
-					element.checked = false;
-			});
-			//选择点击的
-			$('input[data-optionid={id}]'.replace('{id}', data.ele.ID))[0].checked = true;
-		}
-
-		//更新当前选择状态
-		var Accessorys = this.state.Accessorys;
-		var index_item = 0; //附件序列序号
-		var index_ele = 0; //选项序列序号
-		for (var index in Accessorys){
-			if (data.item.Name == Accessorys[index].Name){
-				index_item = index;
-				break
+	//获得组内有多少个已选项
+	_getSelectCount: function(item){
+		var count = 0;
+		item.Items.forEach(function(ele){
+			if(ele.IsSelected){
+				count++
 			}
-		}
-		for (var index in Accessorys[index_item].Items){
-			if (data.ele.ID == Accessorys[index_item].Items[index].ID){
-				index_ele = index;
-				break;
-			}
-		}
-
-		newItems = Accessorys[index_item].Items.map(function(e){
-			e.IsSelected = false;
-			return e
 		});
-		//若是已选择，再次点击就是取消
-		if (currentItemIsChecked){
-			newItems[index_ele].IsSelected = false;
-		}else{
-			newItems[index_ele].IsSelected = true;
+		return count;
+	},
+	//获得组内有多少个必选项
+	_getForceCount: function(item){
+		var count = 0;
+		item.Items.forEach(function(ele){
+			if(ele.IsForce){
+				count++;
+			}
+		});
+		return count;
+	},
+	handleItemClick: function(data, evt){
+		var ele = data.ele;
+		var item = data.item;
+		//选项isForce=true，那么不用处理
+		if(ele.IsForce){
+			return;
 		}
+		//如果isForce=false
+		if(item.IsForce){
+			//单选
+			if(item.SelectOption == 0){
+				//如果该组的必选项 > 1,不用处理
+				if(this._getForceCount(item) > 0){
+					return;
+				}else{// 如果该组的必选项 <= 0 ,其他清空，该项勾选
+					item.Items.forEach(function(e, index){
+						item.Items[index].IsSelected = false;
+					});
+					ele.IsSelected = true;
+				}
 
-		Accessorys[index_item].Items = newItems;
+			}else{//多选
+				var selectCount = this._getSelectCount(item);
+				if(ele.IsSelected){
+					selectCount--;
+				}
+				//如果已选项（不含点击选择项） >= 1，则直接相反
+				if(selectCount > 0){
+					ele.IsSelected = !ele.IsSelected;
+				}else{//如果已选项 =0 （不含点击选择项）则选择
+					ele.IsSelected = true;
+				}
+			}
+		}else{
+			ele.IsSelected = !ele.IsSelected;
+		}
+		Accessorys = this.state.Accessorys;
+
+		item.Items[data.eleIndex] = ele;
+		Accessorys[data.itemIndex] = item;
 
 		this.setState({Accessorys: Accessorys})
 		G.state.set({accessory: Accessorys})
 
 	},
 	render: function(){
-		var createItem = function(item){
+		var createItem = function(item, itemIndex){
 			return (
 				<div>
 					<div><div className="inline-block name-img"></div>{item.Name}</div>
 					<ul>
-						{item.Items.map(function(ele){
-							// console.log ('createItem--> Items map-->')
-							// console.log (item)
-							// console.log (ele)
+						{item.Items.map(function(ele, eleIndex){
 							var Input;
 							if (ele.IsSelected){
-								Input = <input onClick={this.handleItemClick.bind(this, {item: item, ele: ele})}
+								Input = <input onClick={this.handleItemClick.bind(this, {item: item,itemIndex: itemIndex, ele: ele, eleIndex: eleIndex})}
 											type="checkbox"
 											name={item.Name}
 											data-price={ele.Price}
 											data-optionid={ele.ID}
 											checked="checked"/>
 							}else{
-								Input = <input onClick={this.handleItemClick.bind(this, {item: item, ele: ele})}
+								Input = <input onClick={this.handleItemClick.bind(this, {item: item,itemIndex: itemIndex, ele: ele, eleIndex: eleIndex})}
 											type="checkbox"
 											name={item.Name}
 											data-price={ele.Price}
