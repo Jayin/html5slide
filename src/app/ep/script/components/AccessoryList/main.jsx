@@ -86,14 +86,14 @@ var CompanyList = React.createClass({
 						{item.Items.map(function(ele, eleIndex){
 							var Input;
 							if (ele.IsSelected){
-								Input = <input onClick={this.handleItemClick.bind(this, {item: item,itemIndex: itemIndex, ele: ele, eleIndex: eleIndex})}
+								Input = <input
 											type="checkbox"
 											name={item.Name}
 											data-price={ele.Price}
 											data-optionid={ele.ID}
 											checked="checked"/>
 							}else{
-								Input = <input onClick={this.handleItemClick.bind(this, {item: item,itemIndex: itemIndex, ele: ele, eleIndex: eleIndex})}
+								Input = <input
 											type="checkbox"
 											name={item.Name}
 											data-price={ele.Price}
@@ -101,7 +101,7 @@ var CompanyList = React.createClass({
 							}
 
 							return (
-								<li>
+								<li onClick={this.handleItemClick.bind(this, {item: item,itemIndex: itemIndex, ele: ele, eleIndex: eleIndex})}>
 									{Input}
 									<label>{ele.Name}</label>
 								</li>
