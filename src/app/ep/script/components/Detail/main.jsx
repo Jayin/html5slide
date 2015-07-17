@@ -13,30 +13,26 @@ module.exports = React.createClass({
 	render: function(){
 		var createItem = function(ele){
 			var selectItem = null;
-			for (index in ele.Items){
-				if (ele.Items[index].IsSelected){
-					selectItem = ele.Items[index];
-					break;
+			var itemList = []
+
+			ele.Items.forEach(function(item){
+				if(item.IsSelected){
+					//根据附体的百分比
+					var accessoryPercent =  G.state.get('percent').accessory / 100
+					itemList.push(
+						<div className="text-left" style={{borderBottom: '1px solid #E0E0E0'}}>
+							<div className="inline-block text text-accessory-name" style={{width: '67%'}}>
+								{item.Name}
+							</div>
+							<div className="inline-block text" style={{width: '30%'}}>
+								{Math.round(item.Price * accessoryPercent * 100) / 100}
+							</div>
+						</div>
+					);
+
 				}
-
-			}
-
-			if (selectItem){
-				//根据附体的百分比
-				accessoryPercent =  G.state.get('percent').accessory / 100
-				return (
-					<div className="text-left" style={{borderBottom: '1px solid #E0E0E0'}}>
-						<div className="inline-block text text-accessory-name" style={{width: '67%'}}>
-							{selectItem.Name}
-						</div>
-						<div className="inline-block text" style={{width: '30%'}}>
-							{Math.round(selectItem.Price * accessoryPercent * 100) / 100}
-						</div>
-					</div>
-				);
-			}
-			else
-				return ;
+			});
+			return itemList;
 		};
 		return (
 			<div className="component-Detail">
