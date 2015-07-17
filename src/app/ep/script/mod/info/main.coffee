@@ -194,7 +194,8 @@ class Mod extends Skateboard.BaseMod
 				@properties = res.Properties
 				@product = res.Product
 				@productPrice = res.Product.Price
-				$('.product-name').text(res.Product.Name)
+				# $('.product-name').text(res.Product.Name)
+				@updateProductName()
 				# $('.product-price-number').text(@calBodyPrice())
 				@updateTotalPrice()
 				React.render(
@@ -220,11 +221,38 @@ class Mod extends Skateboard.BaseMod
 				React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
 				document.getElementById('info-cotent-container')
 			)
+
+	updateProductName: ()=>
+		Accessorys = G.state.get('accessory')
+
+		getText = (Accessorys, name)=>
+			if !Accessorys or Accessorys.length is 0
+				return ''
+			result = ''
+			Accessorys.forEach (item)=>
+				if item.Name is name
+					item.Items.forEach (ele)=>
+						if ele.IsSelected #应该只能选一个?
+							result += ele.Text
+			return result
+
+		# !
+		fujian = getText(Accessorys, '附件')
+
+		# $
+		option_method = getText(Accessorys, '操作方式')
+
+		$('.product-name').text(@product.Name.replace('!',fujian).replace('$', option_method))
+
+
+
 	# 选择了不同的属性，需要重新加载
 	onStateChange: =>
 		# 选择了不同的附件
 		if G.state.get('accessory')
 			@updateTotalPrice()
+			@updateProductName()
+
 		if G.state.get('Product')
 			@getProperties()
 			@initPercent()
