@@ -33,13 +33,15 @@ var CompanyList = React.createClass({
 		return count;
 	},
 	handleItemClick: function(data, evt){
+		//more details :https://github.com/Jayin/html5slide/issues/33
 		var ele = data.ele;
 		var item = data.item;
-		//选项isForce=true，那么不用处理
+
+		//选项为必选，那么不用处理
 		if(ele.IsForce){
 			return;
 		}
-		//如果isForce=false
+		//如果附件组为必选
 		if(item.IsForce){
 			//单选
 			if(item.SelectOption == 0){
@@ -66,7 +68,17 @@ var CompanyList = React.createClass({
 				}
 			}
 		}else{
-			ele.IsSelected = !ele.IsSelected;
+			// 单选
+			if(item.SelectOption == 0){
+				item.Items.forEach(function(e, index){
+					item.Items[index].IsSelected = false;
+				});
+				ele.IsSelected = true;
+
+			}else{ //多选
+				ele.IsSelected = !ele.IsSelected;
+			}
+
 		}
 		Accessorys = this.state.Accessorys;
 
