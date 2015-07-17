@@ -142,7 +142,7 @@ class Mod extends Skateboard.BaseMod
 		newAccessory = accessory.map (element)=>
 			element.Items.map (item)=>
 				# 按照默认勾选
-				item.IsSelected = item.IsDefault
+				item.IsSelected = item.IsDefault || item.IsForce
 				return item
 			return element
 		G.state.set({accessory: newAccessory})
