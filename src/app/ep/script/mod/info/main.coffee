@@ -31,8 +31,21 @@ class Mod extends Skateboard.BaseMod
 
 	_afterFadeOut: =>
 
-	calPrice: =>
+	calBodyPrice: =>
 		return Math.round(@productPrice * (G.state.get('percent').body / 100) * 100)/100
+
+	updateTotalPrice: =>
+		bodyPrice = @calBodyPrice()
+		accessoryPrice = 0
+		Accessorys = G.state.get('accessory')
+		if Accessorys
+			Accessorys.forEach (element)=>
+				element.Items.forEach (item)=>
+					if item.IsSelected
+						accessoryPrice += item.Price * G.state.get('percent').accessory / 100
+
+		$('.product-price-number').text(Math.round(bodyPrice + accessoryPrice))
+
 
 	onBodyChange: (evt)=>
 		val = $('#info-input-body')[0].value
@@ -42,7 +55,8 @@ class Mod extends Skateboard.BaseMod
 			percent.body = val
 			G.state.set({percent: percent})
 			# 四舍五入
-			$('.product-price-number').text(@calPrice())
+			# $('.product-price-number').text(@calBodyPrice())
+			@updateTotalPrice()
 			if $('.option.option-active').data('index') is 2 #当前Tab是明细页，则更新
 				@detail()
 		else
@@ -55,6 +69,7 @@ class Mod extends Skateboard.BaseMod
 			percent = G.state.get('percent')
 			percent.accessory = val
 			G.state.set({percent: percent})
+			@updateTotalPrice()
 			if $('.option.option-active').data('index') is 2 #当前Tab是明细页，则更新
 				@detail()
 		else
@@ -116,7 +131,7 @@ class Mod extends Skateboard.BaseMod
 			return
 		prd =
 			Name: @product.Name
-			price: @calPrice()
+			price: @calBodyPrice()
 		React.render(
 			React.createElement(Detail, {Accessorys: G.state.get('accessory'), Product: prd}),
 			document.getElementById('info-cotent-container')
@@ -149,6 +164,7 @@ class Mod extends Skateboard.BaseMod
 			success: (res)=>
 				# 处理& 保存
 				@_saveAccessory(res)
+				@updateTotalPrice()
 				React.render(
 					React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
 					document.getElementById('info-cotent-container')
@@ -179,7 +195,8 @@ class Mod extends Skateboard.BaseMod
 				@product = res.Product
 				@productPrice = res.Product.Price
 				$('.product-name').text(res.Product.Name)
-				$('.product-price-number').text(Math.round(@productPrice * (G.state.get('percent').body / 100) * 100) / 100)
+				# $('.product-price-number').text(@calBodyPrice())
+				@updateTotalPrice()
 				React.render(
 					React.createElement(PropertiesList, {Properties: res.Properties ,Product: res.Product }),
 					document.getElementById('info-cotent-container')
@@ -205,6 +222,9 @@ class Mod extends Skateboard.BaseMod
 			)
 	# 选择了不同的属性，需要重新加载
 	onStateChange: =>
+		# 选择了不同的附件
+		if G.state.get('accessory')
+			@updateTotalPrice()
 		if G.state.get('Product')
 			@getProperties()
 			@initPercent()
