@@ -242,7 +242,23 @@ class Mod extends Skateboard.BaseMod
 		# $
 		option_method = getText(Accessorys, '操作方式')
 
-		$('.product-name').text(@product.Name.replace('!',fujian).replace('$', option_method))
+		# #
+		protect = getText(Accessorys, '保护用途')
+
+		getExtra = ()=>
+			whiteList = ['附件', '操作方式', '保护用途']
+			if !Accessorys or Accessorys.length is 0
+					return ''
+			result = ''
+			Accessorys.forEach (item)=>
+				if  whiteList.indexOf(item.Name) == -1
+					item.Items.forEach (ele)=>
+						if ele.IsSelected #应该只能选一个?
+							result += ele.Text
+			return result
+
+
+		$('.product-name').text(@product.Name.replace('!',fujian).replace('$', option_method).replace('#', protect) + getExtra())
 
 
 
