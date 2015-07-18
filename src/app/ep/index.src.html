@@ -40,7 +40,8 @@ document.write([
 
 </div>
 <script type="text/javascript">
-require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
+require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, React) {
+	React.initializeTouchEvents(true);
 
 	$.extend(G.MD5_MAP, %{{md5map.ep}}%);
 
