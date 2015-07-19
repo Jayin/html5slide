@@ -125,7 +125,7 @@ var CompanyList = React.createClass({
 			);
 		};
 		return (
-			<div className="component-AccessoryList" style={{padding: '2px'}}>
+			<div className="component-AccessoryList">
 				{this.state.Accessorys.map(createItem.bind(this))}
 			</div>
 		);
