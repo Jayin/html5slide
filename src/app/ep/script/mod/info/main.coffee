@@ -26,6 +26,7 @@ class Mod extends Skateboard.BaseMod
 
 
 	_afterFadeIn: =>
+		$('.sb-mod.sb-mod--info').css('-webkit-transform', 'none')
 		# 每次进入该页面是清空数据
 		G.state.set({accessory: null})
 		# restore UI
@@ -54,6 +55,7 @@ class Mod extends Skateboard.BaseMod
 
 	onBodyChange: (evt)=>
 		val = $('#info-input-body')[0].value
+		$('.mask-body').text(val + '')
 		if parseInt(val)
 			# handle the change
 			percent = G.state.get('percent')
@@ -69,6 +71,7 @@ class Mod extends Skateboard.BaseMod
 
 	onAccessoryChange: (evt)=>
 		val = $('#info-input-accessory')[0].value
+		$('.mask-accessory').text(val + '')
 		if parseInt(val)
 			# handle the change
 			percent = G.state.get('percent')
@@ -82,6 +85,9 @@ class Mod extends Skateboard.BaseMod
 
 
 	chooseOption: (evt)=>
+		# 防止遮挡
+		$('body').scrollTop(0)
+
 		index = parseInt(evt.currentTarget.dataset.index)
 		$('.option').removeClass('option-active')
 		$($('.option')[index]).addClass('option-active')
@@ -265,6 +271,8 @@ class Mod extends Skateboard.BaseMod
 
 
 		$('.product-name').text(@product.Name.replace('!',fujian).replace('$', option_method).replace('#', protect) + getExtra())
+		$('#info-cotent-container').css('padding-top', $('.fixed-group').height() + 'px')
+		$('body').scrollTop(0)
 
 
 

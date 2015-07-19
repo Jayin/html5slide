@@ -1,65 +1,83 @@
 .sb-mod.sb-mod--info {
-	background-position: left top;
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 100%;
-	.percent-container {
-		display: inline-block;
-		height: 40px;
-  		width: 100%;
-		text-align: center;
-		select{
-			width: 65px;
-			background-color: #FFF;
-		}
-	}
-	.percent-container div {
-		display: inline-block;
-	}
-	.product-name {
-		color: rgb(3, 127, 246);
-		margin: 4px;
-		font-size: 1.1rem;
-	}
-	.product-price {
-		font-size: 1.2rem;
-		width: 26%;
-		float: left;
-		margin-left: 8px;
-	}
-	.product-price-number {
-		font-style: oblique;
-	}
-	.btn-copy {
-		font-size: 1rem;
-		float: right;
-		background-color: gainsboro;
-		border-radius: 5px;
-		width: 47px;
-		text-align: center;
-		margin-right: 8px;
-	}
-	.options {
-		clear: both;
-		width: 100%;
-		background-color: gainsboro;
-		height: 30px;
-		text-align: center;
-	}
-	.option {
-		width: 17%;
-		height: 85%;
-		display: inline-block;
-		margin-top: 4px;
-	}
-	.option-active {
-		background-color: white;
-	}
-	.component-PropertiesList,
-	.component-AccessoryList,
-	.component-Detail,
-	.component-Distributor {
-		animation-duration: 3s;
-		animation-name: fadein;
-	}
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    .fixed-group {
+        position: fixed;
+        top: 40px;
+        left: 0;
+        background-color: white;
+        z-index: 1999;
+        width: 100%;
+        font-size: 1.1rem;
+        .mask {
+            width: 40px;
+            position: absolute;
+            border: 1px solid gainsboro;
+        }
+    }
+    #info-cotent-container {
+        padding-top: 130px;
+    }
+    .percent-container {
+        display: inline-block;
+        height: 40px;
+        width: 100%;
+        text-align: center;
+        select {
+            width: 35px;
+            background-color: #FFF;
+            opacity: 0;
+        }
+    }
+    .percent-container div {
+        display: inline-block;
+    }
+    .product-name {
+        color: rgb(3, 127, 246);
+        margin: 4px;
+        font-size: 1.1rem;
+    }
+    .product-price {
+        font-size: 1.2rem;
+        width: 26%;
+        float: left;
+        margin-left: 8px;
+    }
+    .product-price-number {
+        font-style: oblique;
+    }
+    .btn-copy {
+        font-size: 1rem;
+        float: right;
+        background-color: gainsboro;
+        border-radius: 5px;
+        width: 47px;
+        text-align: center;
+        margin-right: 8px;
+    }
+    .options {
+        clear: both;
+        width: 100%;
+        background-color: gainsboro;
+        height: 30px;
+        text-align: center;
+    }
+    .option {
+        width: 17%;
+        height: 85%;
+        display: inline-block;
+        margin-top: 4px;
+    }
+    .option-active {
+        background-color: white;
+    }
+    .component-PropertiesList,
+    .component-AccessoryList,
+    .component-Detail,
+    .component-Distributor {
+        animation-duration: 3s;
+        animation-name: fadein;
+    }
 }
