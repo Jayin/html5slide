@@ -5,7 +5,7 @@
     background-repeat: no-repeat;
     position: fixed;
     right: 0%;
-    top: 9%;
+    top: 7%;
     height: 82%;
     width: 13.5%;
     text-align: center;
@@ -13,9 +13,9 @@
 
 .side-words .item-word {
     display: block;
-    height: 3.8%;
+    height: 4%;
     width: 100%;
     text-decoration: none;
     color: #169ADA;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
