@@ -63,7 +63,7 @@ module.exports = React.createClass({
 		var Companies = {};
 		Companies.text = '公司'
 		Companies.id = 'Companies';
-		Companies.state = {opened: false};
+		Companies.state = {opened: true};
 		Companies.children = [];
 		data.Companies.forEach(function(element){
 			Companies.children.push(this.objectAttrLowercase(element))
