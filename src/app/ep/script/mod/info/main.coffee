@@ -225,19 +225,20 @@ class Mod extends Skateboard.BaseMod
 	updateProductName: ()=>
 		Accessorys = G.state.get('accessory')
 
-		getText = (Accessorys, name)=>
+		getText = (Accessorys, name, defaultValue)=>
+			result = defaultValue || ''
 			if !Accessorys or Accessorys.length is 0
-				return ''
-			result = ''
+				return result
 			Accessorys.forEach (item)=>
 				if item.Name is name
 					item.Items.forEach (ele)=>
 						if ele.IsSelected #应该只能选一个?
-							result += ele.Text
+							result = ele.Text
+
 			return result
 
 		# !
-		fujian = getText(Accessorys, '附件')
+		fujian = getText(Accessorys, '附件', '00')
 
 		# $
 		option_method = getText(Accessorys, '操作方式')
