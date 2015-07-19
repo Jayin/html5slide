@@ -30,7 +30,7 @@ class Mod extends Skateboard.BaseMod
 		$('.page-wrapper').css('min-height', '0%')
 		$('#comments-container-commentsList').height(wrapper_height - $('.comments-options').height())
 
-	update: (pageIndex = 1, pageSize = 20)=>
+	update: (pageIndex = 1, pageSize = 40)=>
 		@resize()
 		if pageIndex <= 0
 			pageIndex = 1

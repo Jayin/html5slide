@@ -17,7 +17,7 @@ module.exports = React.createClass({
 	},
 	getMessage: function(pageIndex, pageSize){
 		pageIndex = pageIndex || 1;
-		pageSize = pageSize || 20;
+		pageSize = pageSize || 40;
 		var url = '/Data/CategoryNote/{category3ID}'.replace('{category3ID}', this.state.category.id)
 			+ '?companyCode={companyCode}'.replace('{companyCode}', this.state.category.companyCode)
 			+ '&pageIndex={pageIndex}'.replace('{pageIndex}', pageIndex)
