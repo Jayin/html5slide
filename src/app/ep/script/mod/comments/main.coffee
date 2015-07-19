@@ -43,6 +43,10 @@ class Mod extends Skateboard.BaseMod
 					React.createElement(SystemMessageList, {result: res}),
 					document.getElementById('comments-container-commentsList')
 				)
+				# 数据更新后滚动到顶部
+				$('#comments-container-commentsList').scrollTop(0)
+				$('body').scrollTop(0)
+
 			error: =>
 				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
 
