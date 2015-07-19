@@ -71,10 +71,11 @@ var CompanyList = React.createClass({
 			// 单选
 			if(item.SelectOption == 0){
 				item.Items.forEach(function(e, index){
+					if(index == data.eleIndex)
+						return
 					item.Items[index].IsSelected = false;
 				});
-				ele.IsSelected = true;
-
+				ele.IsSelected = !ele.IsSelected;
 			}else{ //多选
 				ele.IsSelected = !ele.IsSelected;
 			}
