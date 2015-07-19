@@ -116,7 +116,11 @@ module.exports = React.createClass({
 						return (
 							<div className="message-body">
 								<span style={square}></span>
-								<span style={{color: color,marginLeft: '4px'}}>{messageObj.Message}</span>
+								<span style={{color: color,
+												marginLeft: '4px',
+												wordBreak: 'normal',
+  												wordWrap: 'break-word'
+  											}}>{messageObj.Message}</span>
 							</div>
 						)
 					}.bind(this))}

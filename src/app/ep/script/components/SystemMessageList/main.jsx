@@ -34,7 +34,11 @@ module.exports = React.createClass({
 					return (
 						<div>
 							<span style={square}></span>
-							<span style={{color: color,marginLeft: '4px'}}>{item.Message}</span>
+							<span style={{color: color,
+											marginLeft: '4px',
+											wordBreak: 'normal',
+  											wordWrap: 'break-word'
+  										}}>{item.Message}</span>
 						</div>
 					);
 				})}
