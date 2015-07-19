@@ -28,6 +28,11 @@ class Mod extends Skateboard.BaseMod
 	_afterFadeIn: =>
 		# 每次进入该页面是清空数据
 		G.state.set({accessory: null})
+		# restore UI
+		$('.option').removeClass('option-active')
+		$($('.option')[0]).addClass('option-active')
+		@initPercent()
+		@getProperties()
 
 	_afterFadeOut: =>
 
@@ -278,8 +283,6 @@ class Mod extends Skateboard.BaseMod
 
 	render: =>
 		super
-		@initPercent()
-		@getProperties()
 
 		G.state.on 'change', @onStateChange
 
