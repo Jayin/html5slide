@@ -129,7 +129,10 @@ module.exports = React.createClass({
 					</div>
 					<div onClick={this.handleClickNext} className="inline-block  btn">下一页</div>
 					<div className="inline-block" style={{marginTop: '4px',width: '100%'}}>
-					    <input type="text" placeholder="内容" style={{width: '50%'}} />
+					    <input type="text" placeholder="内容"
+					    		style={{width: '50%'}}
+					    		onFocus={this.handleInputFocus}
+					    		onBlur={this.handleInputBlur}/>
 					    <button onClick={this.handleClickLeftMessage} className="inline-block">留言</button>
 					    <button onClick={this.handleRefresh} className="inline-block">刷新</button>
 					</div>
@@ -146,5 +149,12 @@ module.exports = React.createClass({
 	},
 	componentDidMount: function(){
 		this.getMessage(1);
+	},
+	handleInputFocus: function(evt){
+		evt.target.style.width = '90%';
+
+	},
+	handleInputBlur: function(evt){
+		evt.target.style.width = '50%';
 	}
 });

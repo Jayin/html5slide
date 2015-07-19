@@ -113,6 +113,12 @@ class Mod extends Skateboard.BaseMod
 			page = parseInt($('.sb-mod--comments .pages span').text())
 			@update(page + 1)
 
+		$('.left-message input').on 'focus', ()->
+			$(this).css('width', '90%')
+
+		$('.left-message input').on 'blur', ()->
+			$(this).css('width', '50%')
+
 
 module.exports = Mod
 
