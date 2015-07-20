@@ -35,7 +35,7 @@ class Mod extends Skateboard.BaseMod
 		if pageIndex <= 0
 			pageIndex = 1
 		@pageIndex = pageIndex
-		$('.sb-mod--comments .pages span').text(pageIndex)
+		$('.sb-mod--comments .pages currentPage').text(pageIndex)
 		app.ajax.get
 			url: "Data/CategoryNote/-1?pageIndex=#{pageIndex}&pageSize=#{pageSize}"
 			success: (res)=>
@@ -43,6 +43,7 @@ class Mod extends Skateboard.BaseMod
 					React.createElement(SystemMessageList, {result: res}),
 					document.getElementById('comments-container-commentsList')
 				)
+				$('.sb-mod--comments .pages .totalPage').text(res.Count)
 				# 数据更新后滚动到顶部
 				$('#comments-container-commentsList').scrollTop(0)
 				$('body').scrollTop(0)
@@ -101,16 +102,19 @@ class Mod extends Skateboard.BaseMod
 			@postMessage()
 
 		$('.sb-mod--comments .btn-refresh').on 'click', ()=>
-			page = parseInt($('.sb-mod--comments .pages span').text())
+			page = parseInt($('.sb-mod--comments .pages .currentPage').text())
 			@update(page)
 
 		$('.sb-mod--comments .btn-pre').on 'click', ()=>
-			page = parseInt($('.sb-mod--comments .pages span').text())
+			page = parseInt($('.sb-mod--comments .pages .currentPage').text())
 			@update(page - 1)
 
-
 		$('.sb-mod--comments .btn-next').on 'click', ()=>
-			page = parseInt($('.sb-mod--comments .pages span').text())
+			page = parseInt($('.sb-mod--comments .pages .currentPage').text())
+			total = parseInt($('.sb-mod--comments .pages .totalPage').text())
+			if page + 1 > total
+				app.alerts.alert '没有下一页了', 'info', 1000
+				return
 			@update(page + 1)
 
 		$('.left-message input').on 'focus', ()->

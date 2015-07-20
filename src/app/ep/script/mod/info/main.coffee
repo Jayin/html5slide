@@ -118,7 +118,7 @@ class Mod extends Skateboard.BaseMod
 		if !@_CheckCategory()
 			return
 		React.render(
-					React.createElement(MessageList, {result: [], category: @category}),
+					React.createElement(MessageList, {result: null, category: @category}),
 					document.getElementById('info-cotent-container')
 		)
 	# 经销商列表

@@ -11,7 +11,7 @@ module.exports = React.createClass({
 	lastPostTime: 0,
 	getInitialState: function(){
 		return {
-			result: this.props.result || [],
+			result: this.props.result ,
 			category: this.props.category
 		}
 	},
@@ -32,7 +32,7 @@ module.exports = React.createClass({
 					React.findDOMNode(this.refs.pageIndex).textContent = pageIndex;
 				}.bind(this),
 				error: function(){
-					app.alerts.alert('系统繁忙，请稍后再试', 'info', 1000)
+					app.alerts.alert('系统繁忙，请稍后再试', 'info', 1000);
 				}
 			}
 		);
@@ -42,7 +42,12 @@ module.exports = React.createClass({
 		this.getMessage(page-1)
 	},
 	handleClickNext: function(){
-		var page = parseInt(React.findDOMNode(this.refs.pageIndex).textContent)
+		var page = parseInt(React.findDOMNode(this.refs.pageIndex).textContent);
+		var count = parseInt(React.findDOMNode(this.refs.pageCount).textContent);
+		if(page + 1 > count){
+			app.alerts.alert('没有下一页了', 'info', 1000);
+			return
+		}
 		this.getMessage(page+1)
 	},
 	handleClickLeftMessage: function(){
@@ -96,7 +101,7 @@ module.exports = React.createClass({
 		return (
 			<div className="component-MessageList">
 				<div >
-					{this.state.result.Records && this.state.result.Records.map(function(messageObj, index){
+					{this.state.result && this.state.result.Records && this.state.result.Records.map(function(messageObj, index){
 						var color = 'black';
 						var square = {
 							backgroundColor: 'black',
@@ -128,8 +133,10 @@ module.exports = React.createClass({
 
 				<div className="groups">
 				    <div onClick={this.handleClickPre} className="inline-block btn">上一页</div>
-					<div ref="pageIndex" className="inline-block page">
-					    {this.props.result.Index}
+					<div  className="inline-block page">
+						<span ref="pageIndex">{this.state.result ? this.state.result.Index : 1 }</span>
+					    <span>/</span>
+					    <span ref="pageCount">{this.state.result ? this.state.result.Count : 1 }</span>
 					</div>
 					<div onClick={this.handleClickNext} className="inline-block  btn">下一页</div>
 					<div className="inline-block" style={{marginTop: '4px',width: '100%'}}>
