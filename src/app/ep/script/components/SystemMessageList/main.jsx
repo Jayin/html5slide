@@ -16,29 +16,31 @@ module.exports = React.createClass({
 			<div className="component-SystemMessageList" style={{padding: '2px'}}>
 				{this.props.result.Records.map(function(item, index){
 					var color = 'black';
-					var square = {
-						backgroundColor: 'black',
-						height: '10px',
-						width: '10px',
-						display: 'inline-block',
-						padding: '4px'
-					};
+					// var square = {
+					// 	backgroundColor: 'black',
+					// 	height: '10px',
+					// 	width: '10px',
+					// 	display: 'inline-block',
+					// 	padding: '4px'
+					// };
 					if (index % 2 == 0){
-						color = 'darkgrey';
-						square.backgroundColor = 'darkgrey';
+						color = 'gray';
+						// square.backgroundColor = 'gray';
 					}
 					if (item.ReplyToID != '' && item.ReplyToID != 0 ){
 						color = 'red';
-						square.backgroundColor = 'red';
+						// square.backgroundColor = 'red';
 					}
 					return (
-						<div>
-							<span style={square}></span>
-							<span style={{color: color,
-											marginLeft: '4px',
-											wordBreak: 'normal',
-  											wordWrap: 'break-word'
-  										}}>{item.Message}</span>
+						<div style={{color: color,
+									marginLeft: '4px',
+									wordBreak: 'normal',
+									wordWrap: 'break-word',
+									borderBottom: '1px solid gainsboro',
+									paddingTop: '4px' ,
+									paddingBottom: '4px'
+									}}>
+							{item.Floor + '楼：' + item.Message}
 						</div>
 					);
 				})}

@@ -103,29 +103,31 @@ module.exports = React.createClass({
 				<div >
 					{this.state.result && this.state.result.Records && this.state.result.Records.map(function(messageObj, index){
 						var color = 'black';
-						var square = {
-							backgroundColor: 'black',
-							height: '10px',
-							width: '10px',
-							display: 'inline-block',
-							padding: '4px'
-						};
+						// var square = {
+						// 	backgroundColor: 'black',
+						// 	height: '10px',
+						// 	width: '10px',
+						// 	display: 'inline-block',
+						// 	padding: '4px'
+						// };
 						if (index % 2 == 0){
-							color = 'darkgrey';
-							square.backgroundColor = 'darkgrey';
+							color = 'gray';
+							// square.backgroundColor = 'gray';
 						}
 						if (messageObj.ReplyToID != '' && messageObj.ReplyToID != 0 ){
 							color = 'red';
-							square.backgroundColor = 'red';
+							// square.backgroundColor = 'red';
 						}
+						console.log(messageObj)
 						return (
 							<div className="message-body">
-								<span style={square}></span>
 								<span style={{color: color,
 												marginLeft: '4px',
 												wordBreak: 'normal',
-  												wordWrap: 'break-word'
-  											}}>{messageObj.Message}</span>
+  												wordWrap: 'break-word',
+  												paddingTop: '4px' ,
+												paddingBottom: '4px'
+  											}}>{messageObj.Floor + '楼：' + messageObj.Message}</span>
 							</div>
 						)
 					}.bind(this))}
