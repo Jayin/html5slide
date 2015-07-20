@@ -123,6 +123,8 @@ class Mod extends Skateboard.BaseMod
 		$('.left-message input').on 'blur', ()->
 			$(this).css('width', '50%')
 
+		@update()
+
 
 module.exports = Mod
 

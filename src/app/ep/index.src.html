@@ -112,7 +112,7 @@ require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, R
 	});
 
 	$('#index-btn-comments').on('click', function(){
-		Skateboard.core.view('/view/comments')
+		Skateboard.core.view('/view/comments', {replaceState: false})
 		$('div.bar-bottom').removeClass().addClass('bar-bottom bar_bottom_6')
 	});
 	$('#index-btn-search').on('click',function(){
