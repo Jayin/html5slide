@@ -272,7 +272,6 @@ class Mod extends Skateboard.BaseMod
 
 		$('.product-name').text(@product.Name.replace('!',fujian).replace('$', option_method).replace('#', protect) + getExtra())
 		$('#info-cotent-container').css('padding-top', $('.fixed-group').height() + 'px')
-		$('body').scrollTop(0)
 
 
 
