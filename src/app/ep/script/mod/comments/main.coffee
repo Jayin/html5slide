@@ -28,7 +28,7 @@ class Mod extends Skateboard.BaseMod
 		wrapper_height = $(window).height() - $('.bar-bottom').height() - $('.bar-top-search').height()
 		$('.page-wrapper').height(wrapper_height)
 		$('.page-wrapper').css('min-height', '0%')
-		$('#comments-container-commentsList').height(wrapper_height - $('.comments-options').height())
+		$('#comments-container-commentsList').height(wrapper_height - $('.comments-options').height() - 15)
 
 	update: (pageIndex = 1, pageSize = 40, refresh = false)=>
 		@resize()
@@ -45,6 +45,7 @@ class Mod extends Skateboard.BaseMod
 					React.createElement(SystemMessageList, {result: res}),
 					document.getElementById('comments-container-commentsList')
 				)
+				$('.sb-mod--comments .pages .currentPage').text(res.Index)
 				$('.sb-mod--comments .pages .totalPage').text(res.Count)
 				# 数据更新后滚动到顶部
 				$('#comments-container-commentsList').scrollTop(0)
