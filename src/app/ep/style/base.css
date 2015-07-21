@@ -52,6 +52,7 @@ body {
     border: 0px;
     color: white;
     font-size: 1rem;
+    float: left;
 }
 
 .index-search-input:focus {
@@ -59,25 +60,34 @@ body {
 }
 
 #index-btn-back {
+    height: 30px;
+    width: 34px;
+    float: left;
+}
+
+#index-btn-back  div{
+    height: 25px;
+    width: 25px;
     background-image: url(../image/bar-top-back.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 25px;
-    width: 25px;
-    margin-left: 8px;
-    float: left;
 }
 
 #index-btn-search {
+    height: 30px;
+    width: 45px;
+    float: right;
+    padding: 2px;
+}
+
+#index-btn-search div{
     background-image: url(../image/bar-top-search.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 22px;
     width: 25px;
-    float: right;
-    margin-right: 13px;
 }
 
 .bar_bottom_1 {
