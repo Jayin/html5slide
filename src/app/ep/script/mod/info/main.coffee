@@ -50,7 +50,7 @@ class Mod extends Skateboard.BaseMod
 					if item.IsSelected
 						accessoryPrice += item.Price * G.state.get('percent').accessory / 100
 
-		$('.product-price-number').text(Math.round(bodyPrice + accessoryPrice))
+		$('.product-price-number').text(Math.round(bodyPrice + accessoryPrice).toFixed(2))
 
 
 	onBodyChange: (evt)=>

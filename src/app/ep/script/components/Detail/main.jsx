@@ -25,7 +25,7 @@ module.exports = React.createClass({
 								{item.Name}
 							</div>
 							<div className="inline-block text" style={{width: '30%'}}>
-								{Math.round(item.Price * accessoryPercent * 100) / 100}
+								{(Math.round(item.Price * accessoryPercent * 100) / 100).toFixed(2)}
 							</div>
 						</div>
 					);
@@ -50,7 +50,7 @@ module.exports = React.createClass({
 						本体
 					</div>
 					<div className="inline-block text" style={{width: '30%'}}>
-						{this.props.Product.price}
+						{(this.props.Product.price).toFixed(2)}
 					</div>
 				</div>
 				{this.state.Accessorys.map(createItem.bind(this))}
