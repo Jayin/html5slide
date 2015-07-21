@@ -110,10 +110,10 @@ module.exports = React.createClass({
 		$('#' + this.props.jstreeContainerId).on('select_node.jstree', function(event, data){
 			if (data.node.original.hierarchy == 3){
 				// 设置该原件的的所有给出的属性
-				G.state.set({category: data.node.original})
+				G.state.set({category: data.node.original, categoryName: data.node.original.text})
 				Skateboard.core.view('/view/info')
 			}else if (data.node.parent == 'Companies'){
-				G.state.set({companyCode: data.node.original.code, companyName: data.node.original.name})
+				G.state.set({companyCode: data.node.original.code, companyName: data.node.original.text})
 				Skateboard.core.view('/view/category')
 			}else{
 				$(this).jstree(true).open_node(data.node.id)

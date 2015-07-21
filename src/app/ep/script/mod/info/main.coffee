@@ -36,6 +36,8 @@ class Mod extends Skateboard.BaseMod
 		@getProperties()
 
 	_afterFadeOut: =>
+		# 清空产品的三级分类名字，用于搜索栏显示
+		G.state.set({categoryName: null})
 
 	calBodyPrice: =>
 		return Math.round(@productPrice * (G.state.get('percent').body / 100) * 100)/100

@@ -60,6 +60,9 @@ require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, R
 			app.alerts.alert.hide();
 			app.alerts.modal.hide();
 			var defaultMods = ['home', 'highPressure', 'lowPressure', 'accessory', 'case', 'comments']
+			if(defaultMods.indexOf(modName) != -1){
+				G.state.set({companyName: null, categoryName: null})
+			}
 			if(defaultMods.indexOf(modName) == -1 && !G.state.get()) {
 				Skateboard.core.view('/view/home', {replaceState: true});
 				return false;
@@ -80,7 +83,6 @@ require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, R
 			return contentDom;
 		}
 	});
-	
 	$('#index-btn-back').on('click', function(){
 		history.back();
 	});
@@ -130,14 +132,22 @@ require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, R
 	});
 
 	G.state.on('change', function(){
-		if (G.state.get('companyName')){
-			$('input.index-search-input').attr('value', G.state.get('companyName'));
-			$('input.index-search-input').val(G.state.get('companyName'))
+		if (G.state.get('categoryName')){
+			$('.index-search-input').attr('placeholder', G.state.get('categoryName'));
+		}else if (G.state.get('companyName')){
+			// $('input.index-search-input').attr('value', G.state.get('companyName'));
+			$('.index-search-input').attr('placeholder', G.state.get('companyName'));
+			// $('input.index-search-input').val(G.state.get('companyName'))
+		}else{
+			$('.index-search-input').attr('placeholder', '搜索公司或者型号');
 		}
 	});
+
+
 
 }, function() {
 
 });
 </script>
 <!-- /section -->
+	

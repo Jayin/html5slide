@@ -65,8 +65,9 @@ class Mod extends Skateboard.BaseMod
 			# console.log data
 			# console.log('select_node.jstree!!!!!!')
 			if data.node.original.hierarchy is 3
+				console.log(data)
 				# 设置该原件的的所有给出的属性
-				G.state.set category: data.node.original
+				G.state.set category: data.node.original, categoryName: data.node.original.text
 				Skateboard.core.view '/view/info'
 			else
 				$container.jstree(true).open_node(data.node.id)
