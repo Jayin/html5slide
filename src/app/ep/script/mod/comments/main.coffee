@@ -30,7 +30,7 @@ class Mod extends Skateboard.BaseMod
 		$('.page-wrapper').css('min-height', '0%')
 		$('#comments-container-commentsList').height(wrapper_height - $('.comments-options').height())
 
-	update: (pageIndex = 1, pageSize = 40)=>
+	update: (pageIndex = 1, pageSize = 40, refresh = false)=>
 		@resize()
 		if pageIndex <= 0
 			pageIndex = 1
@@ -39,6 +39,8 @@ class Mod extends Skateboard.BaseMod
 		app.ajax.get
 			url: "Data/CategoryNote/-1?pageIndex=#{pageIndex}&pageSize=#{pageSize}"
 			success: (res)=>
+				if refresh
+					app.alerts.alert '已刷新', 'info', 1000
 				React.render(
 					React.createElement(SystemMessageList, {result: res}),
 					document.getElementById('comments-container-commentsList')
@@ -103,7 +105,7 @@ class Mod extends Skateboard.BaseMod
 
 		$('.sb-mod--comments .btn-refresh').on 'click', ()=>
 			page = parseInt($('.sb-mod--comments .pages .currentPage').text())
-			@update(page)
+			@update(page, 40, true)
 
 		$('.sb-mod--comments .btn-pre').on 'click', ()=>
 			page = parseInt($('.sb-mod--comments .pages .currentPage').text())
@@ -127,5 +129,3 @@ class Mod extends Skateboard.BaseMod
 
 
 module.exports = Mod
-
-

@@ -15,9 +15,10 @@ module.exports = React.createClass({
 			category: this.props.category
 		}
 	},
-	getMessage: function(pageIndex, pageSize){
+	getMessage: function(pageIndex, pageSize, refresh){
 		pageIndex = pageIndex || 1;
 		pageSize = pageSize || 40;
+		refresh = refresh || false
 		var url = '/Data/CategoryNote/{category3ID}'.replace('{category3ID}', this.state.category.id)
 			+ '?companyCode={companyCode}'.replace('{companyCode}', this.state.category.companyCode)
 			+ '&pageIndex={pageIndex}'.replace('{pageIndex}', pageIndex)
@@ -26,6 +27,9 @@ module.exports = React.createClass({
 			{
 				url: url,
 				success: function(res){
+					if (refresh){
+						app.alerts.alert('已刷新', 'info', 1000)
+					}
 					this.setState({
 						result: res
 					});
@@ -96,7 +100,7 @@ module.exports = React.createClass({
 		});
 	},
 	handleRefresh: function(){
-		this.getMessage(1)
+		this.getMessage(1, 40, true)
 	},
 	render: function(){
 
