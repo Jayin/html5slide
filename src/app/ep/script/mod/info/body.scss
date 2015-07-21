@@ -22,9 +22,9 @@
     }
     .percent-container {
         display: inline-block;
-        height: 40px;
-        width: 100%;
         text-align: center;
+        float: right;
+        margin-right: 14px;
         select {
             width: 35px;
             background-color: #FFF;
@@ -65,7 +65,8 @@
         text-align: center;
     }
     .option {
-        width: 17%;
+        font-size: 1.2rem;
+        width: 18%;
         height: 85%;
         display: inline-block;
         margin-top: 4px;
