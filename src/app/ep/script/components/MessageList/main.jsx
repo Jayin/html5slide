@@ -30,6 +30,8 @@ module.exports = React.createClass({
 						result: res
 					});
 					React.findDOMNode(this.refs.pageIndex).textContent = pageIndex;
+					//刷新时回到顶部
+					$('body').scrollTop(0)
 				}.bind(this),
 				error: function(){
 					app.alerts.alert('系统繁忙，请稍后再试', 'info', 1000);
@@ -118,7 +120,6 @@ module.exports = React.createClass({
 							color = 'red';
 							// square.backgroundColor = 'red';
 						}
-						console.log(messageObj)
 						return (
 							<div className="message-body">
 								<span style={{color: color,
