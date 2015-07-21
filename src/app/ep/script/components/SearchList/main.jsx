@@ -19,6 +19,7 @@ module.exports = React.createClass({
 		res.text = obj.Text || obj.Name || obj.CompanyName
 		res.id = obj.ID || obj.CompanyCode // 公司节点没有id
 		res.name = obj.Name || obj.CompanyName // 公司节点没有name
+		res.code = obj.Code //公司代码
 		res.alias = obj.Alias
 		res.hierarchy = obj.Hierarchy // may be undefine
 		res.companyName = obj.CompanyName
@@ -26,6 +27,7 @@ module.exports = React.createClass({
 		res.Groups = obj.Groups
 		res.Categories = obj.Categories
 		res.Children = obj.Children
+
 
 		//默认二级目录
 		// if (res.hierarchy == 1)
@@ -110,6 +112,9 @@ module.exports = React.createClass({
 				// 设置该原件的的所有给出的属性
 				G.state.set({category: data.node.original})
 				Skateboard.core.view('/view/info')
+			}else if (data.node.parent == 'Companies'){
+				G.state.set({companyCode: data.node.original.code, companyName: data.node.original.name})
+				Skateboard.core.view('/view/category')
 			}else{
 				$(this).jstree(true).open_node(data.node.id)
 			}
