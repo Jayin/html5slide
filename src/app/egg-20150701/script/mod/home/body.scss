@@ -1,0 +1,22 @@
+.sb-mod.sb-mod--home {
+	background-image: url("../../../image/index.jpg");
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+    .btn-wx,
+	.btn-input {
+		position: absolute;
+		top: 64%;
+		left: 10%;
+		height: 19%;
+		width: 30%;
+		input {
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+		}
+	}
+	.btn-wx {
+        left: 60%;
+	}
+}

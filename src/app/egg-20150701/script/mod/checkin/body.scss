@@ -1,0 +1,22 @@
+.sb-mod.sb-mod--checkin {
+	background-image: url("../../../image/checkin.jpg");
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+    .btn-checkin{
+        height: 13%;
+        width: 23%;
+        position: absolute;
+        top: 79%;
+        left: 40%;
+    }
+	canvas{
+		width: 57%;
+		height: 35%;
+		position: absolute;
+		top: 17%;
+		left: 22%;
+		border-radius: 50% 50%;
+	}
+
+}
