@@ -143,3 +143,13 @@ input.index-search-input:focus {
         opacity: 1;
     }
 }
+
+button{
+    margin: 1px;
+    background-color: #E4E4E4;
+    border: 1px solid #E4E4E4;
+}
+button:active{
+    background-color: #BBBBBB;
+    border: 1px solid #BBBBBB;
+}
