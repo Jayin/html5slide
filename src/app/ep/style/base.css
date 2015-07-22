@@ -55,8 +55,9 @@ body {
     float: left;
 }
 
-.index-search-input:focus {
+input.index-search-input:focus {
     border-bottom: 1px solid white;
+    color:white
 }
 
 #index-btn-back {

@@ -127,10 +127,6 @@ require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, R
 		}
 	});
 
-	$('input.index-search-input').on('click', function(){
-		$(this).val('');
-	});
-
 	G.state.on('change', function(){
 		if (G.state.get('categoryName')){
 			$('.index-search-input').attr('placeholder', G.state.get('categoryName'));
