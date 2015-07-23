@@ -11,10 +11,27 @@ class Mod extends Skateboard.BaseMod
     _bodyTpl: require './body.tpl.html'
 
     goWx: ()=>
-        Skateboard.core.view 'view/checkin'
+        # Skateboard.core.view 'view/checkin'
+        # 处于静默状态才获取
+        if G.url_obj.search.state == 'silent'
+            window.location.href = 'redirect.html'
+
+    getCheckinState: ()=>
+
+    handleFromRedirect: ()=>
+        # 获取openId + 头像信息就跳转到第二页
+        if G.url_obj.search.state != 'silent'
+            window.location.href = 'redirect.html'
+            # 先load头像 + alert提示 =>cc => filechagne()
+
+    _afterFadeIn: ()=>
 
     render: ->
         super
+        # 检测签到情况
+        @getCheckinState()
+        # 从redirect.html过来
+        @handleFromRedirect()
 
     resetFileInput: ->
         $('.btn-input input').remove()
