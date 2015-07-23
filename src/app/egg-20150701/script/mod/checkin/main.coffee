@@ -16,14 +16,37 @@ class Mod extends Skateboard.BaseMod
 
     _bodyTpl: require './body.tpl.html'
 
-    CONTEXT_W: 484
-    CONTEXT_H: 537
+    CONTEXT_W: 640
+    CONTEXT_H: 640
     ENABLE_ROTATE: false
 
     checkin: ->
-        console.log $('.sb-mod--checkin canvas')[0].toDataURL()
-        Skateboard.core.view 'view/success'
-
+        # console.log $('.sb-mod--checkin canvas')[0].toDataURL()
+        # Skateboard.core.view 'view/success'
+        if G.url_obj.search.state is 'silent'
+            # 拍照上传
+            app.ajax.post
+                url: 'web/upload/sign'
+                data:
+                    openid: window.wxOpenId
+                    imgData: $('.sb-mod--checkin canvas')[0].toDataURL()
+                success: (res)=>
+                    if res.code is 0
+                        Skateboard.core.view 'view/success'
+                    else
+                        app.alerts.alert res.msg, 'info', 1000
+                error: =>
+                    app.alerts.alert '系统繁忙,请稍后再试', 'info', 1000
+        else # 微信授权
+            app.ajax.post
+                url: 'web/wx/sign'
+                success: (res)=>
+                    if res.code is 0
+                        Skateboard.core.view 'view/success'
+                    else
+                        app.alerts.alert res.msg, 'info', 1000
+                error: ()=>
+                    app.alerts.alert '系统繁忙,请稍后再试', 'info', 1000
 
     _afterFadeIn: ->
         require ['../home/main'], (chooseImgMod) =>
@@ -175,27 +198,6 @@ class Mod extends Skateboard.BaseMod
     draw: ->
         @context.clearRect 0, 0, @CONTEXT_W, @CONTEXT_H
         @drawImg()
-
-
-    # 把白色变为透明
-    white2trasparent = (img, range) ->
-        range = range or 10
-        canvas = document.createElement('canvas')
-        canvas.height = img.height
-        canvas.width = img.width
-        ctx = canvas.getContext('2d')
-        ctx.drawImage img, 0, 0, img.width, img.height
-        imgData = ctx.getImageData(0, 0, canvas.width, canvas.height)
-        i = 0
-        while i < imgData.data.length
-            dt = Math.abs(imgData.data[i] - 255) + Math.abs(imgData.data[i + 1] - 255) + Math.abs(imgData.data[i + 2] - 255)
-            if dt < range
-              imgData.data[i + 3] = 0
-            i += 4
-        ctx.putImageData imgData, 0, 0
-        newImg = new Image
-        newImg.src = canvas.toDataURL()
-        newImg
 
     destroy: ->
         super

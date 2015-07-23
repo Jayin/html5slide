@@ -1,0 +1,9 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": {
+        "country":"COUNTRY",
+        "headimgurl": "http://localhost/static/app/egg-20150701/image/avatar.jpeg"
+    },
+    "debugInfo": null
+}
