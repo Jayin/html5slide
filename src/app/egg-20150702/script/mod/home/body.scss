@@ -1,0 +1,17 @@
+.sb-mod.sb-mod--home {
+	// background-image: url("../../../image/index.jpg");
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	.body-inner{
+		height: 100%;
+
+		canvas{
+			position: absolute;
+			top: 4%;
+		    left: 10%;
+		    width: 69%;
+		    height: 95%;
+		}
+	}
+}
