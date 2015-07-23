@@ -153,8 +153,8 @@ class Mod extends Skateboard.BaseMod
     imgChange: (evt, newImg) =>
         @resetImg newImg
 
-        $('.sb-mod--checkin img').css('z-index', 1000)
-        $('.sb-mod--checkin canvas').css('z-index', 2000)
+        $('.sb-mod--checkin img').hide()
+        $('.sb-mod--checkin canvas').show()
 
     imgChangeSrc: (evt, url)=>
         @resetImgUrl url
@@ -162,8 +162,8 @@ class Mod extends Skateboard.BaseMod
     resetImgUrl: (newUrl)->
         # alert 'resetImgUrl! ==>' +  newUrl
         $('.sb-mod--checkin img')[0].src = newUrl
-        $('.sb-mod--checkin img').css('z-index', 2000)
-        $('.sb-mod--checkin canvas').css('z-index', 1000)
+        $('.sb-mod--checkin img').show()
+        $('.sb-mod--checkin canvas').hide()
 
     resetImg: (newImg) ->
         app.ajax.showLoading()
