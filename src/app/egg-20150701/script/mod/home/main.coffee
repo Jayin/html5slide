@@ -13,18 +13,18 @@ class Mod extends Skateboard.BaseMod
     goWx: ()=>
         # Skateboard.core.view 'view/checkin'
         # 处于静默状态才获取
-        if G.url_obj.search.state == 'silent'
-            window.location.href = 'redirect.html?wxOpenId=' + window.wxOpenId
+        # if G.url_obj.search.state == 'silent'
+        window.location.href = 'redirect.html?wxOpenId=' + window.wxOpenId
 
     getCheckinState: ()=>
         openId = window.wxOpenId
-        alert "getCheckinState: web/egg/participant/" + openId
+        # alert "getCheckinState: web/egg/participant/" + openId
         app.ajax.get
             url: "web/egg/participant/#{openId}"
             success: (res)=>
                 if res.code is 2
                     #未签到
-                    app.alerts.alert '未签到', 'info', 1000
+                    # app.alerts.alert '未签到', 'info', 1000
                 else
                     # 已签到
                     Skateboard.core.view 'view/success'
@@ -38,22 +38,13 @@ class Mod extends Skateboard.BaseMod
             # 先load头像 + alert提示 =>cc => filechagne()
             tenantId = '54f1b82a58f24d7d16c11e15'
             code = G.url_obj.search.code
-            alert('handleFromRedirect: reqeust url=>' +  "web/egg/oauth/#{tenantId}/#{code}")
+            # alert('handleFromRedirect: reqeust url=>' +  "web/egg/oauth/#{tenantId}/#{code}")
             app.ajax.post
                 url: "web/egg/oauth/#{tenantId}/#{code}"
                 success: (res)=>
-                    img = new Image()
-                    img.onload = =>
-                        newImg =
-                            file:
-                                type: 'image/' + img.src.substring(img.src.lastIndexOf('.') + 1)
-                            url: res.data.headimgurl
-                            width: img.naturalWidth
-                            height: img.naturalHeight
-                        Mod.img = newImg
-                        $(Mod).trigger 'imgchange', newImg
-                        Skateboard.core.view '/view/checkin'
-                    img.src = res.data.headimgurl
+                    Mod.url = res.data.headimgurl
+                    $(Mod).trigger 'imgchange-src', res.data.headimgurl
+                    Skateboard.core.view '/view/checkin'
 
                 error: =>
                     app.alerts.alert '系统繁忙,请稍后再试', 'info', 1000

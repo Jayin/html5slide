@@ -1,6 +1,6 @@
 ;(function(window){
     var __WX_DEBUG__ = function(msg){
-		var debug = true;
+		var debug = false;
 		if(debug){
 			alert(msg);
 		}

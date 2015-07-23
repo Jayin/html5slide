@@ -10,6 +10,7 @@
         top: 79%;
         left: 40%;
     }
+	img,
 	canvas{
 		width: 58%;
 		height: 35%;
@@ -17,6 +18,9 @@
 		top: 17%;
 		left: 21%;
 		border-radius: 50% 50%;
+	}
+	canvas{
+		z-index: 2000;
 	}
 
 }

@@ -50,7 +50,9 @@ class Mod extends Skateboard.BaseMod
 
     _afterFadeIn: ->
         require ['../home/main'], (chooseImgMod) =>
-            if not chooseImgMod.img
+            # if not chooseImgMod.img || not chooseImgMod.url
+            #     Skateboard.core.view '/view/home', replaceState: true
+            if not (chooseImgMod.img || chooseImgMod.url)
                 Skateboard.core.view '/view/home', replaceState: true
 
     render: ->
@@ -61,9 +63,12 @@ class Mod extends Skateboard.BaseMod
         require ['../home/main'], (chooseImgMod) =>
             if chooseImgMod.img
                 @resetImg chooseImgMod.img
+            else if chooseImgMod.url
+                @resetImgUrl chooseImgMod.url
             else
                 Skateboard.core.view '/view/home', replaceState: true
-            $(chooseImgMod).on 'imgchange', @imgChange
+            $(chooseImgMod).on 'imgchange', @imgChange  #来自拍照
+            $(chooseImgMod).on 'imgchange-src', @imgChangeSrc # 来自微信
             @initPinch()
 
     initPinch: ->
@@ -147,6 +152,18 @@ class Mod extends Skateboard.BaseMod
 
     imgChange: (evt, newImg) =>
         @resetImg newImg
+
+        $('.sb-mod--checkin img').css('z-index', 1000)
+        $('.sb-mod--checkin canvas').css('z-index', 2000)
+
+    imgChangeSrc: (evt, url)=>
+        @resetImgUrl url
+
+    resetImgUrl: (newUrl)->
+        # alert 'resetImgUrl! ==>' +  newUrl
+        $('.sb-mod--checkin img')[0].src = newUrl
+        $('.sb-mod--checkin img').css('z-index', 2000)
+        $('.sb-mod--checkin canvas').css('z-index', 1000)
 
     resetImg: (newImg) ->
         app.ajax.showLoading()
