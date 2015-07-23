@@ -2,10 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>签到-小鲜蛋的旅程</title>
+        <title>正在跳转...</title>
     </head>
     <body>
+        <!-- include "./script/utils/urlparser-main.js" -->
         <script >
+            url_obj = parser(window.location.href);
             //跳回主页
             var redirect_uri = encodeURIComponent(window.location.origin + '/static/app/egg-20150701/index.html');
             requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect'
@@ -13,7 +15,8 @@
             var redir = requestOpenIdUrl.replace('APPID', 'wxd4f26aea63a05347')
                 .replace('REDIRECT_URI', redirect_uri)
                 .replace('SCOPE', 'snsapi_userinfo')
-                .replace('STATE', window.wxOpenId);
+                .replace('STATE', url_obj.search.wxOpenId);
+            // alert('url_obj.search.wxOpenId===>'+url_obj.search.wxOpenId)
             // console.log('redirect.html: redirect to --> '+ redir)
             window.location = redir;
         </script>

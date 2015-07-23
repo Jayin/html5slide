@@ -26,7 +26,7 @@ class Mod extends Skateboard.BaseMod
         if G.url_obj.search.state is 'silent'
             # 拍照上传
             app.ajax.post
-                url: 'web/upload/sign'
+                url: 'web/egg/upload/sign'
                 data:
                     openid: window.wxOpenId
                     imgData: $('.sb-mod--checkin canvas')[0].toDataURL()
@@ -39,7 +39,7 @@ class Mod extends Skateboard.BaseMod
                     app.alerts.alert '系统繁忙,请稍后再试', 'info', 1000
         else # 微信授权
             app.ajax.post
-                url: 'web/wx/sign'
+                url: 'web/egg/wx/sign'
                 success: (res)=>
                     if res.code is 0
                         Skateboard.core.view 'view/success'
