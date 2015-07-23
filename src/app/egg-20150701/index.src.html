@@ -21,6 +21,10 @@ document.write([
 <!-- include "./script/utils/urlparser-main.js" -->
 
 <script type="text/javascript">
+G.url_obj = parser(window.location.href)
+</script>
+
+<script type="text/javascript">
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 
 	var wrapper = $('.page-wrapper');
