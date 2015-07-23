@@ -60,7 +60,6 @@
 			.replace('REDIRECT_URI', redirect_uri)
 			.replace('SCOPE', 'snsapi_base')
             .replace('STATE', 'silent');//静默获取
-        alert('redir url  ->' + redir)
 		window.location.href = redir;
 	} else {
 		//有code,并且state=silent
