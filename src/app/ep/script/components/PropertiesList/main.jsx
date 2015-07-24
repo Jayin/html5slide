@@ -52,11 +52,11 @@ module.exports = React.createClass({
 						if (item == this.state.Product.Items[index].Text){
 
 						  	return (
-						  		<li onClick={this.handleItemClick.bind(this, data)} className="list-item-active">{item.replace('默认','')}</li>
+						  		<li onClick={this.handleItemClick.bind(this, data)} className="list-item-active">&nbsp;{item.replace('默认','')}&nbsp;</li>
 						  	)
 						 } else{
 						 	return (
-						 		<li onClick={this.handleItemClick.bind(this, data)} >{item.replace('默认','')}</li>
+						 		<li onClick={this.handleItemClick.bind(this, data)} >&nbsp;{item.replace('默认','')}&nbsp;</li>
 						 	)
 						 }
 					  }, this)}
