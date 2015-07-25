@@ -16,29 +16,31 @@ class Mod extends Skateboard.BaseMod
         # Skateboard.core.view 'view/checkin'
         # 处于静默状态才获取
         # if G.url_obj.search.state == 'silent'
-        window.location.href = 'redirect.html?wxOpenId=' + window.wxOpenId
+        window.location.href = 'redirect.html'
 
     getCheckinState: ()=>
-        tenantId = @tenantId
-        code = G.url_obj.search.code
-        # alert "getCheckinState: web/egg/participant/" + openId
-        app.ajax.get
-            # url: "web/egg/participant/#{openId}"
-            url: "web/#{tenantId}/signin/#{code}"
-            success: (res)=>
-                if res.code is 2
-                    #未签到
-                    # app.alerts.alert '未签到', 'info', 1000
-                else
-                    # 已签到
-                    Skateboard.core.view 'view/checked'
-            error: =>
-                app.alerts.alert '系统繁忙,请稍后再试!', 'info', 1000
+        # 静默授权时才获取
+        if G.url_obj.search.state == 'silent'
+            tenantId = @tenantId
+            code = G.url_obj.search.code
+            # alert "getCheckinState: web/egg/#{tenantId}/signin/#{code}"
+            app.ajax.get
+                # url: "web/egg/participant/#{openId}"
+                url: "web/egg/#{tenantId}/signin/#{code}"
+                success: (res)=>
+                    if res.code is 2
+                        #未签到
+                        # app.alerts.alert '未签到', 'info', 1000
+                        G.state.set 'wxOpenId': res.data.openid
+                    else
+                        # 已签到
+                        Skateboard.core.view 'view/checked'
+                error: =>
+                    app.alerts.alert '系统繁忙,请稍后再试!', 'info', 1000
 
     handleFromRedirect: ()=>
-
         # 获取openId + 头像信息就跳转到第二页
-        if G.url_obj.search.state != 'silent'
+        if G.url_obj.search.state != 'silent' && G.url_obj.search.state != ''
             # 先load头像 + alert提示 =>cc => filechagne()
             tenantId = @tenantId
             code = G.url_obj.search.code
@@ -46,6 +48,8 @@ class Mod extends Skateboard.BaseMod
             app.ajax.post
                 url: "web/egg/oauth/#{tenantId}/#{code}"
                 success: (res)=>
+                    # alert('headimgurl==>' + res.data.headimgurl)
+                    G.state.set 'wxOpenId': res.data.openid
                     Mod.url = res.data.headimgurl
                     $(Mod).trigger 'imgchange-src', res.data.headimgurl
                     Skateboard.core.view '/view/checkin'

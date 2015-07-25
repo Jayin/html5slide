@@ -20,15 +20,16 @@ class Mod extends Skateboard.BaseMod
     CONTEXT_H: 640
     ENABLE_ROTATE: false
 
-    checkin: ->
+    checkin: =>
         # console.log $('.sb-mod--checkin canvas')[0].toDataURL()
         # Skateboard.core.view 'view/success'
+        wxOpenId = G.state.get('wxOpenId')
         if G.url_obj.search.state is 'silent'
             # 拍照上传
             app.ajax.post
                 url: 'web/egg/upload/sign'
                 data:
-                    openid: window.wxOpenId
+                    openid: wxOpenId
                     imgData: $('.sb-mod--checkin canvas')[0].toDataURL()
                 success: (res)=>
                     if res.code is 0
@@ -40,6 +41,8 @@ class Mod extends Skateboard.BaseMod
         else # 微信授权
             app.ajax.post
                 url: 'web/egg/wx/sign'
+                data:
+                    openid: wxOpenId
                 success: (res)=>
                     if res.code is 0
                         Skateboard.core.view 'view/success'
@@ -49,11 +52,14 @@ class Mod extends Skateboard.BaseMod
                     app.alerts.alert '系统繁忙,请稍后再试', 'info', 1000
 
     _afterFadeIn: ->
+        if !G.state.get('wxOpenId')
+            Skateboard.core.view '/view/home', replaceState: true
         require ['../home/main'], (chooseImgMod) =>
             # if not chooseImgMod.img || not chooseImgMod.url
             #     Skateboard.core.view '/view/home', replaceState: true
             if not (chooseImgMod.img || chooseImgMod.url)
                 Skateboard.core.view '/view/home', replaceState: true
+
 
     render: ->
         super

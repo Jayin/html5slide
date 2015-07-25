@@ -46,8 +46,8 @@
 			hash: a.hash
 		}
 	};
-
 	var url_obj = parser(window.location.href);
+    __WX_DEBUG__('state: ' + url_obj.search.state)
     __WX_DEBUG__('url_obj.search.code==>' + url_obj.search.code)
 
 	//没有code
@@ -61,17 +61,18 @@
 			.replace('SCOPE', 'snsapi_base')
             .replace('STATE', 'silent');//静默获取
 		window.location.href = redir;
-	} else {
-		//有code,并且state=silent
-        __WX_DEBUG__('have code, state='+ url_obj.search.state)
-        //如果是静默获取
-        if(url_obj.search.state && url_obj.search.state == 'silent'){
-            window.wxOpenId = url_obj.search.code
-            __WX_DEBUG__("silent ~~ get code:"+url_obj.search.code)
-        }else{
-            //非静默获取,openId 就存在state里面(自己这么定义，以后面用code获取用户信息的openId为准)
-            window.wxOpenId = url_obj.search.state
-        }
 	}
-    __WX_DEBUG__("open id:"+window.wxOpenId)
+    // else {
+	// 	//有code,并且state=silent
+    //     __WX_DEBUG__('have code, state='+ url_obj.search.state)
+    //     //如果是静默获取
+    //     if(url_obj.search.state && url_obj.search.state == 'silent'){
+    //         window.wxOpenId = url_obj.search.code
+    //         __WX_DEBUG__("silent ~~ get code:"+url_obj.search.code)
+    //     }else{
+    //         //非静默获取,openId 就存在state里面(自己这么定义，以后面用code获取用户信息的openId为准)
+    //         window.wxOpenId = url_obj.search.state
+    //     }
+	// }
+    // __WX_DEBUG__("open id:"+window.wxOpenId)
 })(window);
