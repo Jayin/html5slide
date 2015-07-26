@@ -12,7 +12,7 @@
 		xRange: 0.8,
 		yRange: 0.1,
 		zRange: 1.0,
-		ambient: '#555555',
+		ambient: '#e1e1e1',
 		diffuse: '#FFFFFF',
 		speed: 0.002
 	};
@@ -23,7 +23,7 @@
 	var LIGHT = {
 		count: 1,
 		xyScalar: 1,
-		zOffset: 120,
+		zOffset: 80,
 		ambient: '#E8E8E8',
 		diffuse: '#878787',
 		speed: 0.001,
