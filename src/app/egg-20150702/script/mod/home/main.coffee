@@ -73,9 +73,17 @@ class Mod extends Skateboard.BaseMod
                 pos.height = @BigSize
                 pos.width = @BigSize
                 @loadImage(img_url, pos)
+        # setTimeout ()=>
+        #     # 加载第1页，从0页开始
+        #     @getBigHeaders(1, true)
+        # , 1000 * 5
         setTimeout ()=>
-            # 加载第1页，从0页开始
-            @getBigHeaders(1, true)
+            if headers.length < @BigHeaderMaxIndex
+                @BigIndex = 0
+            else
+                @BigIndex += 1
+            @getBigHeaders(@BigIndex)
+
         , 1000 * 5
 
     #这里的参数index 未每页的第一个编号
