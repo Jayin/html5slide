@@ -10,7 +10,7 @@ class Mod extends Skateboard.BaseMod
     _bodyTpl: require './body.tpl.html'
 
     next: =>
-        alert('go next')
+        window.location.href = 'http://www.createcdigital.com/egg0728/index.php?a=1'
 
     _afterFadeIn: =>
         if !G.state.get('checked')

@@ -56,7 +56,7 @@
 		var redirect_uri = encodeURIComponent(window.location.href);
 		var requestOpenIdUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect'
 
-		var redir = requestOpenIdUrl.replace('APPID', 'wxd4f26aea63a05347')
+		var redir = requestOpenIdUrl.replace('APPID', 'wx65e44d956e208d3e')
 			.replace('REDIRECT_URI', redirect_uri)
 			.replace('SCOPE', 'snsapi_base')
             .replace('STATE', 'silent');//静默获取
