@@ -13,6 +13,9 @@ class Mod extends Skateboard.BaseMod
         alert('go next')
 
     _afterFadeIn: =>
+        if !G.state.get('wxOpenId')
+            Skateboard.core.view '/view/home', replaceState: true
+            return
         G.state.set({'checked': true})
 
     render: ->
