@@ -165,6 +165,12 @@ class Mod extends Skateboard.BaseMod
         sy = 0
         sWidth = img.width
         sHeight = img.height
+        if img.width > img.height
+            sx = (img.width - img.height) / 2
+            sWidth = img.height
+        if img.height > img.width
+            sy = (img.height - img.width) / 2
+            sHeight = img.width
         # 目标
         dx = pos.top
         dy = pos.left
