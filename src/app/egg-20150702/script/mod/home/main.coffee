@@ -33,7 +33,7 @@ class Mod extends Skateboard.BaseMod
             pos = positions.big[pos_index]
             pos.height = @BigSize
             pos.width = @BigSize
-            @loadImage(img_url, pos)
+            @loadImage(img_url, pos, true)
             nextIndex = index + 1
             # 该列数据刷新完毕，那就去后台那数据
             if nextIndex >= res.length
@@ -72,7 +72,7 @@ class Mod extends Skateboard.BaseMod
                 pos = positions.big[pos_index]
                 pos.height = @BigSize
                 pos.width = @BigSize
-                @loadImage(img_url, pos)
+                @loadImage(img_url, pos, true)
         # setTimeout ()=>
         #     # 加载第1页，从0页开始
         #     @getBigHeaders(1, true)
@@ -114,7 +114,7 @@ class Mod extends Skateboard.BaseMod
             pos = positions.small[pos_index]
             pos.height = @SmallSize
             pos.width = @SmallSize
-            @loadImage(img_url, pos)
+            @loadImage(img_url, pos, true)
             nextIndex = index + 1
             if nextIndex >= res.length
                 nextIndex = 0
@@ -137,7 +137,7 @@ class Mod extends Skateboard.BaseMod
                 pos = positions.small[pos_index]
                 pos.height = @SmallSize
                 pos.width = @SmallSize
-                @loadImage(img_url, pos)
+                @loadImage(img_url, pos, true)
         nextIndex = if index + @SmallHeaderMaxIndex > res.length then 0 else index + @SmallHeaderMaxIndex
 
         setTimeout ()=>
@@ -151,26 +151,27 @@ class Mod extends Skateboard.BaseMod
                 @handleSmallHeaders(result, 0)
 
 
-    loadImage: (url, pos)=>
+    loadImage: (url, pos, square)=>
         # console.log "loadImage: #{url}"
         @img = new Image()
-        @img.onload = @renderImage.bind(this, @img, pos)
+        @img.onload = @renderImage.bind(this, @img, pos, square)
         @img.src = url
 
 
-    renderImage: (img, pos)=>
+    renderImage: (img, pos, square)=>
         #可能会并发
         # 源图片
         sx = 0
         sy = 0
         sWidth = img.width
         sHeight = img.height
-        if img.width > img.height
-            sx = (img.width - img.height) / 2
-            sWidth = img.height
-        if img.height > img.width
-            sy = (img.height - img.width) / 2
-            sHeight = img.width
+        if square
+            if img.width > img.height
+                sx = (img.width - img.height) / 2
+                sWidth = img.height
+            if img.height > img.width
+                sy = (img.height - img.width) / 2
+                sHeight = img.width
         # 目标
         dx = pos.top
         dy = pos.left
