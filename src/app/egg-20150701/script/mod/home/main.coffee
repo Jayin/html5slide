@@ -34,6 +34,7 @@ class Mod extends Skateboard.BaseMod
                         G.state.set 'wxOpenId': res.data.openid
                     else
                         # 已签到
+                        G.state.set({'checked': true})
                         Skateboard.core.view 'view/checked'
                 error: =>
                     app.alerts.alert '系统繁忙,请稍后再试!', 'info', 1000

@@ -46,11 +46,19 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			app.ajax.hideLoading();
 			app.alerts.alert.hide();
 			app.alerts.modal.hide();
+
 			//如果是从别的页面进来，需要先进入主页
 			// if(modName != 'home' && !G.state){
 			// 	Skateboard.core.view('/view/home', {replaceState: true});
 			// 	return false;
 			// }
+		},
+		onAfterViewChange: function(modName, modInst){
+			console.log('onAfterViewChange')
+			console.log('checked==> ' + G.state.get('checked') + " mod==>"+modName)
+			if (G.state.get('checked') && modName != 'success' && modName != 'checked'){
+				Skateboard.core.view('/view/checked', {replaceState: true});
+			}
 		},
 		constructContentDom: function(modName, args, opt) {
 			var contentDom = $([
