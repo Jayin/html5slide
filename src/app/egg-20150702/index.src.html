@@ -32,6 +32,9 @@ document.write([
 <script type="text/javascript">
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 
+	//客户特殊需求，不要显示load状态
+	$('#circleG').css('opacity', 0);
+
 	$.extend(G.MD5_MAP, %{{egg-20150702}}%);
 
 	Skateboard.core.init({
