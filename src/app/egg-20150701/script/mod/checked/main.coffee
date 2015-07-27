@@ -12,7 +12,12 @@ class Mod extends Skateboard.BaseMod
     next: =>
         alert('go next')
 
+    _afterFadeIn: =>
+        if !G.state.get('checked')
+            Skateboard.core.view 'view/home'
+
     render: ->
         super
+
 
 module.exports = Mod
