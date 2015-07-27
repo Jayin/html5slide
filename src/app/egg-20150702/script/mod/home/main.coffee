@@ -95,7 +95,7 @@ class Mod extends Skateboard.BaseMod
                 if repeating
                     @repeatBigHeader(res.data.participants, 0)
                 else
-                    @handleBigHeaders(res.data.participants, index)
+                    @handleBigHeaders(res.data.participants, 0)
             error: ()=>
                 app.alerts.alert "系统繁忙,请稍后再试", 'info', 1500
 
@@ -148,7 +148,6 @@ class Mod extends Skateboard.BaseMod
     getSmallHeaders: ()=>
         $.get '/egg0728/getHeader.php', (res)=>
                 result = JSON.parse(res.trim())
-                # console.log(result)
                 @handleSmallHeaders(result, 0)
 
 
