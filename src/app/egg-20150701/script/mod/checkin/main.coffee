@@ -16,12 +16,12 @@ class Mod extends Skateboard.BaseMod
 
     _bodyTpl: require './body.tpl.html'
 
-    CONTEXT_W: 640
-    CONTEXT_H: 640
+    CONTEXT_W: 233
+    CONTEXT_H: 233
     ENABLE_ROTATE: false
 
     checkin: =>
-        # console.log $('.sb-mod--checkin canvas')[0].toDataURL()
+        console.log $('.sb-mod--checkin canvas')[0].toDataURL()
         # Skateboard.core.view 'view/success'
         wxOpenId = G.state.get('wxOpenId')
         if G.url_obj.search.state is 'silent'
