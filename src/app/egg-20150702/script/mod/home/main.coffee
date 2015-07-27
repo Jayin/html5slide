@@ -5,7 +5,8 @@ positions = require('./positions')
 class Mod extends Skateboard.BaseMod
     cachable: true
 
-    # events:
+    events:
+        'click #btn-fullscreen': 'fullscreen'
 
     _bodyTpl: require './body.tpl.html'
 
@@ -16,6 +17,9 @@ class Mod extends Skateboard.BaseMod
     BigSize: 233 #266 #135 #大图宽高
     SmallHeaderMaxIndex: 15  # [0,14]共15个
     SmallSize: 120 #153 # 78 # 小图宽高
+
+    fullscreen: =>
+        window.launchIntoFullscreen(document.documentElement)
 
     repeatBigHeader: (res, index)=>
         # console.log 'pos_index==>'
