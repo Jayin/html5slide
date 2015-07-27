@@ -10,7 +10,7 @@ class Mod extends Skateboard.BaseMod
 
     _bodyTpl: require './body.tpl.html'
 
-    tenantId: '54f1b82a58f24d7d16c11e15'
+    tenantId: '54f1b82a58f24d7d16c11e14'
 
     goWx: ()=>
         # Skateboard.core.view 'view/checkin'
