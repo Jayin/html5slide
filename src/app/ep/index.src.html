@@ -20,11 +20,9 @@ document.write([
 	<div id="index-btn-search"><div></div></div>
 </div>
 
-<!-- 占据顶栏 -->
-<div class="placeholer-bar-top-search"></div>
+
 <div class="page-wrapper"></div>
-<!-- 占据底部 -->
-<div class="placeholer-bar-bottom"></div>
+
 
 <div class="bar-bottom bar_bottom_1">
 	<div style="width:100%;height:100%;">
@@ -44,6 +42,8 @@ require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, R
 	React.initializeTouchEvents(true);
 
 	$.extend(G.MD5_MAP, %{{md5map.ep}}%);
+	//加上.bar-top-search的padding
+	$('.page-wrapper').height($(window).height() - ($('.bar-top-search').height()+8) - $('.bar-bottom').height());
 
 	Skateboard.core.init({
 		container: $('.page-wrapper'),

@@ -88,7 +88,7 @@ class Mod extends Skateboard.BaseMod
 
 	chooseOption: (evt)=>
 		# 防止遮挡
-		$('body').scrollTop(0)
+		$('#info-content-container').scrollTop(0)
 
 		index = parseInt(evt.currentTarget.dataset.index)
 		$('.option').removeClass('option-active')
@@ -121,7 +121,7 @@ class Mod extends Skateboard.BaseMod
 			return
 		React.render(
 					React.createElement(MessageList, {result: null, category: @category}),
-					document.getElementById('info-cotent-container')
+					document.getElementById('info-content-container')
 		)
 	# 经销商列表
 	getDistributor: ()=>
@@ -132,7 +132,7 @@ class Mod extends Skateboard.BaseMod
 			success: (res)=>
 				React.render(
 					React.createElement(Distributor, {Distributors: res}),
-					document.getElementById('info-cotent-container')
+					document.getElementById('info-content-container')
 				)
 			error: (err)=>
 				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
@@ -147,7 +147,7 @@ class Mod extends Skateboard.BaseMod
 			price: @calBodyPrice()
 		React.render(
 			React.createElement(Detail, {Accessorys: G.state.get('accessory'), Product: prd}),
-			document.getElementById('info-cotent-container')
+			document.getElementById('info-content-container')
 		)
 
 	# TODO: 每次来到info页面的时候都有清空附件列表
@@ -168,7 +168,7 @@ class Mod extends Skateboard.BaseMod
 		if G.state.get('accessory')
 			React.render(
 					React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
-					document.getElementById('info-cotent-container')
+					document.getElementById('info-content-container')
 				)
 			return
 		url = 'Data/Accessory/{productID}?companyCode={companyCode}'
@@ -180,7 +180,7 @@ class Mod extends Skateboard.BaseMod
 				@updateTotalPrice()
 				React.render(
 					React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
-					document.getElementById('info-cotent-container')
+					document.getElementById('info-content-container')
 				)
 			error: (err)=>
 				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
@@ -213,7 +213,7 @@ class Mod extends Skateboard.BaseMod
 				@updateTotalPrice()
 				React.render(
 					React.createElement(PropertiesList, {Properties: res.Properties ,Product: res.Product }),
-					document.getElementById('info-cotent-container')
+					document.getElementById('info-content-container')
 				)
 			error: (err)=>
 				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
@@ -271,9 +271,7 @@ class Mod extends Skateboard.BaseMod
 							result += ele.Text
 			return result
 
-
 		$('.product-name').text(@product.Name.replace('!',fujian).replace('$', option_method).replace('#', protect) + getExtra())
-		$('#info-cotent-container').css('padding-top', $('.fixed-group').height() + 'px')
 
 
 
@@ -289,9 +287,14 @@ class Mod extends Skateboard.BaseMod
 			@initPercent()
 			# 清空附件数据
 			G.state.set({accessory: null})
+			
+	resize: =>
+		$('#info-content-container').height($('.page-wrapper').height() - $('.fixed-group').height())
 
 	render: =>
 		super
+
+		@resize()
 
 		G.state.on 'change', @onStateChange
 
@@ -300,5 +303,3 @@ class Mod extends Skateboard.BaseMod
 
 
 module.exports = Mod
-
-

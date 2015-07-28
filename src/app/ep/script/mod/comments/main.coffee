@@ -19,19 +19,12 @@ class Mod extends Skateboard.BaseMod
 	lastPostTime: 0 # 最后一次留言时间
 	pageIndex: 1 #当前页
 
-
-	unresize: ()=>
-		$('.page-wrapper').css('height', '')
-		$('.page-wrapper').css('min-height', '100%');
-
 	resize: ()=>
-		wrapper_height = $(window).height() - $('.bar-bottom').height() - $('.bar-top-search').height()
-		$('.page-wrapper').height(wrapper_height)
-		$('.page-wrapper').css('min-height', '0%')
+		wrapper_height = $('.page-wrapper').height()
 		$('#comments-container-commentsList').height(wrapper_height - $('.comments-options').height() - 15)
 
 	update: (pageIndex = 1, pageSize = 40, refresh = false)=>
-		@resize()
+
 		if pageIndex <= 0
 			pageIndex = 1
 		@pageIndex = pageIndex
@@ -96,11 +89,10 @@ class Mod extends Skateboard.BaseMod
 		@update()
 
 	_afterFadeOut: =>
-		@unresize()
 
 	render: =>
 		super
-
+		@resize()
 		$('.sb-mod--comments .btn-left-message').on 'click', ()=>
 			@postMessage()
 
