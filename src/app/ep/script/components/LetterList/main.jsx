@@ -15,23 +15,28 @@ module.exports = React.createClass({
 		}
 	},
 	handleItemClick: function(item){
+		// console.log('handleItemClick ==>' + item)
 		if($('#'+item).length > 0){
 			// $(window).scrollTop($('#'+item).offset().top - 30)
 			// $('body').animate({scrollTop: $('#'+item).offset().top - 30}, 400)
-			$(window).scrollTop($('#'+item).offset().top - 30)
+			$('.page-wrapper').scrollTop(0)
+			$('.page-wrapper').scrollTop($('#'+item).offset().top - 30)
 		}
 	},
 	handleTouchStart: function(evt){
 		this.startX = evt.nativeEvent.changedTouches[0].clientX;
 		this.startY = evt.nativeEvent.changedTouches[0].clientY;
 		this.handleItemClick(evt.nativeEvent.target.textContent)
+		// console.log('start ==> startX=' + this.startX + '  startY=' + this.startY)
 	},
 	handleTouchEnd: function(evt){
 	},
 	handleTouchMove: function(evt){
 		evt.preventDefault()
+		// console.log(evt)
 		var dt = evt.nativeEvent.changedTouches[0].clientY - this.startY;
 		var dt_count = Math.round(Math.abs(dt) / evt.target.clientHeight); //位移了多少个字母
+		// console.log('Move ==>  clientY=' + evt.nativeEvent.changedTouches[0].clientY + ' dt=' + dt + ' dt_count=' + dt_count)
 		if(dt_count<1){
 			return
 		}
