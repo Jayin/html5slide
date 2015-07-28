@@ -101,7 +101,14 @@ module.exports = React.createClass({
 		//转换
 		jstree_config.core.data = this.transform(this.props.result)
 
+		$('#' + this.props.jstreeContainerId).jstree(jstree_config)
+
+		$('#' + this.props.jstreeContainerId).jstree(true).settings.core.data = jstree_config.core.data;
+		$('#' + this.props.jstreeContainerId).jstree(true).refresh(true);
+	},
+	componentDidMount: function(){
 		$('#' + this.props.jstreeContainerId).on('select_node.jstree', function(event, data){
+			event.preventDefault();
 			if (data.node.original.hierarchy == 3){
 				// 设置该原件的的所有给出的属性
 				category = data.node.original
@@ -112,13 +119,14 @@ module.exports = React.createClass({
 				G.state.set({category: category, categoryName: data.node.original.text})
 				Skateboard.core.view('/view/info')
 			}else{
-				$(this).jstree(true).open_node(data.node.id)
+				if($(this).jstree(true).is_open(data.node.id)){
+					$(this).jstree(true).close_node(data.node.id)
+				}else{
+					$(this).jstree(true).open_node(data.node.id)
+				}
 			}
 		});
 
-		$('#' + this.props.jstreeContainerId).jstree(jstree_config)
-	},
-	componentDidMount: function(){
 		this._updateJsTree();
 	},
 	componentWillReceiveProps: function(nextProps){

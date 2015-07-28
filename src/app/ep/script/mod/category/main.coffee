@@ -13,6 +13,8 @@ class Mod extends Skateboard.BaseMod
 
 	_bodyTpl: require './body.tpl.html'
 
+	$container: null
+
 	objectAttrLowercase: (obj, parentId)=>
 		parentId = parentId || ''
 		res = {}
@@ -46,7 +48,7 @@ class Mod extends Skateboard.BaseMod
 		if !G.state.get('companyCode')
 			Skateboard.core.view '/view/home'
 			return
-		$container = $('#category-container')
+		$container = @$container
 
 		jstree_config =  {
 			core:
@@ -60,31 +62,7 @@ class Mod extends Skateboard.BaseMod
 			plugins : ["types"]
 		}
 
-		$container.on 'select_node.jstree', (event, data)=>
-			event.preventDefault();
-			# console.log event
-			# console.log data
-			# console.log('select_node.jstree!!!!!!')
-			if data.node.original.hierarchy is 3
-				console.log(data)
-				# 设置该原件的的所有给出的属性
-				category = data.node.original
-				#remove all parent id
-				ids =  category.id.split('-')
-				category.id = ids[ids.length - 1]
 
-				G.state.set category: category, categoryName: data.node.original.text
-				Skateboard.core.view '/view/info'
-			else
-				$container.jstree(true).open_node(data.node.id)
-			#deselect node to prevent automaticly go to `/view/info` when come back in `/view/info`
-			$container.jstree(true).deselect_node(data.node.id)
-				# console.log($container)
-				# console.log $container.jstree(true).is_open(data.node.id)
-				# if $container.jstree(true).is_open(data.node.id)
-				# 	$container.jstree(true).close_node(data.node.id)
-				# else
-				# 	$container.jstree(true).open_node(data.node.id)
 
 		app.ajax.get
 			url: 'Data/Category/' + G.state.get('companyCode')
@@ -107,7 +85,27 @@ class Mod extends Skateboard.BaseMod
 
 	render: =>
 		super
+		$container = @$container = $('#category-container')
 		@udpateCotegory()
+
+		$container.on 'select_node.jstree', (event, data)=>
+			event.preventDefault();
+			if data.node.original.hierarchy is 3
+				# console.log(data)
+				# 设置该原件的的所有给出的属性
+				category = data.node.original
+				#remove all parent id
+				ids =  category.id.split('-')
+				category.id = ids[ids.length - 1]
+
+				G.state.set category: category, categoryName: data.node.original.text
+				Skateboard.core.view '/view/info'
+			else
+				if $container.jstree(true).is_open(data.node.id)
+					$container.jstree(true).close_node(data.node.id)
+				else
+					$container.jstree(true).open_node(data.node.id)
+
 
 
 module.exports = Mod

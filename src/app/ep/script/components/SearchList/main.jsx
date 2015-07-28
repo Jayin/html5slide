@@ -108,6 +108,9 @@ module.exports = React.createClass({
 		//转换
 		jstree_config.core.data = this.transform(this.props.result)
 
+		$('#' + this.props.jstreeContainerId).jstree(jstree_config)
+	},
+	componentDidMount: function(){
 		$('#' + this.props.jstreeContainerId).on('select_node.jstree', function(event, data){
 			if (data.node.original.hierarchy == 3){
 				// 设置该原件的的所有给出的属性
@@ -122,13 +125,14 @@ module.exports = React.createClass({
 				G.state.set({companyCode: data.node.original.code, companyName: data.node.original.text})
 				Skateboard.core.view('/view/category')
 			}else{
-				$(this).jstree(true).open_node(data.node.id)
+				if($(this).jstree(true).is_open(data.node.id)){
+					$(this).jstree(true).close_node(data.node.id)
+				}else{
+					$(this).jstree(true).open_node(data.node.id)
+				}
 			}
 		});
 
-		$('#' + this.props.jstreeContainerId).jstree(jstree_config)
-	},
-	componentDidMount: function(){
 		this._updateJsTree();
 	},
 	componentWillReceiveProps: function(nextProps){
