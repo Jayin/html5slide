@@ -11,6 +11,7 @@
         .mask {
             width: 40px;
             position: absolute;
+            top:5px;
             border: 1px solid gainsboro;
         }
     }
@@ -22,6 +23,7 @@
         text-align: center;
         float: right;
         margin-right: 14px;
+        position: relative;
         select {
             width: 35px;
             background-color: #FFF;
