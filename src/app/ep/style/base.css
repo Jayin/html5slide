@@ -1,31 +1,15 @@
-html {
-    height: 100%;
-}
-
 body {
     height: 100%;
     background-color: #169ADA;
     font-size: 17px;
 }
 
-.placeholer-bar-top-search {
-    height: 40px;
-    width: 100%;
-}
-
 .bar-top-search {
     background-color: #169ADA;
     height: 40px;
-    position: fixed;
-    top: 0;
     width: 100%;
     z-index: 1500;
     padding-top: 8px;
-}
-
-.placeholer-bar-bottom {
-    height: 40px;
-    width: 100%;
 }
 
 .bar-bottom {
@@ -33,8 +17,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 40px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     background-color: #169ADA;
 }
@@ -43,6 +25,7 @@ body {
     background-color: white;
     height: auto;
     min-height: 100%;
+    overflow: scroll;
 }
 
 .index-search-input {
