@@ -14,10 +14,11 @@ module.exports = React.createClass({
 			result: this.props.result || []
 		}
 	},
-	objectAttrLowercase: function(obj){
+	objectAttrLowercase: function(obj, parentId){
+		parentId = parentId || ''
 		var res = {}
 		res.text = obj.Text || obj.Name || obj.CompanyName
-		res.id = obj.ID || obj.CompanyCode // 公司节点没有id
+		res.id = parentId + '-' + (obj.ID || obj.CompanyCode) // 公司节点没有id
 		res.name = obj.Name || obj.CompanyName // 公司节点没有name
 		res.code = obj.Code //公司代码
 		res.alias = obj.Alias
@@ -39,21 +40,21 @@ module.exports = React.createClass({
 		if (obj.Children){
 			res.children = []
 			obj.Children.forEach(function(element){
-				res.children.push(this.objectAttrLowercase(element))
+				res.children.push(this.objectAttrLowercase(element, res.id))
 			}, this)
 		}
 
 		if (obj.Groups){
 			res.children = []
 			obj.Groups.forEach(function(element){
-				res.children.push(this.objectAttrLowercase(element))
+				res.children.push(this.objectAttrLowercase(element, res.id))
 			}, this)
 		}
 
 		if (obj.Categories){
 			res.children = []
 			obj.Categories.forEach(function(element){
-				res.children.push(this.objectAttrLowercase(element))
+				res.children.push(this.objectAttrLowercase(element, res.id))
 			}, this)
 		}
 
@@ -110,7 +111,12 @@ module.exports = React.createClass({
 		$('#' + this.props.jstreeContainerId).on('select_node.jstree', function(event, data){
 			if (data.node.original.hierarchy == 3){
 				// 设置该原件的的所有给出的属性
-				G.state.set({category: data.node.original, categoryName: data.node.original.text})
+				category = data.node.original
+				//remove all parent id
+				ids =  category.id.split('-')
+				category.id = ids[ids.length - 1]
+
+				G.state.set({category: category, categoryName: data.node.original.text})
 				Skateboard.core.view('/view/info')
 			}else if (data.node.parent == 'Companies'){
 				G.state.set({companyCode: data.node.original.code, companyName: data.node.original.text})

@@ -13,10 +13,11 @@ class Mod extends Skateboard.BaseMod
 
 	_bodyTpl: require './body.tpl.html'
 
-	objectAttrLowercase: (obj)=>
+	objectAttrLowercase: (obj, parentId)=>
+		parentId = parentId || ''
 		res = {}
 		res.text = obj.Text
-		res.id = obj.ID
+		res.id = parentId + '-' + obj.ID
 		res.name = obj.Name
 		res.alias = obj.Alias
 		res.hierarchy = obj.Hierarchy
@@ -31,7 +32,7 @@ class Mod extends Skateboard.BaseMod
 
 		res.children = []
 		obj.Children?.forEach (element)=>
-			res.children.push @objectAttrLowercase(element)
+			res.children.push @objectAttrLowercase(element, res.id)
 		return res
 
 
@@ -67,7 +68,12 @@ class Mod extends Skateboard.BaseMod
 			if data.node.original.hierarchy is 3
 				console.log(data)
 				# 设置该原件的的所有给出的属性
-				G.state.set category: data.node.original, categoryName: data.node.original.text
+				category = data.node.original
+				#remove all parent id
+				ids =  category.id.split('-')
+				category.id = ids[ids.length - 1]
+
+				G.state.set category: category, categoryName: data.node.original.text
 				Skateboard.core.view '/view/info'
 			else
 				$container.jstree(true).open_node(data.node.id)
@@ -105,5 +111,3 @@ class Mod extends Skateboard.BaseMod
 
 
 module.exports = Mod
-
-

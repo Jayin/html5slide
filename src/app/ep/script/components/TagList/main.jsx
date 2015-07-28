@@ -106,9 +106,9 @@ module.exports = React.createClass({
 				// 设置该原件的的所有给出的属性
 				category = data.node.original
 				//remove all parent id
-				ids =  data.node.original.id.split('-')
+				ids =  category.id.split('-')
 				category.id = ids[ids.length - 1]
-				
+
 				G.state.set({category: category, categoryName: data.node.original.text})
 				Skateboard.core.view('/view/info')
 			}else{
