@@ -86,7 +86,6 @@ class Mod extends Skateboard.BaseMod
 	render: =>
 		super
 		$container = @$container = $('#category-container')
-		@udpateCotegory()
 
 		$container.on 'select_node.jstree', (event, data)=>
 			event.preventDefault();
