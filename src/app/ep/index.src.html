@@ -87,7 +87,6 @@ require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, R
 		history.back();
 	});
 
-
 	$('#index-btn-common').on('click',function(){
 		Skateboard.core.view('/view/home')
 		$('div.bar-bottom').removeClass().addClass('bar-bottom bar_bottom_1')
@@ -117,6 +116,7 @@ require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, R
 		Skateboard.core.view('/view/comments', {replaceState: false})
 		$('div.bar-bottom').removeClass().addClass('bar-bottom bar_bottom_6')
 	});
+
 	$('#index-btn-search').on('click',function(){
 		var words = $('.index-search-input')[0].value
 		if (words == ''){
@@ -126,6 +126,13 @@ require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, R
 			Skateboard.core.view('/view/search', {replaceState: true})
 		}
 	});
+
+	//搜索框输入按回车键后去执行搜索
+	$(document).keypress(function (e) {
+        if (e.which == 13) {
+            $('#index-btn-search').trigger('click')
+        }
+    });
 
 	G.state.on('change', function(){
 		if (G.state.get('categoryName')){
