@@ -116,7 +116,7 @@ var CompanyList = React.createClass({
 							return (
 								<li onClick={this.handleItemClick.bind(this, {item: item,itemIndex: itemIndex, ele: ele, eleIndex: eleIndex})}>
 									{Input}
-									<label>{ele.Name}</label>
+									<label>&nbsp;{ele.Name}&nbsp;</label>
 								</li>
 							)
 						},this)}
