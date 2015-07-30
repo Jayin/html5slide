@@ -118,7 +118,7 @@ require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, R
 	});
 
 	$('#index-btn-search').on('click',function(){
-		var words = $('.index-search-input')[0].value
+		var words = $('.index-search-input')[0].value.trim()
 		if (words == ''){
 			app.alerts.alert('内容不能为空');
 		}else{
