@@ -89,6 +89,7 @@ class Mod extends Skateboard.BaseMod
 
 		$container.on 'select_node.jstree', (event, data)=>
 			event.preventDefault();
+			$container.jstree(true).deselect_node(data.node.id)
 			if data.node.original.hierarchy is 3
 				# console.log(data)
 				# 设置该原件的的所有给出的属性
@@ -104,6 +105,8 @@ class Mod extends Skateboard.BaseMod
 					$container.jstree(true).close_node(data.node.id)
 				else
 					$container.jstree(true).open_node(data.node.id)
+
+
 
 
 

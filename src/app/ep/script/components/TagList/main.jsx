@@ -109,6 +109,8 @@ module.exports = React.createClass({
 	componentDidMount: function(){
 		$('#' + this.props.jstreeContainerId).on('select_node.jstree', function(event, data){
 			event.preventDefault();
+			$(this).jstree(true).deselect_node(data.node.id)
+			
 			if (data.node.original.hierarchy == 3){
 				// 设置该原件的的所有给出的属性
 				category = data.node.original
