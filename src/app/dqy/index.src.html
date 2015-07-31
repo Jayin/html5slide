@@ -9,7 +9,7 @@
 <!-- section "body" -->
 <script type="text/javascript">
 document.write([
-	'<link rel="stylesheet" href="' + G.CDN_BASE + '/app/ep/style/main.css" />',
+	'<link rel="stylesheet" href="' + G.CDN_BASE + '/app/dqy/style/main.css" />',
 	'<link rel="stylesheet" href="' + G.CDN_BASE + '/style/lib/jstree/themes/default/main.css" />'
 ].join(''));
 </script>
@@ -41,13 +41,13 @@ document.write([
 require(['jquery', 'app', 'skateboard', 'react'], function($, app, Skateboard, React) {
 	React.initializeTouchEvents(true);
 
-	$.extend(G.MD5_MAP, %{{md5map.ep}}%);
+	$.extend(G.MD5_MAP, %{{md5map.dqy}}%);
 	//加上.bar-top-search的padding
 	$('.page-wrapper').height($(window).height() - ($('.bar-top-search').height()+8) - $('.bar-bottom').height());
 
 	Skateboard.core.init({
 		container: $('.page-wrapper'),
-		modBase: '../../../app/ep/script/',
+		modBase: '../../../app/dqy/script/',
 		animate: {
 			type: 'fade',
 			timingFunction: 'linear',
