@@ -14,7 +14,7 @@ class Mod extends Skateboard.BaseMod
 			url: 'Data/Tag/3'
 			success: (res)=>
 				React.render(
-					React.createElement(TagList, {jstreeContainerId: 'accessory-jstree-container', result: res}),
+					React.createElement(TagList, {jstreeContainerId: 'accessory-jstree-container', result: res, close: true}),
 					document.getElementById('accessory-container')
 				)
 			error: ()->

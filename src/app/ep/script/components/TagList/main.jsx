@@ -11,7 +11,8 @@ module.exports = React.createClass({
 	getInitialState: function(){
 		return {
 			jstreeContainerId: this.props.jstreeContainerId || 'jstreeContainerId1',
-			result: this.props.result || []
+			result: this.props.result || [],
+			close: this.props.close //二级目录默认打开
 		}
 	},
 	objectAttrLowercase: function(obj, parentId){
@@ -39,7 +40,7 @@ module.exports = React.createClass({
 		}
 
 		//默认二级目录
-		if (res.hierarchy == 1)
+		if (res.hierarchy == 1 && !this.state.close)
 			res.state = {opened: true}
 		else
 			res.state = {opened: false}
@@ -110,7 +111,7 @@ module.exports = React.createClass({
 		$('#' + this.props.jstreeContainerId).on('select_node.jstree', function(event, data){
 			event.preventDefault();
 			$(this).jstree(true).deselect_node(data.node.id)
-			
+
 			if (data.node.original.hierarchy == 3){
 				// 设置该原件的的所有给出的属性
 				category = data.node.original
