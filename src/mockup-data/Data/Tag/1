@@ -7,6 +7,7 @@
         "Hierarchy": 1,
         "CompanyCode": "100009",
         "CompanyName": null,
+        "IsRecommend": false,
         "Children": [
             {
                 "ID": 324,
@@ -16,6 +17,7 @@
                 "Hierarchy": 2,
                 "CompanyCode": "100009",
                 "CompanyName": null,
+                "IsRecommend": false,
                 "Children": [],
                 "Groups": [
                     {
@@ -31,10 +33,12 @@
                                 "Hierarchy": 3,
                                 "CompanyCode": "100009",
                                 "CompanyName": null,
+                                "IsRecommend": false,
                                 "Children": null,
                                 "Groups": null
                             }
-                        ]
+                        ],
+                        "HasRecommend": true
                     }
                 ]
             }
@@ -42,22 +46,557 @@
         "Groups": null
     },
     {
-        "ID": 3680,
+        "ID": 16571,
         "Name": "高压产品",
         "Text": "高压产品",
         "Alias": "",
         "Hierarchy": 1,
-        "CompanyCode": "100007",
+        "CompanyCode": "100003",
         "CompanyName": null,
+        "IsRecommend": false,
         "Children": [
             {
-                "ID": 3681,
+                "ID": 16623,
+                "Name": "避雷器",
+                "Text": "避雷器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100003",
+                "CompanyName": null,
+                "IsRecommend": false,
+                "Children": [],
+                "Groups": [
+                    {
+                        "CompanyName": "中国·人民电器集团",
+                        "CompanyCode": "100003",
+                        "CompanyPinYin": "ZG·RMDQJT",
+                        "Categories": [
+                            {
+                                "ID": 16624,
+                                "Name": "TBP",
+                                "Text": "三相组合是避雷器",
+                                "Alias": "三相组合是避雷器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16625,
+                                "Name": "Y1.5",
+                                "Text": "Y1.5W低压避雷器",
+                                "Alias": "Y1.5W低压避雷器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16626,
+                                "Name": "Y1",
+                                "Text": "Y1W避雷器",
+                                "Alias": "Y1W避雷器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16627,
+                                "Name": "Y2.5",
+                                "Text": "Y2.5W避雷器",
+                                "Alias": "Y2.5W避雷器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16628,
+                                "Name": "Y5",
+                                "Text": "Y5W避雷器",
+                                "Alias": "Y5W避雷器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16629,
+                                "Name": "YH",
+                                "Text": "氧化锌避雷器",
+                                "Alias": "氧化锌避雷器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16630,
+                                "Name": "YH5",
+                                "Text": "复合绝缘体氧化锌避雷器",
+                                "Alias": "复合绝缘体氧化锌避雷器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": true
+                    }
+                ]
+            },
+            {
+                "ID": 16572,
+                "Name": "户外开关",
+                "Text": "户外开关",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100003",
+                "CompanyName": null,
+                "IsRecommend": false,
+                "Children": [],
+                "Groups": [
+                    {
+                        "CompanyName": "中国·人民电器集团",
+                        "CompanyCode": "100003",
+                        "CompanyPinYin": "ZG·RMDQJT",
+                        "Categories": [
+                            {
+                                "ID": 16573,
+                                "Name": "GW4",
+                                "Text": "GW4户外高压隔离开关",
+                                "Alias": "GW4户外高压隔离开关",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16574,
+                                "Name": "GW9",
+                                "Text": "GW9户外高压隔离开关",
+                                "Alias": "GW9户外高压隔离开关",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16575,
+                                "Name": "HGW9",
+                                "Text": "HGW9户外高压隔离开关",
+                                "Alias": "HGW9户外高压隔离开关",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": true
+                    }
+                ]
+            },
+            {
+                "ID": 16576,
+                "Name": "接地刀",
+                "Text": "接地刀",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100003",
+                "CompanyName": null,
+                "IsRecommend": false,
+                "Children": [],
+                "Groups": [
+                    {
+                        "CompanyName": "中国·人民电器集团",
+                        "CompanyCode": "100003",
+                        "CompanyPinYin": "ZG·RMDQJT",
+                        "Categories": [
+                            {
+                                "ID": 16577,
+                                "Name": "JN15",
+                                "Text": "JN15户内高压接地开关",
+                                "Alias": "JN15户内高压接地开关",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": false
+                    }
+                ]
+            },
+            {
+                "ID": 16617,
+                "Name": "负荷开关",
+                "Text": "负荷开关",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100003",
+                "CompanyName": null,
+                "IsRecommend": false,
+                "Children": [],
+                "Groups": [
+                    {
+                        "CompanyName": "杭州之江开关股份有限公司",
+                        "CompanyCode": "100012",
+                        "CompanyPinYin": "HZZJKGGFYXGS",
+                        "Categories": [
+                            {
+                                "ID": 17739,
+                                "Name": "FLN36",
+                                "Text": "FLN36系列SF6负荷开关-熔断器组合电器",
+                                "Alias": "FLN36系列SF6负荷开关-熔断器组合电器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100012",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 17740,
+                                "Name": "XGN74",
+                                "Text": "XGN74系列环网型SF6全充气式负荷开关",
+                                "Alias": "XGN74系列环网型SF6全充气式负荷开关",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100012",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": true
+                    },
+                    {
+                        "CompanyName": "中国·人民电器集团",
+                        "CompanyCode": "100003",
+                        "CompanyPinYin": "ZG·RMDQJT",
+                        "Categories": [
+                            {
+                                "ID": 16618,
+                                "Name": "FN12",
+                                "Text": "FN12户内高压负荷开关（价格不含熔断体）",
+                                "Alias": "FN12户内高压负荷开关（价格不含熔断体）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16619,
+                                "Name": "FZN21",
+                                "Text": "FZN21户内高压负荷开关（价格不含熔断体）",
+                                "Alias": "FZN21户内高压负荷开关（价格不含熔断体）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16620,
+                                "Name": "FZN25",
+                                "Text": "FZN25户内高压负荷开关（价格不含熔断体）",
+                                "Alias": "FZN25户内高压负荷开关（价格不含熔断体）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16621,
+                                "Name": "FZN25A",
+                                "Text": "FZN25A户内高压负荷开关（价格不含熔断体）",
+                                "Alias": "FZN25A户内高压负荷开关（价格不含熔断体）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16622,
+                                "Name": "FZW32",
+                                "Text": "FZW32户内高压负荷开关",
+                                "Alias": "FZW32户内高压负荷开关",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": false
+                    }
+                ]
+            },
+            {
+                "ID": 16583,
+                "Name": "电流互感器",
+                "Text": "电流互感器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100003",
+                "CompanyName": null,
+                "IsRecommend": false,
+                "Children": [],
+                "Groups": [
+                    {
+                        "CompanyName": "中国·人民电器集团",
+                        "CompanyCode": "100003",
+                        "CompanyPinYin": "ZG·RMDQJT",
+                        "Categories": [
+                            {
+                                "ID": 16584,
+                                "Name": "JZJ8",
+                                "Text": "JZJ8系列高压电流互感器",
+                                "Alias": "JZJ8系列高压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16585,
+                                "Name": "JZX",
+                                "Text": "JZX-10G高压电流互感器",
+                                "Alias": "JZX-10G高压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16586,
+                                "Name": "LA",
+                                "Text": "LA-10高压电流互感器",
+                                "Alias": "LA-10高压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16587,
+                                "Name": "LAJ",
+                                "Text": "LAJ-10高压电流互感器",
+                                "Alias": "LAJ-10高压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16588,
+                                "Name": "LAZBJ",
+                                "Text": "LAZBJ-10高压电流互感器",
+                                "Alias": "LAZBJ-10高压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16589,
+                                "Name": "LBZ",
+                                "Text": "LBZ-10W高压电流互感器",
+                                "Alias": "LBZ-10W高压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16590,
+                                "Name": "LCZ",
+                                "Text": "LCZ-35Q2高压电流互感器",
+                                "Alias": "LCZ-35Q2高压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16591,
+                                "Name": "LFS",
+                                "Text": "LFS-10Q高压电流互感器（0.2）",
+                                "Alias": "LFS-10Q高压电流互感器（0.2）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16592,
+                                "Name": "LQZBJ",
+                                "Text": "LQZBJ-10Q高压电流互感器（0.2）",
+                                "Alias": "LQZBJ-10Q高压电流互感器（0.2）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16593,
+                                "Name": "JZJC",
+                                "Text": "LQZBJ-10Q高压电流互感器",
+                                "Alias": "LQZBJ-10Q高压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16594,
+                                "Name": "LZW",
+                                "Text": "LZW-10高压电流互感器（0.2）",
+                                "Alias": "LZW-10高压电流互感器（0.2）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16595,
+                                "Name": "LZZ7",
+                                "Text": "LZZ7-35Q2高压电流互感器（0.2）",
+                                "Alias": "LZZ7-35Q2高压电流互感器（0.2）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16596,
+                                "Name": "LZZB7",
+                                "Text": "LZZB7-35高压电流互感器",
+                                "Alias": "LZZB7-35高压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16597,
+                                "Name": "LZZB8",
+                                "Text": "LZZB8-35W2高压电流互感器",
+                                "Alias": "LZZB8-35W2高压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16598,
+                                "Name": "LZZB9",
+                                "Text": "LZZB9高压电流互感器",
+                                "Alias": "LZZB9高压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16599,
+                                "Name": "LZZBJ9",
+                                "Text": "LZZBJ9-10C1高压（0.2）",
+                                "Alias": "LZZBJ9-10C1高压（0.2）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16600,
+                                "Name": "LZZJ",
+                                "Text": "LZZJ-10Q高压电流互感器（0.2）",
+                                "Alias": "LZZJ-10Q高压电流互感器（0.2）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": false
+                    }
+                ]
+            },
+            {
+                "ID": 16601,
                 "Name": "真空断路器",
                 "Text": "真空断路器",
                 "Alias": "",
                 "Hierarchy": 2,
-                "CompanyCode": "100007",
+                "CompanyCode": "100003",
                 "CompanyName": null,
+                "IsRecommend": false,
                 "Children": [],
                 "Groups": [
                     {
@@ -66,83 +605,501 @@
                         "CompanyPinYin": "CSKGZZYXGS（YCSKGC）",
                         "Categories": [
                             {
-                                "ID": 3682,
+                                "ID": 20137,
                                 "Name": "CV1",
                                 "Text": "CV1-12高压真空断路器",
                                 "Alias": "CV1-12高压真空断路器",
                                 "Hierarchy": 3,
                                 "CompanyCode": "100007",
                                 "CompanyName": null,
+                                "IsRecommend": false,
                                 "Children": null,
                                 "Groups": null
                             },
                             {
-                                "ID": 3683,
+                                "ID": 20138,
                                 "Name": "CV124",
                                 "Text": "CV1-24高压真空断路器",
                                 "Alias": "CV1-24高压真空断路器",
                                 "Hierarchy": 3,
                                 "CompanyCode": "100007",
                                 "CompanyName": null,
+                                "IsRecommend": false,
                                 "Children": null,
                                 "Groups": null
                             },
                             {
-                                "ID": 3684,
+                                "ID": 20139,
                                 "Name": "CV140",
                                 "Text": "CV1-40.5高压真空断路器",
                                 "Alias": "CV1-40.5高压真空断路器",
                                 "Hierarchy": 3,
                                 "CompanyCode": "100007",
                                 "CompanyName": null,
+                                "IsRecommend": false,
                                 "Children": null,
                                 "Groups": null
                             },
                             {
-                                "ID": 3685,
+                                "ID": 20140,
                                 "Name": "CV1G",
                                 "Text": "CV1系列高压隔离开关",
                                 "Alias": "CV1系列高压隔离开关",
                                 "Hierarchy": 3,
                                 "CompanyCode": "100007",
                                 "CompanyName": null,
+                                "IsRecommend": false,
                                 "Children": null,
                                 "Groups": null
                             },
                             {
-                                "ID": 3686,
+                                "ID": 20141,
                                 "Name": "CV2",
                                 "Text": "CV2-12高压真空断路器",
                                 "Alias": "CV2-12高压真空断路器",
                                 "Hierarchy": 3,
                                 "CompanyCode": "100007",
                                 "CompanyName": null,
+                                "IsRecommend": false,
                                 "Children": null,
                                 "Groups": null
                             },
                             {
-                                "ID": 3687,
+                                "ID": 20142,
                                 "Name": "CV224",
                                 "Text": "CV2-24高压真空断路器",
                                 "Alias": "CV2-24高压真空断路器",
                                 "Hierarchy": 3,
                                 "CompanyCode": "100007",
                                 "CompanyName": null,
+                                "IsRecommend": false,
                                 "Children": null,
                                 "Groups": null
                             },
                             {
-                                "ID": 3688,
+                                "ID": 20143,
                                 "Name": "CVR1",
                                 "Text": "CVR1-12侧装高压真空断路器",
                                 "Alias": "CVR1-12侧装高压真空断路器",
                                 "Hierarchy": 3,
                                 "CompanyCode": "100007",
                                 "CompanyName": null,
+                                "IsRecommend": false,
                                 "Children": null,
                                 "Groups": null
                             }
-                        ]
+                        ],
+                        "HasRecommend": false
+                    },
+                    {
+                        "CompanyName": "常熟市通润开关厂有限公司",
+                        "CompanyCode": "100019",
+                        "CompanyPinYin": "CSSTRKGCYXGS",
+                        "Categories": [
+                            {
+                                "ID": 19661,
+                                "Name": "TRVS1",
+                                "Text": "TRVS1户内高压真空断路器（绝缘套筒式）",
+                                "Alias": "TRVS1户内高压真空断路器（绝缘套筒式）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100019",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 19662,
+                                "Name": "TRVS1M",
+                                "Text": "TRVS1-12/M户内高压真空断路器（永磁机构）",
+                                "Alias": "TRVS1-12/M户内高压真空断路器（永磁机构）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100019",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 19663,
+                                "Name": "VTR2",
+                                "Text": "VTR2户内高压真空断路器（固封极柱式）",
+                                "Alias": "VTR2户内高压真空断路器（固封极柱式）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100019",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": false
+                    },
+                    {
+                        "CompanyName": "杭州之江开关股份有限公司",
+                        "CompanyCode": "100012",
+                        "CompanyPinYin": "HZZJKGGFYXGS",
+                        "Categories": [
+                            {
+                                "ID": 17735,
+                                "Name": "VHS2",
+                                "Text": "VHS2系列户内真空断路器【固封极柱】",
+                                "Alias": "VHS2系列户内真空断路器【固封极柱】",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100012",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 17736,
+                                "Name": "VHS3",
+                                "Text": "VHS3系列户内真空断路器【永磁机构】",
+                                "Alias": "VHS3系列户内真空断路器【永磁机构】",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100012",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 17737,
+                                "Name": "ZN73",
+                                "Text": "ZN73系列户内真空断路器",
+                                "Alias": "ZN73系列户内真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100012",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": false
+                    },
+                    {
+                        "CompanyName": "上海精益电器厂有限公司【黑猫】",
+                        "CompanyCode": "100013",
+                        "CompanyPinYin": "SHJYDQCYXGS【HM】",
+                        "Categories": [
+                            {
+                                "ID": 17807,
+                                "Name": "HVS1",
+                                "Text": "HVS1系列户内高压真空断路器",
+                                "Alias": "HVS1系列户内高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100013",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": false
+                    },
+                    {
+                        "CompanyName": "中国·人民电器集团",
+                        "CompanyCode": "100003",
+                        "CompanyPinYin": "ZG·RMDQJT",
+                        "Categories": [
+                            {
+                                "ID": 16602,
+                                "Name": "CKG",
+                                "Text": "CKG高压真空接触器",
+                                "Alias": "CKG高压真空接触器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16603,
+                                "Name": "FZW28",
+                                "Text": "FZW28户外高压真空负荷开关",
+                                "Alias": "FZW28户外高压真空负荷开关",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16604,
+                                "Name": "JCZ5",
+                                "Text": "JCZ5高压真空接触器",
+                                "Alias": "JCZ5高压真空接触器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16605,
+                                "Name": "ZN23",
+                                "Text": "ZN23-40.5手车式户内高压真空断路器",
+                                "Alias": "ZN23-40.5手车式户内高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16606,
+                                "Name": "ZN28",
+                                "Text": "ZN28-40.5本体式户内高压真空断路器",
+                                "Alias": "ZN28-40.5本体式户内高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16607,
+                                "Name": "ZN73",
+                                "Text": "ZN73固定式户内高压真空断路器",
+                                "Alias": "ZN73固定式户内高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16608,
+                                "Name": "ZN73M",
+                                "Text": "ZN73M永磁式户内高压真空断路器",
+                                "Alias": "ZN73M永磁式户内高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16609,
+                                "Name": "ZN73S",
+                                "Text": "ZN73S固封极柱户内高压真空断路器",
+                                "Alias": "ZN73S固封极柱户内高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16610,
+                                "Name": "ZN85",
+                                "Text": "ZN85-40.5手车式户内高压真空断路器",
+                                "Alias": "ZN85-40.5手车式户内高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16611,
+                                "Name": "ZW10",
+                                "Text": "ZW10户外高压真空断路器",
+                                "Alias": "ZW10户外高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16612,
+                                "Name": "ZW20",
+                                "Text": "ZW20户外高压真空断路器",
+                                "Alias": "ZW20户外高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16613,
+                                "Name": "ZW27",
+                                "Text": "ZW27户外高压真空断路器",
+                                "Alias": "ZW27户外高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16614,
+                                "Name": "ZW32",
+                                "Text": "ZW32重合闸断路器",
+                                "Alias": "ZW32重合闸断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16615,
+                                "Name": "ZW7",
+                                "Text": "ZW7中置式户外高压真空断路器",
+                                "Alias": "ZW7中置式户外高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 16616,
+                                "Name": "ZW8",
+                                "Text": "ZW8户外高压真空断路器",
+                                "Alias": "ZW8户外高压真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": false
+                    },
+                    {
+                        "CompanyName": "指月集团",
+                        "CompanyCode": "100024",
+                        "CompanyPinYin": "ZYJT",
+                        "Categories": [
+                            {
+                                "ID": 19387,
+                                "Name": "FKN12",
+                                "Text": "FKN12户内高压负荷开关",
+                                "Alias": "FKN12户内高压负荷开关",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100024",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 19388,
+                                "Name": "FZN25",
+                                "Text": "FZN25户内高压负荷开关",
+                                "Alias": "FZN25户内高压负荷开关",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100024",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 19389,
+                                "Name": "FKRN12",
+                                "Text": "FKRN12户内高压负荷开关",
+                                "Alias": "FKRN12户内高压负荷开关",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100024",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 19390,
+                                "Name": "VS1",
+                                "Text": "VS1户内真空断路器（手车式/固定式/固封式/测装）",
+                                "Alias": "VS1户内真空断路器（手车式/固定式/固封式/测装）",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100024",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            },
+                            {
+                                "ID": 19391,
+                                "Name": "ZN28",
+                                "Text": "ZN28户内真空断路器",
+                                "Alias": "ZN28户内真空断路器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100024",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": false
+                    }
+                ]
+            }
+        ],
+        "Groups": null
+    },
+    {
+        "ID": 16463,
+        "Name": "电源电器",
+        "Text": "电源电器",
+        "Alias": "",
+        "Hierarchy": 1,
+        "CompanyCode": "100003",
+        "CompanyName": null,
+        "IsRecommend": false,
+        "Children": [
+            {
+                "ID": 16464,
+                "Name": "互感器",
+                "Text": "互感器",
+                "Alias": "",
+                "Hierarchy": 2,
+                "CompanyCode": "100003",
+                "CompanyName": null,
+                "IsRecommend": false,
+                "Children": [],
+                "Groups": [
+                    {
+                        "CompanyName": "中国·人民电器集团",
+                        "CompanyCode": "100003",
+                        "CompanyPinYin": "ZG·RMDQJT",
+                        "Categories": [
+                            {
+                                "ID": 16475,
+                                "Name": "LMZ1",
+                                "Text": "LMZ1-0.66低压电流互感器",
+                                "Alias": "LMZ1-0.66低压电流互感器",
+                                "Hierarchy": 3,
+                                "CompanyCode": "100003",
+                                "CompanyName": null,
+                                "IsRecommend": false,
+                                "Children": null,
+                                "Groups": null
+                            }
+                        ],
+                        "HasRecommend": false
                     }
                 ]
             }
