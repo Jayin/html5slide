@@ -38,7 +38,7 @@
 	left: 7%;
 	width: 42%;
 	height: 36px;
-	bottom: 18px;
+	bottom: 30px;
 }
 
 .footer-c-btn {
@@ -52,16 +52,16 @@
 	left: 51.5%;
 	width: 42%;
 	height: 38px;
-	bottom: 18px;
+	bottom: 30px;
 }
 
 .like-btn {
 	background-image: url(../image/like/sprite-like-off-2x.png);
-	right: 7%;
+	right: 8%;
 }
 .like-btn.alt {
 	background-image: url(../image/like/sprite-like-off-alt-2x.png);
-	right: 7%;
+	right: 8%;
 }
 .like-btn.on {
 	background-image: url(../image/like/sprite-like-on-2x.png);
