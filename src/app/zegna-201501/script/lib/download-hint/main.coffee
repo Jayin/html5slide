@@ -21,7 +21,7 @@ shareHint =
 				clearTimeout _toRef
 		$('#download-hint-img')[0].src = 'about:blank'
 		$('#download-hint-img')[0].src = "#{G.CDN_BASE}/app/zegna-201501/image/#{id}-download.jpg"
-		$('.dialog-close-btn', el).attr 'data-click-tag', tag + '_save_close'
+		$('.dialog-close-btn', el).attr 'data-click-tag', tag + '_save_close' + '.' + G.getStatCid() + '.' + G.getStatMid()
 		el.show()
 
 module.exports = shareHint
