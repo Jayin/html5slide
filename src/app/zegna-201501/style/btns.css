@@ -64,6 +64,7 @@
 .like-btn {
 	background-image: url(../image/like/sprite-like-off-2x.png);
 	right: 8%;
+	zoom: 1.8;
 }
 .like-btn.alt {
 	background-image: url(../image/like/sprite-like-off-alt-2x.png);
