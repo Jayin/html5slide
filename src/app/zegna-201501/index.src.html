@@ -105,6 +105,8 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			downloadHint.show(id, tag);
 		});
 	}).on('click', '.like-btn', function(evt) {
+		$(evt.target).find('.like').toggleClass('on');
+	}).on('click', '.like', function(evt) {
 		$(evt.target).toggleClass('on');
 	});
 	//只记录打开首页的pv > w1-1 、w1-2

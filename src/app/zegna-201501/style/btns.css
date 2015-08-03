@@ -61,15 +61,23 @@
 	bottom: 30px;
 }
 
-.like-btn {
+.like-btn{
+	right: 5%;
+	width: 40px;
+    height: 40px;
+}
+.like {
+	margin-left: 10px;
+	margin-top: 10px;
 	background-image: url(../image/like/sprite-like-off-2x.png);
 	right: 8%;
+	z-index: -10;
 }
-.like-btn.alt {
+.like.alt {
 	background-image: url(../image/like/sprite-like-off-alt-2x.png);
 	right: 8%;
 }
-.like-btn.on {
+.like.on {
 	background-image: url(../image/like/sprite-like-on-2x.png);
 }
 
