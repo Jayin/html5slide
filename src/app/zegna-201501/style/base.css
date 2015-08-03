@@ -50,9 +50,9 @@ body {
 }
 
 .qrcode-img {
-	width: 26.66%;
+	width: 29%;
 	left: 36.67%;
-	bottom: 6%;
+	bottom: 5%;
 	position: absolute;
 	display: block;
 }
