@@ -76,7 +76,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 			} else {
 				$(window).scrollTop(0);
 			}
-			app.stat.pv(modName, G.getStatCid(), G.getStatMid());
+
 		},
 		constructContentDom: function(modName, args, opt) {
 			var contentDom = $([
@@ -107,6 +107,10 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	}).on('click', '.like-btn', function(evt) {
 		$(evt.target).toggleClass('on');
 	});
+	//只记录打开首页的pv > w1-1 、w1-2
+	var modName = window.location.hash.replace('#!view/', '')
+	modName = modName.split('/')[0]
+	app.stat.pv(modName, G.getStatCid(), G.getStatMid());
 }, function() {
 
 });
