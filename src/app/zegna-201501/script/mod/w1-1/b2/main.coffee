@@ -25,7 +25,7 @@ var app = require('app');
 		<a data-click-tag="l2_b2_top_back.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn header-back-btn" href="/:back">back</a>
 		<a data-click-tag="l2_b2_top_save.<%=G.getStatCid()%>.<%=G.getStatMid()%>" data-id="w1-1-b2" class="img-btn header-download-btn" href="javascript:void(0);">download</a>
 		<a data-click-tag="l2_b2_top_wechat_open.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn header-wechat-btn" href="javascript:void(0);">wechat</a>
-		<a data-click-tag="l2_b2_top_share.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn header-share-btn share-btn" href="javascript:void(0);">share</a>
+		<a data-click-tag="l2_b2_top_share_open.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn header-share-btn share-btn" href="javascript:void(0);">share</a>
 		<a data-click-tag="l2_b2_top_locator.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn header-shop-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=211369012&idx=1&sn=42969187a2a93a423326e15b600ffae8#rd">shop</a>
 		<a data-click-tag="l2_b2_bot_locator.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn footer-c-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=211369012&idx=1&sn=42969187a2a93a423326e15b600ffae8#rd">shop</a>
 		<a data-click-tag="l2_b2_bot_locator2.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn footer-c-btn2" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=211369012&idx=1&sn=42969187a2a93a423326e15b600ffae8#rd">shop</a>
