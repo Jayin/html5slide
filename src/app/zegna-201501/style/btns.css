@@ -42,10 +42,16 @@
 }
 
 .footer-c-btn {
+	left: 3.5%;
+    width: 93%;
+    height: 8%;
+    bottom: 16.5%;
+}
+.footer-c-btn2 {
 	left: 29.5%;
 	width: 42%;
-	height: 50px;
-	bottom: 30px;
+	height: 3%;
+    bottom: 1%;
 }
 
 .footer-r-btn {
