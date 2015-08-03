@@ -4,18 +4,18 @@ define(function(require) {
 	var alerts = require('./alerts');
 	var util = require('./util');
 	var cookie = require('./cookie');
-	
+
 	var _postQueue = {};
 	var _getQueue = {};
 	var _proxyQueue = [];
-	
+
 	var ajax = {};
-	
+
 	/**
 	 * returns the full url according to backend service name and data type
 	 * @private
-	 * @param {String} url 
-	 * @param {String} dataType 
+	 * @param {String} url
+	 * @param {String} dataType
 	 * @returns {String} the full url
 	 */
 	ajax.getDataTypeUrl = function(url, dataType) {
@@ -39,29 +39,29 @@ define(function(require) {
 		} else {
 			fullUrl = url;
 		}
-		if(fullUrl.indexOf('csrf_token=') === -1) {
+		if(G.csrfToken && fullUrl.indexOf('csrf_token=') === -1) {
 			fullUrl = util.appendQueryString(fullUrl, {csrf_token: G.csrfToken});
 		}
 		return fullUrl;
 	};
-	
+
 	/**
 	 * show the loading icon
 	 */
 	ajax.showLoading = function() {
 		$('#circleG').show();
 	};
-	
+
 	/**
 	 * hide the loading icon
 	 */
 	ajax.hideLoading = function() {
 		$('#circleG').hide();
 	};
-	
+
 	/**
 	 * take action to some common code
-	 * @param {Number} code 
+	 * @param {Number} code
 	 * @returns {Boolean} whether common code has been dealt
 	 */
 	ajax.dealCommonCode = function(code) {
@@ -73,10 +73,10 @@ define(function(require) {
 		}
 		return res;
 	};
-	
+
 	/**
 	 * ajax get wrapper for jquery ajax
-	 * @param {Object} opt  
+	 * @param {Object} opt
 	 */
 	ajax.get = function(opt) {
 		var xhrObj, success;
@@ -111,10 +111,10 @@ define(function(require) {
 		});
 		return xhrObj;
 	};
-	
+
 	/**
 	 * ajax post wrapper for jquery ajax
-	 * @param {Object} opt  
+	 * @param {Object} opt
 	 */
 	ajax.post = function(opt) {
 		var xhrObj, success, data;
@@ -160,31 +160,31 @@ define(function(require) {
 		});
 		return xhrObj;
 	};
-	
+
 	/**
 	 * ajax put wrapper for jquery ajax
-	 * @param {Object} opt  
+	 * @param {Object} opt
 	 */
 	ajax.put = function(opt) {
 		opt = opt || {};
 		opt._method = 'PUT';
 		ajax.post(opt);
 	};
-	
+
 	/**
 	 * ajax delete wrapper for jquery ajax
-	 * @param {Object} opt  
+	 * @param {Object} opt
 	 */
 	ajax.del = function(opt) {
 		opt = opt || {};
 		opt._method = 'DELETE';
 		ajax.post(opt);
 	};
-	
+
 	/**
 	 * get FileUploader options
-	 * @param {String} url  
-	 * @param {String} dataType  
+	 * @param {String} url
+	 * @param {String} dataType
 	 */
 	ajax.getUploadOpt = function(url, dataType, callback) {
 		url = ajax.getDataTypeUrl(url, dataType);
@@ -203,6 +203,6 @@ define(function(require) {
 			});
 		}
 	};
-	
+
 	return ajax;
 });
