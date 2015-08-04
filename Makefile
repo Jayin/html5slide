@@ -15,6 +15,9 @@ uat:
 taobao:
 	BUILD_TARGET=taobao gulp --minify
 
+zegna:
+	BUILD_TARGET=zegna gulp --minify
+
 deploy-prd-idc:
 	-rm -fr $(TARGET_PATH)/static/coverage
 	cd $(TARGET_PATH) && tar -czvf package.tar.gz static
