@@ -26,10 +26,10 @@ define(function(require) {
 		_send(url);
 	};
 
-	//fv => first visit， 跟pv几乎一样，只是action变为firstvisit
+	//fv => first view， 跟pv几乎一样，只是event变为firstview
 	stat.fv = function(url, cid, mid) {
-		url = encodeURIComponent(url || location.href);
-		url = ajax.getDataTypeUrl('tracking/open/trace/' + cid + '?action=firstvisit&event=' + url + (mid ? '&mid=' + mid : ''), 'json');
+		url = 'firstview';
+		url = ajax.getDataTypeUrl('tracking/open/trace/' + cid + '?action=onload&event=' + url + (mid ? '&mid=' + mid : ''), 'json');
 		_send(url);
 	};
 

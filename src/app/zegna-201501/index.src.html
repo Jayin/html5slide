@@ -110,9 +110,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 		$(evt.target).toggleClass('on');
 	});
 	//只记录打开首页的pv > w1-1 、w1-2
-	var modName = window.location.hash.replace('#!view/', '')
-	modName = modName.split('/')[0]
-	app.stat.fv(modName, G.getStatCid(), G.getStatMid());
+	app.stat.fv('firstview', G.getStatCid(), G.getStatMid());
 }, function() {
 
 });
