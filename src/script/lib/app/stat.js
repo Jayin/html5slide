@@ -26,6 +26,13 @@ define(function(require) {
 		_send(url);
 	};
 
+	//fv => First Visit， 跟pv几乎一样，只是action变为fv
+	stat.fv = function(url, cid, mid) {
+		url = encodeURIComponent(url || location.href);
+		url = ajax.getDataTypeUrl('tracking/open/trace/' + cid + '?action=fv&event=' + url + (mid ? '&mid=' + mid : ''), 'json');
+		_send(url);
+	};
+
 	stat.click = function(tag, cid, mid) {
 		url = ajax.getDataTypeUrl('tracking/open/trace/' + cid + '?action=click&event=' + tag + (mid ? '&mid=' + mid : ''), 'json');
 		_send(url);
