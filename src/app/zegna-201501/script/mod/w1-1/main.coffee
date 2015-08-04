@@ -52,7 +52,7 @@ var app = require('app');
 			<div class="like"></div>
 		</div>
 
-		<a data-click-tag="l1_b3_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn img-plus-btn alt" href="/view/w1-1/b3" style="left: 40%; top: 49.8%; width: 20%; height: 4.2%;">shoes</a>
+		<a data-click-tag="l1_b3_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn img-plus-btn" href="/view/w1-1/b3" style="left: 40%; top: 49.8%; width: 20%; height: 4.2%;">shoes</a>
 		<a data-click-tag="l1_b3_txt1click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="/view/w1-1/b3" style="left: 31%; top: 59.55%; width: 44%; height: 1.55%;">shoes</a>
 		<a data-click-tag="l1_b3_txt2click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="/view/w1-1/b3" style="left: 41%; top: 61.6%; width: 16%; height: 1.4%;">shoes</a>
 		<div data-click-tag="l1_b3_jpglike.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn like-btn hidden" data-like-id="w1-1-b3" style="top: 56.4%;">
