@@ -59,12 +59,9 @@ var app = require('app');
 			<div class="like"></div>
 		</div>
 
-		<a data-click-tag="l1_b4_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn img-plus-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=213424912&idx=1&sn=a4d28b3b02d5cef1b97aad23517ae2dd&key=0acd51d81cb052bc502c56e9ba75e67282bd19bcc23c397504a9fece1bdfae3e92abdab6462e26af47dcc5981e119a5a&ascene=1&uin=NzE5MjA1NzU0&devicetype=webwx&version=70000001&pass_ticket=V%2Fj8SxHVloy3lZu2EvXuijSQmLzfMyZAacUlFFe%2FqN1mvHYAcjabw2GRWwPoKeVi
-" style="left: 40%; top: 68.6%; width: 20%; height: 4.2%;">tour</a>
-		<a data-click-tag="l1_b4_txt1click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=213424912&idx=1&sn=a4d28b3b02d5cef1b97aad23517ae2dd&key=0acd51d81cb052bc502c56e9ba75e67282bd19bcc23c397504a9fece1bdfae3e92abdab6462e26af47dcc5981e119a5a&ascene=1&uin=NzE5MjA1NzU0&devicetype=webwx&version=70000001&pass_ticket=V%2Fj8SxHVloy3lZu2EvXuijSQmLzfMyZAacUlFFe%2FqN1mvHYAcjabw2GRWwPoKeVi
-" style="left: 21%; top: 78.8%; width: 61%; height: 1.55%;">tour</a>
-		<a data-click-tag="l1_b4_txt2click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=213424912&idx=1&sn=a4d28b3b02d5cef1b97aad23517ae2dd&key=0acd51d81cb052bc502c56e9ba75e67282bd19bcc23c397504a9fece1bdfae3e92abdab6462e26af47dcc5981e119a5a&ascene=1&uin=NzE5MjA1NzU0&devicetype=webwx&version=70000001&pass_ticket=V%2Fj8SxHVloy3lZu2EvXuijSQmLzfMyZAacUlFFe%2FqN1mvHYAcjabw2GRWwPoKeVi
-" style="left: 41%; top: 81.2%; width: 16%; height: 1.4%;">tour</a>
+		<a data-click-tag="l1_b4_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn img-plus-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=212860813&idx=1&sn=4fcb328e780a4247a0e5ff45b5c6594f&scene=1&from=groupmessage&isappinstalled=0#rd" style="left: 40%; top: 68.6%; width: 20%; height: 4.2%;">tour</a>
+		<a data-click-tag="l1_b4_txt1click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=212860813&idx=1&sn=4fcb328e780a4247a0e5ff45b5c6594f&scene=1&from=groupmessage&isappinstalled=0#rd" style="left: 21%; top: 78.8%; width: 61%; height: 1.55%;">tour</a>
+		<a data-click-tag="l1_b4_txt2click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=212860813&idx=1&sn=4fcb328e780a4247a0e5ff45b5c6594f&scene=1&from=groupmessage&isappinstalled=0#rd" style="left: 41%; top: 81.2%; width: 16%; height: 1.4%;">tour</a>
 		<div data-click-tag="l1_b4_jpglike.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn like-btn hidden" data-like-id="w1-1-b4" style="top: 75.4%;">
 			<div class="like"></div>
 		</div>
