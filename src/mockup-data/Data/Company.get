@@ -1,0 +1,288 @@
+[
+    {
+        "Name": "",
+        "Children": [
+        	{
+                "ID": 7,
+                "Name": "常熟开关制造有限公司（原常熟开关厂）",
+                "Code": "100007",
+                "PinYin": "CSKGZZYXGS（YCSKGC）",
+                "Site": "http://www.riyue.com.cn/",
+                "ContactInfo": "8008282528",
+                "IsRecommend": true
+            },
+            {
+                "ID": 9,
+                "Name": "上海人民电器厂",
+                "Code": "100009",
+                "PinYin": "SHRMDQC",
+                "Site": "http://www.sreaw.com.cn/",
+                "ContactInfo": "021-62523029  021-62100013 021-56653680",
+                "IsRecommend": true
+            },
+            {
+                "ID": 23,
+                "Name": "施耐德电气(中国)有限公司",
+                "Code": "100004",
+                "PinYin": "SNDDQ(ZG)YXGS",
+                "Site": "http://www.schneider-electric.com/site/home/index.cfm/cn/",
+                "ContactInfo": "4008101315",
+                "IsRecommend": true
+            },
+            {
+                "ID": 8,
+                "Name": "施耐德万高（天津）电气设备有限公司",
+                "Code": "100008",
+                "PinYin": "SNDWG（TJ）DQSBYXGS",
+                "Site": "http://www.wgats.com/",
+                "ContactInfo": "4008101315",
+                "IsRecommend": true
+            },
+            	{
+                "ID": 117,
+                "Name": "常熟开关制造有限公司（原常熟开关厂）",
+                "Code": "100007",
+                "PinYin": "CSKGZZYXGS（YCSKGC）",
+                "Site": "http://www.riyue.com.cn/",
+                "ContactInfo": "8008282528",
+                "IsRecommend": true
+            },
+            {
+                "ID": 119,
+                "Name": "上海人民电器厂",
+                "Code": "100009",
+                "PinYin": "SHRMDQC",
+                "Site": "http://www.sreaw.com.cn/",
+                "ContactInfo": "021-62523029  021-62100013 021-56653680",
+                "IsRecommend": true
+            },
+            {
+                "ID": 1123,
+                "Name": "施耐德电气(中国)有限公司",
+                "Code": "100004",
+                "PinYin": "SNDDQ(ZG)YXGS",
+                "Site": "http://www.schneider-electric.com/site/home/index.cfm/cn/",
+                "ContactInfo": "4008101315",
+                "IsRecommend": true
+            },
+            {
+                "ID": 118,
+                "Name": "施耐德万高（天津）电气设备有限公司",
+                "Code": "100008",
+                "PinYin": "SNDWG（TJ）DQSBYXGS",
+                "Site": "http://www.wgats.com/",
+                "ContactInfo": "4008101315",
+                "IsRecommend": true
+            }
+
+
+        ]
+    },
+    {
+        "Name": "A",
+        "Children": [
+            {
+                "ID": 5,
+                "Name": "ABB集团",
+                "Code": "100005",
+                "PinYin": "ABBJT",
+                "Site": "http://new.abb.com/cn",
+                "ContactInfo": "8008209696 4008209696",
+                "IsRecommend": false
+            }
+        ]
+    },
+    {
+        "Name": "C",
+        "Children": [
+            {
+                "ID": 7,
+                "Name": "常熟开关制造有限公司（原常熟开关厂）",
+                "Code": "100007",
+                "PinYin": "CSKGZZYXGS（YCSKGC）",
+                "Site": "http://www.riyue.com.cn/",
+                "ContactInfo": "8008282528",
+                "IsRecommend": false
+            }
+        ]
+    },
+    {
+        "Name": "D",
+        "Children": [
+            {
+                "ID": 22,
+                "Name": "大连二互",
+                "Code": "100017",
+                "PinYin": "DLEH",
+                "Site": "",
+                "ContactInfo": "",
+                "IsRecommend": false
+            },
+            {
+                "ID": 6,
+                "Name": "德力西集团",
+                "Code": "100006",
+                "PinYin": "DLXJT",
+                "Site": "http://www.delixi.com/",
+                "ContactInfo": "4008268008",
+                "IsRecommend": false
+            }
+        ]
+    },
+    {
+        "Name": "H",
+        "Children": [
+            {
+                "ID": 14,
+                "Name": "杭州之江开关股份有限公司",
+                "Code": "100012",
+                "PinYin": "HZZJKGGFYXGS",
+                "Site": "http://www.hzk.com.cn/index.aspx",
+                "ContactInfo": "销售中心0571－82699109  技术部0571－82699110  ",
+                "IsRecommend": false
+            }
+        ]
+    },
+    {
+        "Name": "J",
+        "Children": [
+            {
+                "ID": 10,
+                "Name": "江苏大全凯帆电器股份公司",
+                "Code": "100010",
+                "PinYin": "JSDQKFDQGFGS",
+                "Site": "http://www.dqkfine.com/",
+                "ContactInfo": "电话（TEL）：0086-511-85128668  88415099",
+                "IsRecommend": false
+            }
+        ]
+    },
+    {
+        "Name": "S",
+        "Children": [
+            {
+                "ID": 20,
+                "Name": "上海华通",
+                "Code": "100016",
+                "PinYin": "SHHT",
+                "Site": "",
+                "ContactInfo": "",
+                "IsRecommend": false
+            },
+            {
+                "ID": 21,
+                "Name": "上海精益电器厂有限公司【黑猫】",
+                "Code": "100013",
+                "PinYin": "SHJYDQCYXGS【HM】",
+                "Site": "",
+                "ContactInfo": "",
+                "IsRecommend": false
+            },
+            {
+                "ID": 19,
+                "Name": "上海雷诺尔",
+                "Code": "100015",
+                "PinYin": "SHLNE",
+                "Site": "",
+                "ContactInfo": "",
+                "IsRecommend": false
+            },
+            {
+                "ID": 9,
+                "Name": "上海人民电器厂",
+                "Code": "100009",
+                "PinYin": "SHRMDQC",
+                "Site": "http://www.sreaw.com.cn/",
+                "ContactInfo": "021-62523029  021-62100013 021-56653680",
+                "IsRecommend": false
+            },
+            {
+                "ID": 23,
+                "Name": "施耐德电气(中国)有限公司",
+                "Code": "100004",
+                "PinYin": "SNDDQ(ZG)YXGS",
+                "Site": "http://www.schneider-electric.com/site/home/index.cfm/cn/",
+                "ContactInfo": "4008101315",
+                "IsRecommend": false
+            },
+            {
+                "ID": 8,
+                "Name": "施耐德万高（天津）电气设备有限公司",
+                "Code": "100008",
+                "PinYin": "SNDWG（TJ）DQSBYXGS",
+                "Site": "http://www.wgats.com/",
+                "ContactInfo": "4008101315",
+                "IsRecommend": false
+            }
+        ]
+    },
+    {
+        "Name": "T",
+        "Children": [
+            {
+                "ID": 11,
+                "Name": "TCL",
+                "Code": "100011",
+                "PinYin": "TCL",
+                "Site": "",
+                "ContactInfo": "",
+                "IsRecommend": false
+            },
+            {
+                "ID": 24,
+                "Name": "天水二一三厂",
+                "Code": "100014",
+                "PinYin": "TSEYSC",
+                "Site": "",
+                "ContactInfo": "",
+                "IsRecommend": false
+            },
+            {
+                "ID": 1,
+                "Name": "天正电气",
+                "Code": "100001",
+                "PinYin": "TZDQ",
+                "Site": "http://www.tengen.com/",
+                "ContactInfo": "4008660006 8008577780",
+                "IsRecommend": false
+            }
+        ]
+    },
+    {
+        "Name": "W",
+        "Children": [
+            {
+                "ID": 16,
+                "Name": "温州北广柜架有限公司",
+                "Code": "200001",
+                "PinYin": "WZBGGJYXGS",
+                "Site": "木有",
+                "ContactInfo": "",
+                "IsRecommend": false
+            }
+        ]
+    },
+    {
+        "Name": "Z",
+        "Children": [
+            {
+                "ID": 3,
+                "Name": "中国·人民电器集团",
+                "Code": "100003",
+                "PinYin": "ZG·RMDQJT",
+                "Site": "http://www.chinapeople.com/peopleele/index.aspx",
+                "ContactInfo": "4008981166",
+                "IsRecommend": false
+            },
+            {
+                "ID": 17,
+                "Name": "正泰集团",
+                "Code": "100002",
+                "PinYin": "ZTJT",
+                "Site": "http://www.chint.com/",
+                "ContactInfo": "8008282528",
+                "IsRecommend": false
+            }
+        ]
+    }
+]

@@ -21,11 +21,11 @@ var G = G || {
 	CGI_ORIGIN: %{{cgiOrigin}}%,
 	CDN_ORIGIN: %{{cdnOrigin}}%,
 	CDN_CONTEXT: %{{cdnContext}}%,
-	
+
 	MD5_MAP: %{{md5map.app}}%,
 
 	IS_PROTOTYPE: %{{isPrototype}}%,
-	
+
 	pageTime: [new Date()]
 };
 
@@ -43,10 +43,10 @@ G.id = function(id) {
 G.urlObj = (function(url) {
   var a = document.createElement('a');
   a.href = url;
-  
+
   var search = function(search) {
     if(!search) return {};
-    
+
     var ret = {};
     search = search.slice(1).split('&');
     for(var i = 0, arr; i < search.length; i++) {
@@ -61,7 +61,7 @@ G.urlObj = (function(url) {
     }
     return ret;
   };
-  
+
   return {
     protocol: a.protocol,
     host: a.host,
@@ -211,7 +211,7 @@ require(['jquery', 'app'], function($, app) {
 			url = url.replace(/^\/+/, '');
 			fullUrl = G.CGI_ORIGIN +  '/' + url;
 			params = util.getUrlParams(util.url2obj(fullUrl));
-			
+
 			if(G.IS_PROTOTYPE) {
 				if(params.m && params.c && params.a) {
 					fullUrl = G.CGI_ORIGIN + '/static/mockup-data/' + [params.m, params.c, params.a].join('/');
@@ -222,7 +222,8 @@ require(['jquery', 'app'], function($, app) {
 		} else {
 			fullUrl = url;
 		}
-		if(fullUrl.indexOf('csrf_token=') === -1) {
+		//append crfsToken when it exiest!
+		if(G.csrfToken && fullUrl.indexOf('csrf_token=') === -1) {
 			fullUrl = app.util.appendQueryString(fullUrl, {csrf_token: G.csrfToken});
 		}
 		return fullUrl;
@@ -239,7 +240,7 @@ require(['jquery', 'app'], function($, app) {
 		opt.headers = opt.headers || {};
 		opt.headers['X-Requested-With'] = 'XMLHttpRequest';
 		success = opt.success;
-	
+
 		opt.url = app.ajax.getDataTypeUrl(opt.url, 'json');
 		opt.dataType = 'json';
 		if(opt.queueName) {
