@@ -97,7 +97,11 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 		});
 	}).on('click', '.header-wechat-btn', function() {
 		require(['../app/zegna-201501/script/lib/follow-hint/main'], function(followHint) {
-			followHint.show();
+			var defaultImgName = 'follow-hint.jpg';
+			if(window.location.hash.indexOf('w1') != -1){
+				defaultImgName = 'follow-hint-ez.jpg'
+			}
+			followHint.show(defaultImgName);
 		});
 	}).on('click', '.header-download-btn', function(evt) {
 		require(['../app/zegna-201501/script/lib/download-hint/main'], function(downloadHint) {

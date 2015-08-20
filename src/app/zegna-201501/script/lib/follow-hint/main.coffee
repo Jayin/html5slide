@@ -2,10 +2,11 @@ $ = require 'jquery'
 hintTpl = require './hint.tpl.html'
 
 shareHint =
-	show: ->
+	show: (img_name)->
+		IMG_NAME = img_name || 'follow-hint.jpg'
 		el = $('#follow-hint')
 		if not el.length
-			el = $(hintTpl.render()).appendTo(document.body)
+			el = $(hintTpl.render().replace('{IMG_NAME}', IMG_NAME)).appendTo(document.body)
 			$('.dialog-close-btn', el).on 'click', ->
 				el.hide()
 		el.show()
@@ -19,6 +20,6 @@ __END__
 <div id="follow-hint" class="dialog">
 	<div class="dialog-content" style="top: 50%; margin-top: -137px;">
 		<button class="dialog-close-btn">close</button>
-		<img src="<%=G.CDN_BASE%>/app/zegna-201501/image/follow-hint.jpg" style="width: 100%;" />
+		<img src="<%=G.CDN_BASE%>/app/zegna-201501/image/{IMG_NAME}" style="width: 100%;" />
 	</div>
 </div>
