@@ -59,9 +59,9 @@ var app = require('app');
 			<div class="like alt"></div>
 		</div>
 
-		<a data-click-tag="l1_b4_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn img-plus-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=212860813&idx=1&sn=4fcb328e780a4247a0e5ff45b5c6594f&scene=1&from=groupmessage&isappinstalled=0#rd" style="left: 40%; top: 70.6%; width: 20%; height: 4.2%;">tour</a>
-		<a data-click-tag="l1_b4_txt1click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=212860813&idx=1&sn=4fcb328e780a4247a0e5ff45b5c6594f&scene=1&from=groupmessage&isappinstalled=0#rd" style="left: 21%; top: 78.8%; width: 61%; height: 1.55%;">tour</a>
-		<a data-click-tag="l1_b4_txt2click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=212860813&idx=1&sn=4fcb328e780a4247a0e5ff45b5c6594f&scene=1&from=groupmessage&isappinstalled=0#rd" style="left: 5%; top: 78.6%; width: 16%; height: 1.4%;">tour</a>
+		<a data-click-tag="l1_b4_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn img-plus-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=214093552&idx=1&sn=c4a6c2ba217edb87954b55a06d791897&scene=4#wechat_redirect" style="left: 40%; top: 70.6%; width: 20%; height: 4.2%;">tour</a>
+		<a data-click-tag="l1_b4_txt1click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=214093552&idx=1&sn=c4a6c2ba217edb87954b55a06d791897&scene=4#wechat_redirect" style="left: 21%; top: 78.8%; width: 61%; height: 1.55%;">tour</a>
+		<a data-click-tag="l1_b4_txt2click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=214093552&idx=1&sn=c4a6c2ba217edb87954b55a06d791897&scene=4#wechat_redirect" style="left: 5%; top: 78.6%; width: 16%; height: 1.4%;">tour</a>
 		<div data-click-tag="l1_b4_jpglike.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn like-btn hidden" data-like-id="w3-2-b4" style="top: 78.4%;">
 			<div class="like  alt"></div>
 		</div>
