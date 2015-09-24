@@ -51,7 +51,7 @@ var app = require('app');
 			<div class="like"></div>
 		</div>
 
-		<a data-click-tag="l1_b4_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MjM5OTkxNDU4OA==&mid=228781007&idx=1&sn=0eaac282aa4adba63b082d6fdb21e1b1&scene=4#wechat_redirect" style="left: 5%; top: 62%; width: 91%; height: 17.2%;">tour</a>
+		<a data-click-tag="l1_b4_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MjM5OTkxNDU4OA==&mid=237093489&idx=1&sn=799ef4d48fad8468ed776a1af7e957c7&scene=4#wechat_redirect" style="left: 5%; top: 62%; width: 91%; height: 17.2%;">tour</a>
 		<div data-click-tag="l1_b4_jpglike.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn like-btn hidden" data-like-id="w4-1-b4" style="top: 60.4%;">
 			<div class="like"></div>
 		</div>
