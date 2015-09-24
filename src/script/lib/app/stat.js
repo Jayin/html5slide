@@ -32,6 +32,12 @@ define(function(require) {
 		url = ajax.getDataTypeUrl('tracking/open/trace/' + cid + '?action=onload&event=' + url + (mid ? '&mid=' + mid : ''), 'json');
 		_send(url);
 	};
+	//统计用户UA
+	stat.ua = function(cid, mid) {
+		var url = encodeURIComponent(navigator.userAgent);
+		url = ajax.getDataTypeUrl('tracking/open/trace/' + cid + '?action=record&event=' + url + (mid ? '&mid=' + mid : ''), 'json');
+		_send(url);
+	};
 
 	stat.click = function(tag, cid, mid) {
 		url = ajax.getDataTypeUrl('tracking/open/trace/' + cid + '?action=click&event=' + tag + (mid ? '&mid=' + mid : ''), 'json');

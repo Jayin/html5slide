@@ -118,6 +118,7 @@ require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	});
 	//只记录打开首页的pv > w1-1 、w1-2
 	app.stat.fv('firstview', G.getStatCid(), G.getStatMid());
+	app.stat.ua(G.getStatCid(), G.getStatMid());
 }, function() {
 
 });
