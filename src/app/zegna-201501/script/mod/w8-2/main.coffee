@@ -59,9 +59,9 @@ var app = require('app');
 			<div class="like"></div>
 		</div>
 
-		<a data-click-tag="l1_b4_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn img-plus-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=214093552&idx=1&sn=c4a6c2ba217edb87954b55a06d791897&scene=4#wechat_redirect" style="left: 40%; top: 68.6%; width: 20%; height: 4.2%;">tour</a>
-		<a data-click-tag="l1_b4_txt1click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=214093552&idx=1&sn=c4a6c2ba217edb87954b55a06d791897&scene=4#wechat_redirect" style="left: 21%; top: 78.8%; width: 61%; height: 1.55%;">tour</a>
-		<a data-click-tag="l1_b4_txt2click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=214093552&idx=1&sn=c4a6c2ba217edb87954b55a06d791897&scene=4#wechat_redirect" style="left: 41%; top: 81.2%; width: 16%; height: 1.4%;">tour</a>
+		<a data-click-tag="l1_b4_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn img-plus-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=215369329&idx=1&sn=cee394b8bfb71927c05d24b303e61c54&scene=4#wechat_redirect" style="left: 40%; top: 68.6%; width: 20%; height: 4.2%;">tour</a>
+		<a data-click-tag="l1_b4_txt1click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=215369329&idx=1&sn=cee394b8bfb71927c05d24b303e61c54&scene=4#wechat_redirect" style="left: 21%; top: 78.8%; width: 61%; height: 1.55%;">tour</a>
+		<a data-click-tag="l1_b4_txt2click.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MzA3MjU1OTAwNg==&mid=215369329&idx=1&sn=cee394b8bfb71927c05d24b303e61c54&scene=4#wechat_redirect" style="left: 41%; top: 81.2%; width: 16%; height: 1.4%;">tour</a>
 		<div data-click-tag="l1_b4_jpglike.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn like-btn hidden" data-like-id="w8-2-b4" style="top: 75.4%;">
 			<div class="like"></div>
 		</div>

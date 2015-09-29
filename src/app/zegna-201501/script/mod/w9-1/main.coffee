@@ -51,9 +51,9 @@ var app = require('app');
 			<div class="like alt"></div>
 		</div>
 
-		<a data-click-tag="l1_b4_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MjM5OTkxNDU4OA==&mid=237093489&idx=1&sn=799ef4d48fad8468ed776a1af7e957c7&scene=4#wechat_redirect" style="left: 5%; top: 62%; width: 91%; height: 17.2%;">tour</a>
-		<div data-click-tag="l1_b4_jpglike.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn like-btn hidden" data-like-id="w9-1-b4" style="top: 60.4%;">
-			<div class="like"></div>
+		<a data-click-tag="l1_b4_jpgclick.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn" href="http://mp.weixin.qq.com/s?__biz=MjM5OTkxNDU4OA==&mid=245128772&idx=1&sn=013bd86e3d519d780c9f3e9b56b2fa86&scene=4#wechat_redirect" style="left: 5%; top: 62%; width: 91%; height: 17.2%;">tour</a>
+		<div data-click-tag="l1_b4_jpglike.<%=G.getStatCid()%>.<%=G.getStatMid()%>" class="img-btn like-btn hidden" data-like-id="w9-1-b4" style="top: 63.4%;">
+			<div class="like alt"></div>
 		</div>
 
 		<img class="qrcode-img" src="<%=G.CDN_BASE%>/app/zegna-201501/image/qrcode_zz.png" style="bottom: 7%;"/>
