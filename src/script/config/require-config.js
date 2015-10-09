@@ -5,7 +5,7 @@ var require = require || {
 		'zepto': 'lib/jquery-2.1.3/main',
 		'jquery': 'lib/jquery-2.1.3/main',
 		'riot': 'lib/riot/main',
-		'react': 'lib/react/react-0.13.1',
+		'react': 'lib/react/react-0.13.3',
 		'app': 'lib/app/main',
 		'skateboard': 'lib/skateboard/main',
 		'parallax': 'lib/parallax/main',

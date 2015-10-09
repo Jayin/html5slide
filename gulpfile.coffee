@@ -52,7 +52,7 @@ minifyDefault = ->
 gulp.task 'copy', ->
 	gulp.src('src/**/*.+(jpg|jpeg|gif|png|otf|eot|svg|ttf|woff|woff2|ico|mp3|swf)')
 		.pipe gulp.dest(destBase)
-	gulp.src('src/script/lib/react/react-0.13.1.js')
+	gulp.src('src/script/lib/react/react-0.13.3.js')
 		.pipe minifyDefault()
 		.pipe gulp.dest(destBase + '/script/lib/react')
 	if BUILD_TARGET is 'prototype'
