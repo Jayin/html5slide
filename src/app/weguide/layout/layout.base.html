@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
+<meta http-equiv="expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="format-detection" content="telephone=no" />
+<!-- yield "head" --><!-- /yield -->
+</head>
+<body>
+<script type="text/javascript">
+var G = G || {
+	DOMAIN: %{{domain}}%,
+	ORIGIN: %{{origin}}%,
+	CGI_ORIGIN: %{{cgiOrigin}}%,
+	CDN_ORIGIN: %{{cdnOrigin}}%,
+	CDN_CONTEXT: %{{cdnContext}}%,
+
+	MD5_MAP: %{{md5map.app}}%,
+
+	IS_PROTOTYPE: %{{isPrototype}}%,
+
+	pageTime: [new Date()]
+};
+
+if(G.CDN_CONTEXT) {
+	G.CDN_BASE = G.CDN_ORIGIN + '/' + G.CDN_CONTEXT
+} else {
+	G.CDN_BASE = G.CDN_ORIGIN
+}
+
+G.id = function(id) {
+	return document.getElementById(id);
+};
+
+if(G.DOMAIN && G.DOMAIN != document.domain) {
+	document.domain = G.DOMAIN;
+}
+
+(function() {
+	var list = ['CGI_ORIGIN', 'CDN_ORIGIN'];
+	for(var i = 0; i < list.length; i++) {
+		if(G[list[i]].indexOf('//') === 0) {
+			G[list[i]] = location.protocol + G[list[i]];
+		}
+	}
+	if(location.protocol == 'file:') {
+		var m = location.href.match(/^(.+)\/static\//);
+		if(m) {
+			G.ORIGIN = G.CDN_ORIGIN = G.CGI_ORIGIN = m[1];
+		}
+	}
+})();
+</script>
+
+<script type="text/javascript">
+document.write([
+	'<link rel="stylesheet" href="' + G.CDN_BASE + '/style/app/main.css" />'
+].join(''));
+</script>
+
+<!-- yield "ajax-loading" -->
+<!-- include "./inc/loading.inc.html" -->
+<!-- /yield -->
+
+<script type="text/javascript">
+document.write([
+	'<script type="text/javascript" src="' + G.CDN_BASE + '/script/lib/fastclick/fastclick.js"></s', 'cript>',
+	'<script type="text/javascript" src="' + G.CDN_BASE + '/script/lib/yom/require-lite.js"></s', 'cript>'
+].join(''));
+</script>
+
+<script type="text/javascript">
+FastClick.attach(document.body);
+
+window.addEventListener('load', function() {
+	document.body.className = document.body.className + ' loaded';
+}, false);
+
+require(['jquery'], function($) {
+	var _state = null;
+
+	G.state = $.extend($({}), {
+		set: function(obj) {
+			if(typeof obj == 'object' && obj) {
+				if(_state) {
+					for(var p in obj) {
+						if(Object.prototype.hasOwnProperty.call(obj, p)) {
+							_state[p] = obj[p];
+						}
+					}
+				} else {
+					_state = obj;
+				}
+				G.state.trigger('change', obj);
+			}
+		},
+
+		get: function(key) {
+			if(key) {
+				return _state && _state[key];
+			} else {
+				return _state;
+			}
+		}
+	});
+});
+</script>
+
+<!-- yield "rewrite" -->
+<!-- include "./inc/rewrite.inc.html" -->
+<!-- /yield -->
+
+
+<!-- yield "body" --><!-- /yield -->
+</body>
+</html>
