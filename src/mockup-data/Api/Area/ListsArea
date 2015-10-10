@@ -1,0 +1,145 @@
+{
+    "code": 20000,
+    "response": [
+        {
+            "area_id": "1",
+            "name": "北京"
+        },
+        {
+            "area_id": "2",
+            "name": "上海"
+        },
+        {
+            "area_id": "3",
+            "name": "黑龙江"
+        },
+        {
+            "area_id": "4",
+            "name": "吉林"
+        },
+        {
+            "area_id": "5",
+            "name": "辽宁"
+        },
+        {
+            "area_id": "6",
+            "name": "天津"
+        },
+        {
+            "area_id": "7",
+            "name": "安徽"
+        },
+        {
+            "area_id": "8",
+            "name": "江苏"
+        },
+        {
+            "area_id": "9",
+            "name": "浙江"
+        },
+        {
+            "area_id": "10",
+            "name": "陕西"
+        },
+        {
+            "area_id": "11",
+            "name": "湖北"
+        },
+        {
+            "area_id": "12",
+            "name": "广东"
+        },
+        {
+            "area_id": "13",
+            "name": "湖南"
+        },
+        {
+            "area_id": "14",
+            "name": "甘肃"
+        },
+        {
+            "area_id": "15",
+            "name": "四川"
+        },
+        {
+            "area_id": "16",
+            "name": "山东"
+        },
+        {
+            "area_id": "17",
+            "name": "福建"
+        },
+        {
+            "area_id": "18",
+            "name": "河南"
+        },
+        {
+            "area_id": "19",
+            "name": "重庆"
+        },
+        {
+            "area_id": "20",
+            "name": "云南"
+        },
+        {
+            "area_id": "21",
+            "name": "河北"
+        },
+        {
+            "area_id": "22",
+            "name": "江西"
+        },
+        {
+            "area_id": "23",
+            "name": "山西"
+        },
+        {
+            "area_id": "24",
+            "name": "贵州"
+        },
+        {
+            "area_id": "25",
+            "name": "广西"
+        },
+        {
+            "area_id": "26",
+            "name": "内蒙古"
+        },
+        {
+            "area_id": "27",
+            "name": "宁夏"
+        },
+        {
+            "area_id": "28",
+            "name": "青海"
+        },
+        {
+            "area_id": "29",
+            "name": "新疆"
+        },
+        {
+            "area_id": "30",
+            "name": "海南"
+        },
+        {
+            "area_id": "31",
+            "name": "西藏"
+        },
+        {
+            "area_id": "32",
+            "name": "香港"
+        },
+        {
+            "area_id": "33",
+            "name": "澳门"
+        },
+        {
+            "area_id": "34",
+            "name": "台湾"
+        },
+        {
+            "area_id": "35",
+            "name": "其他省份"
+        }
+    ]
+}

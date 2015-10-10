@@ -1,9 +1,11 @@
 var React = require('react');
 var cal = require('../../../lib/cal');
+var app = require('app');
 
 var ViewList = React.createClass({
     getInitialState: function() {
         return {
+            scenic_id: this.props.scenic_id,
             views: this._sortByDistance(this.props.views, this.props.currentPosition) || [],
             currentPosition: this.props.currentPosition
         };
@@ -11,13 +13,39 @@ var ViewList = React.createClass({
     componentWillReceiveProps: function(nextProps) {
         if(nextProps.views){
             this.setState({
+                scenic_id: this.props.scenic_id,
                 views: this._sortByDistance(nextProps.views, nextProps.currentPosition || this.state.currentPosition) || [],
                 currentPosition: nextProps.currentPosition || this.state.currentPosition
             });
         }
-
+        if(nextProps.scenic && nextProps.scenic.id){
+            this._fetchData(nextProps.scenic.id)
+        }
+    },
+    componentDidMount: function() {
+        if(this.state.scenic_id){
+            this._fetchData(this.state.scenic_id)
+        }
+    },
+    _fetchData: function(scenic_id, page, limit){
+        page = page || 1;
+        limit = limit || 50; //列出全部?
+        app.ajax.get({
+            url: '/Api/View/listsView?scenic_id={scenic_id}&page={page}&limit={limit}'.replace('{scenic_id}', scenic_id).replace('{page}', page).replace('{limit}', limit)
+            ,success: function(res){
+                this.setState({
+                    views: res.response
+                });
+            }.bind(this)
+            ,error: function(){
+                app.alerts.alert('系统繁忙请稍后再试');
+            }
+        });
     },
     _sortByDistance: function(views, currentPosition){
+        if(!views){
+            return [];
+        }
         return views.sort(function(viewA, viewB){
             var distanceA = cal(viewA.longitude, viewA.latitude,
                 currentPosition.longitude, currentPosition.latitude);

@@ -1,0 +1,35 @@
+{
+    "code": 20000,
+    "response": [
+        {
+            "scenic_id": "1",
+            "name": "华南植物园",
+            "area_id": "12",
+            "area_name": "广东",
+            "longitude": "23.180333",
+            "latitude": "113.36577",
+            "add_time": "1443777443",
+            "status": "1"
+        },
+        {
+            "scenic_id": "2",
+            "name": "开平碉楼",
+            "area_id": "12",
+            "area_name": "广东",
+            "longitude": "25.180335",
+            "latitude": "115.3657685",
+            "add_time": "1443890800",
+            "status": "1"
+        },
+        {
+            "scenic_id": "3",
+            "name": "故宫",
+            "area_id": "1",
+            "area_name": "北京",
+            "longitude": "25.180335",
+            "latitude": "115.3657685",
+            "add_time": "1443890838",
+            "status": "1"
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "code": 20000,
+    "response": [
+        {
+            "view_id": "1",
+            "scenic_id": "1",
+            "area_id": "12",
+            "name": "华南植物园A区",
+            "voice_url": "Public/audio/2015-10-04/view_voice56100c941874f.mp3",
+            "add_time": "1443886430",
+            "longitude": "23.180322",
+            "latitude": "113.3657635"
+        },
+        {
+            "view_id": "2",
+            "scenic_id": "1",
+            "area_id": "12",
+            "name": "华南植物园C区",
+            "voice_url": null,
+            "add_time": "1443886432",
+            "longitude": "23.180302",
+            "latitude": "113.365763"
+        },
+        {
+            "view_id": "3",
+            "scenic_id": "2",
+            "area_id": "12",
+            "name": "楼群A区",
+            "voice_url": null,
+            "add_time": "1443890981",
+            "longitude": "25.180302",
+            "latitude": "115.365763"
+        }
+    ]
+}

@@ -1,5 +1,5 @@
 var React = require('react');
-var ScenicList = require('./ScenicList');
+var ScenicSwitch = require('./ScenicSwitch');
 var ViewList = require('./ViewList');
 
 var Container = React.createClass({
@@ -25,7 +25,7 @@ var Container = React.createClass({
     handleSwitchScenic: function(){
         if(this.state.display === 'ViewList'){
             this.setState({
-                display: 'ScenicList'
+                display: 'ScenicSwitch'
             });
         }else{
             this.setState({
@@ -33,15 +33,25 @@ var Container = React.createClass({
             });
         }
     },
+    //景区发声变化
+    onScenicChange: function(scenic){
+        G.state.set({
+            scenic: scenic
+        });
+        this.setState({
+            display: 'ViewList',
+            scenic: scenic
+        });
+    },
     render: function() {
-        var List = <ViewList views={this.state.scenic.views} currentPosition={this.state.currentPosition}/>;
-        if (this.state.display === 'ScenicList'){
-            List = <ScenicList />
+        var List = <ViewList scenic_id={this.state.scenic.scenic_id} currentPosition={this.state.currentPosition}/>;
+        if (this.state.display === 'ScenicSwitch'){
+            List = <ScenicSwitch onScenicChange={this.onScenicChange}/>
         }
 
         return (
             <section>
-                <nav style={{padding: '4px'}}>
+                <nav style={{padding: '4px', height: '50px'}}>
                     <div onClick={this.handleSwitchScenic} style={{display: 'inline-block', marginLeft: '8px', marginTop: '4px', fontSize: '1.3rem'}}>
                         {this.state.scenic.name}
                         {this.state.display === 'ViewList'
@@ -57,8 +67,9 @@ var Container = React.createClass({
                     </div>
                 </nav>
                 <hr style={{margin: '0px'}}/>
-
-                {List}
+                <div style={{}}>
+                    {List}
+                </div>
             </section>
         );
     }
