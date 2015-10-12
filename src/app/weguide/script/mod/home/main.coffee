@@ -41,7 +41,7 @@ class Mod extends Skateboard.BaseMod
 
 		$('.sb-mod--home p')[0].innerText = @TEXT_LOADING
 		if G.IS_PROTOTYPE
-			@success({coords: {latitude: 22.5985796354, longitude: 113.0882406235}})
+			setTimeout @success.bind(this, {coords: {latitude: 22.5985796354, longitude: 113.0882406235}}), 1300
 		else
 			navigator.geolocation.getCurrentPosition @success, @error
 
