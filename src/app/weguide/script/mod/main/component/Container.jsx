@@ -1,12 +1,14 @@
 var React = require('react');
 var ScenicSwitch = require('./ScenicSwitch');
 var ViewList = require('./ViewList');
+var app = require('app');
 
 var Container = React.createClass({
     getInitialState: function() {
         return {
             display: this.props.display || 'ViewList', //or ViewList
             scenic: this.props.scenic,
+            viewName: this.props.viewName || '',
             currentPosition: this.props.currentPosition
         };
     },
@@ -15,12 +17,15 @@ var Container = React.createClass({
         this.setState({
             display: nextProps.display || 'ViewList', //or ViewList
             scenic: nextProps.scenic,
+            viewName: nextProps.viewName || '',
             currentPosition: nextProps.currentPosition
         })
     },
 
     handleSearch: function(evt){
-        console.log(this.refs.searchInput.getDOMNode().value)
+        this.setState({
+            viewName: this.refs.searchInput.getDOMNode().value
+        });
     },
     handleSwitchScenic: function(){
         if(this.state.display === 'ViewList'){
@@ -36,15 +41,16 @@ var Container = React.createClass({
     //景区发声变化
     onScenicChange: function(scenic){
         G.state.set({
-            scenic: scenic
+            scenic: scenic,
         });
         this.setState({
             display: 'ViewList',
-            scenic: scenic
+            scenic: scenic,
+            viewName: ''
         });
     },
     render: function() {
-        var List = <ViewList scenic_id={this.state.scenic.scenic_id} currentPosition={this.state.currentPosition}/>;
+        var List = <ViewList scenic_id={this.state.scenic.scenic_id} viewName={this.state.viewName} currentPosition={this.state.currentPosition}/>;
         if (this.state.display === 'ScenicSwitch'){
             List = <ScenicSwitch onScenicChange={this.onScenicChange}/>
         }

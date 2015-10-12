@@ -9,25 +9,25 @@ var ViewList = React.createClass({
     getInitialState: function() {
         return {
             scenic_id: this.props.scenic_id,
+            viewName: this.props.viewName,
             views: this._sortByDistance(this._transformView(this.props.views), this.props.currentPosition) || [],
             currentPosition: this.props.currentPosition
         };
     },
     componentWillReceiveProps: function(nextProps) {
-        if(nextProps.views){
-            this.setState({
-                scenic_id: this.props.scenic_id,
-                views: this._sortByDistance(this._transformView(nextProps.views), nextProps.currentPosition || this.state.currentPosition) || [],
-                currentPosition: nextProps.currentPosition || this.state.currentPosition
-            });
-        }
-        if(nextProps.scenic && nextProps.scenic.id){
-            this._fetchData(nextProps.scenic.id)
+        this.setState({
+            scenic_id: nextProps.scenic_id,
+            viewName: nextProps.viewName,
+            views: this._sortByDistance(this._transformView(nextProps.views || this.state.views), nextProps.currentPosition || this.state.currentPosition) || [],
+            currentPosition: nextProps.currentPosition || this.state.currentPosition
+        });
+        if(nextProps.scenic_id){
+            this._fetchData(nextProps.scenic_id, nextProps.viewName);
         }
     },
     componentDidMount: function() {
         if(this.state.scenic_id){
-            this._fetchData(this.state.scenic_id)
+            this._fetchData(this.state.scenic_id, this.state.viewName);
         }
     },
     _transformView: function(views, index, state, pos, duration){
@@ -47,14 +47,15 @@ var ViewList = React.createClass({
         }
         return result;
     },
-    _fetchData: function(scenic_id, page, limit){
-        page = page || 1;
-        limit = limit || 50; //列出全部?
+    _fetchData: function(scenic_id, viewName, page, limit){
+        var page = page || 1;
+        var limit = limit || 50; //列出全部?
         app.ajax.get({
-            url: '/Api/View/listsView?scenic_id={scenic_id}&page={page}&limit={limit}'.replace('{scenic_id}', scenic_id).replace('{page}', page).replace('{limit}', limit)
+            url: '/Api/View/listsView?scenic_id={scenic_id}&page={page}&limit={limit}&name={name}'
+                    .replace('{scenic_id}', scenic_id).replace('{page}', page).replace('{limit}', limit).replace('{name}', viewName)
             ,success: function(res){
                 this.setState({
-                    views: this._transformView(res.response)
+                    views: this._sortByDistance(this._transformView(res.response), this.state.currentPosition)
                 });
             }.bind(this)
             ,error: function(){
@@ -104,7 +105,6 @@ var ViewList = React.createClass({
             if(this.musicPlayer){
                 this.musicPlayer.stop();
                 var new_views = self._transformView(self.state.views, index, 'common', 0, self.musicPlayer.duration());
-                console.log(new_views)
                 self.setState({
                     views: new_views
                 });
