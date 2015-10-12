@@ -4,14 +4,17 @@ var app = require('app');
 var AreaList = React.createClass({
     getInitialState: function() {
         return {
+            selectedArea: this.props.selectedArea,
             areas: this.props.areas || []
         };
     },
     componentWillReceiveProps: function(nextProps) {
         this.setState({
-            areas: nextProps.areas || []
+            selectedArea: nextProps.selectedArea || this.state.selectedArea,
+            areas: nextProps.areas || this.state.areas || []
         });
-        this._fetchData();
+        //这个列表获取一次即可?
+        // this._fetchData();
     },
     componentDidMount: function() {
         this._fetchData();
@@ -40,10 +43,12 @@ var AreaList = React.createClass({
     render: function() {
         return (
             <div  className="warp-arealist" style={{backgroundColor: '#eeeeee'}}>
-                <ul style={{padding: '0px',margin: '0', listStyle: 'none',textAlign: 'center', paddingBottom: '50px'}}>
+                <ul style={{padding: '0px',margin: '0', listStyle: 'none',textAlign: 'center', paddingBottom: '50px', paddingTop: '1px'}}>
                     {this.state.areas.map(function(area){
                         return (
-                            <li  style={{padding: '4px'}} key={area.area_id} onClick={this.handleAreaClick.bind(this, area)}>{area.name}</li>
+                            <li  style={{padding: '4px', backgroundColor: (this.state.selectedArea && this.state.selectedArea.area_id === area.area_id ? 'white': '#eeeeee')}}
+                                key={area.area_id}
+                                onClick={this.handleAreaClick.bind(this, area)}>{area.name}</li>
                         )
                     }.bind(this))}
                 </ul>
@@ -131,7 +136,7 @@ var ScenicSwitch = React.createClass({
                     ,top: '50px'
                     ,bottom: '10px'
                     ,overflow: 'scroll'}}>
-                    <AreaList onSelectAreaChange={this.onSelectAreaChange}></AreaList>
+                    <AreaList onSelectAreaChange={this.onSelectAreaChange} selectedArea={this.state.selectedArea}></AreaList>
                 </div>
                 <div style={{width: '70%', display: 'inline-block'
                     ,position: 'absolute'
