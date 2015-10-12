@@ -6,7 +6,7 @@
             "scenic_id": "1",
             "area_id": "12",
             "name": "华南植物园A区",
-            "voice_url": "Public/audio/2015-10-04/view_voice56100c941874f.mp3",
+            "voice_url": "/static/mockup-data/Api/music/bg.mp3",
             "add_time": "1443886430",
             "longitude": "23.180322",
             "latitude": "113.3657635"
@@ -26,7 +26,7 @@
             "scenic_id": "2",
             "area_id": "12",
             "name": "楼群A区",
-            "voice_url": null,
+            "voice_url": "/static/mockup-data/Api/music/bg.mp3",
             "add_time": "1443890981",
             "longitude": "25.180302",
             "latitude": "115.365763"
