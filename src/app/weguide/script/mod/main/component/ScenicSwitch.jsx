@@ -79,8 +79,8 @@ var ScenicList = React.createClass({
         }
     },
     _fetchData: function(area_id, page, limit){
-        page = page || 1;
-        limit = limit || 50; //列出全部?
+        var page = page || 1;
+        var limit = limit || 50; //列出全部?
         app.ajax.get({
             url: '/Api/Scenic/listsScenic?area_id={area_id}&page={page}&limit={limit}'.replace('{area_id}', area_id).replace('{page}', page).replace('{limit}', limit)
             ,success: function(res){
