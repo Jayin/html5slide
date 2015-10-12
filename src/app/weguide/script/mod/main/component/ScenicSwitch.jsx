@@ -18,7 +18,7 @@ var AreaList = React.createClass({
     },
     _fetchData: function(){
         app.ajax.get({
-            url: '/Api/Area/ListsArea'
+            url: '/Api/Area/listsArea'
             ,success: function(res){
                 this.setState({
                     areas: res.response
