@@ -1,0 +1,9 @@
+{
+	"isPrototype": "false",
+
+	"domain": "document.domain",
+	"origin": "location.protocol + '//' + location.host",
+	"cgiOrigin": "'http://10.10.64.154/weguide'",
+	"cgiOrigin1": "location.protocol + '//' + location.host",
+	"cdnOrigin": "location.protocol + '//' + location.host"
+}

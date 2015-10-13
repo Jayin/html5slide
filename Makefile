@@ -9,6 +9,9 @@ main:
 prototype:
 	BUILD_TARGET=prototype gulp
 
+weguide:
+	BUILD_TARGET=weguide gulp
+
 uat:
 	BUILD_TARGET=uat gulp
 
