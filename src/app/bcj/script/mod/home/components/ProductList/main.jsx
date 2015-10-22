@@ -5,29 +5,63 @@ var Skateboard = require('skateboard');
 var ProductList = React.createClass({
 	getInitialState: function(){
 		return {
+			products: this.props.products || []
 		};
+	},
+	componentDidMount: function() {
+		this.fetchData('zuixintemai');
+		$(window).on('navigator-tab-change', function(event, type){
+			this.fetchData(type);
+		}.bind(this))
+	},
+	componentWillUnmount: function() {
+		$(window).off('navigator-tab-change')
+	},
+	fetchData: function(type){
+		app.ajax.get({
+			url: '/bcj/api/{type}.json'.replace('{type}', type),
+			success: function(res){
+				this.setState({
+					products: res
+				})
+			}.bind(this),
+			error: function(){
+				app.alerts.alert('网络繁忙，获取产品列表失败');
+			}
+		})
+	},
+	handleItemClick: function(product){
+		location.href = product.link;
 	},
 	render: function(){
 		return (
             <section style={{marginTop: '-30px', background: '#E6E6E6'}}>
-        		<div style={{position: 'relative',padding: '5px', borderBottom: '1px solid gainsboro'}}>
-        			<div style={{height: '100px', width: '100px'}}>
-        				<img src="//gju1.alicdn.com/bao/uploaded/i4/100000130410913683/TB2r4nUgXXXXXczXpXXXXXXXXXX_!!0-0-juitemmedia.jpg_280x410Q50.jpg" style={{width: '100%', height: '100%'}}/>
-        			</div>
-        			<div style={{top: '0',right: '0', bottom: '0',position: 'absolute', left: '105px', padding: '5px'}}>
-        				<div style={{display: 'inline-block', fontSize: '0.9rem'}}>
-        					<span style={{display: 'inline-block', background: 'red', color: 'white',padding: '1px'}}>天猫</span>
-        					女包2015秋冬潮新款手提时尚毛呢菱格链条包女士单肩包斜挎小包包</div>
-                        <div style={{fontSize: '1.2rem', color: 'red'}}>￥89
-        					<span style={{border: '1px solid red', fontSize: '1rem'}}>包邮
-        					</span>
-        				</div>
-        				<div style={{color: 'gray', fontSize: '0.9rem'}}>
-        					<del>￥189</del>
-        					<div style={{float: 'right'}}>1990人在抢</div>
-        				</div>
-        			</div>
-        		</div>
+				{this.state.products.map(function(product){
+					return (
+						<div style={{position: 'relative',padding: '5px', borderBottom: '1px solid gainsboro'}} onClick={this.handleItemClick.bind(this, product)}>
+		        			<div style={{height: '100px', width: '100px'}}>
+		        				<img src={product.img} style={{width: '100%', height: '100%'}}/>
+		        			</div>
+		        			<div style={{top: '0',right: '0', bottom: '0',position: 'absolute', left: '105px', padding: '10px'}}>
+		        				<div style={{display: 'inline-block', fontSize: '0.8rem'}}>
+		        					<span style={{display: 'inline-block', background: (product.tag==='天猫'?'red':'#DEB92F'), color: 'white',padding: '1px'}}>{product.tag}</span>
+									<span>{product.title}</span>
+		        				</div>
+								<div style={{fontSize: '1rem', color: 'red'}}>
+									￥<span>{product.price}</span>
+									{product.free_ship === '1'
+									  ?<span style={{border: '1px solid red', fontSize: '0.9rem', marginLeft: '2px'}}>包邮</span>
+									  : ""
+								    }
+		        				</div>
+		        				<div style={{color: 'gray', fontSize: '0.8rem'}}>
+		        					<del>￥189</del>
+		        					<div style={{float: 'right'}}>1990人在抢</div>
+		        				</div>
+		        			</div>
+		        		</div>
+					);
+				}.bind(this))}
         	</section>
 		);
 	}

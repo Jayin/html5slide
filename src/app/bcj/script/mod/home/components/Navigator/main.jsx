@@ -7,7 +7,7 @@ var Navigator = React.createClass({
 	getInitialState: function(){
 		return {
             displayMore: this.props.displayMore || false,
-            activeTabNumber: this.props.activeTabNumber || 0
+            activeTab: this.props.activeTab || 'zuixintemai'
 		}
 	},
     handleSwitch: function(){
@@ -15,17 +15,20 @@ var Navigator = React.createClass({
             displayMore: !this.state.displayMore
         })
     },
-    handleTabClick: function(number, evt){
+    handleTabClick: function(activeTab, evt){
         this.setState({
-            activeTabNumber: number
-        })
+            activeTab: activeTab
+        });
+		$(window).trigger('navigator-tab-change', activeTab)
     },
 	handleMoreTabClick: function(type, evt){
 		console.log('==>'+type);
 		this.setState({
-			activeTabNumber: -1,
+			activeTab: '',
 			displayMore: false
-		})
+		});
+
+		$(window).trigger('navigator-tab-change', type)
 	},
 	render: function(){
 		return (
@@ -36,16 +39,16 @@ var Navigator = React.createClass({
             			<nav >
             				<div className="tabs-wrapper">
             					<div className="tabs">
-            						<a className={this.state.activeTabNumber === 0?"tab active":"tab"}
-                                        onClick={this.handleTabClick.bind(this, 0)}>最新特卖</a>
-            						<a className={this.state.activeTabNumber === 1?"tab active":"tab"}
-                                        onClick={this.handleTabClick.bind(this, 1)}>人气热销</a>
-            						<a className={this.state.activeTabNumber === 2?"tab active":"tab"}
-                                        onClick={this.handleTabClick.bind(this, 2)}>女装</a>
-            						<a className={this.state.activeTabNumber === 3?"tab active":"tab"}
-                                        onClick={this.handleTabClick.bind(this, 3)}>男装</a>
-            						<a className={this.state.activeTabNumber === 4?"tab active":"tab"}
-                                        onClick={this.handleTabClick.bind(this, 4)}>鞋包</a>
+            						<a className={this.state.activeTab === 'zuixintemai'?"tab active":"tab"}
+                                        onClick={this.handleTabClick.bind(this, 'zuixintemai')}>最新特卖</a>
+									<a className={this.state.activeTab === 'renqirexiao'?"tab active":"tab"}
+                                        onClick={this.handleTabClick.bind(this, 'renqirexiao')}>人气热销</a>
+									<a className={this.state.activeTab === 'nvzhuang'?"tab active":"tab"}
+                                        onClick={this.handleTabClick.bind(this, 'nvzhuang')}>女装</a>
+									<a className={this.state.activeTab === 'nanzhuang'?"tab active":"tab"}
+                                        onClick={this.handleTabClick.bind(this, 'nanzhuang')}>男装</a>
+									<a className={this.state.activeTab === 'xiebao'?"tab active":"tab"}
+                                        onClick={this.handleTabClick.bind(this, 'xiebao')}>鞋包</a>
             					</div>
             				</div>
             				<div className="btn-switch" onClick={this.handleSwitch}>
