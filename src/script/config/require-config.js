@@ -16,7 +16,8 @@ var require = require || {
 		'hammer': 'lib/hammer/main',
 		'fabric': 'lib/fabric/main',
 		'jstree': 'lib/jquery-jstree/main',
-		'howler': 'lib/howler/main'
+		'howler': 'lib/howler/main',
+		'slick': 'lib/slick/main'
 	},
 	shim: {
 		'async': {
@@ -44,6 +45,10 @@ var require = require || {
 		},
 		'fabric': {
 			exports: 'fabric'
+		},
+		'slick': {
+			exports: 'jQuery.fn.slick',
+			deps: ['jquery']
 		}
 	},
 	resolveUrl: function(url) {
