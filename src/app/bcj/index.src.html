@@ -1,0 +1,70 @@
+<!-- extend "./layout/layout.base.html" -->
+
+<!-- section "head" -->
+<meta name="keywords" content="白菜价" />
+<meta name="description" content="白菜价" />
+<title>白菜价</title>
+<!-- /section -->
+
+<!-- section "body" -->
+<script type="text/javascript">
+document.write([
+	'<link rel="stylesheet" href="' + G.CDN_BASE + '/app/bcj/style/index-main.css" />',
+	'<link rel="stylesheet" href="' + G.CDN_BASE + '/app/bcj/style/font-awesome/css/main.css" />'
+].join(''));
+</script>
+
+<div class="page-wrapper"></div>
+
+<script type="text/javascript">
+require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
+	$.extend(G.MD5_MAP, %{{md5map.tbk}}%);
+	Skateboard.core.init({
+		container: $('.page-wrapper'),
+		defaultModName: 'home',
+		modBase: '../../../app/bcj/script/',
+		animate: {
+			type: 'fade',
+			timingFunction: 'linear',
+			duration: 300
+		},
+		modCacheable: true,
+		alwaysUseCache: true,
+		isSupportHistoryState: false,
+		onBeforeViewChange: function(modName, modInst) {
+			app.ajax.hideLoading();
+			app.alerts.alert.hide();
+			app.alerts.modal.hide();
+			if(modName != 'home' && !G.state.get()){
+				Skateboard.core.view('/view/home', {replaceState: true});
+				return false;
+			}
+		},
+		onBeforeFadeOut: function(modInst) {
+			var viewChangeInfo = Skateboard.core.getViewChangeInfo();
+			if(modInst) {
+				if(viewChangeInfo.from != 'history' && viewChangeInfo.fromModName != viewChangeInfo.toModName) {
+					var scrollTop = viewChangeInfo.scrollTop || $(window).scrollTop();
+					modInst._prevWinScrollTop = scrollTop;
+				} else {
+					modInst._prevWinScrollTop = 0;
+				}
+			}
+		},
+		constructContentDom: function(modName, args, opt) {
+			var contentDom = $([
+				'<div class="sb-mod sb-mod--' + modName.replace(/\//g, '-') + '" data-sb-mod="' + modName + '" data-sb-scene="0" style="display: none;">',
+					'<div class="sb-mod__body">',
+						'<div class="body-inner" data-sb-mod-not-renderred>',
+						'</div>',
+					'</div>',
+				'</div>'
+			].join('')).prependTo($('.page-wrapper'));
+			return contentDom;
+		}
+	});
+}, function() {
+	//callback
+});
+</script>
+<!-- /section -->

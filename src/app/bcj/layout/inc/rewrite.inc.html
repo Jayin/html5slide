@@ -1,0 +1,177 @@
+<script type="text/javascript">
+	require(['app'], function(app) {
+		/**
+		 * 重写app.ajax.get/getDataTypeUrl
+		 * 1. EP不遵循默认的雪约定， 在url尾部不加.json
+		 * 2. 返回格式不是{code:xxx,data:{..}}，而是直接返回数据
+		 */
+		/**
+		 * returns the full url according to backend service name and data type
+		 * @private
+		 * @param {String} url
+		 * @param {String} dataType
+		 * @returns {String} the full url
+		 */
+		var util = {};
+
+		util.url2obj = function(str) {
+			if (typeof str != 'string') {
+				return str;
+			}
+			var m = str.match(/([^:]*:)?(?:\/\/)?([^\/:]+)?(:)?(\d+)?([^?#]+)(\?[^?#]*)?(#[^#]*)?/);
+			m = m || [];
+			uri = {
+				href: str,
+				protocol: m[1] || 'http:',
+				host: (m[2] || '') + (m[3] || '') + (m[4] || ''),
+				hostname: m[2] || '',
+				port: m[4] || '',
+				pathname: m[5] || '',
+				search: m[6] || '',
+				hash: m[7] || ''
+			};
+			uri.origin = uri.protocol + '//' + uri.host;
+			return uri;
+		};
+		util.getUrlParams = function(loc) {
+			loc = loc || window.location;
+			var raw = loc.search,
+				res = {},
+				p, i;
+			if (raw) {
+				raw = raw.slice(1);
+				raw = raw.split('&');
+				for (i = 0, l = raw.length; i < l; i++) {
+					p = raw[i].split('=');
+					res[p[0]] = decodeURIComponent(p[1] || '');
+				}
+			}
+			raw = loc.hash;
+			if (raw) {
+				raw = raw.slice(1);
+				raw = raw.split('&');
+				for (i = 0, l = raw.length; i < l; i++) {
+					p = raw[i].split('=');
+					res[p[0]] = res[p[0]] || decodeURIComponent(p[1] || '');
+				}
+			}
+			return res;
+		};
+		//ignore data type
+		app.ajax.getDataTypeUrl = function(url, dataType) {
+			var fullUrl, params;
+			if (!(/^(https?:|\/\/)/).test(url)) {
+				url = url.replace(/^\/+/, '');
+				fullUrl = G.CGI_ORIGIN + '/' + url;
+				params = util.getUrlParams(util.url2obj(fullUrl));
+
+				if (G.IS_PROTOTYPE) {
+					if (params.m && params.c && params.a) {
+						fullUrl = G.CGI_ORIGIN + '/static/mockup-data/' + [params.m, params.c, params.a].join('/');
+					} else {
+						fullUrl = G.CGI_ORIGIN + '/static/mockup-data/' + url;
+					}
+				}
+			} else {
+				fullUrl = url;
+			}
+			//append crfsToken when it exiest!
+			if (G.csrfToken && fullUrl.indexOf('csrf_token=') === -1) {
+				fullUrl = app.util.appendQueryString(fullUrl, {
+					csrf_token: G.csrfToken
+				});
+			}
+			return fullUrl;
+		};
+
+		/**
+		 * ajax get wrapper for jquery ajax
+		 * @param {Object} opt
+		 */
+		app.ajax.get = function(opt) {
+			var xhrObj, success;
+			opt = opt || {};
+			opt.type = opt._method = 'GET';
+			opt.headers = opt.headers || {};
+			opt.headers['X-Requested-With'] = 'XMLHttpRequest';
+			success = opt.success;
+			opt.success = function(res, textStatus, xhrObj) {
+				if (success) {
+					success(res, textStatus, xhrObj);
+				}
+			}
+			opt.url = app.ajax.getDataTypeUrl(opt.url, 'json');
+			opt.dataType = 'json';
+			if (opt.queueName) {
+				if (_getQueue[opt.queueName]) {
+					return;
+				}
+				_getQueue[opt.queueName] = true;
+			}
+			// opt.xhrFields = {
+			// 	withCredentials: true
+			// };
+			xhrObj = $.ajax(opt);
+			opt.loading === false || app.ajax.showLoading();
+			xhrObj.always(function() {
+				if (opt.queueName) {
+					_getQueue[opt.queueName] = false;
+				};
+				opt.loading === false || app.ajax.hideLoading();
+			});
+			return xhrObj;
+		};
+
+		/**
+		 * ajax post wrapper for jquery ajax
+		 * @param {Object} opt
+		 */
+		app.ajax.post = function(opt) {
+			var xhrObj, success, data;
+			opt = opt || {};
+			opt.type = opt._method = opt._method || 'POST';
+			opt.dataType = 'json';
+			opt.url = app.ajax.getDataTypeUrl(opt.url, opt.dataType);
+			data = opt.data;
+			opt.charset = opt.charset || 'UTF-8';
+			opt.headers = opt.headers || {};
+			opt.headers['X-Requested-With'] = 'XMLHttpRequest';
+			if (!opt.notJsonParamData) {
+				opt.contentType = 'application/json; charset=' + opt.charset;
+				opt.data = typeof data == 'string' ? data : data == null ? data : JSON.stringify(data);
+			}
+			success = opt.success;
+			opt.success = function(res, textStatus, xhrObj) {
+				if (success) {
+					success(res, textStatus, xhrObj);
+				}
+			}
+			if (opt.queueName) {
+				if (_postQueue[opt.queueName]) {
+					return;
+				}
+				_postQueue[opt.queueName] = true;
+			}
+			//for prototype
+			if (G.IS_PROTOTYPE) {
+				opt.type = 'POST';
+				opt.url = util.appendQueryString(opt.url, {
+					_method: (opt._method || 'POST').toLowerCase()
+				});
+			}
+			// opt.xhrFields = {
+			// 	withCredentials: true
+			// };
+			xhrObj = $.ajax(opt);
+			opt.loading === false || app.ajax.showLoading();
+			xhrObj.always(function() {
+				if (opt.queueName) {
+					_postQueue[opt.queueName] = false;
+				};
+				opt.loading === false || app.ajax.hideLoading();
+			});
+			return xhrObj;
+		};
+
+	});
+</script>
