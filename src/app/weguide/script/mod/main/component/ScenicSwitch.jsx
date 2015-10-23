@@ -1,6 +1,7 @@
 var React = require('react');
 var app = require('app');
 
+//区域(省份)
 var AreaList = React.createClass({
     getInitialState: function() {
         return {
@@ -23,9 +24,16 @@ var AreaList = React.createClass({
         app.ajax.get({
             url: '/Api/Area/listsArea'
             ,success: function(res){
-                this.setState({
-                    areas: res.response
-                });
+                if(res.code){
+                    this.setState({
+                        areas: res.response
+                    });
+                }else{
+                    app.alerts.alert(res.msg);
+                    this.setState({
+                        areas: []
+                    });
+                }
             }.bind(this)
             ,error: function(){
                 app.alerts.alert('系统繁忙请稍后再试');
@@ -57,6 +65,7 @@ var AreaList = React.createClass({
     }
 });
 
+//景区列表
 var ScenicList = React.createClass({
     getInitialState: function() {
         return {
@@ -84,9 +93,17 @@ var ScenicList = React.createClass({
         app.ajax.get({
             url: '/Api/Scenic/listsScenic?area_id={area_id}&page={page}&limit={limit}'.replace('{area_id}', area_id).replace('{page}', page).replace('{limit}', limit)
             ,success: function(res){
-                this.setState({
-                    scenics: res.response
-                });
+                if(res.code){
+                    this.setState({
+                        scenics: res.response
+                    });
+                }else{
+                    app.alerts.alert(res.msg);
+                    this.setState({
+                        scenics: []
+                    });
+                }
+
             }.bind(this)
             ,error: function(){
                 app.alerts.alert('系统繁忙请稍后再试');

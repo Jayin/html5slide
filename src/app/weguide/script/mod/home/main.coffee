@@ -14,7 +14,7 @@ class Mod extends Skateboard.BaseMod
 		longitude = position.coords.longitude; # 经度
 		G.state.set {currentPosition: {latitude: latitude, longitude: longitude}}
 
-		app.alerts.alert 'latitude'+latitude+'longitude'+longitude
+		# app.alerts.alert 'latitude'+latitude+'longitude'+longitude
 		app.ajax.get
 			url : "/Api/Scenic/search?longitude=#{longitude}&latitude=#{latitude}"
 			success: (res)=>
@@ -43,6 +43,7 @@ class Mod extends Skateboard.BaseMod
 		if G.IS_PROTOTYPE
 			setTimeout @success.bind(this, {coords: {latitude: 22.5985796354, longitude: 113.0882406235}}), 1300
 		else
+			# setTimeout @success.bind(this, {coords: {latitude: 22.5985796354, longitude: 113.0882406235}}), 1300
 			navigator.geolocation.getCurrentPosition @success, @error
 
 
