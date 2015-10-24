@@ -1,0 +1,14 @@
+{
+	"isPrototype": "false",
+
+	"domain": "document.domain",
+	"origin": "location.protocol + '//' + location.host",
+	"cgiOrigin1": "'http://58.221.59.10:9001'",
+    "cgiOrigin": "location.protocol + '//' + location.host",
+	"cdnOrigin": "location.protocol + '//' + location.host",
+
+	"pageAside": "3",
+	"itemsPerPage": "15",
+	"oneScreenRecords": "10",
+	"mandatory": "<span style=color:red;>*</span>"
+}

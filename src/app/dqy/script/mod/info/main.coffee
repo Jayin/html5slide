@@ -19,6 +19,7 @@ class Mod extends Skateboard.BaseMod
 
 	_bodyTpl: require './body.tpl.html'
 
+	index: 0 #当前页
 	category: null
 	productPrice: 0 # 产品价格
 	product: null # 产品信息
@@ -27,6 +28,7 @@ class Mod extends Skateboard.BaseMod
 
 	_afterFadeIn: =>
 		$('.sb-mod.sb-mod--info').css('-webkit-transform', 'none')
+		@index = 0
 		# 每次进入该页面是清空数据
 		G.state.set({accessory: null})
 		# restore UI
@@ -37,7 +39,8 @@ class Mod extends Skateboard.BaseMod
 
 	_afterFadeOut: =>
 		# 清空产品的三级分类名字，用于搜索栏显示
-		G.state.set({categoryName: null})
+		G.state.set({categoryName: null, product: null, accessory: null})
+		@index = 0
 
 	calBodyPrice: =>
 		return Math.round(@productPrice * (G.state.get('percent').body / 100) * 100)/100
@@ -90,19 +93,19 @@ class Mod extends Skateboard.BaseMod
 		# 防止遮挡
 		$('#info-content-container').scrollTop(0)
 
-		index = parseInt(evt.currentTarget.dataset.index)
+		@index = parseInt(evt.currentTarget.dataset.index)
 		$('.option').removeClass('option-active')
-		$($('.option')[index]).addClass('option-active')
+		$($('.option')[@index]).addClass('option-active')
 
-		if index == 0
+		if @index == 0
 			@getProperties()
-		else if index == 1
+		else if @index == 1
 			@getAccessory()
-		else if index == 2
+		else if @index == 2
 			@detail()
-		else if index == 3
+		else if @index == 3
 			@getDistributor()
-		else if index == 4
+		else if @index == 4
 			@getMessage()
 		else
 			app.alerts.alert '你点击啥?', 'info', 1000
@@ -119,10 +122,11 @@ class Mod extends Skateboard.BaseMod
 	getMessage: (pageIndex=1, pageSize=20)=>
 		if !@_CheckCategory()
 			return
-		React.render(
+		if @index == 4
+			React.render(
 					React.createElement(MessageList, {result: null, category: @category}),
 					document.getElementById('info-content-container')
-		)
+			)
 	# 经销商列表
 	getDistributor: ()=>
 		if !@_CheckCategory()
@@ -130,10 +134,11 @@ class Mod extends Skateboard.BaseMod
 		app.ajax.get
 			url: 'Data/Distributor/{companyCode}'.replace('{companyCode}', @category.companyCode)
 			success: (res)=>
-				React.render(
-					React.createElement(Distributor, {Distributors: res}),
-					document.getElementById('info-content-container')
-				)
+				if @index == 3
+					React.render(
+						React.createElement(Distributor, {Distributors: res}),
+						document.getElementById('info-content-container')
+					)
 			error: (err)=>
 				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
 
@@ -145,10 +150,11 @@ class Mod extends Skateboard.BaseMod
 		prd =
 			Name: @product.Name
 			price: @calBodyPrice()
-		React.render(
-			React.createElement(Detail, {Accessorys: G.state.get('accessory'), Product: prd}),
-			document.getElementById('info-content-container')
-		)
+		if @index == 2
+			React.render(
+				React.createElement(Detail, {Accessorys: G.state.get('accessory'), Product: prd}),
+				document.getElementById('info-content-container')
+			)
 
 	# TODO: 每次来到info页面的时候都有清空附件列表
 	_saveAccessory: (accessory)=>
@@ -162,15 +168,18 @@ class Mod extends Skateboard.BaseMod
 
 	# 附体列表
 	getAccessory: ()=>
+		console.log('getAccessory==>')
 		if !@_CheckCategory()
 			return
 		# 如果有数据，说明是当页tab的切换，不需要重新请求新数据，而是直接渲染
 		if G.state.get('accessory')
-			React.render(
-					React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
-					document.getElementById('info-content-container')
-				)
+			if @index == 1
+				React.render(
+						React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
+						document.getElementById('info-content-container')
+					)
 			return
+		console.log('getAccessory: go ajax')
 		url = 'Data/Accessory/{productID}?companyCode={companyCode}'
 		app.ajax.get
 			url: url.replace('{productID}', @product.ID).replace('{companyCode}', @category.companyCode)
@@ -178,10 +187,12 @@ class Mod extends Skateboard.BaseMod
 				# 处理& 保存
 				@_saveAccessory(res)
 				@updateTotalPrice()
-				React.render(
-					React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
-					document.getElementById('info-content-container')
-				)
+				console.log('getAccessory: done')
+				if @index == 1
+					React.render(
+						React.createElement(AccessoryList, {Accessorys: G.state.get('accessory')}),
+						document.getElementById('info-content-container')
+					)
 			error: (err)=>
 				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
 
@@ -199,7 +210,7 @@ class Mod extends Skateboard.BaseMod
 
 			url = url.slice(0, url.length - 1)
 			# remove the data
-			G.state.set({Product: null})
+			# G.state.set({Product: null})
 
 		app.ajax.get
 			url: url.replace('{category3Name}', @category.name).replace('{companyCode}', @category.companyCode)
@@ -211,10 +222,13 @@ class Mod extends Skateboard.BaseMod
 				@updateProductName()
 				# $('.product-price-number').text(@calBodyPrice())
 				@updateTotalPrice()
-				React.render(
-					React.createElement(PropertiesList, {Properties: res.Properties ,Product: res.Product }),
-					document.getElementById('info-content-container')
-				)
+				# 马上去拿附件信息，为了更新ProductName..
+				@getAccessory()
+				if @index == 0
+					React.render(
+						React.createElement(PropertiesList, {Properties: res.Properties ,Product: res.Product }),
+						document.getElementById('info-content-container')
+					)
 			error: (err)=>
 				app.alerts.alert '系统繁忙，请稍后再试', 'info', 1000
 
@@ -235,43 +249,33 @@ class Mod extends Skateboard.BaseMod
 				document.getElementById('info-cotent-container')
 			)
 
+
 	updateProductName: ()=>
 		Accessorys = G.state.get('accessory')
+		Accessorys_item = [] # 所有替换标志的item
+		# replaces = [] # 替换标识!$&#
 
-		getText = (Accessorys, name, defaultValue)=>
-			result = defaultValue || ''
-			if !Accessorys or Accessorys.length is 0
-				return result
+		if Accessorys
 			Accessorys.forEach (item)=>
-				if item.Name is name
-					item.Items.forEach (ele)=>
-						if ele.IsSelected #应该只能选一个?
-							result = ele.Text
+				item.Items.forEach (ele)=>
+					if ele.IsSelected #应该只能选一个?
+						Accessorys_item.push(ele)
 
-			return result
+		name = @product.Name
 
-		# !
-		fujian = getText(Accessorys, '附件', '')
+		for item in Accessorys_item
+			if name.indexOf(item.Location) != -1 and '!$#&'.indexOf(item.Location) != -1
+				name = name.replace(item.Location, item.Text)
 
-		# $
-		option_method = getText(Accessorys, '操作方式', '00')
+		# 非 !$#& 的均直接在后面
+		for item in Accessorys_item
+			if '!$#&'.indexOf(item.Location) == -1
+				name += ' ' + item.Text
 
-		# #
-		protect = getText(Accessorys, '保护用途')
+		# 可能没有完全替换，如Accessorys_item 不完全包含!$#&
+		name = name.replace(/[$!#&]{1}/g, '')
 
-		getExtra = ()=>
-			whiteList = ['附件', '操作方式', '保护用途']
-			if !Accessorys or Accessorys.length is 0
-					return ''
-			result = ''
-			Accessorys.forEach (item)=>
-				if  whiteList.indexOf(item.Name) == -1
-					item.Items.forEach (ele)=>
-						if ele.IsSelected #应该只能选一个?
-							result += ele.Text
-			return result
-
-		$('.product-name').text(@product.Name.replace('!',fujian).replace('$', option_method).replace('#', protect) + getExtra())
+		$('.product-name').text(name)
 
 
 
@@ -284,9 +288,9 @@ class Mod extends Skateboard.BaseMod
 
 		if G.state.get('Product')
 			@getProperties()
-			@initPercent()
+			# @initPercent()
 			# 清空附件数据
-			G.state.set({accessory: null})
+			# G.state.set({accessory: null})
 
 	resize: =>
 		$('#info-content-container').height($('.page-wrapper').height() - $('.fixed-group').height())

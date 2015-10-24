@@ -26,13 +26,13 @@ module.exports = React.createClass({
 		for(; index < product.Items.length; index++){
 			if(product.Items[index].Name == data.Name){
 				product.Items[index].Text = data.Text
-				break;
+				// break;
 			}
 		}
-		index++;
-		for(; index < product.Items.length; index++){
-			product.Items[index].Text = '';
-		}
+		// index++;
+		// for(; index < product.Items.length; index++){
+		// 	product.Items[index].Text = '';
+		// }
 		this.setState({
 			Product : product
 		})
