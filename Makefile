@@ -12,6 +12,9 @@ prototype:
 weguide:
 	BUILD_TARGET=weguide gulp
 
+dqy:
+	BUILD_TARGET=dqy gulp --minify
+
 uat:
 	BUILD_TARGET=uat gulp
 
