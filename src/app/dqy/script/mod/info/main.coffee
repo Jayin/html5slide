@@ -251,10 +251,10 @@ class Mod extends Skateboard.BaseMod
 			return result
 
 		# !
-		fujian = getText(Accessorys, '附件', '00')
+		fujian = getText(Accessorys, '附件', '')
 
 		# $
-		option_method = getText(Accessorys, '操作方式')
+		option_method = getText(Accessorys, '操作方式', '00')
 
 		# #
 		protect = getText(Accessorys, '保护用途')
@@ -287,7 +287,7 @@ class Mod extends Skateboard.BaseMod
 			@initPercent()
 			# 清空附件数据
 			G.state.set({accessory: null})
-			
+
 	resize: =>
 		$('#info-content-container').height($('.page-wrapper').height() - $('.fixed-group').height())
 
