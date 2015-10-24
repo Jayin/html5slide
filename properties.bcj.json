@@ -1,0 +1,8 @@
+{
+	"isPrototype": "false",
+
+	"domain": "document.domain",
+	"origin": "location.protocol + '//' + location.host",
+    "cgiOrigin": "location.protocol + '//' + location.host",
+	"cdnOrigin": "location.protocol + '//' + location.host"
+}

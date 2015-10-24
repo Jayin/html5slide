@@ -15,6 +15,9 @@ weguide:
 dqy:
 	BUILD_TARGET=dqy gulp --minify
 
+bcj:
+	BUILD_TARGET=bcj gulp --minify
+
 uat:
 	BUILD_TARGET=uat gulp
 
