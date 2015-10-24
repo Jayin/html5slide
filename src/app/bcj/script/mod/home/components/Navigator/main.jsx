@@ -17,6 +17,7 @@ var Navigator = React.createClass({
     },
     handleTabClick: function(activeTab, evt){
         this.setState({
+			displayMore: false,
             activeTab: activeTab
         });
 		$(window).trigger('navigator-tab-change', activeTab)
