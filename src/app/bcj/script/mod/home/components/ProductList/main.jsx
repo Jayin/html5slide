@@ -48,8 +48,8 @@ var ProductList = React.createClass({
 		        				<img className="lazy" data-original={product.img} style={{width: '100%', height: '100%'}} />
 		        			</div>
 		        			<div style={{top: '0',right: '0', bottom: '0',position: 'absolute', left: '105px', padding: '10px'}}>
-		        				<div style={{display: 'inline-block', fontSize: '0.8rem'}}>
-		        					<span style={{display: 'inline-block', background: (product.tag==='天猫'?'red':'#DEB92F'), color: 'white',padding: '1px'}}>{product.tag}</span>
+		        				<div style={{display: 'inline-block', fontSize: '0.8rem', minHeight: '40px'}}>
+		        					<span style={{display: 'inline-block', marginRight: '4px',background: (product.tag==='天猫'?'red':'#DEB92F'), color: 'white',padding: '1px'}}>{product.tag}</span>
 									<span>{product.title}</span>
 		        				</div>
 								<div style={{fontSize: '1rem', color: 'red'}}>
@@ -60,7 +60,7 @@ var ProductList = React.createClass({
 								    }
 		        				</div>
 		        				<div style={{color: 'gray', fontSize: '0.8rem'}}>
-		        					<del>￥189</del>
+		        					<del style={{display: 'none'}}>￥189</del>
 		        					<div style={{float: 'right'}}>1990人在抢</div>
 		        				</div>
 		        			</div>
