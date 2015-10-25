@@ -19,20 +19,18 @@ class Mod extends Skateboard.BaseMod
 			url : "/Api/Scenic/search?longitude=#{longitude}&latitude=#{latitude}"
 			success: (res)=>
 				if res.code == 20000
-					# TODO
-					if res.response is null
-						app.alerts.alert '无法检测你附近的景点，请重试'
-					else
 						G.state.set
 							scenic : res.response
 						Skateboard.core.view 'view/main'
+				else
+					app.alerts.alert res.msg
+
 			error: ()->
 				app.alerts.alert '网络繁忙，请稍后再试'
 
 
 
 	error: =>
-		alert('error')
 		app.alerts.alert '获取地理位置失败'
 
 
