@@ -1,6 +1,7 @@
 var React = require('react');
 var app = require('app');
 var Skateboard = require('skateboard');
+var lazyload = require('lazyload');
 
 var ProductList = React.createClass({
 	getInitialState: function(){
@@ -23,7 +24,11 @@ var ProductList = React.createClass({
 			success: function(res){
 				this.setState({
 					products: res
-				})
+				});
+
+				$("img.lazy").lazyload({
+					effect : "fadeIn"
+				});
 			}.bind(this),
 			error: function(){
 				app.alerts.alert('网络繁忙，获取产品列表失败');
@@ -40,7 +45,7 @@ var ProductList = React.createClass({
 					return (
 						<div style={{position: 'relative',padding: '5px', borderBottom: '1px solid gainsboro'}} onClick={this.handleItemClick.bind(this, product)}>
 		        			<div style={{height: '100px', width: '100px'}}>
-		        				<img src={product.img} style={{width: '100%', height: '100%'}}/>
+		        				<img className="lazy" data-original={product.img} style={{width: '100%', height: '100%'}} />
 		        			</div>
 		        			<div style={{top: '0',right: '0', bottom: '0',position: 'absolute', left: '105px', padding: '10px'}}>
 		        				<div style={{display: 'inline-block', fontSize: '0.8rem'}}>
