@@ -17,7 +17,8 @@ var require = require || {
 		'fabric': 'lib/fabric/main',
 		'jstree': 'lib/jquery-jstree/main',
 		'howler': 'lib/howler/main',
-		'slick': 'lib/slick/main'
+		'slick': 'lib/slick/main',
+		'lazyload': 'lib/jquery-lazyload/main'
 	},
 	shim: {
 		'async': {
@@ -48,6 +49,10 @@ var require = require || {
 		},
 		'slick': {
 			exports: 'jQuery.fn.slick',
+			deps: ['jquery']
+		},
+		'lazyload': {
+			exports: 'jQuery.fn.lazyload',
 			deps: ['jquery']
 		}
 	},
