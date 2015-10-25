@@ -10,7 +10,7 @@ prototype:
 	BUILD_TARGET=prototype gulp
 
 weguide:
-	BUILD_TARGET=weguide gulp
+	BUILD_TARGET=weguide gulp --minify
 
 dqy:
 	BUILD_TARGET=dqy gulp --minify
