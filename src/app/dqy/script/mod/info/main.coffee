@@ -293,7 +293,7 @@ class Mod extends Skateboard.BaseMod
 			# G.state.set({accessory: null})
 
 	resize: =>
-		$('#info-content-container').height($('.page-wrapper').height() - $('.fixed-group').height())
+		# $('#info-content-container').height($('.page-wrapper').height() - $('.fixed-group').height())
 
 	render: =>
 		super
