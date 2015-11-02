@@ -99,9 +99,8 @@ class Mod extends Skateboard.BaseMod
 		$(window).scroll ()=>
 			if @IS_IN_HOME_PAGE
 				@updateLetterList()
+		require '../category/main'
 
 
 
 module.exports = Mod
-
-

@@ -1,7 +1,7 @@
 app = require 'app'
 Skateboard = require 'skateboard'
 $ = require 'jquery'
-require('jstree')
+jstree = require('jstree')
 
 class Mod extends Skateboard.BaseMod
 	cachable: true
