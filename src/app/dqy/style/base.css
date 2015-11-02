@@ -6,7 +6,7 @@ body {
 
 .bar-top-search {
     background-color: #169ADA;
-    height: 40px;
+    height: 50px;
     width: 100%;
     z-index: 1500;
     padding-top: 8px;
@@ -30,7 +30,7 @@ body {
 
 .index-search-input {
     width: 70%;
-    margin: 2px;
+    margin: 6px;
     background-color: transparent;
     border: 0px;
     color: white;
@@ -44,14 +44,14 @@ input.index-search-input:focus {
 }
 
 #index-btn-back {
-    height: 30px;
-    width: 34px;
+    height: 35px;
+    width: 35px;
     float: left;
 }
 
 #index-btn-back  div{
-    height: 25px;
-    width: 25px;
+    height: 35px;
+    width: 35px;
     background-image: url(../image/bar-top-back.png);
     background-size: cover;
     background-position: center;
@@ -59,10 +59,11 @@ input.index-search-input:focus {
 }
 
 #index-btn-search {
-    height: 30px;
-    width: 45px;
+    height: 35px;
+    width: 35px;
     float: right;
     padding: 2px;
+    margin-right: 10px;
 }
 
 #index-btn-search div{
@@ -70,31 +71,37 @@ input.index-search-input:focus {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 22px;
-    width: 25px;
+    height: 35px;
+    width: 35px;
 }
 
 .bar_bottom_1 {
+    position: relative;
     background-image: url(../image/bar_bottom_1.png)
 }
 
 .bar_bottom_2 {
+    position: relative;
     background-image: url(../image/bar_bottom_2.png)
 }
 
 .bar_bottom_3 {
+    position: relative;
     background-image: url(../image/bar_bottom_3.png)
 }
 
 .bar_bottom_4 {
+    position: relative;
     background-image: url(../image/bar_bottom_4.png)
 }
 
 .bar_bottom_5 {
+    position: relative;
     background-image: url(../image/bar_bottom_5.png)
 }
 
 .bar_bottom_6 {
+    position: relative;
     background-image: url(../image/bar_bottom_6.png)
 }
 
@@ -105,6 +112,27 @@ input.index-search-input:focus {
 .bar-item {
     width: 15%;
     height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+#index-btn-common{
+    left: 3%;
+}
+#index-btn-highPressure{
+    left: 19%;
+}
+#index-btn-lowPressure{
+    left: 35%;
+}
+#index-btn-accessory{
+    left: 51%;
+}
+#index-btn-case{
+    left: 66%;
+}
+#index-btn-comments{
+    left: 82%;
 }
 
 @keyframes slidein {

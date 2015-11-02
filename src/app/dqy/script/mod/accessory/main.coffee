@@ -28,5 +28,7 @@ class Mod extends Skateboard.BaseMod
 	render: =>
 		super
 
+		@udpateCotegory()
+
 
 module.exports = Mod
