@@ -3,7 +3,8 @@
 
 	"domain": "document.domain",
 	"origin": "location.protocol + '//' + location.host",
-	"cgiOrigin": "'http://10.10.64.154/weguide'",
+	"cgiOrigin": "location.protocol + '//' + location.host",
 	"cgiOrigin1": "location.protocol + '//' + location.host",
-	"cdnOrigin": "location.protocol + '//' + location.host"
+	"cdnOrigin": "'//7xnywe.com1.z0.glb.clouddn.com'",
+	"cdnOrigin1": "location.protocol + '//' + location.host"
 }
