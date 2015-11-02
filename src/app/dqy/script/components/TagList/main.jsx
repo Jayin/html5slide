@@ -76,10 +76,28 @@ module.exports = React.createClass({
 		}, this);
 		return result;
 	},
+	//计算默认有多少个展开
+	_calTotalItem: function(result){
+		var count = result.length;
+		for(var i=0;i<result.length;i++){
+			//不计算根节点
+			if(result[i].Children && result[i].Children.length > 0){
+				count += this._calTotalItem(result[i].Children)
+			}
+			if(result[i].Groups && result[i].Groups.length > 0){
+				count += this._calTotalItem(result[i].Groups)
+			}
+			if(result[i].Categories && result[i].Categories.length > 0){
+				count += this._calTotalItem(result[i].Categories)
+			}
+		}
+		return count;
+	},
 	render: function(){
-
+		var length = this._calTotalItem(this.state.result)*(24/2); //24就是一条li的高度，/2因为估计不可能全部展开？
+		console.log(length);
 		return (
-			<div className="component-TagList">
+			<div className="component-TagList" style={{minHeight: length+'px'}}>
 				<div id={this.props.jstreeContainerId}></div>
 			</div>
 		);
