@@ -4,5 +4,6 @@
 	"domain": "document.domain",
 	"origin": "location.protocol + '//' + location.host",
     "cgiOrigin": "location.protocol + '//' + location.host",
-	"cdnOrigin": "location.protocol + '//' + location.host"
+	"cdnOrigin1": "location.protocol + '//' + location.host",
+	"cdnOrigin":"'//7xnukf.com1.z0.glb.clouddn.com'"
 }
