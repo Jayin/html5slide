@@ -44,6 +44,21 @@ class Mod extends Skateboard.BaseMod
 			result.push @objectAttrLowercase(element)
 		return result
 
+	#计算默认有多少个展开
+	_calTotalItem: (result)=>
+		count = result.length;
+		for item in result
+			#不计算根节点
+			if item.Children && item.Children.length > 0
+				count += @_calTotalItem(result[i].Children)
+
+			if item.Groups && item.Groups.length > 0
+				count += @_calTotalItem(result[i].Groups)
+
+			if item.Categories && item.Categories.length > 0
+				count += this._calTotalItem(result[i].Categories)
+		return count
+
 	udpateCotegory: =>
 		if !G.state.get('companyCode')
 			Skateboard.core.view '/view/home'
@@ -73,6 +88,9 @@ class Mod extends Skateboard.BaseMod
 
 				$container.jstree(true).settings.core.data = jstree_config.core.data;
 				$container.jstree(true).refresh(true);
+
+				length = @_calTotalItem(res)*24
+				$container.height(length)
 
 			error: ()->
 				app.alerts.alert '系统繁忙，请稍后再试'
