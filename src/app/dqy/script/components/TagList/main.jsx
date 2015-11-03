@@ -94,8 +94,7 @@ module.exports = React.createClass({
 		return count;
 	},
 	render: function(){
-		var length = this._calTotalItem(this.state.result)*(24/2); //24就是一条li的高度，/2因为估计不可能全部展开？
-		console.log(length);
+		var length = this._calTotalItem(this.state.result)*24; //24就是一条li的高度
 		return (
 			<div className="component-TagList" style={{minHeight: length+'px'}}>
 				<div id={this.props.jstreeContainerId}></div>
