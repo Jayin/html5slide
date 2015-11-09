@@ -54,6 +54,10 @@ var require = require || {
 		'lazyload': {
 			exports: 'jQuery.fn.lazyload',
 			deps: ['jquery']
+		},
+		'jstree': {
+			exports: 'jQuery.fn.jstree',
+			deps: ['jquery']
 		}
 	},
 	resolveUrl: function(url) {

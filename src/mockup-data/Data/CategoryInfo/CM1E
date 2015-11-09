@@ -1,0 +1,196 @@
+{
+    "Properties": [
+        {
+            "Name": "框架型号",
+            "Index": 0,
+            "Options": [
+                "E1",
+                "E2",
+                "E3",
+                "E4",
+                "E6",
+                "X1"
+            ]
+        },
+        {
+            "Name": "极数",
+            "Index": 1,
+            "Options": [
+                "3P",
+                "4P"
+            ]
+        },
+        {
+            "Name": "框架电流（A）",
+            "Index": 2,
+            "Options": [
+                "800",
+                "1000",
+                "1250",
+                "1600"
+            ]
+        },
+        {
+            "Name": "额定极限短路分断能力Icu（KA）",
+            "Index": 3,
+            "Options": [
+                "B【42KA】",
+                "N【50KA】",
+                "S【65KA】"
+            ]
+        },
+        {
+            "Name": "额定电流",
+            "Index": 4,
+            "Options": [
+                "400",
+                "630",
+                "800"
+            ]
+        },
+        {
+            "Name": "脱扣器类别",
+            "Index": 5,
+            "Options": [
+                "PR121/P-LI【二段保护拨码整定】默认",
+                "PR121/P-LSI【三段保护拨码整定】",
+                "PR121/P-LSIG【四段保护拨码整定】",
+                "PR122/P-LI【二段保护液晶显示】",
+                "PR122/P-LSI【三段保护液晶显示】",
+                "PR122/P-LSIG【四段保护液晶显示】",
+                "PR123/P-LSI【三段保护液晶显示】",
+                "PR123/P-LSIG【四段保护液晶显示】"
+            ]
+        },
+        {
+            "Name": "安装方式",
+            "Index": 6,
+            "Options": [
+                "F【固定式】默认",
+                "W【抽出式】"
+            ]
+        },
+        {
+            "Name": "电源配置",
+            "Index": 7,
+            "Options": [
+                "无"
+            ]
+        },
+        {
+            "Name": "附件类型",
+            "Index": 8,
+            "Options": [
+                "NST"
+            ]
+        },
+        {
+            "Name": "备注1",
+            "Index": 9,
+            "Options": [
+                "标准配置分合闸线圈、储能电机、机械和电气指示、辅助触头（4CO）；"
+            ]
+        },
+        {
+            "Name": "备注2",
+            "Index": 10,
+            "Options": [
+                "外加中性线电流互感器（只适用3极、4段保护断路器）。"
+            ]
+        },
+        {
+            "Name": "备注3",
+            "Index": 11,
+            "Options": [
+                "抽屉式已包括固定部分（抽架）"
+            ]
+        }
+    ],
+    "Product": {
+        "ID": 1603437,
+        "Code": "E0673",
+        "Name": "E1B800 R400 PR121/P-LI F NST 3P",
+        "Price": 31276,
+        "CompanyCode": "100005",
+        "Category3Name": "E",
+        "Items": [
+            {
+                "Name": "框架型号",
+                "Text": "E1"
+            },
+            {
+                "Name": "极数",
+                "Text": "3P"
+            },
+            {
+                "Name": "框架电流（A）",
+                "Text": "800"
+            },
+            {
+                "Name": "额定极限短路分断能力Icu（KA）",
+                "Text": "B【42KA】"
+            },
+            {
+                "Name": "额定电流",
+                "Text": "400"
+            },
+            {
+                "Name": "脱扣器类别",
+                "Text": "PR121/P-LI【二段保护拨码整定】默认"
+            },
+            {
+                "Name": "安装方式",
+                "Text": "F【固定式】默认"
+            },
+            {
+                "Name": "电源配置",
+                "Text": "无"
+            },
+            {
+                "Name": "附件类型",
+                "Text": "NST"
+            },
+            {
+                "Name": "备注1",
+                "Text": "标准配置分合闸线圈、储能电机、机械和电气指示、辅助触头（4CO）；"
+            },
+            {
+                "Name": "备注2",
+                "Text": "外加中性线电流互感器（只适用3极、4段保护断路器）。"
+            },
+            {
+                "Name": "备注3",
+                "Text": "抽屉式已包括固定部分（抽架）"
+            }
+        ]
+    },
+    "Instructions": [
+        "低压产品及系统.pdf",
+        "ABB低压选用手册.pdf",
+        "Emax低压空气断路器.pdf"
+    ],
+    "Category3": {
+        "ID": 67345,
+        "Name": "E",
+        "Text": "Emax系列常用空气断路器",
+        "Alias": "Emax系列常用空气断路器",
+        "Hierarchy": 3,
+        "CompanyCode": "100005",
+        "CompanyName": null,
+        "IsRecommend": false,
+        "Children": null,
+        "Groups": null
+    },
+    "Category2": {
+        "ID": 67344,
+        "Name": "万能断路器",
+        "Text": "万能断路器",
+        "Alias": "",
+        "Hierarchy": 2,
+        "CompanyCode": "100005",
+        "CompanyName": null,
+        "IsRecommend": false,
+        "Children": null,
+        "Groups": null
+    }
+}
