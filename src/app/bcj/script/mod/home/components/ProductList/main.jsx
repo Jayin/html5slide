@@ -54,10 +54,10 @@ var ProductList = React.createClass({
 		        				</div>
 								<div style={{fontSize: '1rem', color: 'red'}}>
 									￥<span>{product.price}</span>
-									{product.free_ship === '1'
-									  ?<span style={{border: '1px solid red', fontSize: '0.9rem', marginLeft: '2px'}}>包邮</span>
-									  : ""
-								    }
+								{product.ship_price == '0'
+							      ? <span style={{border: '1px solid red', fontSize: '0.9rem', marginLeft: '2px'}}>包邮</span>
+							  : <span style={{fontSize: '0.8rem',color: 'gray',marginLeft: '4px'}}>邮费: {product.ship_price}</span>
+								}
 		        				</div>
 		        				<div style={{color: 'gray', fontSize: '0.8rem'}}>
 		        					<del style={{display: 'none'}}>￥189</del>
