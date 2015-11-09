@@ -1,0 +1,6 @@
+{
+    "src": "./dist/static",
+    "dest": "qiniu:access_key=2GqM21Ne4OWRVqAHJx95F4YjrKlz9EakmHtF19H2&secret_key=JwIwJBaSuVAUDjL8NA8cqvZ3HTvGfsI8WT-5RqHN&bucket=fenxiangbei&key_prefix=static/&threshold=1048576",
+    "deletable": 0,
+    "debug_level": 1
+}
