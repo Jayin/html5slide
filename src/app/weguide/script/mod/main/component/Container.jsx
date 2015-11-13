@@ -58,12 +58,13 @@ var Container = React.createClass({
         return (
             <section>
                 <nav style={{padding: '4px', height: '50px'}}>
-                    <div onClick={this.handleSwitchScenic} style={{display: 'inline-block', marginLeft: '8px', marginTop: '4px', fontSize: '1.3rem'}}>
-                        {this.state.scenic.name}
+                    <div onClick={this.handleSwitchScenic} style={{display: 'inline-block', marginLeft: '8px', marginTop: '4px', fontSize: '1.3rem', width: '40%'}}>
+                        <span style={{display: 'inline-block',maxWidth: '124px',textOverflow: 'ellipsis', overflow: 'hidden',whiteSpace: 'nowrap'}}>{this.state.scenic.name}</span>
+                        <div style={{display: 'inline-block'}}>
                         {this.state.display === 'ViewList'
-                            ?<i className="fa fa-angle-down" style={{margin: '4px'}}></i>
-                            :<i className="fa fa-angle-up" style={{margin: '4px'}}></i>}
-
+                            ?<i className="fa fa-angle-down" style={{margin: '4px', fontSize: '1.4rem'}}></i>
+                            :<i className="fa fa-angle-up" style={{margin: '4px', fontSize: '1.4rem'}}></i>}
+                        </div>
                     </div>
                     <div style={{display: 'inline-block',margin: '2px',padding: '2px',position: 'absolute',right: '4px',border: '1px solid rgba(0, 0, 0, 0.21)',borderRadius: '10px'}}>
                         <i className="fa fa-search" style={{padding: '4px', fontSize: '1.2rem'}} onClick={this.handleSearch}></i>
