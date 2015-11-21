@@ -26,6 +26,9 @@ class Mod extends Skateboard.BaseMod
 			document.getElementById('container-productlist')
 		)
 
+		$(window).on 'scroll', ()->
+			$('#container-navigator').css("top",$(window)[0].scrollY)
+
 
 
 
