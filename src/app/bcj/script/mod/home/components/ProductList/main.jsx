@@ -62,7 +62,7 @@ var ProductList = React.createClass({
 									<span className="icon-baoyou" style={{display: 'inline-block',zoom: '0.6',verticalAlign: 'middle',marginLeft: '7px',height: '32px',width: '64px'}}></span>
 			        				</div>
 			        				<div style={{color: 'gray', fontSize: '0.8rem'}}>
-			        					<del>￥189</del>
+			        					<del>￥{product.raw_price}</del>
 			        				</div>
 			        			</div>
 			        		</div>
