@@ -42,34 +42,34 @@ var ProductList = React.createClass({
 	},
 	render: function(){
 		return (
-            <section style={{marginTop: '-30px', background: '#E6E6E6'}}>
-				{this.state.products.map(function(product){
-					return (
-						<div style={{position: 'relative',padding: '5px', borderBottom: '1px solid gainsboro'}} onClick={this.handleItemClick.bind(this, product)}>
-		        			<div style={{height: '100px', width: '100px'}}>
-		        				<img className="lazy" data-original={product.img} style={{width: '100%', height: '100%'}} />
-		        			</div>
-		        			<div style={{top: '0',right: '0', bottom: '0',position: 'absolute', left: '105px', padding: '10px'}}>
-		        				<div style={{display: 'inline-block', fontSize: '0.8rem', minHeight: '40px'}}>
-		        					<span style={{display: 'inline-block', marginRight: '4px',background: (product.tag==='天猫'?'red':'#DEB92F'), color: 'white',padding: '1px'}}>{product.tag}</span>
-									<span>{product.title}</span>
-		        				</div>
-								<div style={{fontSize: '1rem', color: 'red'}}>
-									￥<span>{product.price}</span>
-								{product.ship_price == '0'
-							      ? <span style={{border: '1px solid red', fontSize: '0.9rem', marginLeft: '2px'}}>包邮</span>
-							  : <span style={{fontSize: '0.8rem',color: 'gray',marginLeft: '4px'}}>邮费: {product.ship_price}</span>
-								}
-		        				</div>
-		        				<div style={{color: 'gray', fontSize: '0.8rem'}}>
-		        					<del style={{display: 'none'}}>￥189</del>
-		        					<div style={{float: 'right'}}>1990人在抢</div>
-		        				</div>
-		        			</div>
-		        		</div>
-					);
-				}.bind(this))}
-        	</section>
+			<div>
+	            <section style={{background: '#FFFFFF'}}>
+					{this.state.products.map(function(product){
+						return (
+							<div style={{position: 'relative',padding: '5px', borderBottom: '1px solid gainsboro'}} onClick={this.handleItemClick.bind(this, product)}>
+			        			<div style={{height: '100px', width: '100px'}}>
+			        				<img className="lazy" data-original={product.img} style={{width: '100%', height: '100%'}} />
+			        			</div>
+			        			<div style={{top: '0',right: '0', bottom: '0',position: 'absolute', left: '105px', padding: '10px'}}>
+			        				<div style={{display: 'inline-block', fontSize: '0.86rem', minHeight: '40px'}}>
+										<div style={{height: '40px',overflow: 'hidden'}}>
+											<span className={product.tag==='天猫'?'icon-tmall':'icon-taobao'} style={{display: 'inline-block', marginRight: '4px',padding: '1px',height: '26px',width: '44px',zoom: '0.6'}}></span>
+											{product.title}
+										</div>
+			        				</div>
+									<div style={{fontSize: '1.4rem', color: 'red'}}>
+										￥<span>{product.price}</span>
+									<span className="icon-baoyou" style={{display: 'inline-block',zoom: '0.6',verticalAlign: 'middle',marginLeft: '7px',height: '32px',width: '64px'}}></span>
+			        				</div>
+			        				<div style={{color: 'gray', fontSize: '0.8rem'}}>
+			        					<del>￥189</del>
+			        				</div>
+			        			</div>
+			        		</div>
+						);
+					}.bind(this))}
+	        	</section>
+			</div>
 		);
 	}
 });

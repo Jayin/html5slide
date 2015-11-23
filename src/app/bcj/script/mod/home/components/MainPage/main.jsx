@@ -14,14 +14,15 @@ var MainPage = React.createClass({
                         <Navigator />
             	</section>
 
+                <section style={{paddingTop: '40px'}}>
+                    <section id="container-carousel" >
+                        <Carousel />
+                    </section>
 
-            	<section id="container-carousel" style={{paddingTop: '40px'}}>
-                    <Carousel />
-            	</section>
-
-            	<section id="container-productlist">
-                    <ProductList />
-            	</section>
+                    <section >
+                        <ProductList />
+                    </section>
+                </section>
             </div>
         );
     }
