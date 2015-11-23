@@ -2,7 +2,9 @@ var React = require('react');
 var app = require('app');
 var Skateboard = require('skateboard');
 var Style = require('./main.less')
-//
+/**
+ * 顶部导航
+ */
 var Navigator = React.createClass({
 	getInitialState: function(){
 		return {

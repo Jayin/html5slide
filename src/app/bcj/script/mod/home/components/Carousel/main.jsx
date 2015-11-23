@@ -3,7 +3,9 @@ var app = require('app');
 var Skateboard = require('skateboard');
 var $ = require('jquery');
 var slick = require('slick');
-
+/**
+ * 轮播图
+ */
 var Carousel = React.createClass({
 	getInitialState: function(){
 		return {

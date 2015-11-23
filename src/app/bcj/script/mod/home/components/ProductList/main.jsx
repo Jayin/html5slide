@@ -3,6 +3,9 @@ var app = require('app');
 var Skateboard = require('skateboard');
 var lazyload = require('lazyload');
 
+/**
+ * 产品列表
+ */
 var ProductList = React.createClass({
 	getInitialState: function(){
 		return {
