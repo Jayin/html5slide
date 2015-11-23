@@ -14,7 +14,9 @@ document.write([
 ].join(''));
 </script>
 
-<div class="page-wrapper"></div>
+<div class="page-wrapper">
+	<div id="container"></div>
+</div>
 <section style="position: fixed;
     left: 30px;
     bottom: 10%;
@@ -30,50 +32,14 @@ document.write([
 <script type="text/javascript">
 require(['jquery', 'app', 'skateboard'], function($, app, Skateboard) {
 	$.extend(G.MD5_MAP, %{{md5map.bcj}}%);
-	Skateboard.core.init({
-		container: $('.page-wrapper'),
-		defaultModName: 'home',
-		modBase: '../../../app/bcj/script/',
-		animate: {
-			type: 'fade',
-			timingFunction: 'linear',
-			duration: 300
-		},
-		modCacheable: true,
-		alwaysUseCache: true,
-		isSupportHistoryState: false,
-		onBeforeViewChange: function(modName, modInst) {
-			app.ajax.hideLoading();
-			app.alerts.alert.hide();
-			app.alerts.modal.hide();
-			if(modName != 'home' && !G.state.get()){
-				Skateboard.core.view('/view/home', {replaceState: true});
-				return false;
-			}
-		},
-		onBeforeFadeOut: function(modInst) {
-			var viewChangeInfo = Skateboard.core.getViewChangeInfo();
-			if(modInst) {
-				if(viewChangeInfo.from != 'history' && viewChangeInfo.fromModName != viewChangeInfo.toModName) {
-					var scrollTop = viewChangeInfo.scrollTop || $(window).scrollTop();
-					modInst._prevWinScrollTop = scrollTop;
-				} else {
-					modInst._prevWinScrollTop = 0;
-				}
-			}
-		},
-		constructContentDom: function(modName, args, opt) {
-			var contentDom = $([
-				'<div class="sb-mod sb-mod--' + modName.replace(/\//g, '-') + '" data-sb-mod="' + modName + '" data-sb-scene="0" style="display: none;">',
-					'<div class="sb-mod__body">',
-						'<div class="body-inner" data-sb-mod-not-renderred>',
-						'</div>',
-					'</div>',
-				'</div>'
-			].join('')).prependTo($('.page-wrapper'));
-			return contentDom;
-		}
+
+	function getUrlWithMD5(url){
+		return url+"?v="+G.MD5_MAP['bcj/'+url]+'.js';
+	}
+	require([getUrlWithMD5('script/mod/home/main.js')], function(MainPage){
+
 	});
+
 }, function() {
 	//callback
 });

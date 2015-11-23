@@ -1,6 +1,5 @@
 var React = require('react');
 var app = require('app');
-var Skateboard = require('skateboard');
 var $ = require('jquery');
 var slick = require('slick');
 /**
