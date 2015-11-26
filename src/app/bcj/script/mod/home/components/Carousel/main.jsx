@@ -50,7 +50,7 @@ var Carousel = React.createClass({
             height: '120px'
         }
 		return (
-            <div className="your-class">
+            <div className="your-class" style={{overflowX: 'hidden'}}>
 				{this.state.advertisements.map(function(advertisement){
 					return (
 						<img style={imgStyle}
