@@ -55,7 +55,7 @@ var Navigator = React.createClass({
             				</div>
             				<div className="btn-switch" onClick={this.handleSwitch}>
             					<div className={"icon "+(this.state.displayMore?"icon-arrows-up":"icon-arrows-down")}
-									style={{position: 'absolute',top: '44%',left: '0',right: '0',bottom: '0',width: '32px',height: '17px',zoom: '.6'}}></div>
+									style={{position: 'absolute',top: '44%',left: '6px',right: '0',bottom: '0',width: '32px',height: '17px',zoom: '.6'}}></div>
             				</div>
             			</nav>
             		</section>
