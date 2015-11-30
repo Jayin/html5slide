@@ -42,7 +42,7 @@ var Navigator = React.createClass({
             				<div className="tabs-wrapper">
             					<div className="tabs">
             						<a className={this.state.activeTab === 'zuixintemai'?"tab active":"tab"}
-                                        onClick={this.handleTabClick.bind(this, 'zuixintemai')}>特卖</a>
+                                        onClick={this.handleTabClick.bind(this, 'zuixintemai')}>最新</a>
 									<a className={this.state.activeTab === 'renqirexiao'?"tab active":"tab"}
                                         onClick={this.handleTabClick.bind(this, 'renqirexiao')}>热销</a>
 									<a className={this.state.activeTab === 'nvzhuang'?"tab active":"tab"}
