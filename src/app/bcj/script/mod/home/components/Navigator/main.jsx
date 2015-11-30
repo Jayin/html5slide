@@ -64,13 +64,13 @@ var Navigator = React.createClass({
             				<li onClick={this.handleMoreTabClick.bind(this, 'quanbu')}>全部</li>
             				<li onClick={this.handleMoreTabClick.bind(this, 'chaoliunvzhuang')}>潮流女装</li>
             				<li onClick={this.handleMoreTabClick.bind(this, 'xingnanfuzhuang')}>型男服装</li>
-            				<li onClick={this.handleMoreTabClick.bind(this, 'xiebaoshipin')}>鞋包饰品</li>
+            				<li onClick={this.handleMoreTabClick.bind(this, 'xiebaopeishi')}>鞋包配饰</li>
             			</ul>
             			<ul>
-            				<li onClick={this.handleMoreTabClick.bind(this, 'wentiyule')}>文体娱乐</li>
+            				<li onClick={this.handleMoreTabClick.bind(this, 'shumawenti')}>数码文体</li>
             				<li onClick={this.handleMoreTabClick.bind(this, 'jujiashenghuo')}>居家生活</li>
             				<li onClick={this.handleMoreTabClick.bind(this, 'kekoumeishi')}>可口美食</li>
-            				<li onClick={this.handleMoreTabClick.bind(this, 'meizhuangpeishi')}>美妆配饰</li>
+            				<li onClick={this.handleMoreTabClick.bind(this, 'hufumeizhuang')}>护肤美妆</li>
             			</ul>
             		</section>
             	</header>

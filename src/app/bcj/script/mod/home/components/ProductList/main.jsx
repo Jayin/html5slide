@@ -51,9 +51,9 @@ var ProductList = React.createClass({
 			        				<img className="lazy" data-original={product.img} style={{width: '100%', height: '100%'}} />
 			        			</div>
 			        			<div style={{top: '0',right: '0', bottom: '0',position: 'absolute', left: '105px', padding: '10px'}}>
-			        				<div style={{display: 'inline-block', fontSize: '0.86rem', minHeight: '40px'}}>
+			        				<div style={{display: 'inline-block', fontSize: '0.9rem', minHeight: '40px'}}>
 										<div style={{height: '40px',overflow: 'hidden'}}>
-											<span className={product.tag==='天猫'?'icon icon-tmall':'icon icon-taobao'} style={{display: 'inline-block', marginRight: '4px',padding: '1px',height: '26px',width: '44px',zoom: '0.6'}}></span>
+											<span className={product.tag==='天猫'?'icon icon-tmall':'icon icon-taobao'} style={{display: 'inline-block', marginRight: '4px',padding: '1px',height: '25px',width: '44px',zoom: '0.6',verticalAlign: 'middle'}}></span>
 											{product.title}
 										</div>
 			        				</div>
