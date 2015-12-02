@@ -24,7 +24,6 @@ var Navigator = React.createClass({
 		$(window).trigger('navigator-tab-change', activeTab)
     },
 	handleMoreTabClick: function(type, evt){
-		console.log('==>'+type);
 		this.setState({
 			activeTab: '',
 			displayMore: false
@@ -43,14 +42,14 @@ var Navigator = React.createClass({
             					<div className="tabs">
             						<a className={this.state.activeTab === 'zuixintemai'?"tab active":"tab"}
                                         onClick={this.handleTabClick.bind(this, 'zuixintemai')}>最新</a>
-									<a className={this.state.activeTab === 'renqirexiao'?"tab active":"tab"}
-                                        onClick={this.handleTabClick.bind(this, 'renqirexiao')}>热销</a>
-									<a className={this.state.activeTab === 'nvzhuang'?"tab active":"tab"}
-                                        onClick={this.handleTabClick.bind(this, 'nvzhuang')}>女装</a>
-									<a className={this.state.activeTab === 'nanzhuang'?"tab active":"tab"}
-                                        onClick={this.handleTabClick.bind(this, 'nanzhuang')}>男装</a>
-									<a className={this.state.activeTab === 'xiebao'?"tab active":"tab"}
-                                        onClick={this.handleTabClick.bind(this, 'xiebao')}>鞋包</a>
+									<a className={this.state.activeTab === 'shumawenti'?"tab active":"tab"}
+                                        onClick={this.handleTabClick.bind(this, 'shumawenti')}>数码</a>
+									<a className={this.state.activeTab === 'chaoliunvzhuang'?"tab active":"tab"}
+                                        onClick={this.handleTabClick.bind(this, 'chaoliunvzhuang')}>女装</a>
+									<a className={this.state.activeTab === 'xingnanfuzhuang'?"tab active":"tab"}
+                                        onClick={this.handleTabClick.bind(this, 'xingnanfuzhuang')}>男装</a>
+									<a className={this.state.activeTab === 'xiebaopeishi'?"tab active":"tab"}
+                                        onClick={this.handleTabClick.bind(this, 'xiebaopeishi')}>鞋包</a>
             					</div>
             				</div>
             				<div className="btn-switch" onClick={this.handleSwitch}>
