@@ -59,7 +59,7 @@ var ProductList = React.createClass({
 			        				</div>
 									<div style={{fontSize: '1.4rem', color: 'red'}}>
 										￥<span>{product.price}</span>
-									<span className="icon icon-baoyou" style={{display: 'inline-block',zoom: '0.6',verticalAlign: 'middle',marginLeft: '20px',marginTop: '-0.2rem',height: '32px',width: '63.5px'}}></span>
+									<span className="icon icon-baoyou" style={{display: 'inline-block',zoom: '0.6',verticalAlign: 'middle',marginLeft: '20px',marginTop: '-0.2rem',height: '32px',width: '63px'}}></span>
 			        				</div>
 			        				<div style={{color: 'gray', fontSize: '0.8rem'}}>
 			        					<del>￥{product.raw_price}</del>
