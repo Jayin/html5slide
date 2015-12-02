@@ -56,7 +56,7 @@ var Carousel = React.createClass({
 						<img style={imgStyle}
 							src={advertisement.img}
 							onClick={this.handleImgClick.bind(this, advertisement)}
-							key={advertisement.link}
+							key={advertisement.img}
 							alt={advertisement.title}></img>
 					);
 				}.bind(this))}
