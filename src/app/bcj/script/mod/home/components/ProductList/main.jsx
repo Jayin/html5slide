@@ -38,7 +38,7 @@ var ProductList = React.createClass({
 		})
 	},
 	handleItemClick: function(product){
-		location.href = product.link;
+		location.href = 'bcj://' + product.link;
 	},
 	render: function(){
 		return (
