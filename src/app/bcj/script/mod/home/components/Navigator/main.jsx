@@ -54,13 +54,13 @@ var Navigator = React.createClass({
             				</div>
             				<div className="btn-switch" onClick={this.handleSwitch}>
             					<div className={"icon "+(this.state.displayMore?"icon-arrows-up":"icon-arrows-down")}
-									style={{position: 'absolute',top: '41%',left: '31%',right: '0',bottom: '0',width: '31px',height: '17px',zoom: '.6'}}></div>
+									style={{position: 'absolute',top: '41%',left: '31%',right: '0',bottom: '0',width: '31px',height: '16.5px',zoom: '.6'}}></div>
             				</div>
             			</nav>
             		</section>
             		<section className={"navigator-more "+ (this.state.displayMore ? "":"undisplay")}>
             			<ul>
-            				<li onClick={this.handleMoreTabClick.bind(this, 'shumawenti')}>数码文体</li>
+            				<li onClick={this.handleMoreTabClick.bind(this, 'wentiyule')}>文体娱乐</li>
             				<li onClick={this.handleMoreTabClick.bind(this, 'jujiashenghuo')}>居家生活</li>
             				<li onClick={this.handleMoreTabClick.bind(this, 'kekoumeishi')}>可口美食</li>
             				<li onClick={this.handleMoreTabClick.bind(this, 'hufumeizhuang')}>护肤美妆</li>
