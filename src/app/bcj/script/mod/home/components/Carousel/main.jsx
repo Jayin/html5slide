@@ -47,7 +47,7 @@ var Carousel = React.createClass({
 	},
 	render: function(){
         var imgStyle = {
-            height: '120px'
+            height: (window.screen.availWidth*340/720) + 'px'
         }
 		return (
             <div className="your-class" style={{overflowX: 'hidden'}}>
