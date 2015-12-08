@@ -16,7 +16,7 @@ var Carousel = React.createClass({
     },
 	fetchData: function(){
 		app.ajax.get({
-			url: '/bcj/api/carousel.json',
+			url: '/bcj/api/v1/carousel.json',
 			success: function(res){
 				// console.log(res)
 				this.setState({

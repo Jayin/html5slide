@@ -22,7 +22,7 @@ var ProductList = React.createClass({
 	},
 	fetchData: function(type){
 		app.ajax.get({
-			url: '/bcj/api/{type}.json'.replace('{type}', type),
+			url: '/bcj/api/v1/{type}.json'.replace('{type}', type),
 			success: function(res){
 				this.setState({
 					products: res
