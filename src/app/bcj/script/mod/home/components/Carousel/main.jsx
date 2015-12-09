@@ -43,7 +43,7 @@ var Carousel = React.createClass({
 		})
 	},
 	handleImgClick: function(advertisement){
-		location.href = advertisement.link;
+		location.href = advertisement.url;
 	},
 	render: function(){
         var imgStyle = {
